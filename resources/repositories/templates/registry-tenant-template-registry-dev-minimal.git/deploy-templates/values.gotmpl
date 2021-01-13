@@ -1,0 +1,106 @@
+#helm values
+namespace: {{ requiredEnv "NAMESPACE" }}
+dnsWildcard: {{ requiredEnv "dnsWildcard" }}
+cdPipelineName: {{ requiredEnv "NAMESPACE" }}
+cloudProvider: {{ env "cloudProvider" }}
+cluster_prefix: {{ exec "oc" (list "get" "infrastructure" "cluster" "--no-headers" "-o" "jsonpath='{.status.infrastructureName}'") }}
+globalEDPProject: {{ env "globalEDPProject" }}
+baseDomain: {{ env "baseDomain" }}
+
+dockerRegistry: '{{ env "edpComponentDockerRegistryUrl" }}'
+dockerProxyRegistry: '{{ env "dockerProxyRegistry" }}'
+edpProject: '{{ env "edpProject" }}'
+stageName: '{{ env "stageName" }}'
+
+global:
+  imageRegistry: '{{ env "dockerProxyRegistry" }}'
+  storageClass: ocs-storagecluster-ceph-rbd
+  nexus:
+    administrators: {}
+    readers: {}
+  jenkins:
+    administrators: []
+  gerrit:
+    administrators: []
+  kafkaOperator:
+    kafkaBrokers: 1
+    zookeepers: 1
+    replicationFactor: 1
+    kafkaCentralNamespace: {{ env "KAFKA_CENTRAL_NAMESPACE" }}
+  citus:
+    masterWorkers: 0
+    replicaWorkers: 0
+  redisSentinel:
+    redis:
+      replicas: 3
+    sentinel:
+      replicas: 3
+  disableRequestsLimits: true
+
+gerritCentralUrl: gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}
+
+storageClass: ocs-storagecluster-ceph-rbd
+nexus:
+  storage:
+    class: ocs-storagecluster-ceph-rbd
+  edpMavenRepoUrl: {{ env "edpMavenRepoUrl" }}
+
+jenkins:
+  edpComponentDockerRegistryrepoURL: '{{ env "edpComponentDockerRegistryUrl" }}'
+  {{- if eq (env "envType") "target" }}
+  sharedLibraries:
+    edp-library-stages:
+      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedStagesPath" }}
+      secret: {{ env "libGerritCredId" }}
+    edp-library-pipelines:
+      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedPipelinesPath" }}
+      secret: {{ env "libGerritCredId" }}
+{{- end }}
+
+{{ $centralVaultUrl := exec "oc" (list "get" "Secret" "-n" (env "globalEDPProject") "vault-root-access-token" "--no-headers" "-o" "jsonpath={.data.vaultUrl}") }}
+vault:
+  platformVaultToken: {{ env "platformVaultToken" }}
+  openshiftApiUrl: {{ env "openshiftApiUrl" }}
+  centralVaultUrl: {{ b64dec $centralVaultUrl }}
+  server:
+    dataStorage:
+      storageClass: ocs-storagecluster-ceph-rbd
+    auditStorage:
+      storageClass: ocs-storagecluster-ceph-rbd
+
+s3:
+  config:
+    client:
+      protocol: http
+    options:
+      pathStyleAccess: true
+
+platform:
+  security:
+    csrf:
+      enabled: true
+
+instance_count_per_region: "2"
+
+cdPipelineName: {{ env "cdPipelineName" }}
+{{ $cdPipelineStageName := "main" }}
+cdPipelineStageName: {{ $cdPipelineStageName }}
+
+{{- if eq (env "envType") "target" }}
+codebases:
+  registryRegulations:
+    historyExcerptorUrl: https://gerrit-{{ env "globalEDPProject" }}-platform-{{ $cdPipelineStageName }}.{{ requiredEnv "dnsWildcard" }}/components/runtime/history-excerptor-chart
+    referenceRepoUrl: https://gerrit-{{ env "globalEDPProject" }}-platform-{{ $cdPipelineStageName }}.{{ requiredEnv "dnsWildcard" }}/empty-template-registry-regulation
+{{- end }}
+
+#TODO: remove if after property will be merged
+trembitaExchangeGateway:
+  url: https://trembita-edr-registry-mock.{{ env "dnsWildcard" }}/mockEDRService
+#TODO end
+keycloak:
+  host: platform-keycloak.{{ requiredEnv "dnsWildcard" }}
+  url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}
+  ssoRealm:
+    autoRedirectEnabled: {{ env "autoRedirectEnabled" }}
+
+gerritCentralUrl: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}

@@ -1,0 +1,90 @@
+# helm values
+global:
+  whiteListIP:
+    adminRoutes: "0.0.0.0/0"
+
+# You may disable griada instance and set the url
+# Griada url by default is: griada.<clusterDnsWildcard>
+griada:
+  enabled: true
+#  url: example.com
+
+nontrembita-external-registration: []
+
+# You may enable a Kong rate limiting plugin for portals
+# Also you may configure this plugin by changing the default variables below
+kongPluginsConfig:
+  rateLimitingPluginEnable: false
+  pluginsRateLimitByHeaderRequestsPerSecond: 10
+  pluginsRateLimitByHeaderRequestsPerHour: 10000
+  pluginsRateLimitByHeaderPolicy: "local"
+  pluginsRateLimitByHeaderFaultTolerant: "true"
+  pluginsRateLimitByHeaderHideClientHeaders: "false"
+  pluginsRateLimitByHeaderHeaderName: "token-claim"
+  pluginsRateLimitByIpRequestsPerSecond: 10
+  pluginsRateLimitByIpRequestsPerHour: 10000
+  pluginsRateLimitByIpPolicy: "local"
+  pluginsRateLimitByIpFaultTolerant: "true"
+  pluginsRateLimitByIpHideClientHeaders: "false"
+
+## Level of logging for the kong and controller. Allowed values are
+## trace, debug, info, warn, error, fatal and panic. (default "info")
+#env:
+#  log_level: info
+#ingressController:
+#  env:
+#    log_level: info
+#
+## Level of logging for the formManagementProvider. Allowed values are
+## TRACE, DEBUG, INFO, WARN, ERROR. (default "INFO")
+#formManagementProvider:
+#  log_level: INFO
+## Enable or disable logging http body. Allowed values are
+## true or false. (default "false")
+#  log_http_body: 'false'
+#
+## Level of logging for the pg-exporter-chart. Allowed values are
+## debug, info, warn, error, fatal. (default "info")
+#config:
+#  log_level: info
+#
+## Level of logging for the strimzi-kafka-operator. Allowed values are
+## TRACE, DEBUG, INFO, WARN, ERROR. (default "INFO")
+#logLevel: INFO
+#
+## Level of logging for the redash. Allowed values are
+## NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL. (default "INFO")
+#redash:
+#  logLevel: INFO
+#
+## Configures the log verbosity of the Vault injector.
+## Supported log levels include: trace, debug, info, warn, error
+#injector:
+#  logLevel: "info"
+## Configure the logging verbosity for the Vault server.
+## Supported log levels include: trace, debug, info, warn, error
+#server:
+#  logLevel: "info"
+#
+## Level of logging for the Citus. Allowed values are
+## debug1, debug2, debug3, debug4, debug5, info, notice, warning
+## error, log, fatal, panic. (default "warning")
+#citus:
+#  pgConfig:
+#    logLevel: warning
+## Level of logging for the admin/officer/citizen portals. Allowed values are
+## emerg, alert, crit, error, warn, notice, info, debug. (default "error")
+## It is also possible to turn off the access_log.
+#portals:
+#  admin:
+#    nginx:
+#      logLevel: error
+#      disableAccessLog: false
+#  officer:
+#    nginx:
+#      logLevel: error
+#      disableAccessLog: false
+#  citizen:
+#    nginx:
+#      logLevel: error
+#      disableAccessLog: false

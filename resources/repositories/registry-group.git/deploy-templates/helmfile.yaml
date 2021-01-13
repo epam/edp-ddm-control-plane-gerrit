@@ -1,0 +1,35 @@
+helmDefaults:
+  wait: true
+  timeout: 1800
+  createNamespace: true
+missingFileHandler: Warn
+repositories: []
+values:
+- values.yaml
+- values.gotmpl
+releases:
+- name: keycloak-operator-resources
+  namespace: '{{ env "NAMESPACE" }}'
+  chart: keycloak-operator-resources
+  values:
+  - values.yaml
+  - values.gotmpl
+  needs:
+    - '{{ env "NAMESPACE" }}/keycloak-operator'
+  labels: {}
+- name: keycloak-operator
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/keycloak-operator.git
+    path: components/registry/
+  chart: /opt/repositories/keycloak-operator/deploy-templates
+  version: 1.5.0-SNAPSHOT.30
+  values:
+    - operator:
+        clusterRoleName: keycloak-operator-{{ env "globalEDPProject" }}-clusterrole
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+

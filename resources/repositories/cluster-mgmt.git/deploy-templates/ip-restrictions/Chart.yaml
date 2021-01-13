@@ -1,0 +1,5 @@
+apiVersion: v2
+description: Helmfile chart for other application/service deploying
+name: ip-restrictions
+version: 1.0.0
+appVersion: 1.0.0

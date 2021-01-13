@@ -1,0 +1,13 @@
+helmDefaults:
+  wait: true
+  timeout: 600
+
+releases:
+  - name: control-plane-gerrit
+    namespace: '{{ env "NAMESPACE" }}'
+    chart: ./
+    labels:
+      type: local
+    values:
+      - "values.yaml"
+      - "values.gotmpl"

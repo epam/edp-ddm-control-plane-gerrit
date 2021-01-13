@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: gerrit-data
+  labels:
+    app: gerrit
+    {{- include "gerrit-operator.metaLabels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.gerrit.storage.size }}
+  storageClassName: {{ .Values.global.storageClass }}
+  volumeMode: Filesystem

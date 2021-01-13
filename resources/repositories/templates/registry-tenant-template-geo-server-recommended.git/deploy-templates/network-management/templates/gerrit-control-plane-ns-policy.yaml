@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: gerrit-control-plane-ns-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: gerrit
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: jenkins
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.globalEDPProject }}

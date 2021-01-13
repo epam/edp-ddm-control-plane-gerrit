@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: cp-registry-admin-{{ .Release.Namespace }}-namespace
+  namespace: {{ .Release.Namespace }}
+subjects:
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
+    name: cp-registry-admin-{{ .Release.Namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: cp-registry-admin-{{ .Release.Namespace }}-namespace

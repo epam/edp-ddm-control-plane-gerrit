@@ -1,0 +1,24 @@
+apiVersion: v2.edp.epam.com/v1alpha1
+kind: JenkinsAuthorizationRoleMapping
+metadata:
+  name: cp-registry-admin-{{ .Release.Namespace }}
+  namespace: {{ .Values.globalEDPProject }}
+spec:
+  roleType: "projectRoles"
+  roles:
+    - cp-registry-admin-{{ .Release.Namespace }}
+  group: cp-registry-admin-{{ .Release.Namespace }}
+
+
+---
+
+apiVersion: v2.edp.epam.com/v1alpha1
+kind: JenkinsAuthorizationRoleMapping
+metadata:
+  name: cp-registry-admin-{{ .Release.Namespace }}-global
+  namespace: {{ .Values.globalEDPProject }}
+spec:
+  roleType: "globalRoles"
+  roles:
+    - cp-registry-admin-{{ .Release.Namespace }}-global
+  group: cp-registry-admin-{{ .Release.Namespace }}

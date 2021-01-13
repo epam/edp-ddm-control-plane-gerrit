@@ -1,0 +1,42 @@
+helmDefaults:
+  wait: true
+  timeout: 1800
+
+missingFileHandler: Warn
+
+# TODO: automate values.image.* handling
+releases:
+  - name: ip-restrictions
+    namespace: control-plane
+    chart: ip-restrictions
+    version: 1.0.0
+    labels:
+      type: local
+    values:
+      - values.yaml
+      - values.gotmpl
+    missingFileHandler: Warn
+# end of TODO:
+
+helmfiles:
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/catalog-source.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/storage.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/monitoring.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/logging.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/service-mesh.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/backup-management.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/control-plane-nexus.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/user-management.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/external-integration-mocks.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/cluster-kafka-operator.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/smtp-server.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/redis-operator.git/deploy-templates/helmfile.yaml'
+environments:
+  default:
+    missingFileHandler: Warn
+    values:
+      - values.yaml
+      - values.gotmpl
+  mock:
+    missingFileHandler: Warn
+    values: []

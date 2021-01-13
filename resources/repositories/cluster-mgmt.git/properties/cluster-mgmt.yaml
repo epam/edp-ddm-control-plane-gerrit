@@ -1,0 +1,110 @@
+releases:
+- name: catalog-source
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/catalog-source.git
+  version: 1.4.0-RC.2
+  values: []
+- name: monitoring
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/monitoring.git
+  version: 1.5.0-SNAPSHOT.71
+  values: []
+- name: storage
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/storage.git
+  version: 1.5.0-SNAPSHOT.76
+  values: []
+- name: logging
+  version: 1.5.0-SNAPSHOT.65
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/logging.git
+  values: []
+- name: service-mesh
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/service-mesh.git
+  version: 1.5.0-SNAPSHOT.62
+  values: []
+- name: backup-management
+  version: 1.7.0.4
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/backup-management.git
+  values: []
+- name: user-management
+  version: 1.5.0-SNAPSHOT.214
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git
+  values: []
+- name: control-plane-nexus
+  version: 1.5.0-SNAPSHOT.70
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-nexus.git
+  values: []
+- name: external-integration-mocks
+  version: 1.5.0-SNAPSHOT.29
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/external-integration-mocks.git
+  values: []
+- name: cluster-kafka-operator
+  version: 1.5.0-SNAPSHOT.2
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/cluster-kafka-operator.git
+  values: []
+- name: smtp-server
+  version: 1.7.0-SNAPSHOT.3
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/smtp-server.git
+  values: []
+- name: redis-operator
+  version: 1.8.0-SNAPSHOT.1
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/redis-operator.git
+    branch: 1.8.0-SNAPSHOT.1
+  values: []

@@ -1,0 +1,102 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    app: {{ .Values.gerrit.name }}
+  {{- include "gerrit-operator.metaLabels" . | nindent 4 }}
+  {{- with .Values.gerrit.annotations }}
+  annotations:
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+  name: {{ .Values.gerrit.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.gerrit.name }}
+  template:
+    metadata:
+      annotations:
+        {{- if ne .Values.cloudProvider "AWS" }}
+        backup.velero.io/backup-volumes: {{ .Values.gerrit.name }}-data
+        {{- end }}
+        sidecar.istio.io/inject: "false"
+      labels:
+        app: {{ .Values.gerrit.name }}
+    spec:
+      volumes:
+        - name: {{ .Values.gerrit.name }}-data
+          persistentVolumeClaim:
+            claimName: {{ .Values.gerrit.name }}-data
+      containers:
+        - name: {{ .Values.gerrit.name }}
+          image: {{ .Values.image.name }}:{{ .Values.image.version }}
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: HTTPD_LISTENURL
+              value: 'proxy-https://*:8080'
+            - name: WEBURL
+              value: {{ template "gerrit.url" . }}
+            - name: GERRIT_INIT_ARGS
+              value: '--install-plugin=delete-project --install-plugin=plugin-manager --install-plugin=commit-message-length-validator --install-plugin=download-commands
+                        --install-plugin=hooks --install-plugin=reviewnotes --install-plugin=singleusergroup --install-plugin=replication'
+            - name: LISTEN_ADDR
+              value: '*:{{ .Values.gerrit.sshPort }}'
+            {{- if .Values.keycloakIntegration.enabled }}
+            - name: AUTH_TYPE
+              value: OAUTH
+            - name: OAUTH_KEYCLOAK_CLIENT_ID
+              value: {{ .Values.keycloakIntegration.client.name }}
+            - name: OAUTH_KEYCLOAK_REALM
+              value: {{ template "keycloak.realm" . }}
+            - name: OAUTH_KEYCLOAK_ROOT_URL
+              value: 'https://{{ .Values.keycloak.host }}'
+            {{- if not .Values.keycloakIntegration.client.public }}
+            - name: OAUTH_KEYCLOAK_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.keycloakIntegration.client.secretName }}
+                  key: client_secret
+            {{- end }}
+            {{- end }}
+          resources:
+          {{ toYaml .Values.gerrit.resources | indent 12 }}
+          volumeMounts:
+            - name: {{ .Values.gerrit.name }}-data
+              mountPath: /var/gerrit/review_site
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 60
+            timeoutSeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: {{ .Values.gerrit.serviceAccountName }}
+      schedulerName: default-scheduler
+      {{- with .Values.gerrit.nodeSelector }}
+      nodeSelector:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.gerrit.affinity }}
+      affinity:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.gerrit.tolerations }}
+      tolerations:
+      {{- toYaml . | nindent 8 }}
+  {{- end }}
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

@@ -1,0 +1,11 @@
+apiVersion: v1.edp.epam.com/v1alpha1
+kind: KeycloakRealmGroup
+metadata:
+  name: cp-registry-admin-{{ .Release.Namespace }}
+  namespace: user-management
+spec:
+  name: cp-registry-admin-{{ .Release.Namespace }}
+  realm: openshift
+  clientRoles:
+    - clientId: realm-management
+      roles: [ "realm-admin" ]

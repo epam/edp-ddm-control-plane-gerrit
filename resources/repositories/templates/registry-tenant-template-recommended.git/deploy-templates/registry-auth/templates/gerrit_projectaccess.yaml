@@ -1,0 +1,76 @@
+apiVersion: v2.edp.epam.com/v1alpha1
+kind: GerritProjectAccess
+metadata:
+  name: {{ .Release.Namespace }}
+  namespace: {{ .Values.globalEDPProject }}
+spec:
+  projectName: {{ .Release.Namespace }}
+  references:
+    - refPattern: "refs/heads/*"
+      permissionName: "read"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+    - refPattern: "refs/for/refs/heads/*"
+      permissionName: "push"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+    - refPattern: "refs/heads/*"
+      permissionName: "push"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+      force: true
+    - refPattern: "refs/tags/*"
+      permissionName: "push"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+      force: true
+    - refPattern: "refs/heads/*"
+      permissionName: "label-code-review"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+      min: -1
+      max: 1
+    - refPattern: "refs/for/refs/heads/*"
+      permissionName: "pushmerge"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+    - refPattern: "refs/heads/*"
+      permissionName: "pushmerge"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+    - refPattern: "refs/heads/*"
+      permissionName: "forgeauthor"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+    - refPattern: "refs/heads/*"
+      permissionName: "label-code-review"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+      min: -2
+      max: 2
+    - refPattern: "refs/heads/*"
+      permissionName: "label-verified"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+      min: -1
+      max: 1
+    - refPattern: "refs/heads/*"
+      permissionName: "submit"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+    - refPattern: "refs/for/refs/heads/*"
+      permissionName: "forgecommitter"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+    - refPattern: "refs/heads/*"
+      permissionName: "create"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+    - refPattern: "refs/tags/*"
+      permissionName: "createtag"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"
+    - refPattern: "refs/*"
+      permissionName: "owner"
+      groupName: "{{ .Release.Namespace }}"
+      action: "ALLOW"

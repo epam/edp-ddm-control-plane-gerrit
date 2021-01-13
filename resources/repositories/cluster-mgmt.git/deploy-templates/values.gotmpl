@@ -1,0 +1,28 @@
+#helm values
+namespace: {{ requiredEnv "NAMESPACE" }}
+baseDomain: {{ env "baseDomain" }}
+
+dnsWildcard: {{ requiredEnv "dnsWildcard" }}
+cdPipelineName: {{ requiredEnv "NAMESPACE" }}
+
+dockerRegistry: '{{ env "edpComponentDockerRegistryUrl" }}'
+dockerProxyRegistry: '{{ env "dockerProxyRegistry" }}'
+edpProject: '{{ env "edpProject" }}'
+globalNexusNamespace: '{{ env "globalNexusNamespace" }}'
+ACCESS_KEY_ID: '{{ env "ACCESS_KEY_ID" }}'
+SECRET_ACCESS_KEY: '{{ env "SECRET_ACCESS_KEY" }}'
+backupBucket: '{{ env "backupBucket" }}'
+
+global:
+  storageClass: {{ requiredEnv "platformStorageClass" }}
+  imageRegistry: '{{ env "edpComponentDockerRegistryUrl" }}'
+# uncomment below to override default
+#global:
+#  storageClass:
+
+
+{{ $centralVaultUrl := exec "oc" (list "get" "Secret" "-n" (env "globalEDPProject") "vault-root-access-token" "--no-headers" "-o" "jsonpath={.data.vaultUrl}") }}
+vault:
+  platformVaultToken: {{ env "platformVaultToken" }}
+  openshiftApiUrl: {{ env "openshiftApiUrl" }}
+  centralVaultUrl: {{ b64dec $centralVaultUrl }}

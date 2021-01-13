@@ -1,0 +1,4 @@
+cdPipelineName: platform
+cdPipelineStageName: main
+registryGroup:
+  name: test

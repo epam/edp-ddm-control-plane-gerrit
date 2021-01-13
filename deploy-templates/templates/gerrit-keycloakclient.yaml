@@ -1,0 +1,28 @@
+{{- if .Values.keycloakIntegration.enabled -}}
+apiVersion: v1.edp.epam.com/v1alpha1
+kind: KeycloakClient
+metadata:
+  name: {{ .Values.keycloakIntegration.client.name }}
+  annotations:
+    "helm.sh/resource-policy": keep
+  labels:
+  {{- include "gerrit-operator.metaLabels" . | nindent 4 }}
+spec:
+  clientId: {{ .Values.keycloakIntegration.client.name }}
+  public: {{ .Values.keycloakIntegration.client.public }}
+  directAccess: false
+  realmRoles:
+    - composite: administrator
+      name: gerrit-administrators
+    - composite: developer
+      name: gerrit-users
+  audRequired: false
+  {{- if not .Values.keycloakIntegration.client.public }}
+  secret: {{ .Values.keycloakIntegration.client.secretName }}
+  {{- else }}
+  secret: ''
+  {{- end }}
+  advancedProtocolMappers: false
+  webUrl: {{ template "gerrit.url" . }}
+  targetRealm: {{ template "keycloak.realm" . }}
+{{- end -}}

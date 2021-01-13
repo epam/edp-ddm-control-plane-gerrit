@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: gateway
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    istio: istio-ingressgateway-{{ .Values.stageName }}
+  servers:
+    - port:
+        number: 80
+        name: http2
+        protocol: HTTP
+      hosts:
+        - citizen-portal-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
+        - officer-portal-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
+        - admin-portal-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
+        - external-service-api-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}

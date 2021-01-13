@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gerrit-operator
+  labels:
+  {{- include "gerrit-operator.metaLabels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      name: gerrit-operator
+  template:
+    metadata:
+      labels:
+        name: gerrit-operator
+      annotations:
+        sidecar.istio.io/inject: "false"  
+    spec:
+      containers:
+        - resources: {}
+          name: gerrit-operator
+          command:
+            - gerrit-operator
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: gerrit-operator
+            - name: PLATFORM_TYPE
+              value: openshift
+          securityContext:
+            allowPrivilegeEscalation: false
+          imagePullPolicy: IfNotPresent
+          image: "{{ template "imageRegistry" . -}} {{ .Values.operator.image.name }}:{{ .Values.operator.image.version }}"
+      serviceAccountName: {{ .Values.operator.serviceAccountName }}
+      securityContext:
+        runAsNonRoot: true

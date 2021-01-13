@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: kong-virtual-service
+  namespace: {{ .Values.namespace }}
+spec:
+  hosts:
+    - citizen-portal-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
+    - officer-portal-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
+    - admin-portal-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
+    - external-service-api-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
+  gateways:
+    - gateway
+  http:
+    - route:
+        - destination:
+            host: kong-kong-proxy
+            subset: main
+          weight: 100
+          headers:
+            response:
+              remove:
+                - x-envoy-upstream-service-time
+                - x-kong-response-latency
+                - x-envoy-decorator-operation
+                - Server

@@ -1,0 +1,16 @@
+global:
+  imageRegistry: '{{ env "dockerProxyRegistry" }}'
+  jenkins: {}
+
+registryGroup:
+  name: {{ env "NAMESPACE" }}
+
+keycloak:
+  host: platform-keycloak.{{ requiredEnv "dnsWildcard" }}
+  url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}
+  realms:
+    group-realm:
+      name: {{ env "NAMESPACE" }}
+      keycloakOwner: main
+      ssoRealm:
+        enabled: false

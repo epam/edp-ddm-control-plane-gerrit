@@ -1,0 +1,15 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: platform-gateway-registry-rest-api-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: registry-rest-api
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: platform-gateway
+        - namespaceSelector: {}
