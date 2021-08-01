@@ -1,0 +1,27 @@
+{
+   "registry-regulations-publication-stages":    {
+      "url": "git@gitbud.epam.com:mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-stages.git",
+      "path": "/libraries",
+      "version": "master"
+   },
+   "registry-regulations-publication-pipeline":    {
+      "url": "git@gitbud.epam.com:mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
+      "path": "/libraries",
+      "version": "master"
+   },
+   "empty-template-registry-regulation":    {
+      "url": "git@gitbud.epam.com:mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
+      "path": "components/registry/",
+      "version": "master"
+   },
+   "edp-library-stages-fork":    {
+      "url": "git@gitbud.epam.com:mdtu-ddm/general/librarires/edp-library-stages-fork.git",
+      "path": "/libraries",
+      "version": "release/2.8"
+   },
+   "edp-library-pipelines-fork":    {
+      "url": "git@gitbud.epam.com:mdtu-ddm/general/librarires/edp-library-pipelines-fork.git",
+      "path": "/libraries",
+      "version": "release/2.8"
+   }
+}

@@ -1,0 +1,33 @@
+name: gerrit-operator
+operator:
+  image:
+    name: epamedp/gerrit-operator
+    version: 2.8.0-SNAPSHOT.19
+  serviceAccountName: gerrit-operator
+
+gerrit:
+  name: gerrit
+  image:
+    name: openfrontier/gerrit
+    version: 3.3.2
+  storage:
+    size: 5Gi
+  sshPort: 31000
+  port: 8080
+  serviceAccountName: gerrit
+
+keycloakIntegration:
+  enabled: true
+  client:
+    name: gerrit
+    public: false
+    secretName: gerrit-is-credentials
+  realm: admin
+
+global:
+  storageClass: ocs-storagecluster-ceph-rbd
+  platform: openshift
+  gerrit:
+    administrators: []
+    readers: []
+

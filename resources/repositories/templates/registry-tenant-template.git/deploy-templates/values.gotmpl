@@ -1,0 +1,48 @@
+#helm values
+namespace: {{ requiredEnv "NAMESPACE" }}
+dnsWildcard: {{ requiredEnv "dnsWildcard" }}
+cdPipelineName: {{ requiredEnv "NAMESPACE" }}
+
+dockerRegistry: '{{ env "edpComponentDockerRegistryUrl" }}'
+dockerProxyRegistry: '{{ env "dockerProxyRegistry" }}'
+edpProject: '{{ env "edpProject" }}'
+
+global:
+  imageRegistry: '{{ env "dockerProxyRegistry" }}'
+  storageClass: ocs-storagecluster-ceph-rbd
+  nexus:
+    administrators: {}
+    readers: {}
+  jenkins:
+    administrators: []
+  gerrit:
+    administrators: []
+
+storageClass: ocs-storagecluster-ceph-rbd
+nexus:
+  storage:
+    class: ocs-storagecluster-ceph-rbd
+  edpMavenRepoUrl: {{ env "edpMavenRepoUrl" }}
+
+keycloak:
+  host: platform-keycloak.{{ requiredEnv "dnsWildcard" }}
+  url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}
+  ssoRealm:
+    autoRedirectEnabled: {{ env "autoRedirectEnabled" }}
+
+jenkins:
+  edpComponentDockerRegistryrepoURL: '{{ env "edpComponentDockerRegistryUrl" }}'
+  sharedLibraries:
+    - name: edp-library-stages
+      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:31000/libraries/registry-regulations-publication-stages.git
+      tag: 'master'
+      secret: gerrit-{{ env "globalEDPProject" }}-sshkey
+      type: ssh
+    - name: edp-library-pipelines
+      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:31000/libraries/registry-regulations-publication-pipeline.git
+      tag: 'master'
+      secret: gerrit-{{ env "globalEDPProject" }}-sshkey
+      type: ssh
+
+cdPipelineName: {{ env "cdPipelineName" }}
+cdPipelineStageName: main

@@ -1,0 +1,83 @@
+releases:
+- name: catalog-source
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: true
+    path: components/infra/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/catalog-source.git
+  version: master
+  values: []
+- name: monitoring
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: true
+    path: components/infra/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/monitoring.git
+  version: master
+  values: []
+- name: storage
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: true
+    path: components/infra/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/storage.git
+  version: master
+  values: []
+- name: logging
+  version: master
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: true
+    path: components/infra/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/logging.git
+  values: []
+- name: service-mesh
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: true
+    path: components/infra/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/service-mesh.git
+  version: master
+  values: []
+- name: velero
+  version: master
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: true
+    path: components/infra/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/velero.git
+  values: []
+- name: user-management
+  version: master
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: true
+    path: components/infra/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/user-management.git
+  values: []
+- name: control-plane-nexus
+  version: master
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: true
+    path: components/infra/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/control-plane-nexus.git
+  values: []
+- name: digital-signature-ops
+  version: 1.3.1-SNAPSHOT.2
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    stream: master
+    path: components/registry/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
+  values: []

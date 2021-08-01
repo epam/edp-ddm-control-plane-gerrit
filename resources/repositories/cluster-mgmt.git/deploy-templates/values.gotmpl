@@ -1,0 +1,19 @@
+#helm values
+namespace: {{ requiredEnv "NAMESPACE" }}
+
+dnsWildcard: {{ requiredEnv "dnsWildcard" }}
+cdPipelineName: {{ requiredEnv "NAMESPACE" }}
+
+dockerRegistry: '{{ env "edpComponentDockerRegistryUrl" }}'
+dockerProxyRegistry: '{{ env "dockerProxyRegistry" }}'
+edpProject: '{{ env "edpProject" }}'
+globalNexusNamespace: '{{ env "globalNexusNamespace" }}'
+AWS_ACCESS_KEY_ID: '{{ requiredEnv "AWS_ACCESS_KEY_ID" }}'
+AWS_SECRET_ACCESS_KEY: '{{ requiredEnv "AWS_SECRET_ACCESS_KEY" }}'
+backupBucket: '{{ requiredEnv "backupBucket" }}'
+
+global:
+  storageClass: {{ env "platformStorageClass" | default "gp2" }}
+# uncomment below to override default
+#global:
+#  storageClass:
