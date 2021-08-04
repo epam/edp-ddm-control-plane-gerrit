@@ -17,11 +17,11 @@
    "edp-library-stages-fork":    {
       "url": "git@gitbud.epam.com:mdtu-ddm/general/librarires/edp-library-stages-fork.git",
       "path": "/libraries",
-      "version": "release/2.8"
+      "version": "master"
    },
    "edp-library-pipelines-fork":    {
       "url": "git@gitbud.epam.com:mdtu-ddm/general/librarires/edp-library-pipelines-fork.git",
       "path": "/libraries",
-      "version": "release/2.8"
+      "version": "master"
    }
 }
