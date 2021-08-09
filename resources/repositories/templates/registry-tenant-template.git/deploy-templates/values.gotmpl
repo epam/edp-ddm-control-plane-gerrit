@@ -34,25 +34,15 @@ jenkins:
   edpComponentDockerRegistryrepoURL: '{{ env "edpComponentDockerRegistryUrl" }}'
   sharedLibraries:
     - name: edp-library-stages
-      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:31000/libraries/edp-library-stages-fork.git
+      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:31000/libraries/registry-regulations-publication-stages.git
       tag: 'master'
       secret: gerrit-{{ env "globalEDPProject" }}-sshkey
       type: ssh
     - name: edp-library-pipelines
-      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:31000/libraries/edp-library-pipelines-fork.git
+      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:31000/libraries/registry-regulations-publication-pipeline.git
       tag: 'master'
       secret: gerrit-{{ env "globalEDPProject" }}-sshkey
       type: ssh
-#    - name: edp-library-stages
-#      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:31000/libraries/registry-regulations-publication-stages.git
-#      tag: 'master'
-#      secret: gerrit-{{ env "globalEDPProject" }}-sshkey
-#      type: ssh
-#    - name: edp-library-pipelines
-#      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:31000/libraries/registry-regulations-publication-pipeline.git
-#      tag: 'master'
-#      secret: gerrit-{{ env "globalEDPProject" }}-sshkey
-#      type: ssh
 
 cdPipelineName: {{ env "cdPipelineName" }}
 cdPipelineStageName: main
