@@ -581,6 +581,24 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
+- name: hashicorp-vault
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/hashicorp-vault.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/hashicorp-vault/deploy-templates
+  version: 1.3.0-RC.3
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
+    - '{{ env "NAMESPACE" }}/registry-auth'
 environments:
   default:
     missingFileHandler: Error
