@@ -81,3 +81,13 @@ releases:
     path: components/registry/
     repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
   values: []
+- name: hashicorp-vault
+  version: 1.3.0-RC.3
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    stream: release-1-3
+    path: components/registry/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/hashicorp-vault.git
+  values: []
