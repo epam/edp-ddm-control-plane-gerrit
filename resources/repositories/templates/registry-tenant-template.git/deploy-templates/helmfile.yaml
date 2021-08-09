@@ -599,6 +599,42 @@ releases:
     - '{{ env "NAMESPACE" }}/istio-configuration'
     - '{{ env "NAMESPACE" }}/network-management'
     - '{{ env "NAMESPACE" }}/registry-auth'
+- name: excerpt-service-api
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/application/excerpt-service-api.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/excerpt-service-api/deploy-templates
+  version: 1.3.0-RC.3
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
+    - '{{ env "NAMESPACE" }}/registry-auth'
+- name: excerpt-worker
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/application/excerpt-worker.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/excerpt-worker/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
+    - '{{ env "NAMESPACE" }}/registry-auth'
 environments:
   default:
     missingFileHandler: Error
