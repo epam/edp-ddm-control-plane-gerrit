@@ -46,10 +46,10 @@ jenkins:
 
 cdPipelineName: {{ env "cdPipelineName" }}
 cdPipelineStageName: main
-platformVaultToken: {{ requiredEnv "platformVaultToken" }}
 
 # TODO: need to make it more simple
 vault:
+  platformVaultToken: {{ requiredEnv "platformVaultToken" }}
   server:
     standalone:
       config: |

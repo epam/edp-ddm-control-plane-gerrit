@@ -18,9 +18,9 @@ global:
 #global:
 #  storageClass:
 
-platformVaultToken: {{ requiredEnv "platformVaultToken" }}
 # TODO: need to make it more simple
 vault:
+  platformVaultToken: {{ requiredEnv "platformVaultToken" }}
   server:
     standalone:
       config: |
