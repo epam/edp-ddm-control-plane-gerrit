@@ -8,6 +8,8 @@ repositories:
   url: https://charts.konghq.com
 - name: bitnami
   url: https://charts.bitnami.com/bitnami
+- name: hashicorp
+  url: https://helm.releases.hashicorp.com
 releases:
 - name: istio-configuration
   namespace: '{{ env "NAMESPACE" }}'
