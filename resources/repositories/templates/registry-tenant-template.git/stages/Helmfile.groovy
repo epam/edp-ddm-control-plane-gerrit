@@ -149,6 +149,8 @@ class Helmfile {
 
                     script.env.globalNexusNamespace = context.job.dnsWildcard.startsWith("apps.cicd") ? 'mdtu-ddm-edp-cicd' : script.env.dockerRegistry.replaceAll(/.*\.(.*)\.svc:[0-9]+/,'\$1')
                     script.env.edpMavenRepoUrl = context.job.dnsWildcard.startsWith("apps.cicd") ? "http://nexus.mdtu-ddm-edp-cicd.svc:8081/repository/edp-maven-group/" : "http://nexus.${script.env.globalNexusNamespace}.svc:8081/nexus/repository/edp-maven-group/"
+                    script.env.CLUSTER_NAME=script.sh(script: """ oc get node -l node-role.kubernetes.io/master -o 'jsonpath={.items[0].metadata.annotations.machine\\.openshift\\.io/machine}' | sed -r 's#.*/(.*)-master.*#\\1#'""", returnStdout: true).trim()
+                    script.env.platformVaultToken = script.sh(script: """ oc get secret -n ${script.env.edpProject}  vault-root-access-token -o jsonpath='{.data.vault-access-token}' | base64 -d """ , returnStdout: true).trim()
 
                     // run namespace creation and basic management tasks
                     script.sh("helmfile -f ${helmfile} -l name=istio-configuration -l name=registry-auth sync")
