@@ -619,6 +619,8 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
 - name: excerpt-worker
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -637,6 +639,8 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
 environments:
   default:
     missingFileHandler: Error
