@@ -22,9 +22,9 @@ class Helmfile  {
                   script.env.dockerRegistry = script.env.edpComponentDockerRegistryUrl
                   script.env.dockerProxyRegistry = script.env.edpComponentDockerRegistryUrl
                   script.env.autoRedirectEnabled = context.job.dnsWildcard.startsWith("apps.cicd") ? 'true' : 'false'
-                  script.env.AWS_ACCESS_KEY_ID = script.sh(script: """ oc get secret -n ${script.env.edpProject} backup-credentials -o jsonpath='{.data.AWS_ACCESS_KEY_ID}' | base64 -d """ , returnStdout: true).trim()
-                  script.env.AWS_SECRET_ACCESS_KEY =  script.sh(script: """ oc get secret -n ${script.env.edpProject} backup-credentials -o jsonpath='{.data.AWS_SECRET_ACCESS_KEY}' | base64 -d """ , returnStdout: true).trim()
-                  script.env.backupBucket = script.sh(script: """ oc get secret -n ${script.env.edpProject} backup-credentials -o jsonpath='{.data.AWS_BUCKET_NAME}' | base64 -d """ , returnStdout: true).trim()
+                  script.env.ACCESS_KEY_ID = script.sh(script: """ oc get secret -n ${script.env.edpProject} backup-credentials -o jsonpath='{.data.backup-s3-like-storage-credentials}' | base64 -d | awk -F : '{print \$1}' """ , returnStdout: true).trim()
+                  script.env.SECRET_ACCESS_KEY =  script.sh(script: """ oc get secret -n ${script.env.edpProject} backup-credentials -o jsonpath='{.data.backup-s3-like-storage-credentials}' | base64 -d | awk -F : '{print \$2}' """ , returnStdout: true).trim()
+                  script.env.backupBucket = script.sh(script: """ oc get secret -n ${script.env.edpProject} backup-credentials -o jsonpath='{.data.backup-s3-like-storage-location}' | base64 -d """ , returnStdout: true).trim()
                   script.env.dockerhub_username = script.sh(script: """ oc get secret -n openshift-config pull-secret -o jsonpath='{.data.\\.dockerconfigjson}' | base64 -d | jq -r '.auths."https://index.docker.io/v2/".username' """, returnStdout: true).trim()
                   script.env.dockerhub_password = script.sh(script: """ oc get secret -n openshift-config pull-secret -o jsonpath='{.data.\\.dockerconfigjson}' | base64 -d | jq -r '.auths."https://index.docker.io/v2/".password' """, returnStdout: true).trim()
                   script.env.CLUSTER_NAME = script.sh(script: """ oc get node -l node-role.kubernetes.io/master -o 'jsonpath={.items[0].metadata.annotations.machine\\.openshift\\.io/machine}' | sed -r 's#.*/(.*)-master.*#\\1#'""", returnStdout: true).trim()
