@@ -109,8 +109,6 @@ class BuildDockerfileImageHelm {
                     script.env.dockerRegistryHost = context.platform.getJsonPathValue("edpcomponent", "docker-registry", ".spec.url")
                     script.env.dockerProxyRegistry = context.job.dnsWildcard.startsWith("apps.cicd") ? 'nexus-docker-registry.' + context.job.dnsWildcard : ''
                     script.env.ciProject = context.job.dnsWildcard.startsWith("apps.cicd") ? 'mdtu-ddm-edp-cicd' : context.job.edpName
-//                    def dockerRegistryUsername, dockerRegistryPassword
-//                    def dockerRegistryNamespace = 'nexus-docker-registry'
 
                     script.sh "git config --global user.email 'admin@example.com'"
 
@@ -132,24 +130,7 @@ class BuildDockerfileImageHelm {
 
                     createOrUpdateBuildConfig(context.codebase, buildconfigName, imageUrl)
 
-//                    if (script.env.dockerRegistryHost.startsWith('openshift')) {
-//                        dockerRegistryPassword = script.sh(script: "oc whoami -t", returnStdout: true).trim()
-//                        // if dockerRegistryUsername not working, try 'serviceaccount'
-//                        dockerRegistryUsername = script.sh(script: "oc whoami", returnStdout: true).trim()
-//                    } else {
-//                        dockerRegistryPassword = script.sh(script: "oc get secret -n ${dockerRegistryNamespace} nexus-admin-password --template='{{ .data.password | base64decode }}'", returnStdout: true).trim()
-//                        dockerRegistryUsername = script.sh(script: "oc get secret -n ${dockerRegistryNamespace} nexus-admin-password --template='{{ .data.user | base64decode }}'", returnStdout: true).trim()
-//                    }
-
-//                    script.sh "skopeo -v"
-//                    script.sh "set +x && echo ${dockerRegistryPassword} | skopeo login --tls-verify=false -u '${dockerRegistryUsername}' --password-stdin ${script.env.dockerProxyRegistry}"
-
-//                    def dockerfileString = script.readFile file: 'Dockerfile'
-//                    dockerfileString = dockerfileString.replaceAll(/FROM (.*)/, "FROM ${script.env.dockerProxyRegistry}/" + '\$1')
-
-//                    def componentsProperties = script.readProperties file: 'properties/remote_components.properties'
-
-                    def tagFromImageStream = '', finalDockerVersion = '', repositoryPath, gitCredentialsId
+                    def repositoryPath, gitCredentialsId
 
                     def gitsourcesJSON = script.readJSON(file: "properties/gitsources.json")
                     gitsourcesJSON.each { component, value ->
@@ -179,51 +160,6 @@ class BuildDockerfileImageHelm {
                         }
                     }
 
-//                    componentsProperties.'repositories_to_add'.tokenize(',').each {
-//                        repositoryPath = componentsProperties."${it}.path".endsWith('/') || componentsProperties."${it}.path" == '' ? componentsProperties."${it}.path".replaceAll('^/','') + it + '.git' : componentsProperties."${it}.path".replaceAll('^/','') + '/' + it + '.git'
-//                        gitCredentialsId = componentsProperties."${it}.url".contains('gitbud.epam.com') ? 'git-epam-ciuser-sshkey' : 'gerrit-ciuser-sshkey'
-//
-//                        script.dir("repositories/${repositoryPath}") {
-//                            // if version/tag is not specified we will take last tag. 'master' can't be set, because we need to ensure that image exists
-//                            // images mapped to tags
-//                            if (componentsProperties."${it}.version".startsWith('build/')) {
-//                                finalDockerVersion = componentsProperties."${it}.version".replaceAll('build/', '')
-//                            } else {
-//                                finalDockerVersion = componentsProperties."${it}.version"
-//                            }
-//
-//
-//                            if (!tagFromImageStream && !componentsProperties."${it}.version") {
-//                                script.println "[WARN]: Docker image not found in registry, will be set as 'latest' and git version not set, will be cloned 'master' to gerrit"
-//                            }
-//                            componentsProperties."${it}.version" = componentsProperties."${it}.version" ? componentsProperties."${it}.version" : 'master'
-//
-//                            script.checkout([$class                           : 'GitSCM', branches: [[name: componentsProperties."${it}.version"]],
-//                                             doGenerateSubmoduleConfigurations: false, extensions: [],
-//                                             submoduleCfg                     : [],
-//                                             userRemoteConfigs                : [[credentialsId: gitCredentialsId,
-//                                                                                  url          : componentsProperties."${it}.url"]]])
-//
-//
-//
-//                            def branch
-//                            if (componentsProperties."${it}.version".startsWith('build/')) {
-//                                branch = componentsProperties."${it}.version".replaceAll(/build\/([0-9]+\.[0-9]+\.[0-9]+).*/, "\$1")
-//                            } else if (componentsProperties."${it}.version".startsWith('release/')) {
-//                                branch = componentsProperties."${it}.version".replaceAll(/release\/([0-9]+\.[0-9]+).*/, "\$1")
-//                            }
-//                            else {
-//                                branch = componentsProperties."${it}.version"
-//                            }
-//
-//                            script.sh("rm -rf .git; rm -f .gitignore .helmignore; git init; git add --all; git commit -a -m 'Repo init'")
-//                            script.sh("git checkout -f -B ${branch}")
-//                            script.sh("git checkout -f -B master")
-//
-//                            script.sh "git clone --bare ${context.workDir}/repositories/${repositoryPath} ${context.workDir}/git/${repositoryPath}"
-//                        }
-//                    }
-
 
                     // template release components
                     def registryTenantTemplateHelmfile = "${context.workDir}/resources/repositories/templates/registry-tenant-template.git/deploy-templates/helmfile.yaml"
@@ -237,8 +173,11 @@ class BuildDockerfileImageHelm {
                     // create bare git repos from templates
                     script.dir("resources/repositories") {
                         def templateRepo = script.sh(script: "find ./ -name '*.git' -type d", returnStdout: true).tokenize('\n')
+                        // TODO: adding datamock.git needed for registry
+                        templateRepo.add('datamock.git')
+
                         templateRepo.each {
-                            script.sh "cd ${it}; git init; git add --all; git commit -a -m 'Repo init'"
+                            script.sh "mkdir -p ${it}; cd ${it}; git init; git add --all; git commit -a --allow-empty -m 'Repo init'"
                             script.sh "git clone --bare ${it} ${context.workDir}/git/${it}"
                         }
                     }

@@ -62,10 +62,16 @@ fi
 #  fi
 #done
 
-# end of TODO
-#if [[ ! -d "$GERRIT_SITE/git/templates/registry-tenant-template.git" ]]; then
-#  echo "Repository exist";
-#
-#  else
-#    echo "no exist"
-#  fi
+## TODO: update codebases with new gerrit URL
+mkdir -p /tmp/libraries/registry-regulations-publication-pipeline
+cd /tmp/libraries/registry-regulations-publication-pipeline
+git clone /var/gerrit/review_site/git/libraries/registry-regulations-publication-pipeline.git
+cd registry-regulations-publication-pipeline
+git config --global user.email "you@example.com"
+git config --global user.name "Admin"
+for codebase in $(grep -r -l 'cicd2' ./); do
+  sed -i "s#https://gerrit-mdtu-ddm-edp-cicd.apps.cicd2.mdtu-ddm.projects.epam.com#${WEBURL}#g" ${codebase}
+  git commit -a -m 'fixed codebase gerrit URL' || echo "Nothing to commit";
+  git push || echo "No push to repo";
+done
+## end of TODO
