@@ -52,14 +52,9 @@ class DeleteRegistry {
                     }
 
                     script.println "Removing codebasebranches:"
-                    try {
-                        script.sh("oc get codebasebranches.v2.edp.epam.com -n ${script.env.NAMESPACE} --no-headers --output=custom-columns=NAME:.metadata.name | xargs -r oc patch codebasebranches.v2.edp.epam.com -n ${script.env.NAMESPACE} --type=merge -p \'{\"metadata\": {\"finalizers\":null}}\'")
-                    } catch (e) {
-                        script.println("[WARN]: codebasebranches has not been patched or not found: ${e}")
-                    }
                     codebasebranches.each {
                         try {
-                            script.sh "oc delete -n ${script.env.NAMESPACE} codebasebranches ${it}"
+                            script.sh """oc patch codebasebranches.v2.edp.epam.com -n ${script.env.NAMESPACE} --type=merge -p '{"metadata": {"finalizers":null}}' ${it} && oc delete -n ${script.env.NAMESPACE} codebasebranches ${it}"""
                         }
                         catch (any) {
                             script.println("[WARN]: Codebasebranch ${it} has not been removed or not found")
@@ -69,7 +64,7 @@ class DeleteRegistry {
                     script.println "Removing codebases:"
                     codebases.each {
                         try {
-                            script.sh "oc delete -n ${script.env.NAMESPACE} codebase ${it}"
+                            script.sh """ oc patch codebase -n ${script.env.NAMESPACE} --type=merge -p '{"metadata": {"finalizers":null}}' ${it} && oc delete -n ${script.env.NAMESPACE} codebase ${it} """
                         }
                         catch (any) {
                             script.println("[WARN]: Codebase ${it} has not been removed or not found")
