@@ -49,8 +49,8 @@ cdPipelineStageName: main
 
 # TODO: need to make it more simple
 vault:
-  platformVaultToken: {{ requiredEnv "platformVaultToken" }}
-  openshiftApiUrl: {{ requiredEnv "openshiftApiUrl" }}
+  platformVaultToken: {{ env "platformVaultToken" }}
+  openshiftApiUrl: {{ env "openshiftApiUrl" }}
   server:
     standalone:
       config: |

@@ -239,6 +239,7 @@ class Helmfile {
 
                     def codebases = script.sh(script: "oc get codebase -n ${script.env.NAMESPACE} --no-headers -o=custom-columns=NAME:.metadata.name", returnStdout: true).tokenize('\n')
                     cloneCodebaseSecrets(context, codebases)
+                    copySecret(context, script.env.NAMESPACE, "repository-codebase-${codebases[0]}-temp", script.env.NAMESPACE, "edp-gerrit-ciuser")
                 }
             }
         }
