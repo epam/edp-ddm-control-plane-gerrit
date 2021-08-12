@@ -11,7 +11,7 @@
    },
    "empty-template-registry-regulation":    {
       "url": "git@gitbud.epam.com:mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
-      "path": "components/registry/",
+      "path": "/",
       "version": "release/1.3"
    },
    "edp-library-stages-fork":    {
