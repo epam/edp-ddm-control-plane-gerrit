@@ -90,6 +90,9 @@ class BuildDockerfileImageHelm {
 
                     script.sh "git clone --bare ${context.workDir}/repositories/${repositoryPath} ${context.workDir}/git/${repositoryPath}"
                 }
+                else {
+                    script.println "repositories/${repositoryPath} already exists"
+                }
             }
         }
 
@@ -169,6 +172,10 @@ class BuildDockerfileImageHelm {
                     // cluster-mgmt.git
                     def clusterMgmtHelmfile = "${context.workDir}/resources/repositories/cluster-mgmt.git/properties/cluster-mgmt.yaml"
                     processHelmfile(context, clusterMgmtHelmfile)
+
+                    // user-management.git
+                    def userManagementHelmfile = "${context.workDir}/repositories/components/infra/user-management.git/deploy-templates/helmfile.yaml"
+                    processHelmfile(context, userManagementHelmfile)
 
                     // create bare git repos from templates
                     script.dir("resources/repositories") {
