@@ -61,6 +61,16 @@ class DeleteRegistry {
                         }
                     }
 
+                    script.println "Removing jenkinsfolders:"
+                    jenkinsFolders.each {
+                        try {
+                            script.sh """ oc patch jenkinsfolders -n ${script.env.NAMESPACE} --type=merge -p '{"metadata": {"finalizers":null}}' ${it} && oc delete -n ${script.env.NAMESPACE} jenkinsfolders ${it} """
+                        }
+                        catch (any) {
+                            script.println("[WARN]: jenkinsfolder ${it} has not been removed or not found")
+                        }
+                    }
+
                     script.println "Removing codebases:"
                     codebases.each {
                         try {
@@ -90,6 +100,7 @@ class DeleteRegistry {
                             script.println("[WARN]: ${it} has not been removed or not found: ${e}")
                         }
                     }
+
 
                     script.sh "sleep 20"
                     script.sh("helmfile -f ${helmfile} destroy --concurrency 1")

@@ -177,7 +177,7 @@ releases:
   - codebases:
       deploy: true
       registryRegulations:
-        referenceRepoUrl: https://gerrit-{{ env "globalEDPProject" }}-platform-main.{{ env "dnsWildcard" }}/components/registry/empty-template-registry-regulation
+        referenceRepoUrl: https://gerrit-{{ env "globalEDPProject" }}-platform-main.{{ env "dnsWildcard" }}/empty-template-registry-regulation
   - operator:
       clusterRoleName: codebase-operator-{{ env "globalEDPProject" }}-clusterrole
   - values.yaml
