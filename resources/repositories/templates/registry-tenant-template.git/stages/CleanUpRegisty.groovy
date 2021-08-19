@@ -31,61 +31,41 @@ class CleanUpRegistry {
                     script.sh "sleep 20"
                     script.sh("helmfile -f ${helmfile} destroy --concurrency 1")
 
-                    script.println "Removing finalizer from Jenkinsfolder:"
-                    try {
-                        script.sh("oc get jenkinsfolder.v2.edp.epam.com -n ${script.env.NAMESPACE} --no-headers --output=custom-columns=NAME:.metadata.name | xargs -r oc patch jenkinsfolder.v2.edp.epam.com -n ${script.env.NAMESPACE} --type=merge -p \'{\"metadata\": {\"finalizers\":null}}\'")
-                    } catch (e) {
-                        script.println("[WARN]: Jenkinsfolder has not been patched or not found: ${e}")
-                    }
-                    
-                    script.println "Removing finalizer from keycloakrealmrolebatches:"
-                    try {
-                        script.sh("oc get keycloakrealmrolebatches.v1.edp.epam.com -n ${script.env.NAMESPACE} --no-headers --output=custom-columns=NAME:.metadata.name | xargs -r oc patch keycloakrealmrolebatches.v1.edp.epam.com -n ${script.env.NAMESPACE} --type=merge -p \'{\"metadata\": {\"finalizers\":null}}\'")
-                    } catch (e) {
-                        script.println("[WARN]: keycloakrealmrolebatches has not been patched or not found: ${e}")
-                    }
-
-                    script.println "Removing finalizer from keycloakrealmroles:"
-                    try {
-                        script.sh("oc get keycloakrealmroles.v1.edp.epam.com -n ${script.env.NAMESPACE} --no-headers --output=custom-columns=NAME:.metadata.name | xargs -r oc patch keycloakrealmroles.v1.edp.epam.com -n ${script.env.NAMESPACE} --type=merge -p \'{\"metadata\": {\"finalizers\":null}}\'")
-                    } catch (e) {
-                        script.println("[WARN]: keycloakrealmroles has not been patched or not found: ${e}")
+                    [   "keycloakauthflows.v1.edp.epam.com",
+                        "keycloakclients.v1.edp.epam.com",
+                        "keycloakrealmgroups.v1.edp.epam.com",
+                        "keycloakrealmrolebatches.v1.edp.epam.com",
+                        "keycloakrealmroles.v1.edp.epam.com",
+                        "keycloakrealms.v1.edp.epam.com",
+                        "jenkinsfolder.v2.edp.epam.com",
+                        "codebasebranches.v2.edp.epam.com",
+                        "keycloak.v1.edp.epam.com"
+                    ].each {
+                        script.println "Removing ${it}:"
+                        try {
+                            script.sh("oc get ${it} -n ${script.env.NAMESPACE} --no-headers --output=custom-columns=NAME:.metadata.name | xargs -r oc patch ${it} -n ${script.env.NAMESPACE} --type=merge -p \\'{\\\"metadata\\\": {\\\"finalizers\\\":null}}\\'\"")
+                        } catch (e) {
+                            script.println("[WARN]: ${it} has not been removed or not found: ${e}")
+                        }
                     }
 
-                    script.println "Removing finalizer from keycloakclients:"
-                    try {
-                        script.sh("oc get keycloakclients.v1.edp.epam.com -n ${script.env.NAMESPACE} --no-headers --output=custom-columns=NAME:.metadata.name | xargs -r oc patch keycloakclients.v1.edp.epam.com -n ${script.env.NAMESPACE} --type=merge -p \'{\"metadata\": {\"finalizers\":null}}\'")
-                    } catch (e) {
-                        script.println("[WARN]: keycloakclients has not been patched or not found: ${e}")
+                    [   "keycloakauthflows.v1.edp.epam.com",
+                        "keycloakclients.v1.edp.epam.com",
+                        "keycloakrealmgroups.v1.edp.epam.com",
+                        "keycloakrealmrolebatches.v1.edp.epam.com",
+                        "keycloakrealmroles.v1.edp.epam.com",
+                        "keycloakrealms.v1.edp.epam.com",
+                        "jenkinsfolder.v2.edp.epam.com",
+                        "codebasebranches.v2.edp.epam.com",
+                        "keycloak.v1.edp.epam.com"
+                    ].each {
+                        script.println "Removing ${it}:"
+                        try {
+                            script.sh("oc get ${it} -n ${script.env.NAMESPACE} --no-headers --output=custom-columns=NAME:.metadata.name | xargs -r oc delete ${it} -n ${script.env.NAMESPACE}")
+                        } catch (e) {
+                            script.println("[WARN]: ${it} has not been removed or not found: ${e}")
+                        }
                     }
-
-                    script.println "Removing finalizer from keycloakrealms "
-                    try {
-                        script.sh("oc get keycloakrealms.v1.edp.epam.com -n ${script.env.NAMESPACE} --no-headers --output=custom-columns=NAME:.metadata.name | xargs -r oc patch keycloakrealms.v1.edp.epam.com -n ${script.env.NAMESPACE} --type=merge -p \'{\"metadata\": {\"finalizers\":null}}\'")
-                    } catch (e) {
-                        script.println("[WARN]: keycloakrealms has not been patched or not found: ${e}")
-                    }
-
-                    script.println "Removing finalizer from keycloakrealmgroups "
-                    try {
-                        script.sh("oc get keycloakrealmgroups.v1.edp.epam.com -n ${script.env.NAMESPACE} --no-headers --output=custom-columns=NAME:.metadata.name | xargs -r oc patch keycloakrealmgroups.v1.edp.epam.com -n ${script.env.NAMESPACE} --type=merge -p \'{\"metadata\": {\"finalizers\":null}}\'")
-                    } catch (e) {
-                        script.println("[WARN]: keycloakrealmgroups has not been patched or not found: ${e}")
-                    }
-
-                    script.println "Removing keycloak:"
-                    try {
-                        script.sh("oc get keycloak.v1.edp.epam.com -n ${script.env.NAMESPACE} --no-headers --output=custom-columns=NAME:.metadata.name | xargs -r oc patch keycloak.v1.edp.epam.com -n ${script.env.NAMESPACE} --type=merge -p \'{\"metadata\": {\"finalizers\":null}}\'")
-                    } catch (e) {
-                        script.println("[WARN]: keycloak has not been patched or not found: ${e}")
-                    }
-                    script.println("Removing codebasebranches")
-                    try {
-                        script.sh("oc get codebasebranches.v2.edp.epam.com -n ${script.env.NAMESPACE} --no-headers --output=custom-columns=NAME:.metadata.name | xargs -r oc patch codebasebranches.v2.edp.epam.com -n ${script.env.NAMESPACE} --type=merge -p \'{\"metadata\": {\"finalizers\":null}}\'")
-                    } catch (e) {
-                        script.println("[WARN]: codebasebranches has not been patched or not found: ${e}")
-                    }
-
                     script.sh "oc delete ns ${script.env.NAMESPACE} &"
                     script.sh "sleep 20"
                     try {
@@ -100,7 +80,24 @@ class CleanUpRegistry {
                         script.println("Can't delete namespace or namespace no found: ${e}")
                     }
                     
-                    script.sh "oc create ns ${script.env.NAMESPACE}"
+                    try {
+                        script.sh "oc create ns ${script.env.NAMESPACE}"
+                    } catch (e) {
+                        script.sh """set -eou pipefail
+                    kubectl get namespace ${script.env.NAMESPACE} -o json | jq '.spec = {"finalizers":[]}' > rknf_tmp.json
+                    kubectl proxy &
+                    sleep 5
+                    curl -H \"Content-Type: application/json\" -X PUT --data-binary @rknf_tmp.json http://localhost:8001/api/v1/namespaces/${script.env.NAMESPACE}/finalize
+                    pkill -9 -f "kubectl proxy"
+                    rm rknf_tmp.json
+                    """
+                    }
+                    try {
+                        script.sh "oc create ns ${script.env.NAMESPACE}"
+                    } catch (e) {
+                        script.println("Can't create namespace or namespace already exists: ${e}")
+                    }
+
 
                     components.releases.each {
                         if (it.labels.update_scc == true) {
@@ -120,7 +117,38 @@ class CleanUpRegistry {
                                 script.println e
                             }
                         }
+                        try {
+                            script.sh "oc adm policy add-role-to-user view system:serviceaccount:default -n ${script.env.NAMESPACE}"
+                        } catch (e) {
+                            script.println e
+                        }
+                        try {
+                            script.sh "oc adm policy add-scc-to-user privileged -z default -n ${script.env.NAMESPACE}"
+                        } catch (e) {
+                            script.println e
+                        }
+                        try {
+                            script.sh "oc adm policy add-scc-to-user anyuid -z default -n ${script.env.NAMESPACE}"
+                        } catch (e) {
+                            script.println e
+                        }
+                        try {
+                            script.sh "oc adm policy add-role-to-user view system:serviceaccount:jenkins -n ${script.env.NAMESPACE}"
+                        } catch (e) {
+                            script.println e
+                        }
+                        try {
+                            script.sh "oc adm policy add-scc-to-user privileged -z jenkins -n ${script.env.NAMESPACE}"
+                        } catch (e) {
+                            script.println e
+                        }
+                        try {
+                            script.sh "oc adm policy add-scc-to-user anyuid -z jenkins -n ${script.env.NAMESPACE}"
+                        } catch (e) {
+                            script.println e
+                        }
                     }
+
                 }
             }
         }
