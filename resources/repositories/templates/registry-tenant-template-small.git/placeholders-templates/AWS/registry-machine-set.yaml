@@ -47,7 +47,7 @@ spec:
                 kmsKey:
                   arn: ''
                 volumeSize: 120
-                volumeType: {{ .Values.global.storageClass }}
+                volumeType: gp3
           securityGroups:
             - filters:
                 - name: 'tag:Name'
