@@ -25,6 +25,12 @@ spec:
           - effect: NoSchedule
             key: node/{{ .Release.Namespace }}
             value: 'true'
+          - effect: NoSchedule
+            key: node/{{ .Release.Namespace }}
+            value: 'true'
+          - effect: NoSchedule
+            key: platform/nexus
+            value: 'true'
       metadata:
         labels:
           node: {{ .Release.Namespace }}

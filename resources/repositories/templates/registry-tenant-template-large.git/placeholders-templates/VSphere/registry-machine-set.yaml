@@ -22,9 +22,12 @@ spec:
         machine.openshift.io/cluster-api-machineset: {{ .Values.cluster_prefix }}-{{ .Release.Namespace }}
     spec:
       taints:
-          - effect: NoSchedule
-            key: node/{{ .Release.Namespace }}
-            value: 'true'
+        - effect: NoSchedule
+          key: node/{{ .Release.Namespace }}
+          value: 'true'
+        - effect: NoSchedule
+          key: platform/nexus
+          value: 'true'
       metadata:
         labels:
           node: {{ .Release.Namespace }}
