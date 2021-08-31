@@ -1,0 +1,662 @@
+helmDefaults:
+  wait: true
+  timeout: 1800
+  createNamespace: true
+missingFileHandler: Warn
+repositories:
+- name: kong
+  url: https://charts.konghq.com
+- name: bitnami
+  url: https://charts.bitnami.com/bitnami
+- name: hashicorp
+  url: https://helm.releases.hashicorp.com
+releases:
+- name: registry-nodes
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: local
+    update_scc: false
+  chart: registry-nodes
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  hooks: []
+- name: istio-configuration
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: local
+    update_scc: false
+  chart: istio-configuration
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  hooks:
+  - events:
+    - postsync
+    showlogs: true
+    command: oc
+    args:
+    - label
+    - --overwrite
+    - namespace
+    - '{{`{{.Release.Namespace}}`}}'
+    - istio-injection=enabled
+  - events:
+    - postsync
+    showlogs: true
+    command: oc
+    args:
+    - label
+    - --overwrite
+    - namespace
+    - '{{`{{.Release.Namespace}}`}}'
+    - kiali-enabled=true
+  - events:
+    - postsync
+    showlogs: true
+    command: oc
+    args:
+    - label
+    - --overwrite
+    - namespace
+    - '{{`{{.Release.Namespace}}`}}'
+    - type=registry
+  needs:
+    - '{{ env "NAMESPACE" }}/registry-nodes'
+- name: network-management
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: local
+    update_scc: false
+  chart: network-management
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+- name: registry-auth
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: local
+    update_scc: false
+  chart: registry-auth
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+- name: bpms
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/bpms/deploy-templates
+  version: 1.3.1-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+- name: officer-portal
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/officer-portal/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+- name: jenkins-operator
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/operators/jenkins-operator.git
+    path: components/registry/
+    stream: release-1-2
+  chart: /opt/repositories/jenkins-operator/deploy-templates
+  version: 1.3.0-RC.10
+  values:
+  - values.yaml
+  - values.gotmpl
+  - operator:
+      clusterRoleName: jenkins-operator-clusterrole-{{ env "edpProject" }}
+  - dockerRegistry: nexus-docker-hosted-{{ env "NAMESPACE" }}.{{ env "dnsWildcard" }}
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+- name: gerrit-operator
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/operators/gerrit-operator.git
+    path: components/registry/
+    stream: release-1-2
+  chart: /opt/repositories/gerrit-operator/deploy-templates
+  version: 1.3.0-RC.1
+  values:
+  - operator:
+      clusterRoleName: gerrit-operator-role-{{ env "globalEDPProject" }}
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+- name: codebase-operator
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/operators/codebase-operator.git
+    path: components/registry/
+    stream: release-1-2
+  chart: /opt/repositories/codebase-operator/deploy-templates
+  version: 1.2.0-RC.1
+  values:
+  - codebases:
+      deploy: true
+      registryRegulations:
+        referenceRepoUrl: https://gerrit-{{ env "globalEDPProject" }}-platform-main.{{ env "dnsWildcard" }}/empty-template-registry-regulation
+  - operator:
+      clusterRoleName: codebase-operator-{{ env "globalEDPProject" }}-clusterrole
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+- name: user-process-management
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/user-process-management.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/user-process-management/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/bpms'
+- name: bp-admin-portal
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: false
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/bp-admin-portal.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/bp-admin-portal/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/bpms'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/admin-portal'
+- name: user-task-management
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/user-task-management.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/user-task-management/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+- name: digital-signature-ops
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/digital-signature-ops/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+- name: kong
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/general/kong.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/kong/deploy-templates
+  version: 1.3.0-RC.1
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+- name: form-management
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/form-management.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/form-management/deploy-templates
+  version: 1.3.0-RC.1
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+- name: admin-portal
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/frontend/applications/admin-portal.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/admin-portal/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/form-management'
+- name: redash-chart
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/redash-chart.git
+    path: components/registry/
+    stream: release-1-2
+  chart: /opt/repositories/redash-chart/deploy-templates
+  version: 1.3.0-RC.3
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+- name: pg-exporter-chart
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/pg-exporter-chart.git
+    path: components/registry/
+    stream: release-1-2
+  chart: /opt/repositories/pg-exporter-chart/deploy-templates
+  version: 1.3.0-RC.1
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/citus'
+- name: citus
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/citus.git
+    path: components/registry/
+    stream: release-1-2
+  chart: /opt/repositories/citus/deploy-templates
+  version: 1.3.0-RC.1
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+- name: strimzi-kafka-operator
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git
+    path: components/registry/
+    stream: release-1-2
+  chart: /opt/repositories/strimzi-kafka-operator/deploy-templates
+  version: 1.3.0-RC.5
+  skipDeps: true
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+- name: nexus
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/nexus.git
+    path: components/registry/
+    stream: release-1-2
+  chart: /opt/repositories/nexus/deploy-templates
+  version: 1.3.0-RC.1
+  values:
+  - operator:
+      clusterRoleName: nexus-operator-{{ env "globalEDPProject" }}-clusterrole
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+- name: keycloak-operator
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/operators/keycloak-operator.git
+    path: components/registry/
+    stream: release-1-2
+  chart: /opt/repositories/keycloak-operator/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+  - operator:
+      clusterRoleName: keycloak-operator-{{ env "globalEDPProject" }}-clusterrole
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+- name: kafka-schema-registry
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/kafka-schema-registry.git
+    path: components/registry/
+    stream: release-1-2
+  chart: /opt/repositories/kafka-schema-registry/deploy-templates
+  version: 1.3.0-RC.1
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+- name: citizen-portal
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/citizen-portal/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/kong'
+- name: user-settings-service-persistence
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/application/user-settings-service-persistence.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/user-settings-service-persistence/deploy-templates
+  version: 1.3.1-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/citus'
+- name: user-settings-service-api
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/application/user-settings-service-api.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/user-settings-service-api/deploy-templates
+  version: 1.3.0-RC.4
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/citus'
+- name: bp-webservice-gateway
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/bp-webservice-gateway.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/bp-webservice-gateway/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/bpms'
+- name: digital-document-service
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/digital-document-service.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/digital-document-service/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+- name: hashicorp-vault
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/hashicorp-vault.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/hashicorp-vault/deploy-templates
+  version: 1.3.0-RC.4
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+- name: excerpt-service-api
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/application/excerpt-service-api.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/excerpt-service-api/deploy-templates
+  version: 1.3.0-RC.3
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+- name: excerpt-worker
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/application/excerpt-worker.git
+    path: components/registry/
+    stream: release-1-3
+  chart: /opt/repositories/excerpt-worker/deploy-templates
+  version: 1.3.0-RC.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+environments:
+  default:
+    missingFileHandler: Error
+    values:
+    - values.yaml
+    - values.gotmpl
