@@ -169,7 +169,8 @@ class Helmfile {
 
                     // run namespace creation and basic management tasks
                     script.sh("helmfile -f ${helmfile} -l name=istio-configuration -l name=registry-auth sync")
-                    script.sh (""" oc annotate namespace ${script.env.NAMESPACE} 'scheduler.alpha.kubernetes.io/defaultTolerations'='[{"operator": "Exists", "effect": "NoSchedule", "key": "node/${script.env.NAMESPACE}"}]' --overwrite """)
+                    script.sh (""" oc annotate namespace ${script.env.NAMESPACE} 'scheduler.alpha.kubernetes.io/defaultTolerations'='[{"operator": "Exists", "key": "node/${script.env.NAMESPACE}"}]' --overwrite """)
+                    script.sh (""" oc annotate namespace ${script.env.NAMESPACE} 'scheduler.alpha.kubernetes.io/node-selector'='node=${script.env.NAMESPACE}' --overwrite """)
 
                     def gerritAdministratorslist = (new String(context.platform.getJsonPathValue("codebase", context.codebase.config.name, ".metadata.annotations.registry-parameters/administrators",
                             script.env.edpName).decodeBase64())).tokenize(',')
