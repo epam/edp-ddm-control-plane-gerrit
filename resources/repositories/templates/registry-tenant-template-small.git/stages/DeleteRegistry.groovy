@@ -82,7 +82,7 @@ class DeleteRegistry {
                     }
 
                     // we must ensure that keycloak will be removed after everything else
-                    script.sh("helmfile --selector name!=keycloak-operator -f ${helmfile} destroy --concurrency 1")
+                    script.sh("helmfile --selector name!=keycloak-operator,name!=registry-nodes -f ${helmfile} destroy --concurrency 1")
                     script.sh "sleep 20"
 
                     [   "keycloakauthflows.v1.edp.epam.com",
