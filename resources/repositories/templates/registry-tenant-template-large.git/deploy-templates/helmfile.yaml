@@ -90,6 +90,22 @@ releases:
   needs:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
+- name: codebases
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: local
+    update_scc: false
+  chart: codebases
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
+    - '{{ env "NAMESPACE" }}/jenkins-operator'
+    - '{{ env "NAMESPACE" }}/gerrit-operator'
+    - '{{ env "NAMESPACE" }}/codebase-operator'
 - name: bpms
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -187,10 +203,6 @@ releases:
   chart: /opt/repositories/codebase-operator/deploy-templates
   version: 1.2.0-RC.1
   values:
-  - codebases:
-      deploy: true
-      registryRegulations:
-        referenceRepoUrl: https://gerrit-{{ env "globalEDPProject" }}-platform-main.{{ env "dnsWildcard" }}/empty-template-registry-regulation
   - operator:
       clusterRoleName: codebase-operator-{{ env "globalEDPProject" }}-clusterrole
   - values.yaml
