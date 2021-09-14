@@ -13,31 +13,12 @@ SECRET_ACCESS_KEY: '{{ requiredEnv "SECRET_ACCESS_KEY" }}'
 backupBucket: '{{ requiredEnv "backupBucket" }}'
 
 global:
-  storageClass: {{ env "platformStorageClass" | default "gp2" }}
+  storageClass: {{ requiredEnv "platformStorageClass" }}
 # uncomment below to override default
 #global:
 #  storageClass:
 
-# TODO: need to make it more simple
 vault:
   platformVaultToken: {{ requiredEnv "platformVaultToken" }}
   openshiftApiUrl: {{ requiredEnv "openshiftApiUrl" }}
-  server:
-    standalone:
-      config: |
-        ui = true
-        listener "tcp" {
-          tls_disable = 1
-          address = "[::]:8200"
-          cluster_address = "[::]:8201"
-        }
-        storage "file" {
-          path = "/vault/data"
-        }
-        seal "transit" {
-           address         = "https://platform-vault-{{ requiredEnv "CLUSTER_NAME" }}.mdtu-ddm.projects.epam.com:8200"
-           disable_renewal = "false"
-           key_name        = "autounseal"
-           mount_path      = "transit/"
-           tls_skip_verify = "true"
-        }
+  centralVaultUrl: "https://platform-vault-{{ requiredEnv "CLUSTER_NAME" }}.mdtu-ddm.projects.epam.com:8200"

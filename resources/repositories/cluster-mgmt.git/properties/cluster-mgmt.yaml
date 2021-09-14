@@ -44,14 +44,14 @@ releases:
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/service-mesh.git
   version: master
   values: []
-- name: velero
+- name: backup-management
   version: master
   labels:
     type: remote
     update_scc: false
     isbranch: true
     path: components/infra/
-    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/velero.git
+    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/backup-management.git
   values: []
 - name: user-management
   version: master

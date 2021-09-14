@@ -10,7 +10,7 @@ helmfiles:
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/monitoring.git/deploy-templates/helmfile.yaml'
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/logging.git/deploy-templates/helmfile.yaml'
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/service-mesh.git/deploy-templates/helmfile.yaml'
-  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/velero.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/backup-management.git/deploy-templates/helmfile.yaml'
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/control-plane-nexus.git/deploy-templates/helmfile.yaml'
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/user-management.git/deploy-templates/helmfile.yaml'
 
@@ -34,6 +34,6 @@ environments:
       - ../properties/storage_values.gotmpl
       - ../properties/user-management_values.yaml
       - ../properties/user-management_values.gotmpl
-      - ../properties/velero_values.yaml
-      - ../properties/velero_values.gotmpl
+      - ../properties/backup-management_values.yaml
+      - ../properties/backup-management_values.gotmpl
 
