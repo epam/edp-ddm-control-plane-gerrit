@@ -28,3 +28,4 @@ spec:
   description: null
   framework: null
   ciTool: Jenkins
+  emptyProject: false
