@@ -165,17 +165,15 @@ class BuildDockerfileImageHelm {
 
 
                     // template release components
-                    def registryTenantTemplateHelmfile = "${context.workDir}/resources/repositories/templates/registry-tenant-template.git/deploy-templates/helmfile.yaml"
-                    processHelmfile(context, registryTenantTemplateHelmfile)
-
+                    processHelmfile(context, "${context.workDir}/resources/repositories/templates/registry-tenant-template-small.git/deploy-templates/helmfile.yaml")
+                    processHelmfile(context, "${context.workDir}/resources/repositories/templates/registry-tenant-template-medium.git/deploy-templates/helmfile.yaml")
+                    processHelmfile(context, "${context.workDir}/resources/repositories/templates/registry-tenant-template-large.git/deploy-templates/helmfile.yaml")
 
                     // cluster-mgmt.git
-                    def clusterMgmtHelmfile = "${context.workDir}/resources/repositories/cluster-mgmt.git/properties/cluster-mgmt.yaml"
-                    processHelmfile(context, clusterMgmtHelmfile)
+                    processHelmfile(context, "${context.workDir}/resources/repositories/cluster-mgmt.git/properties/cluster-mgmt.yaml")
 
                     // user-management.git
-                    def userManagementHelmfile = "${context.workDir}/repositories/components/infra/user-management.git/deploy-templates/helmfile.yaml"
-                    processHelmfile(context, userManagementHelmfile)
+                    processHelmfile(context, "${context.workDir}/repositories/components/infra/user-management.git/deploy-templates/helmfile.yaml")
 
                     // create bare git repos from templates
                     script.dir("resources/repositories") {
