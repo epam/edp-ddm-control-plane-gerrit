@@ -288,9 +288,9 @@ releases:
     update_scc: true
     repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
     path: components/registry/
-    stream: release-1-3
+    stream: master
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.3.0-RC.2
+  version: 1.4.0-SNAPSHOT.18
   values:
   - values.yaml
   - values.gotmpl
