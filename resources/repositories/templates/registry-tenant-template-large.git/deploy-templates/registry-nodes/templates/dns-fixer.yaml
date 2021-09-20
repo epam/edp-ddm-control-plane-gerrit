@@ -2,7 +2,6 @@ kind: DaemonSet
 apiVersion: apps/v1
 metadata:
   annotations:
-    "helm.sh/hook": post-install
     deprecated.daemonset.template.generation: '2'
     openshift.io/scc: node-exporter
   name: docker-registry-dns-fixer-{{ .Release.Namespace }}
@@ -58,7 +57,7 @@ spec:
               mountPath: /host/etc
           terminationMessagePolicy: File
           image: 'openshift/origin-cli'
-      serviceAccountName: dnslookup
+      serviceAccountName: dns-fixer-{{ .Release.Namespace }}
       volumes:
         - name: etc
           hostPath:
@@ -89,20 +88,38 @@ spec:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: dnslookup
+  name: dns-fixer-{{ .Release.Namespace }}
   namespace: {{ .Release.Namespace }}
 
 ---
-kind: RoleBinding
+apiVersion: authorization.openshift.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    openshift.io/description: Role for dns-fixer-{{ .Release.Namespace }} service account
+    openshift.io/reconcile-protect: "false"
+  name: dns-fixer-{{ .Release.Namespace }}-clusterrole
+rules:
+  - apiGroups:
+      - '*'
+    attributeRestrictions: null
+    resources:
+      - services
+    verbs:
+      - get
+      - list
+
+---
+kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: dnslookup
+  name: dns-fixer-{{ .Release.Namespace }}
   namespace: {{ .Release.Namespace }}
 subjects:
   - kind: ServiceAccount
-    name: dnslookup
+    name: dns-fixer-{{ .Release.Namespace }}
     namespace: {{ .Release.Namespace }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: dns-fixer-{{ .Release.Namespace }}-clusterrole

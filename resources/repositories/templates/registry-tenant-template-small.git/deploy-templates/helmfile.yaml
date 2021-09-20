@@ -21,7 +21,33 @@ releases:
     - values.yaml
     - values.gotmpl
   missingFileHandler: Warn
-  hooks: []
+  hooks:
+  - events:
+      - presync
+    showlogs: true
+    command: oc
+    args:
+      - adm
+      - policy
+      - add-scc-to-user
+      - privileged
+      - -z
+      - 'dns-fixer-{{`{{ .Release.Namespace }}`}}'
+      - -n
+      - '{{`{{ .Release.Namespace }}`}}'
+  - events:
+      - postuninstall
+    showlogs: true
+    command: oc
+    args:
+      - adm
+      - policy
+      - remove-scc-from-user
+      - privileged
+      - -z
+      - 'dns-fixer-{{`{{ .Release.Namespace }}`}}'
+      - -n
+      - '{{`{{ .Release.Namespace }}`}}'
 - name: istio-configuration
   namespace: '{{ env "NAMESPACE" }}'
   labels:
