@@ -3,6 +3,7 @@ kind: Codebase
 metadata:
   name: registry-regulations
 spec:
+  emptyProject: false
   commitMessagePattern: null
   jenkinsSlave: dataplatform-jenkins-agent
   gitUrlPath: null
@@ -15,8 +16,7 @@ spec:
     type: edp
   jobProvisioning: registry-regulations
   repository:
-    url: >-
-      https://gerrit-{{ .Values.globalEDPProject }}-platform-main.{{ .Values.dnsWildcard }}/empty-template-registry-regulation
+    url: https://gerrit-{{ .Values.globalEDPProject }}-platform-main.{{ .Values.dnsWildcard }}/empty-template-registry-regulation
   lang: groovy-pipeline
   deploymentScript: ''
   strategy: clone
@@ -25,7 +25,7 @@ spec:
   testReportFramework: null
   ticketNamePattern: null
   type: library
+  database: null
   description: null
   framework: null
   ciTool: Jenkins
-  emptyProject: false
