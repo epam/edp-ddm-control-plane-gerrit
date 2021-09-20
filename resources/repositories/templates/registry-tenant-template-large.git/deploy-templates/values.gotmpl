@@ -5,6 +5,7 @@ cdPipelineName: {{ requiredEnv "NAMESPACE" }}
 cloudProvider: {{ env "cloudProvider" }}
 cluster_prefix: {{ env "CLUSTER_NAME" }}
 globalEDPProject: {{ env "globalEDPProject" }}
+globalNexusNamespace: {{ requiredEnv "globalNexusNamespace" }}
 
 dockerRegistry: '{{ env "edpComponentDockerRegistryUrl" }}'
 dockerProxyRegistry: '{{ env "dockerProxyRegistry" }}'
