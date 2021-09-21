@@ -195,23 +195,23 @@ releases:
       - '{{ env "NAMESPACE" }}/keycloak-operator'
       - '{{ env "NAMESPACE" }}/gerrit-operator'
   - name: dataplatform-jenkins-agent
-      namespace: '{{ env "NAMESPACE" }}'
-      labels:
-        type: remote
-        update_scc: false
-        repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
-      chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-      version: 1.4.0-RC.48
-      values:
-        - values.yaml
-        - values.gotmpl
-      missingFileHandler: Warn
-      needs:
-        - '{{ env "NAMESPACE" }}/istio-configuration'
-        - '{{ env "NAMESPACE" }}/network-management'
-        - '{{ env "NAMESPACE" }}/keycloak-operator'
-        - '{{ env "NAMESPACE" }}/gerrit-operator'
-        - '{{ env "NAMESPACE" }}/jenkins-operator'
+    namespace: '{{ env "NAMESPACE" }}'
+    labels:
+      type: remote
+      update_scc: false
+      repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
+    chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
+    version: 1.4.0-RC.48
+    values:
+      - values.yaml
+      - values.gotmpl
+    missingFileHandler: Warn
+    needs:
+      - '{{ env "NAMESPACE" }}/istio-configuration'
+      - '{{ env "NAMESPACE" }}/network-management'
+      - '{{ env "NAMESPACE" }}/keycloak-operator'
+      - '{{ env "NAMESPACE" }}/gerrit-operator'
+      - '{{ env "NAMESPACE" }}/jenkins-operator'
   - name: gerrit-operator
     namespace: '{{ env "NAMESPACE" }}'
     labels:
