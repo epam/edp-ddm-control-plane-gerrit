@@ -594,6 +594,7 @@ releases:
       - '{{ env "NAMESPACE" }}/network-management'
       - '{{ env "NAMESPACE" }}/registry-auth'
       - '{{ env "NAMESPACE" }}/citus'
+      - '{{ env "NAMESPACE" }}/citizen-portal'
   - name: user-settings-service-api
     namespace: '{{ env "NAMESPACE" }}'
     labels:
