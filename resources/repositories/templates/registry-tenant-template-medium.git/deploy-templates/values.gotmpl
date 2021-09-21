@@ -38,14 +38,14 @@ jenkins:
   edpComponentDockerRegistryrepoURL: '{{ env "edpComponentDockerRegistryUrl" }}'
   sharedLibraries:
     - name: edp-library-stages
-      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:31000/libraries/registry-regulations-publication-stages.git
+      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedStagesPath" }}
       tag: 'master'
-      secret: gerrit-{{ env "globalEDPProject" }}-sshkey
+      secret: {{ env "libGerritSshKey" }}
       type: ssh
     - name: edp-library-pipelines
-      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:31000/libraries/registry-regulations-publication-pipeline.git
+      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedPipelinesPath" }}
       tag: 'master'
-      secret: gerrit-{{ env "globalEDPProject" }}-sshkey
+      secret: {{ env "libGerritSshKey" }}
       type: ssh
 
 cdPipelineName: {{ env "cdPipelineName" }}
