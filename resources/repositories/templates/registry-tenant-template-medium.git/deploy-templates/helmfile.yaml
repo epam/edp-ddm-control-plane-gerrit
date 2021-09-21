@@ -151,7 +151,6 @@ releases:
       - '{{ env "NAMESPACE" }}/network-management'
       - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
       - '{{ env "NAMESPACE" }}/citus'
-      - '{{ env "NAMESPACE" }}/jenkins-operator'
       - '{{ env "NAMESPACE" }}/gerrit-operator'
       - '{{ env "NAMESPACE" }}/keycloak-operator'
       - '{{ env "NAMESPACE" }}/nexus'
@@ -172,10 +171,7 @@ releases:
     needs:
       - '{{ env "NAMESPACE" }}/istio-configuration'
       - '{{ env "NAMESPACE" }}/network-management'
-      - '{{ env "NAMESPACE" }}/jenkins-operator'
-      - '{{ env "NAMESPACE" }}/gerrit-operator'
-      - '{{ env "NAMESPACE" }}/keycloak-operator'
-      - '{{ env "NAMESPACE" }}/nexus'
+      - '{{ env "NAMESPACE" }}/kong'
   - name: jenkins-operator
     namespace: '{{ env "NAMESPACE" }}'
     labels:
@@ -198,6 +194,24 @@ releases:
       - '{{ env "NAMESPACE" }}/network-management'
       - '{{ env "NAMESPACE" }}/keycloak-operator'
       - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - name: dataplatform-jenkins-agent
+      namespace: '{{ env "NAMESPACE" }}'
+      labels:
+        type: remote
+        update_scc: false
+        repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
+      chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
+      version: 1.4.0-RC.48
+      values:
+        - values.yaml
+        - values.gotmpl
+      missingFileHandler: Warn
+      needs:
+        - '{{ env "NAMESPACE" }}/istio-configuration'
+        - '{{ env "NAMESPACE" }}/network-management'
+        - '{{ env "NAMESPACE" }}/keycloak-operator'
+        - '{{ env "NAMESPACE" }}/gerrit-operator'
+        - '{{ env "NAMESPACE" }}/jenkins-operator'
   - name: gerrit-operator
     namespace: '{{ env "NAMESPACE" }}'
     labels:
@@ -279,7 +293,6 @@ releases:
       - '{{ env "NAMESPACE" }}/istio-configuration'
       - '{{ env "NAMESPACE" }}/network-management'
       - '{{ env "NAMESPACE" }}/bpms'
-      - '{{ env "NAMESPACE" }}/jenkins-operator'
       - '{{ env "NAMESPACE" }}/gerrit-operator'
       - '{{ env "NAMESPACE" }}/keycloak-operator'
       - '{{ env "NAMESPACE" }}/nexus'
@@ -559,6 +572,7 @@ releases:
       - '{{ env "NAMESPACE" }}/istio-configuration'
       - '{{ env "NAMESPACE" }}/network-management'
       - '{{ env "NAMESPACE" }}/kong'
+      - '{{ env "NAMESPACE" }}/officer-portal'
   - name: user-settings-service-persistence
     namespace: '{{ env "NAMESPACE" }}'
     labels:
