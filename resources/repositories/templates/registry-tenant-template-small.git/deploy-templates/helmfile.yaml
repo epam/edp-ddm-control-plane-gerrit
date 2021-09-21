@@ -199,7 +199,9 @@ releases:
   labels:
     type: remote
     update_scc: false
+    stream: master
     repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
+    path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
   version: 1.4.0-RC.48
   values:
