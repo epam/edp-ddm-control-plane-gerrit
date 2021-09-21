@@ -203,7 +203,7 @@ releases:
       repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
       path: components/registry/
     chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-    version: 1.4.0-RC.48
+    version: 1.4.0-RC.58
     values:
       - values.yaml
       - values.gotmpl
