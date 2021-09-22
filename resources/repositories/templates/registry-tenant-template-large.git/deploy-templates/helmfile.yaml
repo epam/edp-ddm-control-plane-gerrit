@@ -343,6 +343,8 @@ releases:
       - '{{ env "NAMESPACE" }}/gerrit-operator'
       - '{{ env "NAMESPACE" }}/keycloak-operator'
       - '{{ env "NAMESPACE" }}/nexus'
+      - '{{ env "NAMESPACE" }}/citizen-portal'
+      - '{{ env "NAMESPACE" }}/officer-portal'
   - name: kong
     namespace: '{{ env "NAMESPACE" }}'
     labels:
