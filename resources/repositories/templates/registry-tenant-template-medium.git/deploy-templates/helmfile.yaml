@@ -241,9 +241,9 @@ releases:
       update_scc: true
       repoURL: git@gitbud.epam.com:mdtu-ddm/devops/operators/codebase-operator.git
       path: components/registry/
-      stream: release-1-2
+      stream: release-1-4
     chart: /opt/repositories/codebase-operator/deploy-templates
-    version: 1.2.0-RC.1
+    version: 1.4.0-RC.2
     values:
       - operator:
           clusterRoleName: codebase-operator-{{ env "globalEDPProject" }}-clusterrole
