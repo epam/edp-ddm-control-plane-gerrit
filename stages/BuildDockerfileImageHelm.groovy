@@ -29,6 +29,12 @@ class BuildDockerfileImageHelm {
                 def branch
                 repositoryPath = release.labels.path.endsWith('/') || release.labels.path == '' ? release.labels.path + release.name + '.git' : release.labels.path + '/' + release.name + '.git'
                 gitCredentialsId = release.labels.repoURL.contains('gitbud.epam.com') ? 'git-epam-ciuser-sshkey' : 'gerrit-ciuser-sshkey'
+                
+                helmfileYAML.releases[releaseIndex].values.add([image: [name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/' + release.name + '-' + release.labels.stream, version: helmfileYAML.releases[releaseIndex].version]])
+                helmfileYAML.releases[releaseIndex].remove('repoURL')
+                helmfileYAML.releases[releaseIndex].remove('stream')
+                helmfileYAML.releases[releaseIndex].remove('type')
+
                 if (!script.fileExists("repositories/${repositoryPath}")) {
                     script.dir("repositories/${repositoryPath}") {
                         // version must be specified
@@ -36,17 +42,11 @@ class BuildDockerfileImageHelm {
                             throw new Exception("${release.name} version is not specified")
                         }
 
-
-                        helmfileYAML.releases[releaseIndex].values.add([image: [name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/' + release.name + '-' + release.labels.stream, version: helmfileYAML.releases[releaseIndex].version]])
-//                        helmfileYAML.releases[releaseIndex].values.add("${release.name}_values.yaml")
-//                        helmfileYAML.releases[releaseIndex].values.add("${release.name}_values.gotmpl")
-
                         script.checkout([$class                           : 'GitSCM', branches: [[name: gitBranch]],
                                          doGenerateSubmoduleConfigurations: false, extensions: [],
                                          submoduleCfg                     : [],
                                          userRemoteConfigs                : [[credentialsId: gitCredentialsId,
                                                                               url          : release.labels.repoURL]]])
-
 
                         try {
                             script.sh "cp -r deploy-templates/values.yaml ${helmfileDirectory}/${release.name}_values.yaml"
@@ -62,7 +62,6 @@ class BuildDockerfileImageHelm {
                             script.writeYaml data: chartYaml, file: 'deploy-templates/Chart.yaml', overwrite: true
                         }
 
-
                         try {
                             script.sh "cp -r deploy-templates/values.gotmpl ${helmfileDirectory}/${release.name}_values.gotmpl"
                         }
@@ -71,7 +70,6 @@ class BuildDockerfileImageHelm {
                             script.println "${e}"
                         }
 
-
                         if (release.version == 'master') {
                             branch = release.version
                         } else if (release.labels.isbranch == true) {
@@ -79,15 +77,11 @@ class BuildDockerfileImageHelm {
                         } else {
                             branch = release.version.replaceAll(/([0-9]+\.[0-9]+\.[0-9]+).*/, "\$1")
                         }
-                        helmfileYAML.releases[releaseIndex].remove('repoURL')
-                        helmfileYAML.releases[releaseIndex].remove('stream')
-                        helmfileYAML.releases[releaseIndex].remove('type')
 
                         script.sh("rm -rf .git; rm -f .gitignore .helmignore; git init; git add --all; git commit -a -m 'Repo init'")
                         script.sh("git checkout -f -B ${branch}")
                         script.sh("git checkout -f -B master")
                     }
-
                     script.sh "git clone --bare ${context.workDir}/repositories/${repositoryPath} ${context.workDir}/git/${repositoryPath}"
                 }
                 else {
