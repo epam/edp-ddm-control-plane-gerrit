@@ -18,36 +18,36 @@ releases:
     update_scc: false
   chart: registry-nodes
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   hooks:
   - events:
-      - presync
+    - presync
     showlogs: true
     command: oc
     args:
-      - adm
-      - policy
-      - add-scc-to-user
-      - privileged
-      - -z
-      - 'dns-fixer-{{`{{ .Release.Namespace }}`}}'
-      - -n
-      - '{{`{{ .Release.Namespace }}`}}'
+    - adm
+    - policy
+    - add-scc-to-user
+    - privileged
+    - -z
+    - dns-fixer-{{`{{ .Release.Namespace }}`}}
+    - -n
+    - '{{`{{ .Release.Namespace }}`}}'
   - events:
-      - postuninstall
+    - postuninstall
     showlogs: true
     command: oc
     args:
-      - adm
-      - policy
-      - remove-scc-from-user
-      - privileged
-      - -z
-      - 'dns-fixer-{{`{{ .Release.Namespace }}`}}'
-      - -n
-      - '{{`{{ .Release.Namespace }}`}}'
+    - adm
+    - policy
+    - remove-scc-from-user
+    - privileged
+    - -z
+    - dns-fixer-{{`{{ .Release.Namespace }}`}}
+    - -n
+    - '{{`{{ .Release.Namespace }}`}}'
 - name: istio-configuration
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -90,7 +90,7 @@ releases:
     - '{{`{{.Release.Namespace}}`}}'
     - type=registry
   needs:
-    - '{{ env "NAMESPACE" }}/registry-nodes'
+  - '{{ env "NAMESPACE" }}/registry-nodes'
 - name: network-management
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -123,25 +123,25 @@ releases:
     update_scc: false
   chart: codebases
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   needs:
-    - '{{ env "NAMESPACE" }}/istio-configuration'
-    - '{{ env "NAMESPACE" }}/network-management'
-    - '{{ env "NAMESPACE" }}/jenkins-operator'
-    - '{{ env "NAMESPACE" }}/gerrit-operator'
-    - '{{ env "NAMESPACE" }}/codebase-operator'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/codebase-operator'
 - name: bpms
   namespace: '{{ env "NAMESPACE" }}'
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.3.1-RC.2
+  version: 1.4.0-RC.3
   values:
   - values.yaml
   - values.gotmpl
@@ -159,11 +159,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/officer-portal/deploy-templates
-  version: 1.3.0-RC.2
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -177,11 +177,10 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/operators/jenkins-operator.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
-    stream: release-1-2
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.3.0-RC.10
+  version: 1.4.0-RC.3
   values:
   - values.yaml
   - values.gotmpl
@@ -199,31 +198,30 @@ releases:
   labels:
     type: remote
     update_scc: false
-    stream: master
-    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
+    stream: release-1-4
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.4.0-SNAPSHOT.58
+  version: 1.4.0-RC.4
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   needs:
-    - '{{ env "NAMESPACE" }}/istio-configuration'
-    - '{{ env "NAMESPACE" }}/network-management'
-    - '{{ env "NAMESPACE" }}/keycloak-operator'
-    - '{{ env "NAMESPACE" }}/gerrit-operator'
-    - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
 - name: gerrit-operator
   namespace: '{{ env "NAMESPACE" }}'
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/operators/gerrit-operator.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/gerrit-operator.git
     path: components/registry/
-    stream: release-1-2
   chart: /opt/repositories/gerrit-operator/deploy-templates
-  version: 1.3.0-RC.1
+  version: 1.4.0-RC.1
   values:
   - operator:
       clusterRoleName: gerrit-operator-role-{{ env "globalEDPProject" }}
@@ -239,9 +237,8 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/operators/codebase-operator.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/codebase-operator.git
     path: components/registry/
-    stream: release-1-4
   chart: /opt/repositories/codebase-operator/deploy-templates
   version: 1.4.0-RC.2
   values:
@@ -260,11 +257,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/user-process-management.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-process-management.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/user-process-management/deploy-templates
-  version: 1.3.0-RC.2
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -282,11 +279,11 @@ releases:
   labels:
     type: remote
     update_scc: false
-    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/bp-admin-portal.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-admin-portal.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/bp-admin-portal/deploy-templates
-  version: 1.3.0-RC.2
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -304,11 +301,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/user-task-management.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-task-management.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/user-task-management/deploy-templates
-  version: 1.3.0-RC.2
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -327,11 +324,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
     path: components/registry/
-    stream: master
+    stream: release-1-4
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.4.0-SNAPSHOT.18
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -350,11 +347,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/general/kong.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/kong/deploy-templates
-  version: 1.3.0-RC.1
+  version: 1.4.0-RC.1
   values:
   - values.yaml
   - values.gotmpl
@@ -371,11 +368,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/form-management.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-management.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/form-management/deploy-templates
-  version: 1.3.0-RC.1
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -394,11 +391,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/frontend/applications/admin-portal.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/admin-portal.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/admin-portal/deploy-templates
-  version: 1.3.0-RC.2
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -418,11 +415,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/redash-chart.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git
     path: components/registry/
-    stream: release-1-2
+    stream: release-1-4
   chart: /opt/repositories/redash-chart/deploy-templates
-  version: 1.3.0-RC.3
+  version: 1.4.0-RC.5
   values:
   - values.yaml
   - values.gotmpl
@@ -441,11 +438,10 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/pg-exporter-chart.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pg-exporter-chart.git
     path: components/registry/
-    stream: release-1-2
   chart: /opt/repositories/pg-exporter-chart/deploy-templates
-  version: 1.3.0-RC.1
+  version: 1.4.0-RC.1
   values:
   - values.yaml
   - values.gotmpl
@@ -463,11 +459,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/citus.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git
     path: components/registry/
-    stream: release-1-2
+    stream: release-1-4
   chart: /opt/repositories/citus/deploy-templates
-  version: 1.3.0-RC.1
+  version: 1.4.0-RC.4
   values:
   - values.yaml
   - values.gotmpl
@@ -484,11 +480,10 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git
     path: components/registry/
-    stream: release-1-2
   chart: /opt/repositories/strimzi-kafka-operator/deploy-templates
-  version: 1.3.0-RC.5
+  version: 1.4.0-RC.3
   skipDeps: true
   values:
   - values.yaml
@@ -506,11 +501,10 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/nexus.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git
     path: components/registry/
-    stream: release-1-2
   chart: /opt/repositories/nexus/deploy-templates
-  version: 1.3.0-RC.1
+  version: 1.4.0-RC.1
   values:
   - operator:
       clusterRoleName: nexus-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -526,11 +520,10 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/operators/keycloak-operator.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/keycloak-operator.git
     path: components/registry/
-    stream: release-1-2
   chart: /opt/repositories/keycloak-operator/deploy-templates
-  version: 1.3.0-RC.2
+  version: 1.4.0-RC.1
   values:
   - operator:
       clusterRoleName: keycloak-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -545,11 +538,10 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/devops-application/kafka-schema-registry.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/kafka-schema-registry.git
     path: components/registry/
-    stream: release-1-2
   chart: /opt/repositories/kafka-schema-registry/deploy-templates
-  version: 1.3.0-RC.1
+  version: 1.4.0-RC.1
   values:
   - values.yaml
   - values.gotmpl
@@ -563,11 +555,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/citizen-portal/deploy-templates
-  version: 1.3.0-RC.2
+  version: 1.4.0-RC.3
   values:
   - values.yaml
   - values.gotmpl
@@ -582,11 +574,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/application/user-settings-service-persistence.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-persistence.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/user-settings-service-persistence/deploy-templates
-  version: 1.3.1-RC.2
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -602,11 +594,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/application/user-settings-service-api.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/user-settings-service-api/deploy-templates
-  version: 1.3.0-RC.4
+  version: 1.4.0-RC.1
   values:
   - values.yaml
   - values.gotmpl
@@ -621,11 +613,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/bp-webservice-gateway.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-webservice-gateway.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/bp-webservice-gateway/deploy-templates
-  version: 1.3.0-RC.2
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -640,11 +632,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/platform/backend/applications/digital-document-service.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-document-service.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/digital-document-service/deploy-templates
-  version: 1.3.0-RC.2
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -658,11 +650,10 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/hashicorp-vault.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/hashicorp-vault.git
     path: components/registry/
-    stream: master
   chart: /opt/repositories/hashicorp-vault/deploy-templates
-  version: 1.4.0-SNAPSHOT.9
+  version: 1.4.0-RC.1
   values:
   - values.yaml
   - values.gotmpl
@@ -676,11 +667,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/application/excerpt-service-api.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-service-api.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/excerpt-service-api/deploy-templates
-  version: 1.3.0-RC.3
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -696,11 +687,11 @@ releases:
   labels:
     type: remote
     update_scc: true
-    repoURL: git@gitbud.epam.com:mdtu-ddm/data-architecture/application/excerpt-worker.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-worker.git
     path: components/registry/
-    stream: release-1-3
+    stream: release-1-4
   chart: /opt/repositories/excerpt-worker/deploy-templates
-  version: 1.3.0-RC.2
+  version: 1.4.0-RC.3
   values:
   - values.yaml
   - values.gotmpl
