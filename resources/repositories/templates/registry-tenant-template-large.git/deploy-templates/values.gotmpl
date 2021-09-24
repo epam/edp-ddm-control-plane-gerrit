@@ -39,12 +39,12 @@ jenkins:
     - name: edp-library-stages
       url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedStagesPath" }}
       tag: 'master'
-      secret: {{ env "libGerritSshKey" }}
+      secret: gerrit-{{ env "globalEDPProject" }}-sshkey
       type: ssh
     - name: edp-library-pipelines
       url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedPipelinesPath" }}
       tag: 'master'
-      secret: {{ env "libGerritSshKey" }}
+      secret: gerrit-{{ env "globalEDPProject" }}-sshkey
       type: ssh
 
 cdPipelineName: {{ env "cdPipelineName" }}
