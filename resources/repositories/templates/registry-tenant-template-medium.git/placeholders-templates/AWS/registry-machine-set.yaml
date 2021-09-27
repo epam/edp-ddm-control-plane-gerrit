@@ -40,7 +40,7 @@ spec:
             region: {{ .Values.node_region }}
           credentialsSecret:
             name: aws-cloud-credentials
-          instanceType: r5.xlarge
+          instanceType: r5.4xlarge
           metadata:
             creationTimestamp: null
           blockDevices:

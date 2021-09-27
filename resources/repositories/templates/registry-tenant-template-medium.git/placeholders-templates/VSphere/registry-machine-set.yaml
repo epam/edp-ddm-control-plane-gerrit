@@ -38,7 +38,7 @@ spec:
           snapshot: ''
           userDataSecret:
             name: worker-user-data
-          memoryMiB: 65536
+          memoryMiB: 131072
           credentialsSecret:
             name: vsphere-cloud-credentials
           network:
@@ -46,7 +46,7 @@ spec:
               - networkName: EPAM_OKD_Vlan9_EPG
           metadata:
             creationTimestamp: null
-          numCPUs: 8
+          numCPUs: 16
           kind: VSphereMachineProviderSpec
           workspace:
             datacenter: HXDP-02
