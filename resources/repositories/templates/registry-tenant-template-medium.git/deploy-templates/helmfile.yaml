@@ -213,6 +213,7 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/report-publisher'
 - name: gerrit-operator
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -433,6 +434,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/report-publisher'
 - name: pg-exporter-chart
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -702,6 +704,24 @@ releases:
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/citus'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+- name: report-publisher
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/libraries/report-publisher.git
+    path: components/registry/
+    stream: release-1-4
+  chart: /opt/repositories/report-publisher/deploy-templates
+  version: 1.4.0-RC.1
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
+    - '{{ env "NAMESPACE" }}/registry-auth'
 environments:
   default:
     missingFileHandler: Error
