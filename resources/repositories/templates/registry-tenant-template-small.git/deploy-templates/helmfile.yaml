@@ -163,7 +163,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/officer-portal/deploy-templates
-  version: 1.4.0-RC.2
+  version: 1.4.0-RC.3
   values:
   - values.yaml
   - values.gotmpl
@@ -202,7 +202,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.4.0-RC.6
+  version: 1.4.0-RC.5
   values:
   - values.yaml
   - values.gotmpl
@@ -328,7 +328,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.4.0-RC.2
+  version: 1.4.2-RC.1
   values:
   - values.yaml
   - values.gotmpl
@@ -351,7 +351,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/kong/deploy-templates
-  version: 1.4.0-RC.1
+  version: 1.4.0-RC.2
   values:
   - values.yaml
   - values.gotmpl
@@ -372,7 +372,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/form-management/deploy-templates
-  version: 1.4.0-RC.2
+  version: 1.4.0-RC.3
   values:
   - values.yaml
   - values.gotmpl
@@ -395,7 +395,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/admin-portal/deploy-templates
-  version: 1.4.0-RC.2
+  version: 1.4.0-RC.3
   values:
   - values.yaml
   - values.gotmpl
@@ -463,7 +463,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/citus/deploy-templates
-  version: 1.4.0-RC.4
+  version: 1.4.0-RC.5
   values:
   - values.yaml
   - values.gotmpl
@@ -559,7 +559,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/citizen-portal/deploy-templates
-  version: 1.4.0-RC.3
+  version: 1.4.0-RC.4
   values:
   - values.yaml
   - values.gotmpl
@@ -578,7 +578,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/user-settings-service-persistence/deploy-templates
-  version: 1.4.0-RC.2
+  version: 1.4.0-RC.4
   values:
   - values.yaml
   - values.gotmpl
@@ -598,7 +598,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/user-settings-service-api/deploy-templates
-  version: 1.4.0-RC.1
+  version: 1.4.0-RC.3
   values:
   - values.yaml
   - values.gotmpl
@@ -671,7 +671,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/excerpt-service-api/deploy-templates
-  version: 1.4.0-RC.2
+  version: 1.4.0-RC.4
   values:
   - values.yaml
   - values.gotmpl
@@ -691,7 +691,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/excerpt-worker/deploy-templates
-  version: 1.4.0-RC.3
+  version: 1.4.0-RC.6
   values:
   - values.yaml
   - values.gotmpl
@@ -711,17 +711,17 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/report-exporter/deploy-templates
-  version: 1.4.0-RC.2
+  version: 1.4.0-RC.3
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   needs:
-    - '{{ env "NAMESPACE" }}/istio-configuration'
-    - '{{ env "NAMESPACE" }}/network-management'
-    - '{{ env "NAMESPACE" }}/registry-auth'
-    - '{{ env "NAMESPACE" }}/registry-nodes'
-    - '{{ env "NAMESPACE" }}/redash-chart'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/registry-nodes'
+  - '{{ env "NAMESPACE" }}/redash-chart'
 environments:
   default:
     missingFileHandler: Error

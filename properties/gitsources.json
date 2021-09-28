@@ -2,7 +2,7 @@
    "registry-regulations-publication-stages":    {
       "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-stages.git",
       "path": "/libraries",
-      "version": "build/1.4.0-RC.7"
+      "version": "build/1.4.0-RC.4"
    },
    "registry-regulations-publication-pipeline":    {
       "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
