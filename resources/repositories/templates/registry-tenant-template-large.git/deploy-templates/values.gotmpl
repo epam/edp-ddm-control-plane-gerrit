@@ -35,6 +35,7 @@ keycloak:
 
 jenkins:
   edpComponentDockerRegistryrepoURL: '{{ env "edpComponentDockerRegistryUrl" }}'
+{{- if eq (env "envType") "target" }}
   sharedLibraries:
     - name: edp-library-stages
       url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedStagesPath" }}
@@ -46,6 +47,7 @@ jenkins:
       tag: 'master'
       secret: {{ env "libGerritCredId" }}
       type: ssh
+{{- end }}
 
 cdPipelineName: {{ env "cdPipelineName" }}
 cdPipelineStageName: main
