@@ -721,6 +721,7 @@ releases:
     - '{{ env "NAMESPACE" }}/network-management'
     - '{{ env "NAMESPACE" }}/registry-auth'
     - '{{ env "NAMESPACE" }}/registry-nodes'
+    - '{{ env "NAMESPACE" }}/redash-chart'
 environments:
   default:
     missingFileHandler: Error
