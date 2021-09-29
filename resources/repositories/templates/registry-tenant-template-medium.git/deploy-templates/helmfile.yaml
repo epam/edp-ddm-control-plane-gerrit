@@ -467,7 +467,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
-  - '{{ env "NAMESPACE" }}/citus'\
+  - '{{ env "NAMESPACE" }}/citus'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: citus
   namespace: '{{ env "NAMESPACE" }}'
