@@ -154,6 +154,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: officer-portal
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -172,6 +173,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/kong'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: jenkins-operator
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -193,6 +195,7 @@ releases:
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: dataplatform-jenkins-agent
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -213,6 +216,7 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: gerrit-operator
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -232,6 +236,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: codebase-operator
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -252,6 +257,7 @@ releases:
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/jenkins-operator'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: user-process-management
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -274,6 +280,7 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/bpms'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: bp-admin-portal
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -296,6 +303,7 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/admin-portal'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: user-task-management
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -319,6 +327,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: digital-signature-ops
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -342,6 +351,7 @@ releases:
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/citizen-portal'
   - '{{ env "NAMESPACE" }}/officer-portal'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: kong
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -363,6 +373,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: form-management
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -386,6 +397,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: admin-portal
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -410,6 +422,7 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/form-management'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: redash-chart
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -433,6 +446,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: pg-exporter-chart
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -454,6 +468,7 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: citus
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -475,6 +490,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: strimzi-kafka-operator
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -496,6 +512,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: nexus
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -515,6 +532,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: keycloak-operator
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -533,6 +551,7 @@ releases:
   needs:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: kafka-schema-registry
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -550,6 +569,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: citizen-portal
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -569,6 +589,7 @@ releases:
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/kong'
   - '{{ env "NAMESPACE" }}/officer-portal'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: user-settings-service-persistence
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -589,6 +610,7 @@ releases:
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/citus'
   - '{{ env "NAMESPACE" }}/citizen-portal'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: user-settings-service-api
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -608,6 +630,7 @@ releases:
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: bp-webservice-gateway
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -627,6 +650,7 @@ releases:
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/bpms'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: digital-document-service
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -645,6 +669,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: hashicorp-vault
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -662,6 +687,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: excerpt-service-api
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -682,6 +708,7 @@ releases:
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/citus'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: excerpt-worker
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -702,6 +729,7 @@ releases:
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/citus'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: report-exporter
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -722,6 +750,21 @@ releases:
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/registry-nodes'
   - '{{ env "NAMESPACE" }}/redash-chart'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
+- name: registry-configuration
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
+    path: components/registry/
+    stream: release-1-4
+  chart: /opt/repositories/registry-configuration/deploy-templates
+  version: 1.4.0-SNAPSHOT.3
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
 environments:
   default:
     missingFileHandler: Error
