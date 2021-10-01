@@ -2,12 +2,12 @@
    "registry-regulations-publication-stages":    {
       "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-stages.git",
       "path": "/libraries",
-      "version": "build/1.4.0-RC.7"
+      "version": "build/1.4.0-RC.12"
    },
    "registry-regulations-publication-pipeline":    {
       "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
       "path": "/libraries",
-      "version": "build/1.4.0-RC.3"
+      "version": "build/1.4.0-RC.9"
    },
    "empty-template-registry-regulation":    {
       "url": "git@gitbud.epam.com:mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
