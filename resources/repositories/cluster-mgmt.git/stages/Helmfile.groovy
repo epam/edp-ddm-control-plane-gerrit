@@ -1,7 +1,7 @@
 import com.epam.edp.stages.impl.ci.ProjectType
 import com.epam.edp.stages.impl.ci.Stage
 
-@Stage(name = "deploy-openshift", buildTool = ["gitops"], type = [ProjectType.CLUSTERMGMT])
+@Stage(name = "deploy-via-helmfile", buildTool = ["gitops"], type = [ProjectType.CLUSTERMGMT])
 class Helmfile  {
     Script script
 
