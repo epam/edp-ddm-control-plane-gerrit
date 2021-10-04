@@ -10,17 +10,17 @@
       "version": "build/1.4.0-RC.9"
    },
    "empty-template-registry-regulation":    {
-      "url": "git@gitbud.epam.com:mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
+      "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
       "path": "/",
       "version": "release/1.4"
    },
    "edp-library-stages-fork":    {
-      "url": "git@gitbud.epam.com:mdtu-ddm/general/librarires/edp-library-stages-fork.git",
+      "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/librarires/edp-library-stages-fork.git",
       "path": "/libraries",
       "version": "master"
    },
    "edp-library-pipelines-fork":    {
-      "url": "git@gitbud.epam.com:mdtu-ddm/general/librarires/edp-library-pipelines-fork.git",
+      "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/librarires/edp-library-pipelines-fork.git",
       "path": "/libraries",
       "version": "master"
    }
