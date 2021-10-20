@@ -7,7 +7,7 @@
    "registry-regulations-publication-pipeline":    {
       "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
       "path": "/libraries",
-      "version": "build/1.4.0-RC.9"
+      "version": "build/1.4.0-RC.17"
    },
    "empty-template-registry-regulation":    {
       "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
@@ -23,5 +23,10 @@
       "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/librarires/edp-library-pipelines-fork.git",
       "path": "/libraries",
       "version": "master"
+   },
+   "history-excerptor-chart":    {
+      "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/data-architecture/devops-application/history-excerptor-chart.git",
+      "path": "/components/runtime",
+      "version": "release/1.4"
    }
 }

@@ -8,9 +8,9 @@ dockerRegistry: '{{ env "edpComponentDockerRegistryUrl" }}'
 dockerProxyRegistry: '{{ env "dockerProxyRegistry" }}'
 edpProject: '{{ env "edpProject" }}'
 globalNexusNamespace: '{{ env "globalNexusNamespace" }}'
-ACCESS_KEY_ID: '{{ requiredEnv "ACCESS_KEY_ID" }}'
-SECRET_ACCESS_KEY: '{{ requiredEnv "SECRET_ACCESS_KEY" }}'
-backupBucket: '{{ requiredEnv "backupBucket" }}'
+ACCESS_KEY_ID: '{{ env "ACCESS_KEY_ID" }}'
+SECRET_ACCESS_KEY: '{{ env "SECRET_ACCESS_KEY" }}'
+backupBucket: '{{ env "backupBucket" }}'
 
 global:
   storageClass: {{ requiredEnv "platformStorageClass" }}
@@ -19,6 +19,6 @@ global:
 #  storageClass:
 
 vault:
-  platformVaultToken: {{ requiredEnv "platformVaultToken" }}
-  openshiftApiUrl: {{ requiredEnv "openshiftApiUrl" }}
-  centralVaultUrl: "https://platform-vault-{{ requiredEnv "CLUSTER_NAME" }}.mdtu-ddm.projects.epam.com:8200"
+  platformVaultToken: {{ env "platformVaultToken" }}
+  openshiftApiUrl: {{ env "openshiftApiUrl" }}
+  centralVaultUrl: "https://platform-vault-{{ env "CLUSTER_NAME" }}.mdtu-ddm.projects.epam.com:8200"

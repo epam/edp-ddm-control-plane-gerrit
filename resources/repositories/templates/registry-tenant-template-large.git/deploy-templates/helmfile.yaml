@@ -141,7 +141,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.4.0-RC.5
+  version: 1.4.0-RC.13
   values:
   - values.yaml
   - values.gotmpl
@@ -164,7 +164,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/officer-portal/deploy-templates
-  version: 1.4.0-RC.4
+  version: 1.4.0-RC.7
   values:
   - values.yaml
   - values.gotmpl
@@ -182,7 +182,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.4.0-RC.9
+  version: 1.4.0-RC.16
   values:
   - values.yaml
   - values.gotmpl
@@ -205,7 +205,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.4.0-RC.9
+  version: 1.4.0-RC.23
   values:
   - values.yaml
   - values.gotmpl
@@ -245,7 +245,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/codebase-operator.git
     path: components/registry/
   chart: /opt/repositories/codebase-operator/deploy-templates
-  version: 1.4.0-RC.3
+  version: 1.4.0-RC.5
   values:
   - operator:
       clusterRoleName: codebase-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -267,7 +267,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/user-process-management/deploy-templates
-  version: 1.4.0-RC.4
+  version: 1.4.0-RC.11
   values:
   - values.yaml
   - values.gotmpl
@@ -290,7 +290,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/bp-admin-portal/deploy-templates
-  version: 1.4.0-RC.3
+  version: 1.4.0-RC.5
   values:
   - values.yaml
   - values.gotmpl
@@ -313,7 +313,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/user-task-management/deploy-templates
-  version: 1.4.0-RC.5
+  version: 1.4.0-RC.12
   values:
   - values.yaml
   - values.gotmpl
@@ -337,7 +337,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.4.2-RC.1
+  version: 1.4.2-RC.8
   values:
   - values.yaml
   - values.gotmpl
@@ -383,7 +383,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/form-management/deploy-templates
-  version: 1.4.0-RC.7
+  version: 1.4.0-RC.12
   values:
   - values.yaml
   - values.gotmpl
@@ -407,7 +407,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/admin-portal/deploy-templates
-  version: 1.4.0-RC.5
+  version: 1.4.0-RC.8
   values:
   - values.yaml
   - values.gotmpl
@@ -432,7 +432,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/redash-chart/deploy-templates
-  version: 1.4.0-RC.8
+  version: 1.4.0-RC.9
   values:
   - values.yaml
   - values.gotmpl
@@ -478,7 +478,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/citus/deploy-templates
-  version: 1.4.0-RC.9
+  version: 1.4.0-RC.12
   values:
   - values.yaml
   - values.gotmpl
@@ -541,7 +541,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/keycloak-operator.git
     path: components/registry/
   chart: /opt/repositories/keycloak-operator/deploy-templates
-  version: 1.4.0-RC.1
+  version: 1.4.0-RC.3
   values:
   - operator:
       clusterRoleName: keycloak-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -579,7 +579,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/citizen-portal/deploy-templates
-  version: 1.4.0-RC.6
+  version: 1.4.0-RC.9
   values:
   - values.yaml
   - values.gotmpl
@@ -599,7 +599,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/user-settings-service-persistence/deploy-templates
-  version: 1.4.0-RC.5
+  version: 1.4.0-RC.6
   values:
   - values.yaml
   - values.gotmpl
@@ -620,7 +620,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/user-settings-service-api/deploy-templates
-  version: 1.4.0-RC.5
+  version: 1.4.0-RC.7
   values:
   - values.yaml
   - values.gotmpl
@@ -640,7 +640,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/bp-webservice-gateway/deploy-templates
-  version: 1.4.0-RC.3
+  version: 1.4.0-RC.10
   values:
   - values.yaml
   - values.gotmpl
@@ -660,7 +660,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/digital-document-service/deploy-templates
-  version: 1.4.0-RC.3
+  version: 1.4.0-RC.10
   values:
   - values.yaml
   - values.gotmpl
@@ -697,7 +697,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/excerpt-service-api/deploy-templates
-  version: 1.4.0-RC.8
+  version: 1.4.0-RC.10
   values:
   - values.yaml
   - values.gotmpl
@@ -718,7 +718,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/excerpt-worker/deploy-templates
-  version: 1.4.0-RC.9
+  version: 1.4.0-RC.11
   values:
   - values.yaml
   - values.gotmpl
@@ -739,7 +739,7 @@ releases:
     path: components/registry/
     stream: release-1-4
   chart: /opt/repositories/report-exporter/deploy-templates
-  version: 1.4.0-RC.4
+  version: 1.4.0-RC.6
   values:
   - values.yaml
   - values.gotmpl
@@ -758,37 +758,8 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
-    stream: release-1-4
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.4.0-SNAPSHOT.3
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-- name: trembita-dev
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/trembita.git
-    path: components/registry/
-    stream: master
-  chart: /opt/repositories/trembita/deploy-templates
-  version: 1.2.0-SNAPSHOT.4
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-- name: trembita-edr-registry-mock
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/mock/trembita-edr-registry-mock.git
-    path: components/registry/
-    stream: master
-  chart: /opt/repositories/trembita-edr-registry-mock/deploy-templates
-  version: 1.3.0-SNAPSHOT.19
+  version: 1.4.0-RC.3
   values:
   - values.yaml
   - values.gotmpl

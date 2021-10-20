@@ -28,10 +28,7 @@ nexus:
   edpMavenRepoUrl: {{ env "edpMavenRepoUrl" }}
 
 keycloak:
-  host: platform-keycloak.{{ requiredEnv "dnsWildcard" }}
-  url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}
-  ssoRealm:
-    autoRedirectEnabled: {{ env "autoRedirectEnabled" }}
+
 
 jenkins:
   edpComponentDockerRegistryrepoURL: '{{ env "edpComponentDockerRegistryUrl" }}'
@@ -49,9 +46,6 @@ jenkins:
       type: ssh
 {{- end }}
 
-cdPipelineName: {{ env "cdPipelineName" }}
-cdPipelineStageName: main
-
 vault:
   platformVaultToken: {{ env "platformVaultToken" }}
   openshiftApiUrl: {{ env "openshiftApiUrl" }}
@@ -63,3 +57,32 @@ vault:
       storageClass: ocs-storagecluster-ceph-rbd
 
 instance_count_per_region: "5"
+
+cdPipelineName: {{ env "cdPipelineName" }}
+{{ $cdPipelineStageName := "main" }}
+cdPipelineStageName: {{ $cdPipelineStageName }}
+
+{{- if eq (env "envType") "target" }}
+codebases:
+  registryRegulations:
+    historyExcerptorUrl: https://gerrit-{{ env "globalEDPProject" }}-platform-{{ $cdPipelineStageName }}.{{ requiredEnv "dnsWildcard" }}/components/runtime/history-excerptor-chart
+    referenceRepoUrl: https://gerrit-{{ env "globalEDPProject" }}-platform-{{ $cdPipelineStageName }}.{{ requiredEnv "dnsWildcard" }}/empty-template-registry-regulation
+{{- end }}
+
+#TODO: remove if after property will be merged
+trembitaExchangeGateway:
+  url: https://trembita-edr-registry-mock.{{ env "dnsWildcard" }}/mockEDRService
+#TODO end
+keycloak:
+  host: platform-keycloak.{{ requiredEnv "dnsWildcard" }}
+  url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}
+  ssoRealm:
+    autoRedirectEnabled: {{ env "autoRedirectEnabled" }}
+#TODO: remove if after property will be merged
+  authFlows:
+    citizenAuthFlow:
+      authenticators:
+        dsCitizenAuthenticator:
+          authenticatorConfig:
+            trembitaUrl: https://trembita-edr-registry-mock.{{ env "dnsWildcard" }}/mockEDRService
+#TODO end

@@ -25,7 +25,6 @@ keycloakIntegration:
   realm: admin
 
 global:
-  storageClass: ocs-storagecluster-ceph-rbd
   platform: openshift
   gerrit:
     administrators: []

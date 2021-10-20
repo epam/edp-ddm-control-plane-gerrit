@@ -4,6 +4,34 @@ helmDefaults:
 
 missingFileHandler: Warn
 
+
+releases:
+  - name: trembita-edr-registry-mock
+    namespace: trembita-edr-registry-mock
+    chart: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/trembita-edr-registry-mock.git/deploy-templates'
+    version: 1.3.0-SNAPSHOT.21
+    labels:
+      type: remote
+      update_scc: true
+      isbranch: false
+      stream: master
+      path: components/infra/
+      repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/mock/trembita-edr-registry-mock.git
+    values:
+      - values.yaml
+      - values.gotmpl
+    missingFileHandler: Warn
+  - name: ip-restrictions
+    namespace: control-plane
+    chart: ip-restrictions
+    version: 1.0.0
+    labels:
+      type: local
+    values:
+      - values.yaml
+      - values.gotmpl
+    missingFileHandler: Warn
+
 helmfiles:
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/catalog-source.git/deploy-templates/helmfile.yaml'
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/storage.git/deploy-templates/helmfile.yaml'
@@ -12,7 +40,9 @@ helmfiles:
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/service-mesh.git/deploy-templates/helmfile.yaml'
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/backup-management.git/deploy-templates/helmfile.yaml'
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/control-plane-nexus.git/deploy-templates/helmfile.yaml'
-  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/user-management.git/deploy-templates/helmfile.yaml'
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/user-management.git/deploy-templates/helmfile.yaml'
+
+
 
 environments:
   default:
@@ -36,4 +66,7 @@ environments:
       - ../properties/user-management_values.gotmpl
       - ../properties/backup-management_values.yaml
       - ../properties/backup-management_values.gotmpl
+  mock:
+    missingFileHandler: Warn
+    values: []
 

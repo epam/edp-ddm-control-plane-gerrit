@@ -165,6 +165,7 @@ class BuildDockerfileImageHelm {
 
                     // cluster-mgmt.git
                     processHelmfile(context, "${context.workDir}/resources/repositories/cluster-mgmt.git/properties/cluster-mgmt.yaml")
+                    processHelmfile(context, "${context.workDir}/resources/repositories/cluster-mgmt.git/deploy-templates/helmfile.yaml")
 
                     // user-management.git
                     processHelmfile(context, "${context.workDir}/repositories/components/infra/user-management.git/deploy-templates/helmfile.yaml")

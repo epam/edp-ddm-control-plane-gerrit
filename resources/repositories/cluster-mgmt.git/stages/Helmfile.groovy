@@ -36,24 +36,77 @@ class Helmfile  {
 
                   def helmfile = 'deploy-templates/helmfile.yaml'
                   def clustermgmt = 'properties/cluster-mgmt.yaml'
+                  def usermanagementHelmfile
                   def components = script.readYaml file: clustermgmt
+                  def helmfileYaml = script.readYaml file: helmfile
                   def gitURL = "ssh://${context.git.autouser}@${context.git.host}:${context.git.sshPort}/"
 
                   components.releases.each {
-                      script.dir('/opt/repositories/' + it.labels.path + '/' + it.name + '.git') {
-                          script.checkout([$class                           : 'GitSCM', branches: [[name: 'master']],
-                                           doGenerateSubmoduleConfigurations: false, extensions: [],
-                                           submoduleCfg                     : [],
-                                           userRemoteConfigs                : [[credentialsId: context.git.credentialsId,
-                                                                                url          : gitURL + it.labels.path + it.name ]]])
+                      if (it.name == 'user-management') {
+                          usermanagementHelmfile = '/opt/repositories/' + it.labels.path + '/user-management.git/deploy-templates/helmfile.yaml'
+                      }
+                      if (it.labels.type == "remote") {
+                          script.dir('/opt/repositories/' + it.labels.path + '/' + it.name + '.git') {
+                              script.checkout([$class                           : 'GitSCM', branches: [[name: 'master']],
+                                               doGenerateSubmoduleConfigurations: false, extensions: [],
+                                               submoduleCfg                     : [],
+                                               userRemoteConfigs                : [[credentialsId: context.git.credentialsId,
+                                                                                    url          : gitURL + it.labels.path + it.name]]])
+                          }
                       }
                   }
+
+                  helmfileYaml.releases.each { release, releaseIndex ->
+                      if (release.labels.type == "remote") {
+                          script.dir('/opt/repositories/' + release.labels.path + '/' + release.name + '.git') {
+                              script.checkout([$class                           : 'GitSCM', branches: [[name: 'master']],
+                                               doGenerateSubmoduleConfigurations: false, extensions: [],
+                                               submoduleCfg                     : [],
+                                               userRemoteConfigs                : [[credentialsId: context.git.credentialsId,
+                                                                                    url          : gitURL + release.labels.path + release.name]]])
+                          }
+                      }
+
+                      // SCC
+                      if (release.labels.update_scc == true) {
+                          script.sh "oc create namespace ${release.namespace} --dry-run=true -o yaml | oc apply -f -"
+                          ['anyuid', 'privileged'].each { scc ->
+                              try {
+                                  context.platform.addSccToUser(release.name, scc, release.namespace)
+                              }
+                              catch (e) {
+                                  script.println e
+                                  def sleepSeconds = new Random().nextInt(60)
+                                  script.sh "sleep ${sleepSeconds}"
+                                  script.println "Trying to add SCC one more time"
+                                  context.platform.addSccToUser(release.name, scc, release.namespace)
+                              }
+
+                          }
+                          context.platform.createRoleBinding("system:serviceaccount:${release.name}", "view", release.namespace)
+                      }
+                  }
+
+                  def usermanagementYaml = script.readYaml file: usermanagementHelmfile
+                  usermanagementYaml.releases.each {
+                      if (it.labels.type == "remote") {
+                          script.dir('/opt/repositories/' + it.labels.path + '/' + it.name + '.git') {
+                              script.checkout([$class                           : 'GitSCM', branches: [[name: 'master']],
+                                               doGenerateSubmoduleConfigurations: false, extensions: [],
+                                               submoduleCfg                     : [],
+                                               userRemoteConfigs                : [[credentialsId: context.git.credentialsId,
+                                                                                    url          : gitURL + it.labels.path + it.name]]])
+                          }
+                      }
+                  }
+
                   // DON'T UNCOMMENT ON CICD* CLUSTERS
                   if (context.job.dnsWildcard.startsWith("apps.cicd")) {
                       script.println "cluster-mgmt could not be triggered on 'cicd?' clusters"
                   }
                   else {
                       script.sh("cat ${helmfile}")
+                      script.sh("helmfile -f ${helmfile} -l name=ip-restrictions sync")
                       script.sh("helmfile -f ${helmfile} sync --concurrency 1")
                   }
 

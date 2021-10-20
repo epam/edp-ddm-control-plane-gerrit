@@ -1,6 +1,7 @@
 global:
   edpName: '{{ env "NAMESPACE" }}'
   imageRegistry: '{{ env "imageRegistry" }}'
+  storageClass: {{ requiredEnv "platformStorageClass" }}
 
 operator:
   image:
