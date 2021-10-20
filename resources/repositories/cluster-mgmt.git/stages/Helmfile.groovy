@@ -10,6 +10,7 @@ class Helmfile  {
         script.openshift.withCluster() {
             script.openshift.withProject() {
               script.dir("${context.workDir}") {
+                  def clusterCloudProvider = script.sh(script: """oc get machine -n "openshift-machine-api" -l "machine.openshift.io/cluster-api-machine-role=master" --no-headers -o=jsonpath='{.items[0].spec.providerSpec.value.kind}'""", returnStdout: true).trim()
                   script.env.NAMESPACE = context.codebase.config.name
                   script.env.ciProject = context.job.ciProject
                   script.env.dnsWildcard = context.job.dnsWildcard
@@ -22,8 +23,7 @@ class Helmfile  {
                   script.env.dockerRegistry = script.env.edpComponentDockerRegistryUrl
                   script.env.dockerProxyRegistry = script.env.edpComponentDockerRegistryUrl
                   script.env.autoRedirectEnabled = context.job.dnsWildcard.startsWith("apps.cicd") ? 'true' : 'false'
-                  script.env.ACCESS_KEY_ID = script.sh(script: """ oc get secret -n ${script.env.edpProject} backup-credentials -o jsonpath='{.data.backup-s3-like-storage-credentials}' | base64 -d | awk -F : '{print \$1}' """ , returnStdout: true).trim()
-                  script.env.SECRET_ACCESS_KEY =  script.sh(script: """ oc get secret -n ${script.env.edpProject} backup-credentials -o jsonpath='{.data.backup-s3-like-storage-credentials}' | base64 -d | awk -F : '{print \$2}' """ , returnStdout: true).trim()
+                  script.env.cloudProvider = clusterCloudProvider.substring(0, clusterCloudProvider.indexOf("MachineProviderConfig"))
                   script.env.backupBucket = script.sh(script: """ oc get secret -n ${script.env.edpProject} backup-credentials -o jsonpath='{.data.backup-s3-like-storage-location}' | base64 -d """ , returnStdout: true).trim()
                   script.env.dockerhub_username = script.sh(script: """ oc get secret -n openshift-config pull-secret -o jsonpath='{.data.\\.dockerconfigjson}' | base64 -d | jq -r '.auths."https://index.docker.io/v2/".username' """, returnStdout: true).trim()
                   script.env.dockerhub_password = script.sh(script: """ oc get secret -n openshift-config pull-secret -o jsonpath='{.data.\\.dockerconfigjson}' | base64 -d | jq -r '.auths."https://index.docker.io/v2/".password' """, returnStdout: true).trim()
