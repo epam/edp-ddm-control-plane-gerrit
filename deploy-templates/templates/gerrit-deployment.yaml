@@ -17,7 +17,9 @@ spec:
   template:
     metadata:
       annotations:
+        {{- if ne .Values.cloud.provider "AWS" }}
         backup.velero.io/backup-volumes: {{ .Values.gerrit.name }}-data
+        {{- end }}
         sidecar.istio.io/inject: "false"
       labels:
         app: {{ .Values.gerrit.name }}
