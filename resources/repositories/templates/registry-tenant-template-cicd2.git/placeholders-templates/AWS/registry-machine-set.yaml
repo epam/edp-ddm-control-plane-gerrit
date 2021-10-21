@@ -2,7 +2,7 @@ apiVersion: machine.openshift.io/v1beta1
 kind: MachineSet
 metadata:
   annotations: {}
-  name: {{ .Values.cluster_prefix }}-{{ .Release.Namespace }}-{{ .Values.node_zone }}
+  name: {{ .Values.cluster_prefix }}-{{ .Release.Namespace | strings.TrimPrefix "mdtu-ddm-edp-cicd-" }}-{{ .Values.node_zone }}
   namespace: openshift-machine-api
   labels:
     machine.openshift.io/cluster-api-cluster: {{ .Values.cluster_prefix }}
@@ -12,14 +12,14 @@ spec:
   selector:
     matchLabels:
       machine.openshift.io/cluster-api-cluster: {{ .Values.cluster_prefix }}
-      machine.openshift.io/cluster-api-machineset: {{ .Values.cluster_prefix }}-{{ .Release.Namespace }}-{{ .Values.node_zone }}
+      machine.openshift.io/cluster-api-machineset: {{ .Values.cluster_prefix }}-{{ .Release.Namespace | strings.TrimPrefix "mdtu-ddm-edp-cicd-" }}-{{ .Values.node_zone }}
   template:
     metadata:
       labels:
         machine.openshift.io/cluster-api-cluster: {{ .Values.cluster_prefix }}
         machine.openshift.io/cluster-api-machine-role: worker
         machine.openshift.io/cluster-api-machine-type: worker
-        machine.openshift.io/cluster-api-machineset: {{ .Values.cluster_prefix }}-{{ .Release.Namespace }}-{{ .Values.node_zone }}
+        machine.openshift.io/cluster-api-machineset: {{ .Values.cluster_prefix }}-{{ .Release.Namespace | strings.TrimPrefix "mdtu-ddm-edp-cicd-" }}-{{ .Values.node_zone }}
     spec:
       taints:
         - effect: NoSchedule
