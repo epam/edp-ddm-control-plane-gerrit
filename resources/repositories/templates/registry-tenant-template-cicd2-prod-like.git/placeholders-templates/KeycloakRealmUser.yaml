@@ -1,0 +1,15 @@
+apiVersion: v1.edp.epam.com/v1alpha1
+kind: KeycloakRealmUser
+metadata:
+  annotations:
+    helm.sh/resource-policy: keep
+  name:
+spec:
+  realm: admin
+  username:
+  email:
+  groups: []
+  enabled: true
+  emailVerified: true
+  requiredUserActions:
+    - UPDATE_PASSWORD
