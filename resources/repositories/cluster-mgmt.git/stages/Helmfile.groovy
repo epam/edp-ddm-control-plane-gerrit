@@ -30,6 +30,7 @@ class Helmfile  {
                   script.env.platformVaultToken = script.sh(script: """ oc get secret -n ${script.env.edpProject}  vault-root-access-token -o jsonpath='{.data.vault-access-token}' """ , returnStdout: true).trim()
                   script.env.openshiftApiUrl = script.sh(script: """ oc whoami --show-server """ , returnStdout: true).trim()
                   script.env.platformStorageClass = script.sh(script: """ oc get storageclass -o=jsonpath='{.items[?(@.metadata.annotations.storageclass\\.kubernetes\\.io/is-default-class=="true")].metadata.name}' | awk '{print \$1}' """ , returnStdout: true).trim()
+                  script.env.baseDomain = script.sh(script: """oc get dns cluster --no-headers -o jsonpath='{.spec.baseDomain}'""", returnStdout: true).trim()
 
                   script.env.globalNexusNamespace = context.job.dnsWildcard.startsWith("apps.cicd") ? 'mdtu-ddm-edp-cicd' : script.env.dockerRegistry.replaceAll(/.*\.(.*)\.svc:[0-9]+/,'\$1')
 
