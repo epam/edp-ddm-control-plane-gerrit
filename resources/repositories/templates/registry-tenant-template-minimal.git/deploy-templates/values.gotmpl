@@ -57,7 +57,7 @@ vault:
     auditStorage:
       storageClass: ocs-storagecluster-ceph-rbd
 
-instance_count_per_region: "5"
+instance_count_per_region: "1"
 
 cdPipelineName: {{ env "cdPipelineName" }}
 {{ $cdPipelineStageName := "main" }}
