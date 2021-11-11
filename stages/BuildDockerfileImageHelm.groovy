@@ -29,7 +29,7 @@ class BuildDockerfileImageHelm {
                 def branch
                 repositoryPath = release.labels.path.endsWith('/') || release.labels.path == '' ? release.labels.path + release.name + '.git' : release.labels.path + '/' + release.name + '.git'
                 gitCredentialsId = release.labels.repoURL.contains('gitbud.epam.com') ? 'git-epam-ciuser-sshkey' : 'gerrit-ciuser-sshkey'
-                
+
                 helmfileYAML.releases[releaseIndex].values.add([image: [name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/' + release.name + '-' + release.labels.stream, version: helmfileYAML.releases[releaseIndex].version]])
                 helmfileYAML.releases[releaseIndex].remove('repoURL')
                 helmfileYAML.releases[releaseIndex].remove('stream')
@@ -83,8 +83,7 @@ class BuildDockerfileImageHelm {
                         script.sh("git checkout -f -B master")
                     }
                     script.sh "git clone --bare ${context.workDir}/repositories/${repositoryPath} ${context.workDir}/git/${repositoryPath}"
-                }
-                else {
+                } else {
                     script.println "repositories/${repositoryPath} already exists"
                 }
             }
@@ -144,8 +143,7 @@ class BuildDockerfileImageHelm {
                                 branch = value.version.replaceAll(/build\/([0-9]+\.[0-9]+\.[0-9]+).*/, "\$1")
                             } else if (value.version.startsWith('release/')) {
                                 branch = value.version.replaceAll(/release\/([0-9]+\.[0-9]+).*/, "\$1")
-                            }
-                            else {
+                            } else {
                                 branch = value.version
                             }
 
@@ -159,9 +157,10 @@ class BuildDockerfileImageHelm {
 
 
                     // template release components
-                    processHelmfile(context, "${context.workDir}/resources/repositories/templates/registry-tenant-template-small.git/deploy-templates/helmfile.yaml")
-                    processHelmfile(context, "${context.workDir}/resources/repositories/templates/registry-tenant-template-medium.git/deploy-templates/helmfile.yaml")
-                    processHelmfile(context, "${context.workDir}/resources/repositories/templates/registry-tenant-template-large.git/deploy-templates/helmfile.yaml")
+                    ArrayList listOfTemplates = script.sh(script: """ ls -1 ${context.workDir}/resources/repositories/templates """, returnStdout: true).tokenize('\n')
+                    listOfTemplates.each {
+                        processHelmfile(context, "${context.workDir}/resources/repositories/templates/${it}/deploy-templates/helmfile.yaml")
+                    }
 
                     // cluster-mgmt.git
                     processHelmfile(context, "${context.workDir}/resources/repositories/cluster-mgmt.git/properties/cluster-mgmt.yaml")
