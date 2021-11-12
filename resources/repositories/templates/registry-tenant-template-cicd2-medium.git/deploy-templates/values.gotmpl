@@ -20,10 +20,12 @@ global:
     administrators: []
   gerrit:
     administrators: []
+  kafkaOperator:
+    kafkaBrokers: 1
+  citus:
+    masterWorkers: 0
+    replicaWorkers: 0
   disableRequestsLimits: true
-  numberOfKafkaBrokers: 1
-  numberOfCitusWorkers: 0
-  numberOfCitusWorkersReplica: 0
 
 storageClass: ocs-storagecluster-ceph-rbd
 nexus:
