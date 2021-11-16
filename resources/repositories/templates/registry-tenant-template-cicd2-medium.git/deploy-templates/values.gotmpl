@@ -26,6 +26,17 @@ global:
   citus:
     masterWorkers: 0
     replicaWorkers: 0
+  kong:
+    # Log Severity Levels: 
+    # debug – Debugging messages that are not useful most of the time.
+    # info – Informational messages that might be good to know.
+    # notice – Something normal but significant happened and it should be noted.
+    # warn – Something unexpected happened, however it’s not a cause for concern.
+    # error – Something failed.
+    # crit – A critical condition occurred.
+    # alert – Immediate action is required.
+    # emerg – The system is unusable.
+    log_level: info
   disableRequestsLimits: true
 
 storageClass: ocs-storagecluster-ceph-rbd
