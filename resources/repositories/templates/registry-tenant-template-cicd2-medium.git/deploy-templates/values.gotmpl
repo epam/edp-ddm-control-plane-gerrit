@@ -26,6 +26,10 @@ global:
   citus:
     masterWorkers: 0
     replicaWorkers: 0
+  kong:
+    # Level of logging for the controller. Allowed values are 
+    # trace, debug, info, warn, error, fatal and panic. (default "info")
+    appLogLevel: info
   disableRequestsLimits: true
 
 storageClass: ocs-storagecluster-ceph-rbd
