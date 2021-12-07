@@ -9,9 +9,7 @@ spec:
       app: nexus
   ingress:
     - from:
-        - podSelector:
-            matchLabels:
-              mdtu-ddm.projects.epam.com/operator-name: nexus-operator
+        - podSelector: {}
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
