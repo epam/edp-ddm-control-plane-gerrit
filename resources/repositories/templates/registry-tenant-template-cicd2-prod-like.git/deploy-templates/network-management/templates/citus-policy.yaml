@@ -36,6 +36,15 @@ spec:
         - podSelector:
             matchLabels:
               app: prometheus-postgres-exporter
+        - podSelector:
+            matchLabels:
+              app: registry-rest-api
+        - podSelector:
+            matchLabels:
+              app: registry-kafka-api
+        - podSelector:
+            matchLabels:
+              name: history-excerptor-job
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
