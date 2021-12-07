@@ -21,6 +21,13 @@ global:
     administrators: []
   gerrit:
     administrators: []
+  kafkaOperator:
+    kafkaBrokers: 3
+    zookeepers: 3
+    replicationFactor: 3
+  citus:
+    masterWorkers: 2
+    replicaWorkers: 2
 
 storageClass: ocs-storagecluster-ceph-rbd
 nexus:
