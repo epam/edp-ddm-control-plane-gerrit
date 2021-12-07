@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: nexus-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: nexus
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              mdtu-ddm.projects.epam.com/operator-name: nexus-operator
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}

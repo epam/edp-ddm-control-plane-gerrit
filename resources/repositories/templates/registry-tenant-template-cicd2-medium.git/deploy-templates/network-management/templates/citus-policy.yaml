@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: citus-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: citus-master
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              job-name: run-db-scripts-job
+        - podSelector:
+            matchLabels:
+              job-name: create-dashboard-job
+        - podSelector:
+            matchLabels:
+              app: business-process-administration-portal
+        - podSelector:
+            matchLabels:
+              app: user-settings-service-persistence
+        - podSelector:
+            matchLabels:
+              app: citus-master-rep
+        - podSelector:
+            matchLabels:
+              app: bpms
+        - podSelector:
+            matchLabels:
+              app: excerpt-service-api
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker
+        - podSelector:
+            matchLabels:
+              app: prometheus-postgres-exporter
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kafka-connect
+      ports:
+        - protocol: TCP
+          port: 5432

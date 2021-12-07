@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: form-management-provider-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: form-management-provider
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kong
+        - podSelector:
+            matchLabels:
+              app: user-process-management
+        - podSelector:
+            matchLabels:
+              app: user-task-management
+        - podSelector:
+            matchLabels:
+              app: digital-document-service
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}

@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: kafka-cluster-kafka-bootstrap-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: kafka
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: kafka-schema-registry
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kafka-ui
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: entity-operator
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kafka-exporter
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kafka-connect
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}
