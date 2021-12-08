@@ -30,6 +30,9 @@ spec:
         - podSelector:
             matchLabels:
               app: excerpt-service-api
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
