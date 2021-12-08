@@ -44,7 +44,7 @@ spec:
               app: registry-kafka-api
         - podSelector:
             matchLabels:
-              name: history-excerptor-job
+              app: citus-workers
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
