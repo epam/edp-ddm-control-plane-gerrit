@@ -18,6 +18,12 @@ spec:
         - podSelector:
             matchLabels:
               app: bpms
+        - podSelector:
+            matchLabels:
+              app: registry-rest-api
+        - podSelector:
+            matchLabels:
+              app: registry-kafka-api
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

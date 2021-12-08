@@ -24,6 +24,15 @@ spec:
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: kafka-connect
+        - podSelector:
+            matchLabels:
+              app: registry-rest-api
+        - podSelector:
+            matchLabels:
+              app: registry-kafka-api
+        - podSelector:
+            matchLabels:
+              app: registry-soap-api
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

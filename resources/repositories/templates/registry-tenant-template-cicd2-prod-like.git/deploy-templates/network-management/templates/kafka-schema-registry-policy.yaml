@@ -1,0 +1,26 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: kafka-schema-registry-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: kafka-schema-registry
+  ingress:
+    - ports:
+        - protocol: TCP
+          port: 8081
+      from:
+        - podSelector:
+            matchLabels:
+              app: registry-rest-api
+        - podSelector:
+            matchLabels:
+              app: registry-kafka-api
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kafka-connect
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}
