@@ -24,6 +24,12 @@ spec:
         - podSelector:
             matchLabels:
               app: registry-kafka-api
+        - podSelector:
+            matchLabels:
+              name: history-excerptor-job
+        - podSelector:
+            matchLabels:
+              app: excerpt-service-api
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

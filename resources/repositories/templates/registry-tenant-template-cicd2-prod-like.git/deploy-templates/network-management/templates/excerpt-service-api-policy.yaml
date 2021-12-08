@@ -12,6 +12,9 @@ spec:
         - podSelector:
             matchLabels:
               app: bpms
+        - podSelector:
+            matchLabels:
+              name: history-excerptor-job
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
