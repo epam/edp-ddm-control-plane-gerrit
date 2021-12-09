@@ -20,6 +20,12 @@ spec:
               app: registry-kafka-api
         - podSelector:
             matchLabels:
+              app: user-settings-service-api
+        - podSelector:
+            matchLabels:
+              app: user-settings-service-persistence
+        - podSelector:
+            matchLabels:
               app.kubernetes.io/name: kafka-connect
         - namespaceSelector:
             matchLabels:
