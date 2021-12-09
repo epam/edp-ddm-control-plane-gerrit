@@ -1,23 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: excerpt-service-api-policy
+  name: report-exporter-policy
   namespace: {{ .Values.namespace }}
 spec:
   podSelector:
     matchLabels:
-      app: excerpt-service-api
+      app: report-exporter
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              app: bpms
-        - podSelector:
-            matchLabels:
               app.kubernetes.io/name: kong
-        - podSelector:
-            matchLabels:
-              name: history-excerptor-job
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

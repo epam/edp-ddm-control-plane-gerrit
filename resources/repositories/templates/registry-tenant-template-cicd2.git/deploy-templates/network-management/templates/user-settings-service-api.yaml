@@ -12,6 +12,9 @@ spec:
         - podSelector:
             matchLabels:
               app: bpms
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kong
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

@@ -12,6 +12,9 @@ spec:
         - podSelector:
             matchLabels:
               app: redash-exporter
+        - podSelector:
+            matchLabels:
+              app: report-exporter
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

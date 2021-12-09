@@ -14,6 +14,9 @@ spec:
               app: bpms
         - podSelector:
             matchLabels:
+              app.kubernetes.io/name: kong
+        - podSelector:
+            matchLabels:
               name: history-excerptor-job
         - namespaceSelector:
             matchLabels:
