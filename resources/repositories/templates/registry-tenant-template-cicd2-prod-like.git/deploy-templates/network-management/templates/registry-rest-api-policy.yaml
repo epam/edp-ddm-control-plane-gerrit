@@ -18,6 +18,9 @@ spec:
         - podSelector:
             matchLabels:
               app: registry-soap-api
+        - podSelector:
+            matchLabels:
+              app: bpms
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
