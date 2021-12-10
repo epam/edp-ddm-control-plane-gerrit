@@ -18,6 +18,12 @@ spec:
         - podSelector:
             matchLabels:
               app: citus-workers-rep
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: redash-admin
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: redash-viewer
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
