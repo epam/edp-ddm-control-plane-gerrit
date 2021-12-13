@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   selector:
-    service.istio.io/canonical-name: istio-ingressgateway
+    istio: istio-ingressgateway-{{ .Values.stageName }}
   servers:
     - port:
         number: 80
