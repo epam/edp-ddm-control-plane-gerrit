@@ -6,7 +6,7 @@ metadata:
 spec:
   workloadSelector:
     labels:
-      istio: ingressgateway
+      istio: istio-ingressgateway-{{ .Values.stageName }}
   configPatches:
     - applyTo: NETWORK_FILTER
       match:

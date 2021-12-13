@@ -11,7 +11,7 @@ spec:
     - from:
         - podSelector:
             matchLabels:
-              istio: ingressgateway
+              app: istio-ingressgateway
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
