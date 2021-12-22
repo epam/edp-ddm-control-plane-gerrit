@@ -48,6 +48,12 @@ spec:
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: redash-viewer
+        - podSelector:
+            matchLabels:
+              app: process-history-service-api
+        - podSelector:
+            matchLabels:
+              app: process-history-service-persistence
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
