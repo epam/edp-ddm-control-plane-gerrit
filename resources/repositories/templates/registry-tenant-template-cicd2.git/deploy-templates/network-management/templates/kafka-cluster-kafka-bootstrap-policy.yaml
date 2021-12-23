@@ -24,6 +24,9 @@ spec:
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: kafka-connect
+        - podSelector:
+            matchLabels:
+              app: process-history-service-persistence
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
