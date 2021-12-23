@@ -26,6 +26,9 @@ spec:
               app: user-settings-service-persistence
         - podSelector:
             matchLabels:
+              app: process-history-service-api
+        - podSelector:
+            matchLabels:
               app.kubernetes.io/name: kafka-connect
         - namespaceSelector:
             matchLabels:
