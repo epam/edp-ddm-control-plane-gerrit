@@ -33,6 +33,9 @@ spec:
         - podSelector:
             matchLabels:
               app: registry-soap-api
+        - podSelector:
+            matchLabels:
+              app: process-history-service-persistence
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

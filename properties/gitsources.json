@@ -15,12 +15,12 @@
       "version": "release/1.4"
    },
    "edp-library-stages-fork":    {
-      "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/librarires/edp-library-stages-fork.git",
+      "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-stages-fork.git",
       "path": "/libraries",
       "version": "master"
    },
    "edp-library-pipelines-fork":    {
-      "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/librarires/edp-library-pipelines-fork.git",
+      "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-pipelines-fork.git",
       "path": "/libraries",
       "version": "master"
    },
