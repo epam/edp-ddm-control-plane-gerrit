@@ -62,6 +62,13 @@ vault:
     auditStorage:
       storageClass: ocs-storagecluster-ceph-rbd
 
+s3:
+  config:
+    client:
+      protocol: http
+    options:
+      pathStyleAccess: true
+
 instance_count_per_region: "4"
 
 cdPipelineName: {{ env "cdPipelineName" }}
