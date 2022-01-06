@@ -22,8 +22,9 @@ for repo in `find . -type d -mindepth 1 -maxdepth 3 -name "*.git"`; do
               su-exec ${GERRIT_USER} git checkout -f -B $i ;
               rm -rf ./*;
               rm -rf /opt/git/source_repo/.git; rm -f /opt/git/source_repo/.gitignore /opt/git/source_repo/.helmignore;
-              scp -rp /opt/git/source_repo/* ./;
+              scp -rp /opt/git/source_repo/* ./ || echo "Nothing to copy";
               chown -R ${GERRIT_USER} ./ && chown -R ${GERRIT_USER} ./.git;
+              su-exec ${GERRIT_USER} git add --all || echo "Nothing to add";
               su-exec ${GERRIT_USER} git commit -am "Add new branch $i " || echo "Nothing to commit";
               su-exec ${GERRIT_USER} git push origin refs/heads/$i:$i --force || echo "No push to repo";
             done
