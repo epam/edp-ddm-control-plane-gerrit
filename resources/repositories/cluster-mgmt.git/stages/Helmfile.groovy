@@ -47,7 +47,7 @@ class Helmfile  {
                       }
                       if (it.labels.type == "remote") {
                           script.dir('/opt/repositories/' + it.labels.path + '/' + it.name + '.git') {
-                              script.checkout([$class                           : 'GitSCM', branches: [[name: 'master']],
+                              script.checkout([$class                           : 'GitSCM', branches: [[name: it.labels.branch]],
                                                doGenerateSubmoduleConfigurations: false, extensions: [],
                                                submoduleCfg                     : [],
                                                userRemoteConfigs                : [[credentialsId: context.git.credentialsId,
@@ -59,7 +59,7 @@ class Helmfile  {
                   helmfileYaml.releases.each { release, releaseIndex ->
                       if (release.labels.type == "remote") {
                           script.dir('/opt/repositories/' + release.labels.path + '/' + release.name + '.git') {
-                              script.checkout([$class                           : 'GitSCM', branches: [[name: 'master']],
+                              script.checkout([$class                           : 'GitSCM', branches: [[name: it.labels.branch]],
                                                doGenerateSubmoduleConfigurations: false, extensions: [],
                                                submoduleCfg                     : [],
                                                userRemoteConfigs                : [[credentialsId: context.git.credentialsId,
@@ -91,7 +91,7 @@ class Helmfile  {
                   usermanagementYaml.releases.each {
                       if (it.labels.type == "remote") {
                           script.dir('/opt/repositories/' + it.labels.path + '/' + it.name + '.git') {
-                              script.checkout([$class                           : 'GitSCM', branches: [[name: 'master']],
+                              script.checkout([$class                           : 'GitSCM', branches: [[name: it.labels.branch]],
                                                doGenerateSubmoduleConfigurations: false, extensions: [],
                                                submoduleCfg                     : [],
                                                userRemoteConfigs                : [[credentialsId: context.git.credentialsId,

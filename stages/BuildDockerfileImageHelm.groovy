@@ -21,12 +21,10 @@ class BuildDockerfileImageHelm {
     void processHelmfile(context, def helmfile) {
         def helmfileYAML = script.readYaml file: helmfile
         def repositoryPath, gitCredentialsId
-        String helmfileDirectory = script.sh(script: "dirname -z ${helmfile}", returnStdout: true).trim()
 
         helmfileYAML.releases.eachWithIndex { release, releaseIndex ->
             if (release.labels.type == 'remote') {
                 def gitBranch = (release.version == 'master' || release.labels.isbranch == true) ? release.version : 'build/' + release.version
-                def branch
                 repositoryPath = release.labels.path.endsWith('/') || release.labels.path == '' ? release.labels.path + release.name + '.git' : release.labels.path + '/' + release.name + '.git'
                 gitCredentialsId = release.labels.repoURL.contains('gitbud.epam.com') ? 'git-epam-ciuser-sshkey' : 'gerrit-ciuser-sshkey'
 
@@ -48,13 +46,6 @@ class BuildDockerfileImageHelm {
                                          userRemoteConfigs                : [[credentialsId: gitCredentialsId,
                                                                               url          : release.labels.repoURL]]])
 
-                        try {
-                            script.sh "cp -r deploy-templates/values.yaml ${helmfileDirectory}/${release.name}_values.yaml"
-                        }
-                        catch (e) {
-                            script.writeFile file: "${helmfileDirectory}/${release.name}_values.yaml", text: "# Values for ${release.name}"
-                            script.println "${e}"
-                        }
 
                         if (release.version.matches("^[0-9]+\\.[0-9]+\\.[0-9]+.*")) {
                             def chartYaml = script.readYaml file: 'deploy-templates/Chart.yaml'
@@ -62,24 +53,10 @@ class BuildDockerfileImageHelm {
                             script.writeYaml data: chartYaml, file: 'deploy-templates/Chart.yaml', overwrite: true
                         }
 
-                        try {
-                            script.sh "cp -r deploy-templates/values.gotmpl ${helmfileDirectory}/${release.name}_values.gotmpl"
-                        }
-                        catch (e) {
-                            script.writeFile file: "${helmfileDirectory}/${release.name}_values.gotmpl", text: "# Values with variables for ${release.name}"
-                            script.println "${e}"
-                        }
-
-                        if (release.version == 'master') {
-                            branch = release.version
-                        } else if (release.labels.isbranch == true) {
-                            branch = release.version
-                        } else {
-                            branch = release.version.replaceAll(/([0-9]+\.[0-9]+\.[0-9]+).*/, "\$1")
-                        }
+                        helmfileYAML.releases[releaseIndex].labels.branch = release.version
 
                         script.sh("rm -rf .git; rm -f .gitignore .helmignore; git init; git add --all; git commit -a -m 'Repo init'")
-                        script.sh("git checkout -f -B ${branch}")
+                        script.sh("git checkout -f -B ${release.version}")
                         script.sh("git checkout -f -B master")
                     }
                     script.sh "git clone --bare ${context.workDir}/repositories/${repositoryPath} ${context.workDir}/git/${repositoryPath}"
@@ -138,17 +115,9 @@ class BuildDockerfileImageHelm {
                                              submoduleCfg                     : [],
                                              userRemoteConfigs                : [[credentialsId: gitCredentialsId,
                                                                                   url          : value.url]]])
-                            def branch
-                            if (value.version.startsWith('build/')) {
-                                branch = value.version.replaceAll(/build\/([0-9]+\.[0-9]+\.[0-9]+).*/, "\$1")
-                            } else if (value.version.startsWith('release/')) {
-                                branch = value.version.replaceAll(/release\/([0-9]+\.[0-9]+).*/, "\$1")
-                            } else {
-                                branch = value.version
-                            }
 
                             script.sh("rm -rf .git; rm -f .gitignore .helmignore; git init; git add --all; git commit -a -m 'Repo init'")
-                            script.sh("git checkout -f -B ${branch}")
+                            script.sh("git checkout -f -B ${value.version}")
                             script.sh("git checkout -f -B master")
 
                             script.sh "git clone --bare ${context.workDir}/repositories/${repositoryPath} ${context.workDir}/git/${repositoryPath}"
