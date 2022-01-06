@@ -19,7 +19,9 @@ global:
 #global:
 #  storageClass:
 
+
+{{ $centralVaultUrl := exec "oc" (list "get" "Secret" "-n" (env "globalEDPProject") "vault-root-access-token" "--no-headers" "-o" "jsonpath={.data.vaultUrl}") }}
 vault:
   platformVaultToken: {{ env "platformVaultToken" }}
   openshiftApiUrl: {{ env "openshiftApiUrl" }}
-  centralVaultUrl: "https://platform-vault-{{ env "CLUSTER_NAME" }}.{{ env "baseDomain" }}:8200"
+  centralVaultUrl: {{ b64dec $centralVaultUrl }}
