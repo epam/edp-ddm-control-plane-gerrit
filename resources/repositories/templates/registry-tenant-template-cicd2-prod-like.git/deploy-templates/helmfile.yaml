@@ -206,7 +206,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.5.0-SNAPSHOT.150
+  version: 1.5.0-SNAPSHOT.152
   values:
   - values.yaml
   - values.gotmpl
@@ -810,7 +810,7 @@ releases:
     path: components/registry/
     stream: data-pipe-ci-verified
   chart: /opt/repositories/process-history-service-api/deploy-templates
-  version: 1.5.0-SNAPSHOT.6
+  version: 1.5.0-SNAPSHOT.7
   values:
   - values.yaml
   - values.gotmpl
@@ -830,7 +830,7 @@ releases:
     path: components/registry/
     stream: data-pipe-ci-verified
   chart: /opt/repositories/process-history-service-persistence/deploy-templates
-  version: 1.5.0-SNAPSHOT.5
+  version: 1.5.0-SNAPSHOT.7
   values:
   - values.yaml
   - values.gotmpl
