@@ -139,9 +139,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.4.0-RC.13
+  version: 1.5.0-SNAPSHOT.153
   values:
   - values.yaml
   - values.gotmpl
@@ -162,9 +162,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/officer-portal/deploy-templates
-  version: 1.4.0-RC.7
+  version: 1.5.0-SNAPSHOT.91
   values:
   - values.yaml
   - values.gotmpl
@@ -181,8 +181,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
+    stream: devops-qa-verified
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.4.0-RC.16
+  version: 1.5.0-SNAPSHOT.94
   values:
   - values.yaml
   - values.gotmpl
@@ -201,11 +202,11 @@ releases:
   labels:
     type: remote
     update_scc: false
-    stream: release-1-4
+    stream: data-pipe-ci-verified
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.4.0-RC.23
+  version: 1.5.0-SNAPSHOT.152
   values:
   - values.yaml
   - values.gotmpl
@@ -224,8 +225,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/gerrit-operator.git
     path: components/registry/
+    stream: devops-qa-verified
   chart: /opt/repositories/gerrit-operator/deploy-templates
-  version: 1.4.0-RC.1
+  version: 1.5.0-SNAPSHOT.25
   values:
   - operator:
       clusterRoleName: gerrit-operator-role-{{ env "globalEDPProject" }}
@@ -244,8 +246,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/codebase-operator.git
     path: components/registry/
+    stream: devops-qa-verified
   chart: /opt/repositories/codebase-operator/deploy-templates
-  version: 1.4.0-RC.5
+  version: 1.5.0-SNAPSHOT.12
   values:
   - operator:
       clusterRoleName: codebase-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -265,9 +268,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-process-management.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/user-process-management/deploy-templates
-  version: 1.4.0-RC.11
+  version: 1.5.0-SNAPSHOT.74
   values:
   - values.yaml
   - values.gotmpl
@@ -288,9 +291,9 @@ releases:
     update_scc: false
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-admin-portal.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/bp-admin-portal/deploy-templates
-  version: 1.4.0-RC.5
+  version: 1.5.0-SNAPSHOT.67
   values:
   - values.yaml
   - values.gotmpl
@@ -311,9 +314,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-task-management.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/user-task-management/deploy-templates
-  version: 1.4.0-RC.12
+  version: 1.5.0-SNAPSHOT.92
   values:
   - values.yaml
   - values.gotmpl
@@ -335,9 +338,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.4.2-RC.8
+  version: 1.5.0-SNAPSHOT.62
   values:
   - values.yaml
   - values.gotmpl
@@ -359,9 +362,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/kong/deploy-templates
-  version: 1.4.0-RC.3
+  version: 1.5.0-SNAPSHOT.14
   values:
   - values.yaml
   - values.gotmpl
@@ -381,9 +384,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-management.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/form-management/deploy-templates
-  version: 1.4.0-RC.12
+  version: 1.5.0-SNAPSHOT.78
   values:
   - values.yaml
   - values.gotmpl
@@ -405,9 +408,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/admin-portal.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/admin-portal/deploy-templates
-  version: 1.4.0-RC.8
+  version: 1.5.0-SNAPSHOT.81
   values:
   - values.yaml
   - values.gotmpl
@@ -430,9 +433,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git
     path: components/registry/
-    stream: release-1-4
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/redash-chart/deploy-templates
-  version: 1.4.0-RC.9
+  version: 1.5.0-SNAPSHOT.65
   values:
   - values.yaml
   - values.gotmpl
@@ -454,8 +457,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pg-exporter-chart.git
     path: components/registry/
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/pg-exporter-chart/deploy-templates
-  version: 1.4.0-RC.1
+  version: 1.5.0-SNAPSHOT.7
   values:
   - values.yaml
   - values.gotmpl
@@ -476,9 +480,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git
     path: components/registry/
-    stream: release-1-4
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/citus/deploy-templates
-  version: 1.4.0-RC.12
+  version: 1.5.0-SNAPSHOT.82
   values:
   - values.yaml
   - values.gotmpl
@@ -498,8 +502,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git
     path: components/registry/
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/strimzi-kafka-operator/deploy-templates
-  version: 1.4.0-RC.4
+  version: 1.5.0-SNAPSHOT.36
   skipDeps: true
   values:
   - values.yaml
@@ -520,8 +525,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git
     path: components/registry/
+    stream: devops-qa-verified
   chart: /opt/repositories/nexus/deploy-templates
-  version: 1.4.0-RC.1
+  version: 1.5.0-SNAPSHOT.17
   values:
   - operator:
       clusterRoleName: nexus-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -540,8 +546,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/keycloak-operator.git
     path: components/registry/
+    stream: devops-qa-verified
   chart: /opt/repositories/keycloak-operator/deploy-templates
-  version: 1.4.0-RC.3
+  version: 1.5.0-SNAPSHOT.30
   values:
   - operator:
       clusterRoleName: keycloak-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -559,8 +566,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/kafka-schema-registry.git
     path: components/registry/
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/kafka-schema-registry/deploy-templates
-  version: 1.4.0-RC.1
+  version: 1.5.0-SNAPSHOT.7
   values:
   - values.yaml
   - values.gotmpl
@@ -577,9 +585,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/citizen-portal/deploy-templates
-  version: 1.4.0-RC.9
+  version: 1.5.0-SNAPSHOT.86
   values:
   - values.yaml
   - values.gotmpl
@@ -597,9 +605,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-persistence.git
     path: components/registry/
-    stream: release-1-4
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/user-settings-service-persistence/deploy-templates
-  version: 1.4.0-RC.6
+  version: 1.5.0-SNAPSHOT.54
   values:
   - values.yaml
   - values.gotmpl
@@ -618,9 +626,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git
     path: components/registry/
-    stream: release-1-4
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/user-settings-service-api/deploy-templates
-  version: 1.4.0-RC.7
+  version: 1.5.0-SNAPSHOT.52
   values:
   - values.yaml
   - values.gotmpl
@@ -638,9 +646,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-webservice-gateway.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/bp-webservice-gateway/deploy-templates
-  version: 1.4.0-RC.10
+  version: 1.5.0-SNAPSHOT.60
   values:
   - values.yaml
   - values.gotmpl
@@ -658,9 +666,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-document-service.git
     path: components/registry/
-    stream: release-1-4
+    stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/digital-document-service/deploy-templates
-  version: 1.4.0-RC.10
+  version: 1.5.0-SNAPSHOT.63
   values:
   - values.yaml
   - values.gotmpl
@@ -695,9 +703,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-service-api.git
     path: components/registry/
-    stream: release-1-4
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/excerpt-service-api/deploy-templates
-  version: 1.4.0-RC.10
+  version: 1.5.0-SNAPSHOT.68
   values:
   - values.yaml
   - values.gotmpl
@@ -716,9 +724,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-worker.git
     path: components/registry/
-    stream: release-1-4
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/excerpt-worker/deploy-templates
-  version: 1.4.0-RC.11
+  version: 1.5.0-SNAPSHOT.66
   values:
   - values.yaml
   - values.gotmpl
@@ -737,9 +745,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/report-exporter.git
     path: components/registry/
-    stream: release-1-4
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/report-exporter/deploy-templates
-  version: 1.4.0-RC.6
+  version: 1.5.0-SNAPSHOT.51
   values:
   - values.yaml
   - values.gotmpl
@@ -758,8 +766,9 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
+    stream: devops-qa-verified
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.4.0-RC.3
+  version: 1.5.0-SNAPSHOT.66
   values:
   - values.yaml
   - values.gotmpl
@@ -771,19 +780,19 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/process-history-service-api.git
     path: components/registry/
-    stream: master
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/process-history-service-api/deploy-templates
-  version: 1.5.0-SNAPSHOT.2
+  version: 1.5.0-SNAPSHOT.7
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   needs:
-    - '{{ env "NAMESPACE" }}/istio-configuration'
-    - '{{ env "NAMESPACE" }}/network-management'
-    - '{{ env "NAMESPACE" }}/registry-auth'
-    - '{{ env "NAMESPACE" }}/citus'
-    - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: process-history-service-persistence
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -791,20 +800,20 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/process-history-service-persistence.git
     path: components/registry/
-    stream: master
+    stream: data-pipe-ci-verified
   chart: /opt/repositories/process-history-service-persistence/deploy-templates
-  version: 1.5.0-SNAPSHOT.1
+  version: 1.5.0-SNAPSHOT.7
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   needs:
-    - '{{ env "NAMESPACE" }}/istio-configuration'
-    - '{{ env "NAMESPACE" }}/network-management'
-    - '{{ env "NAMESPACE" }}/registry-auth'
-    - '{{ env "NAMESPACE" }}/citus'
-    - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
-    - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 environments:
   default:
     missingFileHandler: Error
