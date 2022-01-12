@@ -6,6 +6,8 @@ metadata:
 spec:
   hosts:
     - s3.openshift-storage.svc
+  exportTo:
+    - "."
   ports:
     - number: 443
       name: https
