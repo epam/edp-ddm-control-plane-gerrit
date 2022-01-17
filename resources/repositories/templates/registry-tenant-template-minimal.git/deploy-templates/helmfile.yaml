@@ -686,7 +686,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/hashicorp-vault.git
     path: components/registry/
   chart: /opt/repositories/hashicorp-vault/deploy-templates
-  version: 1.4.0-RC.1
+  version: 1.5.0-SNAPSHOT.47
   values:
   - values.yaml
   - values.gotmpl
