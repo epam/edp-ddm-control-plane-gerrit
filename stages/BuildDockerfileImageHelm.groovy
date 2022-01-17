@@ -146,6 +146,8 @@ class BuildDockerfileImageHelm {
 
                         templateRepo.each {
                             script.sh "mkdir -p ${it}; cd ${it}; git init; git add --all; git commit -a --allow-empty -m 'Repo init'"
+                            script.sh("git checkout -f -B ${context.codebase.version}")
+                            script.sh("git checkout -f -B master")
                             script.sh "git clone --bare ${it} ${context.workDir}/git/${it}"
                         }
                     }
