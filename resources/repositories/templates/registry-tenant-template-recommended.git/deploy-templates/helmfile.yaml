@@ -141,7 +141,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.5.0-SNAPSHOT.153
+  version: 1.5.0-SNAPSHOT.157
   values:
   - values.yaml
   - values.gotmpl
@@ -164,7 +164,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/officer-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.91
+  version: 1.5.0-SNAPSHOT.93
   values:
   - values.yaml
   - values.gotmpl
@@ -270,7 +270,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/user-process-management/deploy-templates
-  version: 1.5.0-SNAPSHOT.74
+  version: 1.5.0-SNAPSHOT.85
   values:
   - values.yaml
   - values.gotmpl
@@ -293,7 +293,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/bp-admin-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.67
+  version: 1.5.0-SNAPSHOT.82
   values:
   - values.yaml
   - values.gotmpl
@@ -316,7 +316,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/user-task-management/deploy-templates
-  version: 1.5.0-SNAPSHOT.92
+  version: 1.5.0-SNAPSHOT.95
   values:
   - values.yaml
   - values.gotmpl
@@ -340,7 +340,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.5.0-SNAPSHOT.62
+  version: 1.5.0-SNAPSHOT.73
   values:
   - values.yaml
   - values.gotmpl
@@ -386,7 +386,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/form-management/deploy-templates
-  version: 1.5.0-SNAPSHOT.78
+  version: 1.5.0-SNAPSHOT.82
   values:
   - values.yaml
   - values.gotmpl

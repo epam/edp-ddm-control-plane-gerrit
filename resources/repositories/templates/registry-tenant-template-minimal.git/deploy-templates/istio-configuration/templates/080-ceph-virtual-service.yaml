@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ceph-virtual-service
+  namespace: {{ .Values.namespace }}
+spec:
+  hosts:
+    - rook-ceph-rgw-mdtuddm.openshift-storage.svc
+  http:
+    - retries:
+        attempts: 3
+        retryOn: '504,gateway-error,connect-failure,refused-stream,5xx'
+      route:
+        - destination:
+            host: rook-ceph-rgw-mdtuddm.openshift-storage.svc
+      timeout: 10s

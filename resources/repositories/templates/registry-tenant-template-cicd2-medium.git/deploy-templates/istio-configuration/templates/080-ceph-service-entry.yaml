@@ -1,17 +1,14 @@
 apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry
 metadata:
-  name: s3
+  name: ceph
   namespace: {{ .Values.namespace }}
 spec:
   hosts:
-    - s3.openshift-storage.svc
+    - rook-ceph-rgw-mdtuddm.openshift-storage.svc
   exportTo:
     - "."
   ports:
-    - number: 443
-      name: https
-      protocol: HTTPS
     - name: http
       number: 80
       protocol: HTTP
