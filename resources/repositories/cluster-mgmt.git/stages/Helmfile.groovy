@@ -61,7 +61,7 @@ class Helmfile  {
                   helmfileYaml.releases.each { release, releaseIndex ->
                       if (release.labels.type == "remote") {
                           script.dir('/opt/repositories/' + release.labels.path + '/' + release.name + '.git') {
-                              script.checkout([$class                           : 'GitSCM', branches: [[name: it.labels.branch]],
+                              script.checkout([$class                           : 'GitSCM', branches: [[name: release.labels.branch]],
                                                doGenerateSubmoduleConfigurations: false, extensions: [],
                                                submoduleCfg                     : [],
                                                userRemoteConfigs                : [[credentialsId: context.git.credentialsId,

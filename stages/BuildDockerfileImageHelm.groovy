@@ -32,36 +32,42 @@ class BuildDockerfileImageHelm {
                 helmfileYAML.releases[releaseIndex].remove('repoURL')
                 helmfileYAML.releases[releaseIndex].remove('stream')
                 helmfileYAML.releases[releaseIndex].remove('type')
+                helmfileYAML.releases[releaseIndex].labels.branch = release.version
+
+                // version must be specified
+                if (!release.version) {
+                    throw new Exception("${release.name} version is not specified")
+                }
 
                 if (!script.fileExists("repositories/${repositoryPath}")) {
                     script.dir("repositories/${repositoryPath}") {
-                        // version must be specified
-                        if (!release.version) {
-                            throw new Exception("${release.name} version is not specified")
-                        }
-
                         script.checkout([$class                           : 'GitSCM', branches: [[name: gitBranch]],
                                          doGenerateSubmoduleConfigurations: false, extensions: [],
                                          submoduleCfg                     : [],
                                          userRemoteConfigs                : [[credentialsId: gitCredentialsId,
                                                                               url          : release.labels.repoURL]]])
-
-
-                        if (release.version.matches("^[0-9]+\\.[0-9]+\\.[0-9]+.*")) {
-                            def chartYaml = script.readYaml file: 'deploy-templates/Chart.yaml'
-                            chartYaml.version = release.version
-                            script.writeYaml data: chartYaml, file: 'deploy-templates/Chart.yaml', overwrite: true
-                        }
-
-                        helmfileYAML.releases[releaseIndex].labels.branch = release.version
-
                         script.sh("rm -rf .git; rm -f .gitignore .helmignore; git init; git add --all; git commit -a -m 'Repo init'")
                         script.sh("git checkout -f -B ${release.version}")
-                        script.sh("git checkout -f -B master")
                     }
-                    script.sh "git clone --bare ${context.workDir}/repositories/${repositoryPath} ${context.workDir}/git/${repositoryPath}"
-                } else {
-                    script.println "repositories/${repositoryPath} already exists"
+                } else if (!script.sh(script: "cd repositories/${repositoryPath}; git branch -a | grep ${release.version} &2>1", returnStdout: true)) {
+                    script.println "repositoryPath: ${repositoryPath}"
+                    script.dir("${context.workDir}/tmp/${repositoryPath}") {
+                        script.checkout([$class                           : 'GitSCM', branches: [[name: gitBranch]],
+                                         doGenerateSubmoduleConfigurations: false, extensions: [],
+                                         submoduleCfg                     : [],
+                                         userRemoteConfigs                : [[credentialsId: gitCredentialsId,
+                                                                              url          : release.labels.repoURL]]])
+                        script.sh("rm -rf .git; rm -f .gitignore .helmignore")
+                    }
+                    script.dir("repositories/${repositoryPath}") {
+                        script.sh("git checkout -f -B ${release.version}")
+                        script.sh("mkdir -p ${context.workDir}/tmp/${release.name}_git; mv .git ${context.workDir}/tmp/${release.name}_git/; rm -rf ./*; mv ${context.workDir}/tmp/${release.name}_git/.git .git")
+                        script.sh("scp -rp ${context.workDir}/tmp/${repositoryPath}/* ./")
+                        script.sh("git add --all; git commit -a -m 'Added branch ${release.version}'")
+                    }
+                }
+                else {
+                    script.println "Repository repositories/${repositoryPath} and branch ${release.version} already exists"
                 }
             }
         }
@@ -118,9 +124,6 @@ class BuildDockerfileImageHelm {
 
                             script.sh("rm -rf .git; rm -f .gitignore .helmignore; git init; git add --all; git commit -a -m 'Repo init'")
                             script.sh("git checkout -f -B ${value.version}")
-                            script.sh("git checkout -f -B master")
-
-                            script.sh "git clone --bare ${context.workDir}/repositories/${repositoryPath} ${context.workDir}/git/${repositoryPath}"
                         }
                     }
 
@@ -148,6 +151,16 @@ class BuildDockerfileImageHelm {
                             script.dir(it) {
                                 script.sh "git init; git add --all; git commit -a --allow-empty -m 'Repo init'"
                                 script.sh("git checkout -f -B ${context.codebase.version}")
+                                script.sh("git checkout -f -B master")
+                            }
+                            script.sh "git clone --bare ${it} ${context.workDir}/git/${it}"
+                        }
+                    }
+
+                    script.dir('repositories') {
+                        script.sh(script: "find . -name .git -type d -prune -exec dirname {} \\;", returnStdout: true).tokenize('\n').each {
+                            script.dir(it) {
+                                script.sh("git commit --allow-empty -a -m 'updated properties'")
                                 script.sh("git checkout -f -B master")
                             }
                             script.sh "git clone --bare ${it} ${context.workDir}/git/${it}"
