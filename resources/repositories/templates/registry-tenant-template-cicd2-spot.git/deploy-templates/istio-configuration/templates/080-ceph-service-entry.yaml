@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: ceph
+  namespace: {{ .Values.namespace }}
+spec:
+  hosts:
+    - rook-ceph-rgw-mdtuddm.openshift-storage.svc
+  exportTo:
+    - "."
+  ports:
+    - name: http
+      number: 80
+      protocol: HTTP
+  resolution: DNS
+  location: MESH_INTERNAL

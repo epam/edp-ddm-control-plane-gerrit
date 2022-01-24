@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: redash-viewer-redis-master-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: redis-viewer
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: redash-viewer
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/component: adhocworker
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/component: scheduledworker
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}
+      ports:
+        - protocol: TCP
+          port: 6379
