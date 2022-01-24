@@ -1,0 +1,31 @@
+apiVersion: v2.edp.epam.com/v1alpha1
+kind: Codebase
+metadata:
+  name: registry-regulations
+spec:
+  emptyProject: false
+  commitMessagePattern: null
+  jenkinsSlave: dataplatform-jenkins-agent
+  gitUrlPath: null
+  defaultBranch: master
+  buildTool: none
+  route: null
+  perf: null
+  versioning:
+    startFrom: 0.0.1
+    type: edp
+  jobProvisioning: registry-regulations
+  repository:
+    url: https://gerrit-{{ .Values.globalEDPProject }}-platform-main.{{ .Values.dnsWildcard }}/empty-template-registry-regulation
+  lang: groovy-pipeline
+  deploymentScript: ''
+  strategy: clone
+  jiraIssueMetadataPayload: null
+  gitServer: gerrit
+  testReportFramework: null
+  ticketNamePattern: null
+  type: library
+  database: null
+  description: null
+  framework: null
+  ciTool: Jenkins

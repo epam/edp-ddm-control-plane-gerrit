@@ -95,11 +95,3 @@ keycloak:
   url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}
   ssoRealm:
     autoRedirectEnabled: {{ env "autoRedirectEnabled" }}
-#TODO: remove if after property will be merged
-  authFlows:
-    citizenAuthFlow:
-      authenticators:
-        dsCitizenAuthenticator:
-          authenticatorConfig:
-            trembitaUrl: https://trembita-edr-registry-mock.{{ env "dnsWildcard" }}/mockEDRService
-#TODO end

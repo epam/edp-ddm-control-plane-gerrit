@@ -3,9 +3,4 @@ global:
   imageRegistry: '{{ env "imageRegistry" }}'
   storageClass: {{ requiredEnv "platformStorageClass" }}
 
-operator:
-  image:
-    name: 'epamedp/gerrit-operator'
-    version: '2.9.0-SNAPSHOT.20'
-
 cloudProvider: {{ requiredEnv "cloudProvider" }}
