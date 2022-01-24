@@ -50,22 +50,6 @@ environments:
     values:
       - values.yaml
       - values.gotmpl
-      - ../properties/catalog-source_values.yaml
-      - ../properties/catalog-source_values.gotmpl
-      - ../properties/control-plane-nexus_values.yaml
-      - ../properties/control-plane-nexus_values.gotmpl
-      - ../properties/logging_values.yaml
-      - ../properties/logging_values.gotmpl
-      - ../properties/monitoring_values.yaml
-      - ../properties/monitoring_values.gotmpl
-      - ../properties/service-mesh_values.yaml
-      - ../properties/service-mesh_values.gotmpl
-      - ../properties/storage_values.yaml
-      - ../properties/storage_values.gotmpl
-      - ../properties/user-management_values.yaml
-      - ../properties/user-management_values.gotmpl
-      - ../properties/backup-management_values.yaml
-      - ../properties/backup-management_values.gotmpl
   mock:
     missingFileHandler: Warn
     values: []
