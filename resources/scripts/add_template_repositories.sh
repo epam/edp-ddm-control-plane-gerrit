@@ -19,10 +19,6 @@ for repo in `find . -type d -mindepth 1 -maxdepth 3 -name "*.git"`; do
             for i in $(git branch -r | grep -Ev '^[ \t]*origin.*' | sed "s#^[ \t]*source/##" | grep -Ev '^master$') ; do
               git checkout -b $i source/$i
               git push origin refs/heads/$i:$i --force || echo "No push to repo";
-            chown -R ${GERRIT_USER} /opt/git/dst_repo;
-            for i in $(git branch -r | grep -Ev 'source/master$' ) ; do
-              git checkout -b $i source/$i
-              git push origin refs/heads/$i:$i --force || echo "No push to repo";
             done
             cd /opt/git
             rm -rf /opt/git/dst_repo
