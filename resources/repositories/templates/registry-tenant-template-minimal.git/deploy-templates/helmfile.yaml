@@ -141,7 +141,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.5.0-SNAPSHOT.157
+  version: 1.5.0-SNAPSHOT.179
   values:
   - values.yaml
   - values.gotmpl
@@ -164,7 +164,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/officer-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.93
+  version: 1.5.0-SNAPSHOT.109
   values:
   - values.yaml
   - values.gotmpl
@@ -183,7 +183,7 @@ releases:
     path: components/registry/
     stream: devops-qa-verified
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.94
+  version: 1.5.0-SNAPSHOT.111
   values:
   - values.yaml
   - values.gotmpl
@@ -206,7 +206,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.5.0-SNAPSHOT.152
+  version: 1.5.0-SNAPSHOT.174
   values:
   - values.yaml
   - values.gotmpl
@@ -248,7 +248,7 @@ releases:
     path: components/registry/
     stream: devops-qa-verified
   chart: /opt/repositories/codebase-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.12
+  version: 1.5.0-SNAPSHOT.56
   values:
   - operator:
       clusterRoleName: codebase-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -270,7 +270,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/user-process-management/deploy-templates
-  version: 1.5.0-SNAPSHOT.85
+  version: 1.5.0-SNAPSHOT.92
   values:
   - values.yaml
   - values.gotmpl
@@ -293,7 +293,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/bp-admin-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.82
+  version: 1.5.0-SNAPSHOT.105
   values:
   - values.yaml
   - values.gotmpl
@@ -316,7 +316,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/user-task-management/deploy-templates
-  version: 1.5.0-SNAPSHOT.95
+  version: 1.5.0-SNAPSHOT.105
   values:
   - values.yaml
   - values.gotmpl
@@ -340,7 +340,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.5.0-SNAPSHOT.73
+  version: 1.5.0-SNAPSHOT.80
   values:
   - values.yaml
   - values.gotmpl
@@ -364,7 +364,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/kong/deploy-templates
-  version: 1.5.0-SNAPSHOT.14
+  version: 1.5.0-SNAPSHOT.27
   values:
   - values.yaml
   - values.gotmpl
@@ -410,7 +410,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/admin-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.81
+  version: 1.5.0-SNAPSHOT.97
   values:
   - values.yaml
   - values.gotmpl
@@ -482,7 +482,7 @@ releases:
     path: components/registry/
     stream: data-pipe-ci-verified
   chart: /opt/repositories/citus/deploy-templates
-  version: 1.5.0-SNAPSHOT.82
+  version: 1.5.0-SNAPSHOT.93
   values:
   - values.yaml
   - values.gotmpl
@@ -587,7 +587,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/citizen-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.86
+  version: 1.5.0-SNAPSHOT.104
   values:
   - values.yaml
   - values.gotmpl
@@ -607,7 +607,7 @@ releases:
     path: components/registry/
     stream: data-pipe-ci-verified
   chart: /opt/repositories/user-settings-service-persistence/deploy-templates
-  version: 1.5.0-SNAPSHOT.54
+  version: 1.5.0-SNAPSHOT.71
   values:
   - values.yaml
   - values.gotmpl
@@ -628,7 +628,7 @@ releases:
     path: components/registry/
     stream: data-pipe-ci-verified
   chart: /opt/repositories/user-settings-service-api/deploy-templates
-  version: 1.5.0-SNAPSHOT.52
+  version: 1.5.0-SNAPSHOT.69
   values:
   - values.yaml
   - values.gotmpl
@@ -648,7 +648,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/bp-webservice-gateway/deploy-templates
-  version: 1.5.0-SNAPSHOT.60
+  version: 1.5.0-SNAPSHOT.78
   values:
   - values.yaml
   - values.gotmpl
@@ -668,7 +668,7 @@ releases:
     path: components/registry/
     stream: lowcode-pipe-qa-verified
   chart: /opt/repositories/digital-document-service/deploy-templates
-  version: 1.5.0-SNAPSHOT.63
+  version: 1.5.0-SNAPSHOT.80
   values:
   - values.yaml
   - values.gotmpl
@@ -705,7 +705,7 @@ releases:
     path: components/registry/
     stream: data-pipe-ci-verified
   chart: /opt/repositories/excerpt-service-api/deploy-templates
-  version: 1.5.0-SNAPSHOT.68
+  version: 1.5.0-SNAPSHOT.86
   values:
   - values.yaml
   - values.gotmpl
@@ -726,7 +726,7 @@ releases:
     path: components/registry/
     stream: data-pipe-ci-verified
   chart: /opt/repositories/excerpt-worker/deploy-templates
-  version: 1.5.0-SNAPSHOT.66
+  version: 1.5.0-SNAPSHOT.84
   values:
   - values.yaml
   - values.gotmpl
@@ -747,7 +747,7 @@ releases:
     path: components/registry/
     stream: data-pipe-ci-verified
   chart: /opt/repositories/report-exporter/deploy-templates
-  version: 1.5.0-SNAPSHOT.51
+  version: 1.5.0-SNAPSHOT.62
   values:
   - values.yaml
   - values.gotmpl
@@ -782,7 +782,7 @@ releases:
     path: components/registry/
     stream: data-pipe-ci-verified
   chart: /opt/repositories/process-history-service-api/deploy-templates
-  version: 1.5.0-SNAPSHOT.7
+  version: 1.5.0-SNAPSHOT.16
   values:
   - values.yaml
   - values.gotmpl
@@ -802,7 +802,7 @@ releases:
     path: components/registry/
     stream: data-pipe-ci-verified
   chart: /opt/repositories/process-history-service-persistence/deploy-templates
-  version: 1.5.0-SNAPSHOT.7
+  version: 1.5.0-SNAPSHOT.15
   values:
   - values.yaml
   - values.gotmpl
