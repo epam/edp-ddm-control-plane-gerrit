@@ -447,6 +447,20 @@
          "path": "/libraries",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-stages.git",
          "version": "build/1.5.0-SNAPSHOT.6"
+      },
+      "edp-library-stages-fork":    {
+         "type": "gitsources",
+         "name": "edp-library-stages-fork",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-stages-fork.git",
+         "path": "/libraries",
+         "version": "master"
+      },
+      "edp-library-pipelines-fork":    {
+         "type": "gitsources",
+         "name": "edp-library-pipelines-fork",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-pipelines-fork.git",
+         "path": "/libraries",
+         "version": "master"
       }
    },
    "resource": {"liquibase-ext-schema":    {
