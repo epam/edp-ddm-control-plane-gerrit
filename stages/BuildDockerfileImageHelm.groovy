@@ -23,15 +23,17 @@ class BuildDockerfileImageHelm {
         def repositoryPath, gitCredentialsId, imageURL
 
         helmfileYAML.releases.eachWithIndex { release, releaseIndex ->
-            script.println "Processing release: ${release.name}:"
+            script.println "Processing release: ${release.name}"
             if (release.labels.type == 'remote') {
                 def gitBranch = (release.version == 'master' || release.labels.isbranch == true) ? release.version : 'build/' + release.version
                 repositoryPath = release.labels.path.endsWith('/') || release.labels.path == '' ? release.labels.path + release.name + '.git' : release.labels.path + '/' + release.name + '.git'
                 gitCredentialsId = release.labels.repoURL.contains('gitbud.epam.com') ? 'git-epam-ciuser-sshkey' : 'gerrit-ciuser-sshkey'
 
-                imageURL = stageCRJSON.dockerimage."${release.name}-image".image - "^${script.env.dockerRegistryHost}/${script.env.ciProject}/"
+                if (stageCRJSON.dockerimage."${release.name}-image") {
+                    imageURL = stageCRJSON.dockerimage."${release.name}-image".image - "${script.env.dockerProxyRegistry}/${script.env.ciProject}/"
+                    helmfileYAML.releases[releaseIndex].values.add([image: [name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/' + imageURL, version: helmfileYAML.releases[releaseIndex].version]])
+                }
 
-                helmfileYAML.releases[releaseIndex].values.add([image: [name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/' + imageURL, version: helmfileYAML.releases[releaseIndex].version]])
                 helmfileYAML.releases[releaseIndex].remove('repoURL')
                 helmfileYAML.releases[releaseIndex].remove('stream')
                 helmfileYAML.releases[releaseIndex].remove('type')
