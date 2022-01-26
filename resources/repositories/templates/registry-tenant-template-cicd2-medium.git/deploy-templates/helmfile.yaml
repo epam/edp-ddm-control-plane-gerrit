@@ -744,34 +744,6 @@ releases:
   - values.yaml
   - values.gotmpl
   missingFileHandler: Warn
-- name: trembita-dev
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/trembita.git
-    path: components/registry/
-    stream: master
-  chart: /opt/repositories/trembita/deploy-templates
-  version: 1.2.0-SNAPSHOT.4
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-- name: trembita-edr-registry-mock
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/mock/trembita-edr-registry-mock.git
-    path: components/registry/
-    stream: master
-  chart: /opt/repositories/trembita-edr-registry-mock/deploy-templates
-  version: 1.3.0-SNAPSHOT.19
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
 - name: process-history-service-api
   namespace: '{{ env "NAMESPACE" }}'
   labels:
