@@ -88,7 +88,7 @@
          "type": "application",
          "name": "jenkins-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git",
-         "version": "1.5.0-SNAPSHOT.111"
+         "version": "1.5.0-SNAPSHOT.113"
       },
       "kafka-schema-registry":       {
          "type": "application",
@@ -298,11 +298,6 @@
          "name": "kafka-connect-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kafka-connect-image-master:1.4.0-SNAPSHOT.26"
       },
-      "kafka-connect-image-image":       {
-         "type": "dockerimage",
-         "name": "kafka-connect-image-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kafka-connect-image-master:1.4.0-SNAPSHOT.26"
-      },
       "keycloak-gatekeeper-image":       {
          "type": "dockerimage",
          "name": "keycloak-gatekeeper-image",
@@ -462,7 +457,7 @@
          "type": "gitsources",
          "name": "registry-regulations-publication-pipeline",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
-         "version": "build/1.5.0-SNAPSHOT.130",
+         "version": "build/1.5.0-SNAPSHOT.132",
          "path": "/libraries"
       },
       "registry-regulations-publication-stages":       {
