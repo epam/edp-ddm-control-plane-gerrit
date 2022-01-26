@@ -20,15 +20,16 @@ class BuildDockerfileImageHelm {
 
     void processHelmfile(context, def helmfile) {
         def helmfileYAML = script.readYaml file: helmfile
-        def repositoryPath, gitCredentialsId
+        def repositoryPath, gitCredentialsId, imageURL
 
         helmfileYAML.releases.eachWithIndex { release, releaseIndex ->
             if (release.labels.type == 'remote') {
                 def gitBranch = (release.version == 'master' || release.labels.isbranch == true) ? release.version : 'build/' + release.version
                 repositoryPath = release.labels.path.endsWith('/') || release.labels.path == '' ? release.labels.path + release.name + '.git' : release.labels.path + '/' + release.name + '.git'
                 gitCredentialsId = release.labels.repoURL.contains('gitbud.epam.com') ? 'git-epam-ciuser-sshkey' : 'gerrit-ciuser-sshkey'
+                imageURL = stageCRJSON.dockerimage."${release.name}-image"?.image - "^${script.env.dockerRegistryHost}/${script.env.ciProject}/"
 
-                helmfileYAML.releases[releaseIndex].values.add([image: [name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/' + release.name + '-' + release.labels.stream, version: helmfileYAML.releases[releaseIndex].version]])
+                helmfileYAML.releases[releaseIndex].values.add([image: [name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/' + imageURL, version: helmfileYAML.releases[releaseIndex].version]])
                 helmfileYAML.releases[releaseIndex].remove('repoURL')
                 helmfileYAML.releases[releaseIndex].remove('stream')
                 helmfileYAML.releases[releaseIndex].remove('type')
@@ -111,16 +112,17 @@ class BuildDockerfileImageHelm {
 
                     def repositoryPath, gitCredentialsId
 
-                    def gitsourcesJSON = script.readJSON(file: "properties/gitsources.json")
-                    gitsourcesJSON.each { component, value ->
+                    def stageCRJSON = script.readJSON(file: "properties/stageCR.json")
+
+                    stageCRJSON.gitsources.each { component, value ->
                         repositoryPath = value.path.endsWith('/') || value.path == '' ? value.path + component + '.git' : value.path + '/' + component + '.git'
-                        gitCredentialsId = value.url.contains('gitbud.epam.com') ? 'git-epam-ciuser-sshkey' : 'gerrit-ciuser-sshkey'
+                        gitCredentialsId = value.repoURL.contains('gitbud.epam.com') ? 'git-epam-ciuser-sshkey' : 'gerrit-ciuser-sshkey'
                         script.dir("repositories/${repositoryPath}") {
                             script.checkout([$class                           : 'GitSCM', branches: [[name: value.version]],
                                              doGenerateSubmoduleConfigurations: false, extensions: [],
                                              submoduleCfg                     : [],
                                              userRemoteConfigs                : [[credentialsId: gitCredentialsId,
-                                                                                  url          : value.url]]])
+                                                                                  url          : value.repoURL]]])
 
                             script.sh("rm -rf .git; rm -f .gitignore .helmignore; git init; git add --all; git commit -a -m 'Repo init'")
                             script.sh("git checkout -f -B ${value.version}")
