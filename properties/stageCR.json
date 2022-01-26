@@ -444,6 +444,7 @@
       "registry-regulations-publication-stages":       {
          "type": "gitsources",
          "name": "registry-regulations-publication-stages",
+         "path": "/libraries",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-stages.git",
          "version": "build/1.5.0-SNAPSHOT.6"
       }
