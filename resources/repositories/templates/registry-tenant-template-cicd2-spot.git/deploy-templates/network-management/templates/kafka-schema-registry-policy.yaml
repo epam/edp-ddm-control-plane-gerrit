@@ -32,6 +32,12 @@ spec:
               app: process-history-service-persistence
         - podSelector:
             matchLabels:
+              app: excerpt-service-api
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker
+        - podSelector:
+            matchLabels:
               app.kubernetes.io/name: kafka-connect
         - namespaceSelector:
             matchLabels:
