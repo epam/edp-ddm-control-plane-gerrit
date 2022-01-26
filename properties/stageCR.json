@@ -142,7 +142,7 @@
          "type": "application",
          "name": "redash-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git",
-         "version": "1.5.0-SNAPSHOT.65"
+         "version": "1.5.0-SNAPSHOT.79"
       },
       "registry-configuration":       {
          "type": "application",
@@ -218,10 +218,20 @@
          "name": "citus-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/citus-master:1.5.0-SNAPSHOT.93"
       },
+      "codebase-operator-image":       {
+         "type": "dockerimage",
+         "name": "codebase-operator-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/codebase-operator:2.9.0"
+      },
       "cp-schema-registry-image":       {
          "type": "dockerimage",
          "name": "cp-schema-registry-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/confluentinc/cp-schema-registry:6.1.1"
+      },
+      "dataplatform-jenkins-agent-image":       {
+         "type": "dockerimage",
+         "name": "dataplatform-jenkins-agent-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.5.0-SNAPSHOT.174"
       },
       "digital-document-service-image":       {
          "type": "dockerimage",
@@ -366,7 +376,7 @@
       "redash-chart-image":       {
          "type": "dockerimage",
          "name": "redash-chart-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/redash-chart-master:1.5.0-SNAPSHOT.65"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/redash-chart-master:1.5.0-SNAPSHOT.79"
       },
       "redash-exporter-image":       {
          "type": "dockerimage",
@@ -420,47 +430,47 @@
       }
    },
    "gitsources":    {
+      "edp-library-pipelines-fork":       {
+         "type": "gitsources",
+         "name": "edp-library-pipelines-fork",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-pipelines-fork.git",
+         "version": "master",
+         "path": "/libraries"
+      },
+      "edp-library-stages-fork":       {
+         "type": "gitsources",
+         "name": "edp-library-stages-fork",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-stages-fork.git",
+         "version": "master",
+         "path": "/libraries"
+      },
       "empty-template-registry-regulation":       {
          "type": "gitsources",
          "name": "empty-template-registry-regulation",
-         "path": "/libraries",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
-         "version": "master"
+         "version": "master",
+         "path": "/libraries"
       },
       "history-excerptor-chart":       {
          "type": "gitsources",
          "name": "history-excerptor-chart",
-         "path": "/components/runtime",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/data-architecture/devops-application/history-excerptor-chart.git",
-         "version": "master"
+         "version": "master",
+         "path": "/components/runtime"
       },
       "registry-regulations-publication-pipeline":       {
          "type": "gitsources",
          "name": "registry-regulations-publication-pipeline",
-         "path": "/libraries",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
-         "version": "build/1.5.0-SNAPSHOT.130"
+         "version": "build/1.5.0-SNAPSHOT.130",
+         "path": "/libraries"
       },
       "registry-regulations-publication-stages":       {
          "type": "gitsources",
          "name": "registry-regulations-publication-stages",
-         "path": "/libraries",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-stages.git",
-         "version": "build/1.5.0-SNAPSHOT.6"
-      },
-      "edp-library-stages-fork":    {
-         "type": "gitsources",
-         "name": "edp-library-stages-fork",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-stages-fork.git",
-         "path": "/libraries",
-         "version": "master"
-      },
-      "edp-library-pipelines-fork":    {
-         "type": "gitsources",
-         "name": "edp-library-pipelines-fork",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-pipelines-fork.git",
-         "path": "/libraries",
-         "version": "master"
+         "version": "build/1.5.0-SNAPSHOT.6",
+         "path": "/libraries"
       }
    },
    "resource": {"liquibase-ext-schema":    {
