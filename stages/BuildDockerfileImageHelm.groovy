@@ -30,7 +30,12 @@ class BuildDockerfileImageHelm {
                 gitCredentialsId = release.labels.repoURL.contains('gitbud.epam.com') ? 'git-epam-ciuser-sshkey' : 'gerrit-ciuser-sshkey'
 
                 if (stageCRJSON.dockerimage."${release.name}-image") {
-                    imageURL = stageCRJSON.dockerimage."${release.name}-image".image - "${script.env.dockerProxyRegistry}/${script.env.ciProject}/"
+                    if (stageCRJSON.dockerimage."${release.name}-image".image.startsWith("${script.env.dockerProxyRegistry}/${script.env.ciProject}/")) {
+                        imageURL = stageCRJSON.dockerimage."${release.name}-image".image - "${script.env.dockerProxyRegistry}/${script.env.ciProject}/"
+                    }
+                    else {
+                        imageURL = stageCRJSON.dockerimage."${release.name}-image".image - "${script.env.dockerProxyRegistry}/"
+                    }
                     helmfileYAML.releases[releaseIndex].values.add([image: [name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/' + imageURL, version: helmfileYAML.releases[releaseIndex].version]])
                 }
 
