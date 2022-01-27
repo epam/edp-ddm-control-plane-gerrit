@@ -36,6 +36,7 @@ class BuildDockerfileImageHelm {
                     else {
                         imageURL = stageCRJSON.dockerimage."${release.name}-image".image - "${script.env.dockerProxyRegistry}/"
                     }
+                    imageURL = imageURL.replaceAll(/(.*):.*/,'\$1')
                     helmfileYAML.releases[releaseIndex].values.add([image: [name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/' + imageURL, version: helmfileYAML.releases[releaseIndex].version]])
                 }
 
