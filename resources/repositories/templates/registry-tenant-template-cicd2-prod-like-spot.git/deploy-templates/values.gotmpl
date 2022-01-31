@@ -30,6 +30,8 @@ global:
     replicaWorkers: 2
   disableRequestsLimits: false
 
+gerritCentralUrl: gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}
+
 storageClass: ocs-storagecluster-ceph-rbd
 nexus:
   storage:
