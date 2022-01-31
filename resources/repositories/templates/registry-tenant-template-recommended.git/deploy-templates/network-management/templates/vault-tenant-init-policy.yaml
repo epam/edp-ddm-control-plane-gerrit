@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: vault-tenant-init-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: vault
+  ingress:
+    - ports:
+        - protocol: TCP
+          port: 8200
+      from:
+        - podSelector:
+            matchLabels:
+              job-name: vault-tenant-init
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}
+  policyTypes:
+    - Ingress

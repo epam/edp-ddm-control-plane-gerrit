@@ -84,6 +84,12 @@
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/gerrit-operator.git",
          "version": "1.5.0-SNAPSHOT.25"
       },
+      "hashicorp-vault":       {
+         "type": "application",
+         "name": "hashicorp-vault",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/hashicorp-vault.git",
+         "version": "1.5.0-SNAPSHOT.54"
+      },
       "jenkins-operator":       {
          "type": "application",
          "name": "jenkins-operator",
@@ -193,6 +199,11 @@
          "name": "admin-portal-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/admin-portal-master:1.5.0-SNAPSHOT.100"
       },
+      "alpine-curl-jq-image":       {
+         "type": "dockerimage",
+         "name": "alpine-curl-jq-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/dwdraju/alpine-curl-jq"
+      },
       "bp-admin-portal-image":       {
          "type": "dockerimage",
          "name": "bp-admin-portal-image",
@@ -227,6 +238,11 @@
          "type": "dockerimage",
          "name": "cp-schema-registry-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/confluentinc/cp-schema-registry:6.1.1"
+      },
+      "curl-image":       {
+         "type": "dockerimage",
+         "name": "curl-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/curlimages/curl"
       },
       "dataplatform-jenkins-agent-image":       {
          "type": "dockerimage",
@@ -391,7 +407,7 @@
       "report-publisher-image":       {
          "type": "dockerimage",
          "name": "report-publisher-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/report-publisher-master:1.5.0-SNAPSHOT.24"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/report-publisher-master:1.5.0-SNAPSHOT.63"
       },
       "rest-api-core-base-image":       {
          "type": "dockerimage",
@@ -422,6 +438,11 @@
          "type": "dockerimage",
          "name": "user-task-management-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-task-management-master:1.5.0-SNAPSHOT.105"
+      },
+      "vault-image":       {
+         "type": "dockerimage",
+         "name": "vault-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/hashicorp/vault:1.7.3-ubi"
       }
    },
    "gitsources":    {
