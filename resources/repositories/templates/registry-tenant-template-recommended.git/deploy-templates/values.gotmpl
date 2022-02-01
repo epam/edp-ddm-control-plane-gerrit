@@ -92,3 +92,5 @@ keycloak:
   url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}
   ssoRealm:
     autoRedirectEnabled: {{ env "autoRedirectEnabled" }}
+
+gerritCentralUrl: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}
