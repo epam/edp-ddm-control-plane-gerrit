@@ -1,0 +1,35 @@
+{{- $root := .Values }}
+{{- $release := .Release }}
+{{- range $realm := .Values.keycloak.realms }}
+---
+apiVersion: v1.edp.epam.com/v1alpha1
+kind: KeycloakRealm
+metadata:
+  annotations:
+    "helm.sh/resource-policy": keep
+  labels:
+    created-by: {{ $root.appLabel }}
+  name: {{ $root.registryGroup.name }}-group
+spec:
+  keycloakOwner: {{ $realm.keycloakOwner }}
+  realmName: {{ $root.registryGroup.name }}-group
+  ssoRealmEnabled: {{ $realm.ssoRealm.enabled }}
+  {{- if $realm.ssoRealm.enabled }}
+  ssoAutoRedirectEnabled: {{ $realm.ssoRealm.autoRedirectEnabled }}
+  ssoRealmName: {{ $realm.ssoRealm.name }}
+  {{- end }}
+  {{- if $realm.users }}
+  users: {{ $realm.users | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if $realm.loginTheme }}
+  themes:
+    loginTheme: {{ $realm.loginTheme }}
+  {{- end }}
+  {{- if $realm.loginTheme }}
+  browserSecurityHeaders:
+    contentSecurityPolicy: {{ $realm.contentSecurityPolicy }}
+  {{- end }}
+  {{- if $realm.browserFlow }}
+  browserFlow: {{ $realm.browserFlow }}
+  {{- end }}
+  {{- end }}

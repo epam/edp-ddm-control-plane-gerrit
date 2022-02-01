@@ -1,0 +1,14 @@
+global:
+  imageRegistry: '{{ env "dockerProxyRegistry" }}'
+  jenkins: {}
+
+registryGroup:
+  name: {{ env "NAMESPACE" }}
+
+keycloak:
+  realms:
+    group-realm:
+      name: {{ env "NAMESPACE" }}
+      keycloakOwner: main
+      ssoRealm:
+        enabled: false

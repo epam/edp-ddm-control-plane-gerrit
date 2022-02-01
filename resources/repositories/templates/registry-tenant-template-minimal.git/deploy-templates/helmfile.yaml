@@ -741,6 +741,8 @@ releases:
   chart: /opt/repositories/registry-configuration/deploy-templates
   version: 1.5.0-SNAPSHOT.80
   values:
+  - registryGroup:
+      name: {{ env "registryGroup" }}
   - values.yaml
   - values.gotmpl
   missingFileHandler: Warn
