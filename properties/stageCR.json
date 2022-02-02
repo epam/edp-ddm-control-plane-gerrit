@@ -432,7 +432,7 @@
       "user-settings-service-persistence-image":       {
          "type": "dockerimage",
          "name": "user-settings-service-persistence-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-persistence-master:1.5.0-SNAPSHOT.71"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-persistence-master:1.5.0-SNAPSHOT.73"
       },
       "user-task-management-image":       {
          "type": "dockerimage",
