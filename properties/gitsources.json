@@ -7,7 +7,7 @@
    "registry-regulations-publication-pipeline":    {
       "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
       "path": "/libraries",
-      "version": "build/1.5.0-SNAPSHOT.132"
+      "version": "build/1.5.0-SNAPSHOT.135"
    },
    "empty-template-registry-regulation":    {
       "url": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",

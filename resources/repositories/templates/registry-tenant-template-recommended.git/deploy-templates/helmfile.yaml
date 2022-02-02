@@ -140,7 +140,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
     path: components/registry/
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.5.0-SNAPSHOT.179
+  version: 1.5.0-SNAPSHOT.183
   values:
   - values.yaml
   - values.gotmpl
@@ -162,7 +162,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git
     path: components/registry/
   chart: /opt/repositories/officer-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.112
+  version: 1.5.0-SNAPSHOT.115
   values:
   - values.yaml
   - values.gotmpl
@@ -180,7 +180,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.113
+  version: 1.5.0-SNAPSHOT.116
   values:
   - values.yaml
   - values.gotmpl
@@ -202,7 +202,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.5.0-SNAPSHOT.174
+  version: 1.5.0-SNAPSHOT.177
   values:
   - values.yaml
   - values.gotmpl
@@ -374,7 +374,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-management.git
     path: components/registry/
   chart: /opt/repositories/form-management/deploy-templates
-  version: 1.5.0-SNAPSHOT.82
+  version: 1.5.0-SNAPSHOT.93
   values:
   - values.yaml
   - values.gotmpl
@@ -566,7 +566,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git
     path: components/registry/
   chart: /opt/repositories/citizen-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.107
+  version: 1.5.0-SNAPSHOT.108
   values:
   - values.yaml
   - values.gotmpl
@@ -585,7 +585,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-persistence.git
     path: components/registry/
   chart: /opt/repositories/user-settings-service-persistence/deploy-templates
-  version: 1.5.0-SNAPSHOT.71
+  version: 1.5.0-SNAPSHOT.73
   values:
   - values.yaml
   - values.gotmpl
@@ -605,7 +605,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git
     path: components/registry/
   chart: /opt/repositories/user-settings-service-api/deploy-templates
-  version: 1.5.0-SNAPSHOT.69
+  version: 1.5.0-SNAPSHOT.75
   values:
   - values.yaml
   - values.gotmpl
@@ -624,7 +624,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-webservice-gateway.git
     path: components/registry/
   chart: /opt/repositories/bp-webservice-gateway/deploy-templates
-  version: 1.5.0-SNAPSHOT.78
+  version: 1.5.0-SNAPSHOT.84
   values:
   - values.yaml
   - values.gotmpl
@@ -679,7 +679,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-service-api.git
     path: components/registry/
   chart: /opt/repositories/excerpt-service-api/deploy-templates
-  version: 1.5.0-SNAPSHOT.86
+  version: 1.5.0-SNAPSHOT.87
   values:
   - values.yaml
   - values.gotmpl
@@ -699,7 +699,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-worker.git
     path: components/registry/
   chart: /opt/repositories/excerpt-worker/deploy-templates
-  version: 1.5.0-SNAPSHOT.84
+  version: 1.5.0-SNAPSHOT.85
   values:
   - values.yaml
   - values.gotmpl
@@ -739,10 +739,12 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.80
+  version: 1.5.0-SNAPSHOT.85
   values:
   - registryGroup:
-      name: {{ env "registryGroup" }}
+      name:
+        ? env "registryGroup": null
+        : null
   - values.yaml
   - values.gotmpl
   missingFileHandler: Warn
