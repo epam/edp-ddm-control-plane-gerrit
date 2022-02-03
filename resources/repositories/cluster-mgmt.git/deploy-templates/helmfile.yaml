@@ -37,7 +37,7 @@ releases:
   - name: trembita-dracs-registry-mock
     namespace: trembita-dracs-registry-mock
     chart: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/trembita-dracs-registry-mock.git/deploy-templates'
-    version: 1.3.0-SNAPSHOT.21
+    version: 1.2.0-SNAPSHOT.10
     labels:
       type: remote
       update_scc: true
