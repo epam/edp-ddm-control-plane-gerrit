@@ -128,7 +128,7 @@ class Helmfile {
                                         git remote add template ${gitURL}${templateURL}
                                         git fetch template
                                         for i in \$(git branch -r | grep -Ev '^[ \\t]*origin.*' | sed "s#^[ \\t]*template/##" | grep -Ev '^master\$') ; do
-                                            git checkout -b \$i template/\$i
+                                            git checkout -B \$i template/\$i
                                             git push origin refs/heads/\$i:\$i --force
                                         done
                                     """
