@@ -742,9 +742,7 @@ releases:
   version: 1.5.0-SNAPSHOT.85
   values:
   - registryGroup:
-      name:
-        ? env "registryGroup": null
-        : null
+      name: '{{ env "registryGroup" }}'
   - values.yaml
   - values.gotmpl
   missingFileHandler: Warn
