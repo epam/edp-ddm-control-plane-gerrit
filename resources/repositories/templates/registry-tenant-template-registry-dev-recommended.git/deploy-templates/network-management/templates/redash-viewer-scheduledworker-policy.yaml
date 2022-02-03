@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: redash-viewer-scheduledworker-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: redash-viewer
+      app.kubernetes.io/component: scheduledworker
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: redash-viewer
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/component: server
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}

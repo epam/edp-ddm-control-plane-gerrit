@@ -1,0 +1,7 @@
+apiVersion: v2.edp.epam.com/v1alpha1
+kind: GerritGroup
+metadata:
+  name: {{ .Release.Namespace }}
+  namespace: {{ .Values.globalEDPProject }}
+spec:
+  name: {{ .Release.Namespace }}

@@ -1,0 +1,60 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  annotations: {}
+  name: {{ .Values.cluster_prefix }}-{{ .Release.Namespace }}
+  namespace: openshift-machine-api
+  labels:
+    machine.openshift.io/cluster-api-cluster: {{ .Values.cluster_prefix }}
+spec:
+  deletePolicy: Oldest
+  replicas: {{ .Values.instance_count_per_region }}
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: {{ .Values.cluster_prefix }}
+      machine.openshift.io/cluster-api-machineset: {{ .Values.cluster_prefix }}-{{ .Release.Namespace }}
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: {{ .Values.cluster_prefix }}
+        machine.openshift.io/cluster-api-machine-role: worker
+        machine.openshift.io/cluster-api-machine-type: worker
+        machine.openshift.io/cluster-api-machineset: {{ .Values.cluster_prefix }}-{{ .Release.Namespace }}
+    spec:
+      taints:
+        - effect: NoSchedule
+          key: node/{{ .Release.Namespace }}
+          value: 'true'
+        - effect: NoExecute
+          key: node/{{ .Release.Namespace }}
+          value: 'true'
+      metadata:
+        labels:
+          node: {{ .Release.Namespace }}
+      providerSpec:
+        value:
+          numCoresPerSocket: 1
+          diskGiB: 120
+          snapshot: ''
+          userDataSecret:
+            name: worker-user-data
+          memoryMiB: 32768
+          credentialsSecret:
+            name: vsphere-cloud-credentials
+          network:
+            devices:
+              - networkName: EPAM_OKD_Vlan9_EPG
+          metadata:
+            creationTimestamp: null
+          numCPUs: 8
+          kind: VSphereMachineProviderSpec
+          workspace:
+            datacenter: HXDP-02
+            datastore: NCR_Data2
+            folder: /HXDP-02/vm/{{ .Values.cluster_prefix }}
+            resourcePool: /HXDP-02/host/HX-02/Resources
+            server: vcsa.ncr.loc
+          template: {{ .Values.cluster_prefix }}-rhcos
+          apiVersion: vsphereprovider.openshift.io/v1beta1
+
+
