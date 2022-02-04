@@ -743,6 +743,7 @@ releases:
   values:
   - values.yaml
   - values.gotmpl
+  - userValues.yaml
   missingFileHandler: Warn
 - name: process-history-service-api
   namespace: '{{ env "NAMESPACE" }}'

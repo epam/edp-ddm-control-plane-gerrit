@@ -1,0 +1,30 @@
+keycloak:
+  realms:
+    officerPortal:
+      realmUsers:
+        frontend:
+          username: "fe-dev"
+          firstName: "Петро"
+          lastName: "Петров"
+          email: "fe-dev@epam.com"
+          enabled: true
+          emailVerified: false
+          roles:
+            - officer
+          attributes:
+            drfo: "0202020202"
+            edrpou: "22222222"
+            fullName: "Петров Петро Петрович"
+        backend:
+          username: "be-dev"
+          firstName: "Іван"
+          lastName: "Іванов"
+          email: "be-dev@epam.com"
+          enabled: true
+          emailVerified: false
+          roles:
+            - officer
+          attributes:
+            drfo: "0101010101"
+            edrpou: "11111111"
+            fullName: "Іванов Іван Іванович"
