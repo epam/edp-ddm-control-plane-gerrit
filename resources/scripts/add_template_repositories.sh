@@ -3,6 +3,7 @@
 cd /opt/git
 for repo in `find . -type d -mindepth 1 -maxdepth 3 -name "*.git"`; do
         if ! [[ -d "$GERRIT_SITE/git/$repo" ]]; then
+#            rm -rvf $GERRIT_SITE/git/$repo
             echo "Adding template repository $GERRIT_SITE/git/$repo"
             su-exec ${GERRIT_USER} mkdir -p "$GERRIT_SITE/git/$repo"
             su-exec ${GERRIT_USER} cp -r "$repo" "$GERRIT_SITE/git/$repo/../"
@@ -11,16 +12,28 @@ for repo in `find . -type d -mindepth 1 -maxdepth 3 -name "*.git"`; do
             su-exec ${GERRIT_USER} git config --global user.email "you@example.com";
             su-exec ${GERRIT_USER} git config --global user.name "Admin";
             echo "working with ${repo}";
+            git clone file:///opt/git/$repo source_repo;
             git clone file://$GERRIT_SITE/git/$repo dst_repo ;
-            cd "/opt/git/dst_repo";
-            git remote add source /opt/git/$repo
-            git fetch source
+            cd "/opt/git/source_repo";
+            chown -R ${GERRIT_USER} /opt/git/source_repo;
             chown -R ${GERRIT_USER} /opt/git/dst_repo;
-            for i in $(git branch -r | grep -Ev '^[ \t]*origin.*' | sed "s#^[ \t]*source/##" | grep -Ev '^master$') ; do
-              git checkout -B $i source/$i
-              git push origin refs/heads/$i:$i --force || echo "No push to repo";
+            for i in $(git branch -a | grep -v master ) ; do
+              if [[ $(cd /opt/git/dst_repo && git branch -a | grep -E "^[ \\t]*remotes/origin/$i") ]]; then
+                  echo "Branch $i exists, skipping update"
+              else
+                cd "/opt/git/dst_repo";
+                su-exec ${GERRIT_USER} git checkout -f -B $i ;
+                rm -rf ./*;
+                rm -rf /opt/git/source_repo/.git; rm -f /opt/git/source_repo/.gitignore /opt/git/source_repo/.helmignore;
+                scp -rp /opt/git/source_repo/* ./ || echo "Nothing to copy";
+                chown -R ${GERRIT_USER} ./ && chown -R ${GERRIT_USER} ./.git;
+                su-exec ${GERRIT_USER} git add --all || echo "Nothing to add";
+                su-exec ${GERRIT_USER} git commit -am "Add new branch $i " || echo "Nothing to commit";
+                su-exec ${GERRIT_USER} git push origin refs/heads/$i:$i --force || echo "No push to repo";
+              fi
             done
             cd /opt/git
+            rm -rf /opt/git/source_repo
             rm -rf /opt/git/dst_repo
         fi
 done

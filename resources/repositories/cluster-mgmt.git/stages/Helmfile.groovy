@@ -124,12 +124,24 @@ class Helmfile {
                                         ssh-add ${script.key}
                                         mkdir -p ~/.ssh
                                         ssh-keyscan -p ${context.git.sshPort} ${context.git.host} >> ~/.ssh/known_hosts
-                                        git clone ${gitURL}${registry} ./
-                                        git remote add template ${gitURL}${templateURL}
-                                        git fetch template
-                                        for i in \$(git branch -r | grep -Ev '^[ \\t]*origin.*' | sed "s#^[ \\t]*template/##" | grep -Ev '^master\$') ; do
-                                            git checkout -B \$i template/\$i
-                                            git push origin refs/heads/\$i:\$i --force
+                                        git clone ${gitURL}${registry} target
+                                        git clone ${gitURL}${templateURL} source
+                                        cd source                                        
+                                        for i in \$(git branch -r | sed "s#^[ \\t]*origin/##" | grep -Ev '^master\$' | grep -Ev '^HEAD') ; do
+                                            if [[ \$(cd ../target && git branch -r | grep -E "^[ \\t]*origin/\$i") ]]; then
+                                                echo "Branch \$i exists, skipping update"
+                                            else    
+                                                cd ../source
+                                                git checkout \$i
+                                                rm -rf .git
+                                                cd ../target
+                                                git checkout -B \$i
+                                                rm -rf ./*
+                                                cp -rp ../source/* ./    
+                                                git add --all
+                                                git commit -a -m "added branch \$i"
+                                                git push --set-upstream origin \$i
+                                            fi
                                         done
                                     """
                                 }
@@ -137,7 +149,7 @@ class Helmfile {
 
                         }
 
-                        script.sh("helmfile -f ${helmfile} sync --concurrency 1")
+//                        script.sh("helmfile -f ${helmfile} sync --concurrency 1")
                     }
 
                 }
