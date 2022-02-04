@@ -15,7 +15,6 @@ backupBucket: '{{ env "backupBucket" }}'
 
 global:
   storageClass: {{ requiredEnv "platformStorageClass" }}
-  imageRegistry: '{{ env "dockerRegistry" }}'
 # uncomment below to override default
 #global:
 #  storageClass:
