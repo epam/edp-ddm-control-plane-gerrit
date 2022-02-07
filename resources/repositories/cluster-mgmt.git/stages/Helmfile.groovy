@@ -149,7 +149,7 @@ class Helmfile {
 
                         }
 
-//                        script.sh("helmfile -f ${helmfile} sync --concurrency 1")
+                        script.sh("helmfile -f ${helmfile} sync --concurrency 1")
                     }
 
                 }
