@@ -465,7 +465,7 @@
          "name": "empty-template-registry-regulation",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
          "version": "master",
-         "path": "/libraries"
+         "path": "/"
       },
       "history-excerptor-chart":       {
          "type": "gitsources",
