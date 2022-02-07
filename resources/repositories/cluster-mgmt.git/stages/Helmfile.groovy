@@ -125,9 +125,8 @@ class Helmfile {
                                         mkdir -p ~/.ssh
                                         ssh-keyscan -p ${context.git.sshPort} ${context.git.host} >> ~/.ssh/known_hosts
                                         git clone ${gitURL}${registry} target
-                                        git clone ${gitURL}${templateURL} source
-                                        cd source                                        
-                                        for i in \$(git branch -r | sed "s#^[ \\t]*origin/##" | grep -Ev '^master\$' | grep -Ev '^HEAD') ; do
+                                        git clone ${gitURL}${templateURL} source                          
+                                        for i in \$(git branch -r | sed "s#^[ \\t]*origin/##" | grep -Ev '^master\$' | grep -Ev '^HEAD' ) ; do
                                             if [[ \$(cd ../target && git branch -r | grep -E "^[ \\t]*origin/\$i") ]]; then
                                                 echo "Branch \$i exists, skipping update"
                                             else    

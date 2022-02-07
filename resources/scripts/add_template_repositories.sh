@@ -17,8 +17,8 @@ for repo in `find . -type d -mindepth 1 -maxdepth 3 -name "*.git"`; do
             cd "/opt/git/source_repo";
             chown -R ${GERRIT_USER} /opt/git/source_repo;
             chown -R ${GERRIT_USER} /opt/git/dst_repo;
-            for i in $(git branch -a | grep -v master ) ; do
-              if [[ $(cd /opt/git/dst_repo && git branch -a | grep -E "^[ \\t]*remotes/origin/$i") ]]; then
+            for i in $(git branch -r | sed "s#^[ \t]*origin/##" | grep -Ev '^master$' | grep -Ev '^HEAD') ; do
+              if [[ `cd /opt/git/dst_repo && git branch -r | grep -E "^[ \t]*origin/$i"` ]]; then
                   echo "Branch $i exists, skipping update"
               else
                 cd "/opt/git/dst_repo";
