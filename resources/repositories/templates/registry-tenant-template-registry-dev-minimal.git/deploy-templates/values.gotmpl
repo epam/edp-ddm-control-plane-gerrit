@@ -29,6 +29,7 @@ global:
   citus:
     masterWorkers: 0
     replicaWorkers: 0
+  disableRequestsLimits: true
 
 gerritCentralUrl: gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}
 
