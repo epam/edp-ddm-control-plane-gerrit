@@ -72,6 +72,11 @@ s3:
     options:
       pathStyleAccess: true
 
+platform:
+  security:
+    csrf:
+      enabled: true
+
 instance_count_per_region: "4"
 
 cdPipelineName: {{ env "cdPipelineName" }}
