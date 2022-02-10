@@ -3,35 +3,35 @@ releases:
   labels:
     type: remote
     update_scc: false
-    isbranch: true
+    isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/catalog-source.git
-  version: master
+  version: 1.4.0-RC.2
   values: []
 - name: monitoring
   labels:
     type: remote
     update_scc: false
-    isbranch: true
+    isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/monitoring.git
-  version: master
+  version: 1.5.0-SNAPSHOT.62
   values: []
 - name: storage
   labels:
     type: remote
     update_scc: false
-    isbranch: true
+    isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/storage.git
-  version: master
+  version: 1.5.0-SNAPSHOT.60
   values: []
 - name: logging
-  version: master
+  version: 1.5.0-SNAPSHOT.54
   labels:
     type: remote
     update_scc: false
-    isbranch: true
+    isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/logging.git
   values: []
@@ -39,35 +39,35 @@ releases:
   labels:
     type: remote
     update_scc: false
-    isbranch: true
+    isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/service-mesh.git
-  version: master
+  version: 1.5.0-SNAPSHOT.60
   values: []
 - name: backup-management
-  version: master
+  version: 1.5.0-SNAPSHOT.2
   labels:
     type: remote
     update_scc: false
-    isbranch: true
+    isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/backup-management.git
   values: []
 - name: user-management
-  version: master
+  version: 1.5.0-SNAPSHOT.145
   labels:
     type: remote
     update_scc: false
-    isbranch: true
+    isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/user-management.git
   values: []
 - name: control-plane-nexus
-  version: master
+  version: 1.5.0-SNAPSHOT.58
   labels:
     type: remote
     update_scc: false
-    isbranch: true
+    isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/control-plane-nexus.git
   values: []
