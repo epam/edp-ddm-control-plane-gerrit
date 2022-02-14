@@ -6,6 +6,8 @@ registryGroup:
   name: {{ env "NAMESPACE" }}
 
 keycloak:
+  host: platform-keycloak.{{ requiredEnv "dnsWildcard" }}
+  url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}
   realms:
     group-realm:
       name: {{ env "NAMESPACE" }}

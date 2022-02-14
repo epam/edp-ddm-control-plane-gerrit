@@ -1,6 +1,7 @@
 helmDefaults:
   wait: true
-  timeout: 600
+  timeout: 1800
+  createNamespace: true
 missingFileHandler: Warn
 repositories: []
 values:
