@@ -9,7 +9,7 @@ values:
 - values.gotmpl
 releases:
 - name: keycloak-operator-resources
-  namespace: {{ env "NAMESPACE" }}
+  namespace: '{{ env "NAMESPACE" }}'
   chart: keycloak-operator-resources
   values:
   - values.yaml
@@ -18,7 +18,7 @@ releases:
     - '{{ env "NAMESPACE" }}/keycloak-operator'
   labels: {}
 - name: keycloak-operator
-  namespace: {{ env "NAMESPACE" }}
+  namespace: '{{ env "NAMESPACE" }}'
   labels:
     type: remote
     update_scc: true
