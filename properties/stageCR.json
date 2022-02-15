@@ -46,7 +46,7 @@
          "type": "application",
          "name": "dataplatform-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git",
-         "version": "1.5.0-SNAPSHOT.190"
+         "version": "1.5.0-SNAPSHOT.191"
       },
       "digital-document-service":       {
          "type": "application",
@@ -64,7 +64,7 @@
          "type": "application",
          "name": "excerpt-service-api",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-service-api.git",
-         "version": "1.5.0-SNAPSHOT.88"
+         "version": "1.5.0-SNAPSHOT.89"
       },
       "excerpt-worker":       {
          "type": "application",
@@ -94,7 +94,7 @@
          "type": "application",
          "name": "jenkins-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git",
-         "version": "1.5.0-SNAPSHOT.122"
+         "version": "1.5.0-SNAPSHOT.124"
       },
       "kafka-schema-registry":       {
          "type": "application",
@@ -178,13 +178,13 @@
          "type": "application",
          "name": "user-settings-service-api",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git",
-         "version": "1.5.0-SNAPSHOT.76"
+         "version": "1.5.0-SNAPSHOT.77"
       },
       "user-settings-service-persistence":       {
          "type": "application",
          "name": "user-settings-service-persistence",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-persistence.git",
-         "version": "1.5.0-SNAPSHOT.77"
+         "version": "1.5.0-SNAPSHOT.78"
       },
       "user-task-management":       {
          "type": "application",
@@ -247,7 +247,7 @@
       "dataplatform-jenkins-agent-image":       {
          "type": "dockerimage",
          "name": "dataplatform-jenkins-agent-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.5.0-SNAPSHOT.190"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.5.0-SNAPSHOT.191"
       },
       "digital-document-service-image":       {
          "type": "dockerimage",
@@ -267,7 +267,7 @@
       "excerpt-service-api-image":       {
          "type": "dockerimage",
          "name": "excerpt-service-api-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/excerpt-service-api-master:1.5.0-SNAPSHOT.88"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/excerpt-service-api-master:1.5.0-SNAPSHOT.89"
       },
       "excerpt-worker-image":       {
          "type": "dockerimage",
@@ -412,7 +412,7 @@
       "rest-api-core-base-image":       {
          "type": "dockerimage",
          "name": "rest-api-core-base-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/rest-api-core-base-image-master:1.5.0-SNAPSHOT.77"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/rest-api-core-base-image-master:1.5.0-SNAPSHOT.78"
       },
       "soap-api-core-base-image":       {
          "type": "dockerimage",
@@ -427,12 +427,12 @@
       "user-settings-service-api-image":       {
          "type": "dockerimage",
          "name": "user-settings-service-api-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-api-master:1.5.0-SNAPSHOT.76"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-api-master:1.5.0-SNAPSHOT.77"
       },
       "user-settings-service-persistence-image":       {
          "type": "dockerimage",
          "name": "user-settings-service-persistence-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-persistence-master:1.5.0-SNAPSHOT.77"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-persistence-master:1.5.0-SNAPSHOT.78"
       },
       "user-task-management-image":       {
          "type": "dockerimage",
@@ -478,7 +478,7 @@
          "type": "gitsources",
          "name": "registry-regulations-publication-pipeline",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
-         "version": "build/1.5.0-SNAPSHOT.141",
+         "version": "build/1.5.0-SNAPSHOT.143",
          "path": "/libraries"
       },
       "registry-regulations-publication-stages":       {
