@@ -71,3 +71,12 @@ releases:
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/control-plane-nexus.git
   values: []
+- name: external-integration-mocks
+  version: 1.5.0-SNAPSHOT.2
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/general/external-integration-mocks.git
+  values: []

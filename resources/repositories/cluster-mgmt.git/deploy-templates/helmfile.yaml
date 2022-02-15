@@ -6,24 +6,6 @@ missingFileHandler: Warn
 
 # TODO: automate values.image.* handling
 releases:
-  - name: trembita-edr-registry-mock
-    namespace: trembita-edr-registry-mock
-    chart: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/trembita-edr-registry-mock.git/deploy-templates'
-    version: 1.3.0-SNAPSHOT.21
-    labels:
-      type: remote
-      update_scc: true
-      isbranch: false
-      stream: master
-      path: components/infra/
-      repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/mock/trembita-edr-registry-mock.git
-    values:
-      - values.yaml
-      - values.gotmpl
-      - image:
-          name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/trembita-edr-registry-mock-master'
-          version: 1.3.0-SNAPSHOT.21
-    missingFileHandler: Warn
   - name: ip-restrictions
     namespace: control-plane
     chart: ip-restrictions
@@ -33,24 +15,6 @@ releases:
     values:
       - values.yaml
       - values.gotmpl
-    missingFileHandler: Warn
-  - name: trembita-dracs-registry-mock
-    namespace: trembita-dracs-registry-mock
-    chart: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/trembita-dracs-registry-mock.git/deploy-templates'
-    version: 1.2.0-SNAPSHOT.10
-    labels:
-      type: remote
-      update_scc: true
-      isbranch: false
-      stream: master
-      path: components/infra/
-      repoURL: git@gitbud.epam.com:mdtu-ddm/low-code-platform/mock/trembita-dracs-registry-mock.git
-    values:
-      - values.yaml
-      - values.gotmpl
-      - image:
-          name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/trembita-dracs-registry-mock-master'
-          version: 1.2.0-SNAPSHOT.10
     missingFileHandler: Warn
 # end of TODO:
 
@@ -63,8 +27,7 @@ helmfiles:
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/backup-management.git/deploy-templates/helmfile.yaml'
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/control-plane-nexus.git/deploy-templates/helmfile.yaml'
   - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/user-management.git/deploy-templates/helmfile.yaml'
-
-
+  - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/external-integration-mocks.git/deploy-templates/helmfile.yaml'
 
 environments:
   default:
@@ -75,4 +38,3 @@ environments:
   mock:
     missingFileHandler: Warn
     values: []
-
