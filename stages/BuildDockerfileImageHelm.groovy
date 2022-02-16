@@ -153,6 +153,9 @@ class BuildDockerfileImageHelm {
                     // user-management.git
                     processHelmfile(context, "${context.workDir}/repositories/components/infra/user-management.git/deploy-templates/helmfile.yaml")
 
+                    // external-integration-mocks.git
+                    processHelmfile(context, "${context.workDir}/repositories/components/infra/external-integration-mocks.git/deploy-templates/helmfile.yaml")
+
                     // create bare git repos from templates
                     script.dir("resources/repositories") {
                         def templateRepo = script.sh(script: "find ./ -name '*.git' -type d", returnStdout: true).tokenize('\n')
