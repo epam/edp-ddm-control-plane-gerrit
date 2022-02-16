@@ -72,7 +72,7 @@ releases:
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/control-plane-nexus.git
   values: []
 - name: external-integration-mocks
-  version: 1.5.0-SNAPSHOT.2
+  version: 1.5.0-SNAPSHOT.4
   labels:
     type: remote
     update_scc: false
