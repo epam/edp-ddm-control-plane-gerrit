@@ -84,9 +84,9 @@ class Helmfile {
                         String templateURL
                         script.sh("git config --global user.email \"you@example.com\"; git config --global user.name \"Admin\"")
                         registries.each { registry ->
-                            templateURL = script.sh(script: "oc get codebase -n ${script.env.globalEDPProject} ${registry} -o jsonpath='{.metadata.labels.templateName}'", returnStdout: true).trim()
+                            templateURL = script.sh(script: """oc get codebase -n ${script.env.globalEDPProject} ${registry} -o jsonpath='{.metadata.annotations.registry-parameters/template-name}'""", returnStdout: true).trim()
                             script.dir(registry) {
-                                context.script.sshagent(["${context.git.credentialsId}"]) {
+                                script.sshagent(["${context.git.credentialsId}"]) {
                                     script.sh """
                                         mkdir -p ~/.ssh
                                         ssh-keyscan -p ${context.git.sshPort} ${context.git.host} >> ~/.ssh/known_hosts
