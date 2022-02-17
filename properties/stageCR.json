@@ -450,7 +450,7 @@
          "type": "gitsources",
          "name": "edp-library-pipelines-fork",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-pipelines-fork.git",
-         "version": "0.2.0-SNAPSHOT.70",
+         "version": "0.2.0-SNAPSHOT.71",
          "path": "/libraries"
       },
       "edp-library-stages-fork":       {
