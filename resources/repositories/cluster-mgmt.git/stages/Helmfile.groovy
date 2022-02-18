@@ -105,7 +105,7 @@ class Helmfile {
                                                 rm -rf ./*
                                                 cp -rp ../source/* ./    
                                                 git add --all
-                                                git commit -a -m "added branch \$i"
+                                                git commit -a --allow-empty -m "added branch \$i"
                                                 git push --set-upstream origin \$i
                                             fi
                                         done
