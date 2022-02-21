@@ -4,13 +4,13 @@
          "type": "application",
          "name": "admin-portal",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/admin-portal.git",
-         "version": "1.5.0-SNAPSHOT.109"
+         "version": "1.5.0-SNAPSHOT.110"
       },
       "bp-admin-portal":       {
          "type": "application",
          "name": "bp-admin-portal",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-admin-portal.git",
-         "version": "1.5.0-SNAPSHOT.110"
+         "version": "1.5.0-SNAPSHOT.114"
       },
       "bp-webservice-gateway":       {
          "type": "application",
@@ -22,13 +22,13 @@
          "type": "application",
          "name": "bpms",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git",
-         "version": "1.5.0-SNAPSHOT.196"
+         "version": "1.5.0-SNAPSHOT.198"
       },
       "citizen-portal":       {
          "type": "application",
          "name": "citizen-portal",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git",
-         "version": "1.5.0-SNAPSHOT.115"
+         "version": "1.5.0-SNAPSHOT.116"
       },
       "citus":       {
          "type": "application",
@@ -46,13 +46,13 @@
          "type": "application",
          "name": "dataplatform-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git",
-         "version": "1.5.0-SNAPSHOT.192"
+         "version": "1.5.0-SNAPSHOT.193"
       },
       "digital-document-service":       {
          "type": "application",
          "name": "digital-document-service",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-document-service.git",
-         "version": "1.5.0-SNAPSHOT.85"
+         "version": "1.5.0-SNAPSHOT.88"
       },
       "digital-signature-ops":       {
          "type": "application",
@@ -76,7 +76,7 @@
          "type": "application",
          "name": "form-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-management.git",
-         "version": "1.5.0-SNAPSHOT.93"
+         "version": "1.5.0-SNAPSHOT.94"
       },
       "gerrit-operator":       {
          "type": "application",
@@ -124,7 +124,7 @@
          "type": "application",
          "name": "officer-portal",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git",
-         "version": "1.5.0-SNAPSHOT.124"
+         "version": "1.5.0-SNAPSHOT.125"
       },
       "pg-exporter-chart":       {
          "type": "application",
@@ -136,13 +136,13 @@
          "type": "application",
          "name": "process-history-service-api",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/process-history-service-api.git",
-         "version": "1.5.0-SNAPSHOT.21"
+         "version": "1.5.0-SNAPSHOT.22"
       },
       "process-history-service-persistence":       {
          "type": "application",
          "name": "process-history-service-persistence",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/process-history-service-persistence.git",
-         "version": "1.5.0-SNAPSHOT.16"
+         "version": "1.5.0-SNAPSHOT.17"
       },
       "redash-chart":       {
          "type": "application",
@@ -154,7 +154,7 @@
          "type": "application",
          "name": "registry-configuration",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git",
-         "version": "1.5.0-SNAPSHOT.89"
+         "version": "1.5.0-SNAPSHOT.90"
       },
       "report-exporter":       {
          "type": "application",
@@ -172,7 +172,7 @@
          "type": "application",
          "name": "user-process-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-process-management.git",
-         "version": "1.5.0-SNAPSHOT.92"
+         "version": "1.5.0-SNAPSHOT.99"
       },
       "user-settings-service-api":       {
          "type": "application",
@@ -190,14 +190,14 @@
          "type": "application",
          "name": "user-task-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-task-management.git",
-         "version": "1.5.0-SNAPSHOT.112"
+         "version": "1.5.0-SNAPSHOT.114"
       }
    },
    "dockerimage":    {
       "admin-portal-image":       {
          "type": "dockerimage",
          "name": "admin-portal-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/admin-portal-master:1.5.0-SNAPSHOT.109"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/admin-portal-master:1.5.0-SNAPSHOT.110"
       },
       "alpine-curl-jq-image":       {
          "type": "dockerimage",
@@ -207,7 +207,7 @@
       "bp-admin-portal-image":       {
          "type": "dockerimage",
          "name": "bp-admin-portal-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bp-admin-portal-master:1.5.0-SNAPSHOT.110"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bp-admin-portal-master:1.5.0-SNAPSHOT.114"
       },
       "bp-webservice-gateway-image":       {
          "type": "dockerimage",
@@ -217,12 +217,12 @@
       "bpms-image":       {
          "type": "dockerimage",
          "name": "bpms-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bpms-master:1.5.0-SNAPSHOT.196"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bpms-master:1.5.0-SNAPSHOT.198"
       },
       "citizen-portal-image":       {
          "type": "dockerimage",
          "name": "citizen-portal-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/citizen-portal-master:1.5.0-SNAPSHOT.115"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/citizen-portal-master:1.5.0-SNAPSHOT.116"
       },
       "citus-image":       {
          "type": "dockerimage",
@@ -247,12 +247,12 @@
       "dataplatform-jenkins-agent-image":       {
          "type": "dockerimage",
          "name": "dataplatform-jenkins-agent-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.5.0-SNAPSHOT.192"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.5.0-SNAPSHOT.193"
       },
       "digital-document-service-image":       {
          "type": "dockerimage",
          "name": "digital-document-service-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/digital-document-service-master:1.5.0-SNAPSHOT.85"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/digital-document-service-master:1.5.0-SNAPSHOT.88"
       },
       "digital-signature-ops-image":       {
          "type": "dockerimage",
@@ -277,7 +277,7 @@
       "form-management-image":       {
          "type": "dockerimage",
          "name": "form-management-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/form-management-master:1.5.0-SNAPSHOT.93"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/form-management-master:1.5.0-SNAPSHOT.94"
       },
       "gerrit-image":       {
          "type": "dockerimage",
@@ -357,7 +357,7 @@
       "officer-portal-image":       {
          "type": "dockerimage",
          "name": "officer-portal-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/officer-portal-master:1.5.0-SNAPSHOT.124"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/officer-portal-master:1.5.0-SNAPSHOT.125"
       },
       "operator-image":       {
          "type": "dockerimage",
@@ -377,12 +377,12 @@
       "process-history-service-api-image":       {
          "type": "dockerimage",
          "name": "process-history-service-api-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/process-history-service-api-master:1.5.0-SNAPSHOT.21"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/process-history-service-api-master:1.5.0-SNAPSHOT.22"
       },
       "process-history-service-persistence-image":       {
          "type": "dockerimage",
          "name": "process-history-service-persistence-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/process-history-service-persistence-master:1.5.0-SNAPSHOT.16"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/process-history-service-persistence-master:1.5.0-SNAPSHOT.17"
       },
       "redash-chart-image":       {
          "type": "dockerimage",
@@ -422,7 +422,7 @@
       "user-process-management-image":       {
          "type": "dockerimage",
          "name": "user-process-management-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-process-management-master:1.5.0-SNAPSHOT.92"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-process-management-master:1.5.0-SNAPSHOT.99"
       },
       "user-settings-service-api-image":       {
          "type": "dockerimage",
@@ -437,7 +437,7 @@
       "user-task-management-image":       {
          "type": "dockerimage",
          "name": "user-task-management-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-task-management-master:1.5.0-SNAPSHOT.112"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-task-management-master:1.5.0-SNAPSHOT.114"
       },
       "vault-image":       {
          "type": "dockerimage",
@@ -457,7 +457,7 @@
          "type": "gitsources",
          "name": "edp-library-stages-fork",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-stages-fork.git",
-         "version": "build/0.2.1-SNAPSHOT.178",
+         "version": "build/0.2.1-SNAPSHOT.181",
          "path": "/libraries"
       },
       "empty-template-registry-regulation":       {
