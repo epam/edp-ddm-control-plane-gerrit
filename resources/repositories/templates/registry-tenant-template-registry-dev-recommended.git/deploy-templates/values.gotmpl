@@ -42,16 +42,12 @@ jenkins:
   edpComponentDockerRegistryrepoURL: '{{ env "edpComponentDockerRegistryUrl" }}'
 {{- if eq (env "envType") "target" }}
   sharedLibraries:
-    - name: edp-library-stages
+    edp-library-stages:
       url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedStagesPath" }}
-      tag: 'master'
       secret: {{ env "libGerritCredId" }}
-      type: ssh
-    - name: edp-library-pipelines
+    edp-library-pipelines:
       url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedPipelinesPath" }}
-      tag: 'master'
       secret: {{ env "libGerritCredId" }}
-      type: ssh
 {{- end }}
 
 {{ $centralVaultUrl := exec "oc" (list "get" "Secret" "-n" (env "globalEDPProject") "vault-root-access-token" "--no-headers" "-o" "jsonpath={.data.vaultUrl}") }}
