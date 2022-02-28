@@ -12,6 +12,12 @@
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-admin-portal.git",
          "version": "1.5.0-SNAPSHOT.114"
       },
+      "pgadmin-chart":        {
+         "type": "application",
+         "name": "pgadmin-chart",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git",
+         "version": "0.0.1-SNAPSHOT.61"
+      },
       "bp-webservice-gateway":       {
          "type": "application",
          "name": "bp-webservice-gateway",
