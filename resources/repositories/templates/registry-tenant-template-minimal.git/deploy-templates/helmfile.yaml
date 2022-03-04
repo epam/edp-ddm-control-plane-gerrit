@@ -785,23 +785,6 @@ releases:
   - '{{ env "NAMESPACE" }}/citus'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
-- name: pgadmin-chart
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remove
-    update_scc: false
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git
-    path: components/registry/
-  chart: /opt/repositories/pgadmin-chart/deploy-demplates
-  version: 0.0.1-SNAPSHOT.56
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-  needs:
-  - '{{ env "NAMESPACE"}}/istio-configuration'
-  - '{{ env "NAMESPACE"}}/network-management'
-  - '{{ env "NAMESPACE"}}/citus'
 environments:
   default:
     missingFileHandler: Error
