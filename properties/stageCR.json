@@ -136,7 +136,8 @@
          "type": "application",
          "name": "pgadmin-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git",
-         "version": "0.0.1-SNAPSHOT.61"
+         "version": "0.0.1-SNAPSHOT.61",
+         "env": "dev"
       },
       "process-history-service-api":       {
          "type": "application",
@@ -484,7 +485,7 @@
          "type": "gitsources",
          "name": "registry-regulations-publication-pipeline",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
-         "version": "build/1.5.0-SNAPSHOT.144",
+         "version": "build/1.5.0-SNAPSHOT.145",
          "path": "/libraries"
       },
       "registry-regulations-publication-stages":       {
