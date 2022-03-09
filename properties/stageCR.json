@@ -40,7 +40,7 @@
          "type": "application",
          "name": "codebase-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/codebase-operator.git",
-         "version": "1.5.0-SNAPSHOT.56"
+         "version": "1.5.0-SNAPSHOT.60"
       },
       "dataplatform-jenkins-agent":       {
          "type": "application",
@@ -239,7 +239,7 @@
       "codebase-operator-image":       {
          "type": "dockerimage",
          "name": "codebase-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/codebase-operator:2.9.0"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/codebase-operator:2.10.1"
       },
       "cp-schema-registry-image":       {
          "type": "dockerimage",
