@@ -34,13 +34,13 @@
          "type": "application",
          "name": "citus",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git",
-         "version": "1.5.0-SNAPSHOT.93"
+         "version": "1.5.0-SNAPSHOT.97"
       },
       "codebase-operator":       {
          "type": "application",
          "name": "codebase-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/codebase-operator.git",
-         "version": "1.5.0-SNAPSHOT.60"
+         "version": "1.5.0-SNAPSHOT.62"
       },
       "dataplatform-jenkins-agent":       {
          "type": "application",
@@ -234,12 +234,12 @@
       "citus-image":       {
          "type": "dockerimage",
          "name": "citus-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/citus-master:1.5.0-SNAPSHOT.93"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/citus-master:1.5.0-SNAPSHOT.97"
       },
       "codebase-operator-image":       {
          "type": "dockerimage",
          "name": "codebase-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/codebase-operator:2.10.1"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/codebase-operator:2.12.0-MDTU-DDM-SNAPSHOT.7"
       },
       "cp-schema-registry-image":       {
          "type": "dockerimage",
