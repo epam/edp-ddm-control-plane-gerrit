@@ -5,10 +5,11 @@ metadata:
     helm.sh/resource-policy: keep
   name:
 spec:
-  realm: admin
+  realm: openshift
   username:
   email:
   groups: []
+  roles: []
   enabled: true
   emailVerified: true
   requiredUserActions:
