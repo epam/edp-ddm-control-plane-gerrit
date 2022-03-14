@@ -26,8 +26,8 @@ global:
     zookeepers: 3
     replicationFactor: 3
   citus:
-    masterWorkers: 2
-    replicaWorkers: 2
+    masterWorkers: 0
+    replicaWorkers: 0
   disableRequestsLimits: false
 
 gerritCentralUrl: gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}
