@@ -28,7 +28,7 @@
          "type": "application",
          "name": "citizen-portal",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git",
-         "version": "1.5.0-SNAPSHOT.122"
+         "version": "1.5.0-SNAPSHOT.123"
       },
       "citus":       {
          "type": "application",
@@ -46,7 +46,7 @@
          "type": "application",
          "name": "dataplatform-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git",
-         "version": "1.5.0-SNAPSHOT.201"
+         "version": "1.5.0-SNAPSHOT.202"
       },
       "digital-document-service":       {
          "type": "application",
@@ -124,7 +124,7 @@
          "type": "application",
          "name": "officer-portal",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git",
-         "version": "1.5.0-SNAPSHOT.131"
+         "version": "1.5.0-SNAPSHOT.132"
       },
       "pg-exporter-chart":       {
          "type": "application",
@@ -185,7 +185,7 @@
          "type": "application",
          "name": "user-settings-service-api",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git",
-         "version": "1.5.0-SNAPSHOT.83"
+         "version": "1.5.0-SNAPSHOT.84"
       },
       "user-settings-service-persistence":       {
          "type": "application",
@@ -229,7 +229,7 @@
       "citizen-portal-image":       {
          "type": "dockerimage",
          "name": "citizen-portal-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/citizen-portal-master:1.5.0-SNAPSHOT.122"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/citizen-portal-master:1.5.0-SNAPSHOT.123"
       },
       "citus-image":       {
          "type": "dockerimage",
@@ -254,7 +254,7 @@
       "dataplatform-jenkins-agent-image":       {
          "type": "dockerimage",
          "name": "dataplatform-jenkins-agent-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.5.0-SNAPSHOT.201"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.5.0-SNAPSHOT.202"
       },
       "digital-document-service-image":       {
          "type": "dockerimage",
@@ -364,7 +364,7 @@
       "officer-portal-image":       {
          "type": "dockerimage",
          "name": "officer-portal-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/officer-portal-master:1.5.0-SNAPSHOT.131"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/officer-portal-master:1.5.0-SNAPSHOT.132"
       },
       "operator-image":       {
          "type": "dockerimage",
@@ -434,7 +434,7 @@
       "user-settings-service-api-image":       {
          "type": "dockerimage",
          "name": "user-settings-service-api-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-api-master:1.5.0-SNAPSHOT.83"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-api-master:1.5.0-SNAPSHOT.84"
       },
       "user-settings-service-persistence-image":       {
          "type": "dockerimage",
