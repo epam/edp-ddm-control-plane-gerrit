@@ -20,5 +20,5 @@ metadata:
 spec:
   roleType: "globalRoles"
   roles:
-    - cp-registry-admin-{{ .Release.Namespace }}
+    - cp-registry-admin-{{ .Release.Namespace }}-global
   group: cp-registry-admin-{{ .Release.Namespace }}

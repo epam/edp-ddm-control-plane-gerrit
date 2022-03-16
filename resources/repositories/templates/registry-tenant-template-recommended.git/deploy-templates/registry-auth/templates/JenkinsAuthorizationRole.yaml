@@ -19,7 +19,7 @@ metadata:
   name: cp-registry-admin-{{ .Release.Namespace }}-global
   namespace: {{ .Values.globalEDPProject }}
 spec:
-  name: cp-registry-admin-{{ .Release.Namespace }}
+  name: cp-registry-admin-{{ .Release.Namespace }}-global
   roleType: "globalRoles"
   pattern: "*.*"
   permissions:
