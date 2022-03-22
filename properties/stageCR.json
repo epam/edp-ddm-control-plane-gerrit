@@ -271,7 +271,7 @@
       "codebase-operator-image":       {
          "type": "dockerimage",
          "name": "codebase-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/codebase-operator:2.12.0-MDTU-DDM-SNAPSHOT.9"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/codebase-operator:2.12.0-MDTU-DDM-SNAPSHOT.10"
       },
       "cp-schema-registry-image":       {
          "type": "dockerimage",

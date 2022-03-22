@@ -39,12 +39,9 @@ nexus:
     class: ocs-storagecluster-ceph-rbd
   edpMavenRepoUrl: {{ env "edpMavenRepoUrl" }}
 
-keycloak:
-
-
 jenkins:
   edpComponentDockerRegistryrepoURL: '{{ env "edpComponentDockerRegistryUrl" }}'
-{{- if eq (env "envType") "target" }}
+  {{- if eq (env "envType") "target" }}
   sharedLibraries:
     edp-library-stages:
       url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedStagesPath" }}
