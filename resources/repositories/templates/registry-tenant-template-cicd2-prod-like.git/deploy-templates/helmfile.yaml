@@ -180,7 +180,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.128
+  version: 1.5.0-SNAPSHOT.131
   values:
   - values.yaml
   - values.gotmpl
@@ -202,7 +202,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.5.0-SNAPSHOT.202
+  version: 1.5.0-SNAPSHOT.203
   values:
   - values.yaml
   - values.gotmpl
@@ -263,7 +263,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-process-management.git
     path: components/registry/
   chart: /opt/repositories/user-process-management/deploy-templates
-  version: 1.5.0-SNAPSHOT.101
+  version: 1.5.0-SNAPSHOT.103
   values:
   - values.yaml
   - values.gotmpl
@@ -307,7 +307,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-task-management.git
     path: components/registry/
   chart: /opt/repositories/user-task-management/deploy-templates
-  version: 1.5.0-SNAPSHOT.117
+  version: 1.5.0-SNAPSHOT.119
   values:
   - values.yaml
   - values.gotmpl
@@ -397,7 +397,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/admin-portal.git
     path: components/registry/
   chart: /opt/repositories/admin-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.118
+  version: 1.5.0-SNAPSHOT.119
   values:
   - values.yaml
   - values.gotmpl
@@ -466,7 +466,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git
     path: components/registry/
   chart: /opt/repositories/citus/deploy-templates
-  version: 1.5.0-SNAPSHOT.97
+  version: 1.5.0-SNAPSHOT.98
   values:
   - values.yaml
   - values.gotmpl
@@ -509,7 +509,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git
     path: components/registry/
   chart: /opt/repositories/nexus/deploy-templates
-  version: 1.5.0-SNAPSHOT.17
+  version: 1.5.0-SNAPSHOT.56
   values:
   - operator:
       clusterRoleName: nexus-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -585,7 +585,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-persistence.git
     path: components/registry/
   chart: /opt/repositories/user-settings-service-persistence/deploy-templates
-  version: 1.5.0-SNAPSHOT.82
+  version: 1.5.0-SNAPSHOT.83
   values:
   - values.yaml
   - values.gotmpl
@@ -605,7 +605,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git
     path: components/registry/
   chart: /opt/repositories/user-settings-service-api/deploy-templates
-  version: 1.5.0-SNAPSHOT.84
+  version: 1.5.0-SNAPSHOT.86
   values:
   - values.yaml
   - values.gotmpl
@@ -643,7 +643,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-document-service.git
     path: components/registry/
   chart: /opt/repositories/digital-document-service/deploy-templates
-  version: 1.5.0-SNAPSHOT.88
+  version: 1.5.0-SNAPSHOT.90
   values:
   - values.yaml
   - values.gotmpl
@@ -679,7 +679,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-service-api.git
     path: components/registry/
   chart: /opt/repositories/excerpt-service-api/deploy-templates
-  version: 1.5.0-SNAPSHOT.95
+  version: 1.5.0-SNAPSHOT.96
   values:
   - values.yaml
   - values.gotmpl
@@ -699,7 +699,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-worker.git
     path: components/registry/
   chart: /opt/repositories/excerpt-worker/deploy-templates
-  version: 1.5.0-SNAPSHOT.92
+  version: 1.5.0-SNAPSHOT.93
   values:
   - values.yaml
   - values.gotmpl
