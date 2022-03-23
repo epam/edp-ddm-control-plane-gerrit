@@ -180,7 +180,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.132
+  version: 1.5.0-SNAPSHOT.133
   values:
   - values.yaml
   - values.gotmpl
@@ -792,7 +792,7 @@ releases:
     update_scc: false
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git
     path: components/registry/
-  chart: /opt/repositories/pgadmin-chart/deploy-demplates
+  chart: /opt/repositories/pgadmin-chart/deploy-templates
   version: 0.0.1-SNAPSHOT.61
   values:
   - values.yaml
