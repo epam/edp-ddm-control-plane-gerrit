@@ -123,8 +123,7 @@
          "type": "application",
          "name": "keycloak-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/keycloak-operator.git",
-         "version": "1.5.0-SNAPSHOT.30",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.67"
       },
       "kong":       {
          "type": "application",
@@ -361,7 +360,7 @@
       "keycloak-operator-image":       {
          "type": "dockerimage",
          "name": "keycloak-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/keycloak-operator:1.10.0-SNAPSHOT.28"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/keycloak-operator:1.11.0-MDTU-DDM-SNAPSHOT.8"
       },
       "kong-image":       {
          "type": "dockerimage",
@@ -496,7 +495,7 @@
          "type": "gitsources",
          "name": "edp-library-stages-fork",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-stages-fork.git",
-         "version": "build/0.2.1-SNAPSHOT.194",
+         "version": "build/0.2.1-SNAPSHOT.199",
          "path": "/libraries"
       },
       "empty-template-registry-regulation":       {

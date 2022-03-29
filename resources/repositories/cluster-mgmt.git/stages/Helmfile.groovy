@@ -113,6 +113,38 @@ class Helmfile {
                                 }
                             }
                         }
+
+                        def gerritGroupMemberYAML = script.readYaml file: 'placeholders-templates/gerrit_gerritgroupmember.yaml'
+                        def gerritAdminGroup = "administrators"
+                        def gerritReadGroup = "read"
+                        def gerritAdministratorslist = script.sh(script: """oc get -n user-management KeycloakRealmUser -o json | jq -r --arg ROLE "cp-cluster-mgmt-admin" '.items[] | select(.spec.roles | index(\$ROLE)) | .metadata.name + "-${gerritAdminGroup}" + ":" + .spec.username' """, returnStdout: true).tokenize('\n')
+                        def gerritReaderslist = script.sh(script: """oc get -n user-management KeycloakRealmUser -o json | jq -r --arg ROLE "cp-registry-reader" '.items[] | select(.spec.roles | index(\$ROLE)) | .metadata.name + "-${gerritReadGroup}" + ":" + .spec.username' """, returnStdout: true).tokenize('\n')
+                        def gerritRoles = ["${gerritAdminGroup}": gerritAdministratorslist, "${gerritReadGroup}": gerritReaderslist]
+                        def gerritUsersRemoveList = []
+
+                        gerritRoles.each { role, users ->
+                            // Assign gerrit group members
+                            if (users) {
+                                def gerritGroupMember = [], gerritGroupMemberList = []
+                                users.eachWithIndex { username, index ->
+                                    gerritGroupMember = username.tokenize(':')
+                                    gerritGroupMemberList += gerritGroupMember[0]
+                                    gerritGroupMemberYAML.metadata.name = gerritGroupMember[0]
+                                    gerritGroupMemberYAML.metadata.namespace = script.env.globalEDPProject
+                                    gerritGroupMemberYAML.metadata.labels.registry = 'cluster-mgmt'
+                                    gerritGroupMemberYAML.spec.groupId = role
+                                    gerritGroupMemberYAML.spec.accountId = gerritGroupMember[1]
+                                    script.writeYaml file: "gerrit_gerritgroupmember-${index}.yaml", data: gerritGroupMemberYAML
+                                    script.sh(""" oc apply -n ${script.env.globalEDPProject} -f gerrit_gerritgroupmember-${index}.yaml """)
+                                }
+                                gerritUsersRemoveList = script.sh(script: """oc get -n ${script.env.globalEDPProject} GerritGroupMember -o jsonpath='{.items[?(@.spec.groupId == "${role}")].metadata.name}' """, returnStdout: true).tokenize('\n')
+                                gerritUsersRemoveList -= gerritGroupMemberList
+                                gerritUsersRemoveList.each { username ->
+                                    script.sh(""" oc delete --force GerritGroupMember ${username} """)
+                                }
+                            }
+                        }
+
                         script.sh("helmfile -f ${helmfile} sync --concurrency 1")
                     }
                 }

@@ -529,7 +529,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/keycloak-operator.git
     path: components/registry/
   chart: /opt/repositories/keycloak-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.30
+  version: 1.5.0-SNAPSHOT.67
   values:
   - operator:
       clusterRoleName: keycloak-operator-{{ env "globalEDPProject" }}-clusterrole
