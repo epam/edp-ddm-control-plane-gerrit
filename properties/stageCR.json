@@ -527,9 +527,16 @@
          "path": "/libraries"
       }
    },
-   "resource": {"liquibase-ext-schema":    {
-      "type": "resource",
-      "name": "liquibase-ext-schema",
-      "path": "repository/extensions/com/epam/digital/data/platform/liquibase-ext-schema/1.5.0-SNAPSHOT.74/liquibase-ext-schema-1.5.0-SNAPSHOT.74.xsd"
-   }}
+   "resource": {
+      "liquibase-ext-schema":    [{
+         "type": "resource",
+         "name": "liquibase-ext-schema",
+         "path": "repository/extensions/com/epam/digital/data/platform/liquibase-ext-schema/1.5.0-SNAPSHOT.72/liquibase-ext-schema-1.5.0-SNAPSHOT.72.xsd"
+      },
+         {
+            "type": "resource",
+            "name": "liquibase-ext-schema-latest",
+            "path": "repository/extensions/com/epam/digital/data/platform/liquibase-ext-schema/latest/liquibase-ext-schema-latest.xsd"
+         }
+      ]}
 }
