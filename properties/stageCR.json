@@ -4,120 +4,103 @@
          "type": "application",
          "name": "admin-portal",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/admin-portal.git",
-         "version": "1.5.0-SNAPSHOT.123",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.124"
       },
       "bp-admin-portal":       {
          "type": "application",
          "name": "bp-admin-portal",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-admin-portal.git",
-         "version": "1.5.0-SNAPSHOT.114",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.114"
       },
       "bp-webservice-gateway":       {
          "type": "application",
          "name": "bp-webservice-gateway",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-webservice-gateway.git",
-         "version": "1.5.0-SNAPSHOT.86",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.86"
       },
       "bpms":       {
          "type": "application",
          "name": "bpms",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git",
-         "version": "1.5.0-SNAPSHOT.217",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.217"
       },
       "citizen-portal":       {
          "type": "application",
          "name": "citizen-portal",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git",
-         "version": "1.5.0-SNAPSHOT.126",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.126"
       },
       "citus":       {
          "type": "application",
          "name": "citus",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git",
-         "version": "1.5.0-SNAPSHOT.100",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.100"
       },
       "codebase-operator":       {
          "type": "application",
          "name": "codebase-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/codebase-operator.git",
-         "version": "1.5.0-SNAPSHOT.64",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.64"
       },
       "dataplatform-jenkins-agent":       {
          "type": "application",
          "name": "dataplatform-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git",
-         "version": "1.5.0-SNAPSHOT.205",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.205"
       },
       "digital-document-service":       {
          "type": "application",
          "name": "digital-document-service",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-document-service.git",
-         "version": "1.5.0-SNAPSHOT.90",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.90"
       },
       "digital-signature-ops":       {
          "type": "application",
          "name": "digital-signature-ops",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git",
-         "version": "1.5.0-SNAPSHOT.88",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.88"
       },
       "excerpt-service-api":       {
          "type": "application",
          "name": "excerpt-service-api",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-service-api.git",
-         "version": "1.5.0-SNAPSHOT.96",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.96"
       },
       "excerpt-worker":       {
          "type": "application",
          "name": "excerpt-worker",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-worker.git",
-         "version": "1.5.0-SNAPSHOT.93",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.93"
       },
       "form-management":       {
          "type": "application",
          "name": "form-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-management.git",
-         "version": "1.5.0-SNAPSHOT.94",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.94"
       },
       "gerrit-operator":       {
          "type": "application",
          "name": "gerrit-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/gerrit-operator.git",
-         "version": "1.5.0-SNAPSHOT.25",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.25"
       },
       "hashicorp-vault":       {
          "type": "application",
          "name": "hashicorp-vault",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/hashicorp-vault.git",
-         "version": "1.5.0-SNAPSHOT.54",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.54"
       },
       "jenkins-operator":       {
          "type": "application",
          "name": "jenkins-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git",
-         "version": "1.5.0-SNAPSHOT.134",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.135"
       },
       "kafka-schema-registry":       {
          "type": "application",
          "name": "kafka-schema-registry",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/kafka-schema-registry.git",
-         "version": "1.5.0-SNAPSHOT.7",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.7"
       },
       "keycloak-operator":       {
          "type": "application",
@@ -129,29 +112,25 @@
          "type": "application",
          "name": "kong",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git",
-         "version": "1.5.0-SNAPSHOT.27",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.27"
       },
       "nexus":       {
          "type": "application",
          "name": "nexus",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git",
-         "version": "1.5.0-SNAPSHOT.56",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.57"
       },
       "officer-portal":       {
          "type": "application",
          "name": "officer-portal",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git",
-         "version": "1.5.0-SNAPSHOT.135",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.135"
       },
       "pg-exporter-chart":       {
          "type": "application",
          "name": "pg-exporter-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pg-exporter-chart.git",
-         "version": "1.5.0-SNAPSHOT.7",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.7"
       },
       "pgadmin-chart":       {
          "type": "application",
@@ -164,78 +143,68 @@
          "type": "application",
          "name": "process-history-service-api",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/process-history-service-api.git",
-         "version": "1.5.0-SNAPSHOT.24",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.24"
       },
       "process-history-service-persistence":       {
          "type": "application",
          "name": "process-history-service-persistence",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/process-history-service-persistence.git",
-         "version": "1.5.0-SNAPSHOT.20",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.20"
       },
       "redash-chart":       {
          "type": "application",
          "name": "redash-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git",
-         "version": "1.5.0-SNAPSHOT.80",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.80"
       },
       "registry-configuration":       {
          "type": "application",
          "name": "registry-configuration",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git",
-         "version": "1.5.0-SNAPSHOT.90",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.90"
       },
       "report-exporter":       {
          "type": "application",
          "name": "report-exporter",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/report-exporter.git",
-         "version": "1.5.0-SNAPSHOT.67",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.67"
       },
       "strimzi-kafka-operator":       {
          "type": "application",
          "name": "strimzi-kafka-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git",
-         "version": "1.5.0-SNAPSHOT.64",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.64"
       },
       "user-process-management":       {
          "type": "application",
          "name": "user-process-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-process-management.git",
-         "version": "1.5.0-SNAPSHOT.104",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.104"
       },
       "user-settings-service-api":       {
          "type": "application",
          "name": "user-settings-service-api",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git",
-         "version": "1.5.0-SNAPSHOT.86",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.86"
       },
       "user-settings-service-persistence":       {
          "type": "application",
          "name": "user-settings-service-persistence",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-persistence.git",
-         "version": "1.5.0-SNAPSHOT.83",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.83"
       },
       "user-task-management":       {
          "type": "application",
          "name": "user-task-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-task-management.git",
-         "version": "1.5.0-SNAPSHOT.120",
-         "env": "prod"
+         "version": "1.5.0-SNAPSHOT.120"
       }
    },
    "dockerimage":    {
       "admin-portal-image":       {
          "type": "dockerimage",
          "name": "admin-portal-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/admin-portal-master:1.5.0-SNAPSHOT.123"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/admin-portal-master:1.5.0-SNAPSHOT.124"
       },
       "alpine-curl-jq-image":       {
          "type": "dockerimage",
@@ -527,16 +496,9 @@
          "path": "/libraries"
       }
    },
-   "resource": {
-      "liquibase-ext-schema":    [{
-         "type": "resource",
-         "name": "liquibase-ext-schema",
-         "path": "repository/extensions/com/epam/digital/data/platform/liquibase-ext-schema/1.5.0-SNAPSHOT.72/liquibase-ext-schema-1.5.0-SNAPSHOT.72.xsd"
-      },
-         {
-            "type": "resource",
-            "name": "liquibase-ext-schema-latest",
-            "path": "repository/extensions/com/epam/digital/data/platform/liquibase-ext-schema/latest/liquibase-ext-schema-latest.xsd"
-         }
-      ]}
+   "resource": {"liquibase-ext-schema":    {
+      "type": "resource",
+      "name": "liquibase-ext-schema",
+      "path": "repository/extensions/com/epam/digital/data/platform/liquibase-ext-schema/1.5.0-SNAPSHOT.74/liquibase-ext-schema-1.5.0-SNAPSHOT.74.xsd"
+   }}
 }

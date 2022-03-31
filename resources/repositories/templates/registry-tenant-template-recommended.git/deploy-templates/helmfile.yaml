@@ -180,7 +180,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.134
+  version: 1.5.0-SNAPSHOT.135
   values:
   - values.yaml
   - values.gotmpl
@@ -397,7 +397,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/admin-portal.git
     path: components/registry/
   chart: /opt/repositories/admin-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.123
+  version: 1.5.0-SNAPSHOT.124
   values:
   - values.yaml
   - values.gotmpl
@@ -509,7 +509,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git
     path: components/registry/
   chart: /opt/repositories/nexus/deploy-templates
-  version: 1.5.0-SNAPSHOT.56
+  version: 1.5.0-SNAPSHOT.57
   values:
   - operator:
       clusterRoleName: nexus-operator-{{ env "globalEDPProject" }}-clusterrole
