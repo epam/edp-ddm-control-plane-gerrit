@@ -162,7 +162,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git
     path: components/registry/
   chart: /opt/repositories/officer-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.135
+  version: 1.5.0-SNAPSHOT.136
   values:
   - values.yaml
   - values.gotmpl
@@ -180,7 +180,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.135
+  version: 1.5.0-SNAPSHOT.136
   values:
   - values.yaml
   - values.gotmpl
@@ -202,7 +202,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.5.0-SNAPSHOT.205
+  version: 1.5.0-SNAPSHOT.207
   values:
   - values.yaml
   - values.gotmpl
@@ -509,7 +509,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git
     path: components/registry/
   chart: /opt/repositories/nexus/deploy-templates
-  version: 1.5.0-SNAPSHOT.57
+  version: 1.5.0-SNAPSHOT.58
   values:
   - operator:
       clusterRoleName: nexus-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -566,7 +566,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git
     path: components/registry/
   chart: /opt/repositories/citizen-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.126
+  version: 1.5.0-SNAPSHOT.127
   values:
   - values.yaml
   - values.gotmpl
@@ -624,7 +624,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-webservice-gateway.git
     path: components/registry/
   chart: /opt/repositories/bp-webservice-gateway/deploy-templates
-  version: 1.5.0-SNAPSHOT.86
+  version: 1.5.0-SNAPSHOT.87
   values:
   - values.yaml
   - values.gotmpl
