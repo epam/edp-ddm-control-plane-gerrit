@@ -115,8 +115,8 @@ class Helmfile {
                         }
 
                         def gerritGroupMemberYAML = script.readYaml file: 'placeholders-templates/gerrit_gerritgroupmember.yaml'
-                        def gerritAdminGroup = "Administrators"
-                        def gerritReadGroup = "ReadOnly"
+                        def gerritAdminGroup = "administrators"
+                        def gerritReadGroup = "readonly"
                         def gerritAdministratorslist = script.sh(script: """oc get -n user-management KeycloakRealmUser -o json | jq -r --arg ROLE "cp-cluster-mgmt-admin" '.items[] | select(.spec.roles | index(\$ROLE)) | .metadata.name + "-${gerritAdminGroup}" + ":" + .spec.username' """, returnStdout: true).tokenize('\n')
                         def gerritReaderslist = script.sh(script: """oc get -n user-management KeycloakRealmUser -o json | jq -r --arg ROLE "cp-registry-reader" '.items[] | select(.spec.roles | index(\$ROLE)) | .metadata.name + "-${gerritReadGroup}" + ":" + .spec.username' """, returnStdout: true).tokenize('\n')
                         def gerritRoles = ["${gerritAdminGroup}": gerritAdministratorslist, "${gerritReadGroup}": gerritReaderslist]
@@ -134,7 +134,7 @@ class Helmfile {
                                     gerritGroupMemberYAML.metadata.labels.registry = 'cluster-mgmt'
                                     gerritGroupMemberYAML.spec.groupId = role
                                     gerritGroupMemberYAML.spec.accountId = gerritGroupMember[1]
-                                    script.writeYaml file: "gerrit_gerritgroupmember-${index}.yaml", data: gerritGroupMemberYAML
+                                    script.writeYaml file: "gerrit_gerritgroupmember-${index}.yaml", data: gerritGroupMemberYAML, overwrite: true
                                     script.sh(""" oc apply -n ${script.env.globalEDPProject} -f gerrit_gerritgroupmember-${index}.yaml """)
                                 }
                                 gerritUsersRemoveList = script.sh(script: """oc get -n ${script.env.globalEDPProject} GerritGroupMember -o jsonpath='{.items[?(@.spec.groupId == "${role}")].metadata.name}' """, returnStdout: true).tokenize('\n')
