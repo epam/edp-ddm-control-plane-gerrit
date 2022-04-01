@@ -2,7 +2,7 @@ name: gerrit-operator
 operator:
   image:
     name: epamedp/gerrit-operator
-    version: 2.11.0-MDTU-DDM-SNAPSHOT.2
+    version: 2.11.0-MDTU-DDM-SNAPSHOT.3
   serviceAccountName: gerrit-operator
 
 gerrit:
