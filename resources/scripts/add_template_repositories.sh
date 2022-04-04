@@ -39,19 +39,20 @@ for repo in `find . -type d -mindepth 1 -maxdepth 3 -name "*.git"`; do
 done
 
 # check if GERRIT_SITE is not empty and enforce reindex
-#if [ "$(ls -A $GERRIT_SITE/git/All-* &2>&1)" ]; then
-#  cd $GERRIT_SITE
-#  echo "Reindexing Gerrit repositories"
-#  su-exec ${GERRIT_USER} java -jar $GERRIT_SITE/bin/gerrit.war reindex
-#fi
+if [ "$(ls -A $GERRIT_SITE/git/All-* &2>&1)" ]; then
+  cd $GERRIT_SITE
+  echo "Reindexing Gerrit repositories"
+  su-exec ${GERRIT_USER} java -jar $GERRIT_SITE/bin/gerrit.war reindex
+fi
+
+git config --global user.email "you@example.com"
+git config --global user.name "Admin"
 
 ## TODO: update codebases with new gerrit URL
 #mkdir -p /tmp/libraries/registry-regulations-publication-pipeline
 #cd /tmp/libraries/registry-regulations-publication-pipeline
 #git clone /var/gerrit/review_site/git/libraries/registry-regulations-publication-pipeline.git
 #cd registry-regulations-publication-pipeline
-#git config --global user.email "you@example.com"
-#git config --global user.name "Admin"
 #for codebase in $(grep -r -l 'cicd2' ./); do
 #  sed -i "s#https://gerrit-mdtu-ddm-edp-cicd.apps.cicd2.mdtu-ddm.projects.epam.com#${WEBURL}#g" ${codebase}
 #  git commit -a -m 'fixed codebase gerrit URL' || echo "Nothing to commit";
