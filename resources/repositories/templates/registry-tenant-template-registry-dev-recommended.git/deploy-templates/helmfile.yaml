@@ -711,6 +711,26 @@ releases:
   - '{{ env "NAMESPACE" }}/citus'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+- name: excerpt-worker-docx
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-worker-docx.git
+    path: components/registry/
+  chart: /opt/repositories/excerpt-worker-docx/deploy-templates
+  version: 1.5.0-SNAPSHOT.3
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
+    - '{{ env "NAMESPACE" }}/registry-auth'
+    - '{{ env "NAMESPACE" }}/citus'
+    - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+    - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: report-exporter
   namespace: '{{ env "NAMESPACE" }}'
   labels:
