@@ -3,9 +3,9 @@
 {{- define "secret-value" }}
   {{- $secret := (lookup "v1" "Secret" .Release.Namespace (printf "keycloak-client.%s-admin.secret" .Release.Namespace)) }}
   {{- if $secret }}
-    {{- $secret.data.clientSecret }}
+    {{- $secret.data.clientSecret | b64dec }}
   {{- else }}
-    {{- uuidv4 | b64enc }}
+    {{- uuidv4 }}
   {{- end }}
 {{- end }}
 
@@ -38,7 +38,7 @@ spec:
   displayName: "openshift-sso"
   config:
     clientId: "{{ .Release.Namespace }}-admin"
-    clientSecret: {{ $secretValue }}
+    clientSecret: {{ $secretValue | b64dec }}
     hideOnLoginPage: "false"
     syncMode: "FORCE"
     userInfoUrl: "{{ .Values.keycloak.url }}/auth/realms/openshift/protocol/openid-connect/userinfo"

@@ -38,7 +38,7 @@ spec:
   displayName: "openshift-sso"
   config:
     clientId: "{{ .Release.Namespace }}-admin"
-    clientSecret: {{ $secretValue }}
+    clientSecret: {{ $secretValue | b64dec }}
     hideOnLoginPage: "false"
     syncMode: "FORCE"
     userInfoUrl: "{{ .Values.keycloak.url }}/auth/realms/openshift/protocol/openid-connect/userinfo"
