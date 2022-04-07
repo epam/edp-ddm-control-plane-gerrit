@@ -21,6 +21,7 @@ for repo in `find . -type d -mindepth 1 -maxdepth 3 -name "*.git"`; do
               if [[ `cd /opt/git/dst_repo && git branch -r | grep -E "^[ \t]*origin/$i"` ]]; then
                   echo "Branch $i exists, skipping update"
               else
+                git checkout $i;
                 cd "/opt/git/dst_repo";
                 su-exec ${GERRIT_USER} git checkout -f -B $i ;
                 rm -rf ./*;

@@ -137,10 +137,10 @@ class Helmfile {
                                     script.writeYaml file: "gerrit_gerritgroupmember-${index}.yaml", data: gerritGroupMemberYAML, overwrite: true
                                     script.sh(""" oc apply -n ${script.env.globalEDPProject} -f gerrit_gerritgroupmember-${index}.yaml """)
                                 }
-                                gerritUsersRemoveList = script.sh(script: """oc get -n ${script.env.globalEDPProject} GerritGroupMember -o jsonpath='{.items[?(@.spec.groupId == "${role}")].metadata.name}' """, returnStdout: true).tokenize('\n')
+                                gerritUsersRemoveList = script.sh(script: """oc get -n ${script.env.globalEDPProject} GerritGroupMember -o jsonpath='{.items[?(@.spec.groupId == "${role}")].metadata.name}' """, returnStdout: true).tokenize(' ')
                                 gerritUsersRemoveList -= gerritGroupMemberList
                                 gerritUsersRemoveList.each { username ->
-                                    script.sh(""" oc delete --force GerritGroupMember ${username} """)
+                                    script.sh(""" oc delete -n ${script.env.globalEDPProject} --force GerritGroupMember ${username} """)
                                 }
                             }
                         }
