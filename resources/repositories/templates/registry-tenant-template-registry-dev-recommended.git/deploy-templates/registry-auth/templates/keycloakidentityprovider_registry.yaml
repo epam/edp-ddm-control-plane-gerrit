@@ -20,23 +20,7 @@ metadata:
 type: Opaque
 data:
   clientSecret: {{ $secretValue }}
----
-apiVersion: v1.edp.epam.com/v1alpha1
-kind: KeycloakClient
-metadata:
-  name: {{ .Release.Namespace }}-admin
-  annotations:
-    "helm.sh/resource-policy": keep
-spec:
-  clientId: {{ .Release.Namespace }}-admin
-  advancedProtocolMappers: false
-  audRequired: false
-  directAccess: false
-  public: false
-  secret: {{ $secretName }}
-  targetRealm: openshift
-  webUrl: ''
-  protocolMappers: []
+
 ---
 apiVersion: v1.edp.epam.com/v1alpha1
 kind: KeycloakRealmIdentityProvider
