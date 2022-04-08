@@ -53,3 +53,19 @@ nontrembita-external-registration: []
 #citus:
 #  pgConfig:
 #    logLevel: warning
+## Level of logging for the admin/officer/citizen portals. Allowed values are
+## emerg, alert, crit, error, warn, notice, info, debug. (default "error")
+## It is also possible to turn off the access_log.
+#portals:
+#  admin:
+#    nginx:
+#      logLevel: error
+#      disableAccessLog: false
+#  officer:
+#    nginx:
+#      logLevel: error
+#      disableAccessLog: false
+#  citizen:
+#    nginx:
+#      logLevel: error
+#      disableAccessLog: false

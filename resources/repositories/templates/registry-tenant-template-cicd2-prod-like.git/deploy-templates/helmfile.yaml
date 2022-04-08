@@ -154,24 +154,6 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/registry-configuration'
-- name: officer-portal
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git
-    path: components/registry/
-  chart: /opt/repositories/officer-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.167
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-  needs:
-  - '{{ env "NAMESPACE" }}/istio-configuration'
-  - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/kong'
-  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: jenkins-operator
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -297,7 +279,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
-  - '{{ env "NAMESPACE" }}/admin-portal'
+  - '{{ env "NAMESPACE" }}/common-web-app'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: user-task-management
   namespace: '{{ env "NAMESPACE" }}'
@@ -342,8 +324,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
-  - '{{ env "NAMESPACE" }}/citizen-portal'
-  - '{{ env "NAMESPACE" }}/officer-portal'
+  - '{{ env "NAMESPACE" }}/common-web-app'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: kong
   namespace: '{{ env "NAMESPACE" }}'
@@ -389,15 +370,15 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/registry-configuration'
-- name: admin-portal
+- name: common-web-app
   namespace: '{{ env "NAMESPACE" }}'
   labels:
     type: remote
     update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/admin-portal.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
-  chart: /opt/repositories/admin-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.226
+  chart: /opt/repositories/common-web-app/deploy-templates
+  version:  1.5.0-SNAPSHOT.12
   values:
   - values.yaml
   - values.gotmpl
@@ -413,6 +394,7 @@ releases:
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/form-management'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/kong'
 - name: redash-chart
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -579,25 +561,6 @@ releases:
   - '{{ env "NAMESPACE" }}/user-settings-service-api'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/citus'
-- name: citizen-portal
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git
-    path: components/registry/
-  chart: /opt/repositories/citizen-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.154
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-  needs:
-  - '{{ env "NAMESPACE" }}/istio-configuration'
-  - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/kong'
-  - '{{ env "NAMESPACE" }}/officer-portal'
-  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: user-settings-service-persistence
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -616,7 +579,7 @@ releases:
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/citus'
-  - '{{ env "NAMESPACE" }}/citizen-portal'
+  - '{{ env "NAMESPACE" }}/common-web-app'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: user-settings-service-api
   namespace: '{{ env "NAMESPACE" }}'
