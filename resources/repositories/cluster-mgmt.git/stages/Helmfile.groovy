@@ -90,25 +90,32 @@ class Helmfile {
                                     script.sh """
                                         mkdir -p ~/.ssh
                                         ssh-keyscan -p ${context.git.sshPort} ${context.git.host} >> ~/.ssh/known_hosts
-                                        git clone ${gitURL}${registry} target
-                                        git clone ${gitURL}${templateURL} source
-                                        cd source                        
-                                        for i in \$(git branch -r | sed "s#^[ \\t]*origin/##" | grep -Ev '^master\$' | grep -Ev '^HEAD' ) ; do
-                                            if [[ \$(cd ../target && git branch -r | grep -E "^[ \\t]*origin/\$i") ]]; then
+                                        git clone ${gitURL}${registry} ${context.workDir}/${registry}/target/master
+                                        git clone ${gitURL}${templateURL} ${context.workDir}/${registry}/source/master
+             
+                                        for i in \$(cd ${context.workDir}/${registry}/source/master && git branch -r | sed "s#^[ \\t]*origin/##" | grep -Ev '^master\$' | grep -Ev '^HEAD' ) ; do
+                                            if [[ \$(cd ${context.workDir}/${registry}/target/master && git branch -r | grep -E "^[ \\t]*origin/\$i") ]]; then
                                                 echo "Branch \$i exists, skipping update"
                                             else    
-                                                cd ../source
-                                                git checkout \$i
-                                                rm -rf .git
-                                                cd ../target
-                                                git checkout -B \$i
-                                                rm -rf ./*
-                                                cp -rp ../source/* ./    
-                                                git add --all
-                                                git commit -a --allow-empty -m "added branch \$i"
-                                                git push --set-upstream origin \$i
+                                                git clone -b \$i ${gitURL}${templateURL} ${context.workDir}/${registry}/source/${registry}-\$i \
+                                                && rm -rf ${context.workDir}/${registry}/source/${registry}-\$i/.git
+                                                
+                                                git clone ${gitURL}${registry} ${context.workDir}/${registry}/target/${registry}-\$i \
+                                                && cd ${context.workDir}/${registry}/target/${registry}-\$i \
+                                                && git checkout -B \$i \
+                                                && rm -rfv !\\(".git"\\) \
+                                                && cp -rp "${context.workDir}/${registry}/source/${registry}-\${i}" "${context.workDir}/${registry}/target/" \
+                                                && git add --all \
+                                                && git commit -a --allow-empty -m "added branch \$i from template" \
+                                                && git push --set-upstream origin \$i \
+                                                && cd ${context.workDir}/${registry} \
+                                                && rm -rf ${context.workDir}/${registry}/target/${registry}-\$i \
+                                                && rm -rf ${context.workDir}/${registry}/source/${registry}-\$i
                                             fi
                                         done
+                                        
+                                        rm -rf ${context.workDir}/${registry}/source
+                                        rm -rf ${context.workDir}/${registry}/target
                                     """
                                 }
                             }
