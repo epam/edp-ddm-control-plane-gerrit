@@ -1,6 +1,7 @@
 # helm values
 
-
-
-
-
+# You may disable griada instance and set the url
+# Griada url by default is: griada.<clusterDnsWildcard>
+griada:
+  enabled: true
+#  url: example.com
