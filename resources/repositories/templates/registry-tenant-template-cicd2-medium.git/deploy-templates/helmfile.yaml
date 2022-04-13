@@ -162,7 +162,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git
     path: components/registry/
   chart: /opt/repositories/officer-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.143
+  version: 1.5.0-SNAPSHOT.144
   values:
   - values.yaml
   - values.gotmpl
@@ -180,7 +180,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.140
+  version: 1.5.0-SNAPSHOT.141
   values:
   - values.yaml
   - values.gotmpl
@@ -202,7 +202,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.5.0-SNAPSHOT.209
+  version: 1.5.0-SNAPSHOT.218
   values:
   - values.yaml
   - values.gotmpl
@@ -397,7 +397,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/admin-portal.git
     path: components/registry/
   chart: /opt/repositories/admin-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.132
+  version: 1.5.0-SNAPSHOT.133
   values:
   - values.yaml
   - values.gotmpl
@@ -509,7 +509,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git
     path: components/registry/
   chart: /opt/repositories/nexus/deploy-templates
-  version: 1.5.0-SNAPSHOT.58
+  version: 1.5.0-SNAPSHOT.59
   values:
   - operator:
       clusterRoleName: nexus-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -566,7 +566,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git
     path: components/registry/
   chart: /opt/repositories/citizen-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.134
+  version: 1.5.0-SNAPSHOT.135
   values:
   - values.yaml
   - values.gotmpl
@@ -585,7 +585,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-persistence.git
     path: components/registry/
   chart: /opt/repositories/user-settings-service-persistence/deploy-templates
-  version: 1.5.0-SNAPSHOT.83
+  version: 1.5.0-SNAPSHOT.84
   values:
   - values.yaml
   - values.gotmpl
@@ -605,7 +605,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git
     path: components/registry/
   chart: /opt/repositories/user-settings-service-api/deploy-templates
-  version: 1.5.0-SNAPSHOT.89
+  version: 1.5.0-SNAPSHOT.90
   values:
   - values.yaml
   - values.gotmpl
@@ -679,7 +679,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-service-api.git
     path: components/registry/
   chart: /opt/repositories/excerpt-service-api/deploy-templates
-  version: 1.5.0-SNAPSHOT.96
+  version: 1.5.0-SNAPSHOT.97
   values:
   - values.yaml
   - values.gotmpl
@@ -699,7 +699,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-worker.git
     path: components/registry/
   chart: /opt/repositories/excerpt-worker/deploy-templates
-  version: 1.5.0-SNAPSHOT.93
+  version: 1.5.0-SNAPSHOT.94
   values:
   - values.yaml
   - values.gotmpl
@@ -772,7 +772,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/process-history-service-persistence.git
     path: components/registry/
   chart: /opt/repositories/process-history-service-persistence/deploy-templates
-  version: 1.5.0-SNAPSHOT.20
+  version: 1.5.0-SNAPSHOT.21
   values:
   - values.yaml
   - values.gotmpl
