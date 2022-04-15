@@ -140,7 +140,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
     path: components/registry/
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.5.0-SNAPSHOT.222
+  version: 1.5.0-SNAPSHOT.224
   values:
   - values.yaml
   - values.gotmpl
@@ -180,7 +180,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.141
+  version: 1.5.0-SNAPSHOT.143
   values:
   - values.yaml
   - values.gotmpl
@@ -739,7 +739,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.91
+  version: 1.5.0-SNAPSHOT.92
   values:
   - registryGroup:
       name: '{{ env "registryGroup" }}'
