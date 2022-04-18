@@ -33,6 +33,9 @@ spec:
         - podSelector:
             matchLabels:
               app: excerpt-worker
+        - podSelector:
+            matchLabels:
+              app: bp-webservice-gateway
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
