@@ -1,5 +1,6 @@
 #!/bin/bash
 
+not_versioned_repos=('history-excerptor-chart.git' 'empty-template-registry-regulation.git')
 cd /opt/git
 for repo in `find . -type d -mindepth 1 -maxdepth 3 -name "*.git"`; do
         if ! [[ -d "$GERRIT_SITE/git/$repo" ]]; then
@@ -17,6 +18,17 @@ for repo in `find . -type d -mindepth 1 -maxdepth 3 -name "*.git"`; do
             cd "/opt/git/source_repo";
             chown -R ${GERRIT_USER} /opt/git/source_repo;
             chown -R ${GERRIT_USER} /opt/git/dst_repo;
+            if [[ $(printf '%s\n' ${not_versioned_repos[@]} | grep -cE "^$(basename ${repo})$") == 1 ]]; then
+              echo "Updating master branch for repo ${repo}";
+              cd "/opt/git/dst_repo";
+              rm -rfv !\(".git"\);
+              rm -rf /opt/git/source_repo/.git; rm -f /opt/git/source_repo/.gitignore /opt/git/source_repo/.helmignore;
+              scp -rp /opt/git/source_repo/* ./ || echo "Nothing to copy";
+              chown -R ${GERRIT_USER} ./ && chown -R ${GERRIT_USER} ./.git;
+              su-exec ${GERRIT_USER} git add --all || echo "Nothing to add";
+              su-exec ${GERRIT_USER} git commit -am "Update master branch of ${repo}" || echo "Nothing to commit";
+              su-exec ${GERRIT_USER} git push origin master || echo "No push to repo";
+            fi
             for i in $(git branch -r | sed "s#^[ \t]*origin/##" | grep -Ev '^master$' | grep -Ev '^HEAD') ; do
               if [[ `cd /opt/git/dst_repo && git branch -r | grep -E "^[ \t]*origin/$i"` ]]; then
                   echo "Branch $i exists, skipping update"
