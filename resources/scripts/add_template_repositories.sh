@@ -1,6 +1,6 @@
 #!/bin/bash
 
-not_versioned_repos=('history-excerptor-chart.git' 'empty-template-registry-regulation.git')
+not_versioned_repos=\('history-excerptor-chart.git'\ 'empty-template-registry-regulation.git'\)
 cd /opt/git
 for repo in `find . -type d -mindepth 1 -maxdepth 3 -name "*.git"`; do
         if ! [[ -d "$GERRIT_SITE/git/$repo" ]]; then
