@@ -140,7 +140,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
     path: components/registry/
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.5.0-SNAPSHOT.226
+  version: 1.5.0-SNAPSHOT.224
   values:
   - values.yaml
   - values.gotmpl
@@ -180,7 +180,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.144
+  version: 1.5.0-SNAPSHOT.143
   values:
   - values.yaml
   - values.gotmpl
@@ -263,7 +263,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-process-management.git
     path: components/registry/
   chart: /opt/repositories/user-process-management/deploy-templates
-  version: 1.5.0-SNAPSHOT.109
+  version: 1.5.0-SNAPSHOT.107
   values:
   - values.yaml
   - values.gotmpl
@@ -307,7 +307,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-task-management.git
     path: components/registry/
   chart: /opt/repositories/user-task-management/deploy-templates
-  version: 1.5.0-SNAPSHOT.125
+  version: 1.5.0-SNAPSHOT.122
   values:
   - values.yaml
   - values.gotmpl
@@ -330,7 +330,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
     path: components/registry/
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.5.0-SNAPSHOT.93
+  version: 1.5.0-SNAPSHOT.89
   values:
   - values.yaml
   - values.gotmpl
@@ -643,7 +643,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-document-service.git
     path: components/registry/
   chart: /opt/repositories/digital-document-service/deploy-templates
-  version: 1.5.0-SNAPSHOT.94
+  version: 1.5.0-SNAPSHOT.92
   values:
   - values.yaml
   - values.gotmpl
