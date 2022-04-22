@@ -25,7 +25,7 @@
          "type": "application",
          "name": "bpms",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git",
-         "version": "1.5.0-SNAPSHOT.230",
+         "version": "1.5.0-SNAPSHOT.232",
          "env": "prod"
       },
       "citizen-portal":       {
@@ -256,7 +256,7 @@
       "bpms-image":       {
          "type": "dockerimage",
          "name": "bpms-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bpms-master:1.5.0-SNAPSHOT.230"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bpms-master:1.5.0-SNAPSHOT.232"
       },
       "citizen-portal-image":       {
          "type": "dockerimage",

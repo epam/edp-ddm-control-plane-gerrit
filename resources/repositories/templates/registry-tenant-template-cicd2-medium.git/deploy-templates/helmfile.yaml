@@ -140,7 +140,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
     path: components/registry/
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.5.0-SNAPSHOT.230
+  version: 1.5.0-SNAPSHOT.232
   values:
   - values.yaml
   - values.gotmpl
