@@ -3,9 +3,9 @@
 {{- define "secret-value" }}
   {{- $secret := (lookup "v1" "Secret" .Release.Namespace (printf "keycloak-client.%s-admin.secret" .Release.Namespace)) }}
   {{- if $secret }}
-    {{- $secret.data.clientSecret | b64dec }}
+    {{- $secret.data.clientSecret }}
   {{- else }}
-    {{- uuidv4 }}
+    {{- uuidv4 | b64enc }}
   {{- end }}
 {{- end }}
 
