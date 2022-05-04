@@ -5,7 +5,7 @@ import com.epam.edp.stages.impl.ci.Stage
 class Helmfile {
     Script script
 
-    ArrayList<String> COMPOSITE_COMPONENTS = ["user-management", "external-integration-mocks"]
+    ArrayList<String> COMPOSITE_COMPONENTS = ["user-management", "external-integration-mocks", "cluster-kafka-operator"]
 
     void run(context) {
         script.openshift.withCluster() {

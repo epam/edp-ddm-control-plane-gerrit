@@ -80,3 +80,12 @@ releases:
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/general/external-integration-mocks.git
   values: []
+- name: cluster-kafka-operator
+  version: 1.5.0-SNAPSHOT.1
+  labels:
+    type: remote
+    update_scc: false
+    isbranch: false
+    path: components/infra/
+    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/cluster-kafka-operator.git
+  values: []

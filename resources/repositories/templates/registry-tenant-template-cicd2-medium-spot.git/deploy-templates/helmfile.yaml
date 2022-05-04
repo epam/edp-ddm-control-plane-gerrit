@@ -501,6 +501,51 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+- name: kafka-operator
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/kafka-operator.git
+    path: components/registry/
+  chart: /opt/repositories/kafka-operator/deploy-templates
+  version: 1.5.0-SNAPSHOT.1
+  skipDeps: true
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
+    - '{{ env "NAMESPACE" }}/jenkins-operator'
+    - '{{ env "NAMESPACE" }}/gerrit-operator'
+    - '{{ env "NAMESPACE" }}/keycloak-operator'
+    - '{{ env "NAMESPACE" }}/nexus'
+    - '{{ env "NAMESPACE" }}/registry-configuration'
+- name: strimzi-drain-cleaner
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/strimzi-drain-cleaner.git
+    path: components/registry/
+  chart: /opt/repositories/strimzi-drain-cleaner/deploy-templates
+  version: 1.5.0-SNAPSHOT.2
+  skipDeps: true
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
+    - '{{ env "NAMESPACE" }}/jenkins-operator'
+    - '{{ env "NAMESPACE" }}/gerrit-operator'
+    - '{{ env "NAMESPACE" }}/keycloak-operator'
+    - '{{ env "NAMESPACE" }}/nexus'
+    - '{{ env "NAMESPACE" }}/registry-configuration'
+    - '{{ env "NAMESPACE" }}/kafka-operator'
 - name: nexus
   namespace: '{{ env "NAMESPACE" }}'
   labels:

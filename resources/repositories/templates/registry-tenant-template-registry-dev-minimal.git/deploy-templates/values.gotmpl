@@ -26,6 +26,7 @@ global:
     kafkaBrokers: 1
     zookeepers: 1
     replicationFactor: 1
+    kafkaCentralNamespace: {{ env "KAFKA_CENTRAL_NAMESPACE" }}
   citus:
     masterWorkers: 0
     replicaWorkers: 0
