@@ -558,6 +558,27 @@ releases:
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+- name: ddm-notification-service
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/ddm-notification-service.git
+    path: components/registry/
+  chart: /opt/repositories/kafka-schema-registry/deploy-templates
+  version: 1.6.0.6
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/user-settings-service-api'
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/citus'
 - name: citizen-portal
   namespace: '{{ env "NAMESPACE" }}'
   labels:
