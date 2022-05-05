@@ -15,6 +15,9 @@ spec:
         - podSelector:
             matchLabels:
               app: report-exporter
+        - podSelector:
+            matchLabels:
+              app: jenkins
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

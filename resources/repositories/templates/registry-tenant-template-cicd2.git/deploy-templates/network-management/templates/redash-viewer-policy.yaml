@@ -12,6 +12,9 @@ spec:
         - podSelector:
             matchLabels:
               app: redash-exporter
+        - podSelector:
+            matchLabels:
+              app: jenkins
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
