@@ -26,6 +26,18 @@ spec:
               app.kubernetes.io/name: kafka-connect
         - podSelector:
             matchLabels:
+              app: registry-rest-api
+        - podSelector:
+            matchLabels:
+              app: registry-rest-api-ext
+        - podSelector:
+            matchLabels:
+              app: registry-kafka-api
+        - podSelector:
+            matchLabels:
+              app: registry-soap-api
+        - podSelector:
+            matchLabels:
               app: process-history-service-persistence
         - namespaceSelector:
             matchLabels:
