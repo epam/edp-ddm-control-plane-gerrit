@@ -63,6 +63,9 @@ spec:
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: kafka-connect
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: ddm-notification-service
       ports:
         - protocol: TCP
           port: 5432
