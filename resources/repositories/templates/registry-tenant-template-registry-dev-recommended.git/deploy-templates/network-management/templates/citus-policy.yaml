@@ -35,6 +35,12 @@ spec:
               app: excerpt-worker
         - podSelector:
             matchLabels:
+              app: excerpt-worker-docx
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker-csv
+        - podSelector:
+            matchLabels:
               app: prometheus-postgres-exporter
         - podSelector:
             matchLabels:

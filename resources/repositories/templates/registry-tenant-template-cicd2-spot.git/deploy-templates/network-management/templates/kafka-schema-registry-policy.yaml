@@ -41,6 +41,12 @@ spec:
               app: excerpt-worker
         - podSelector:
             matchLabels:
+              app: excerpt-worker-docx
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker-csv
+        - podSelector:
+            matchLabels:
               app.kubernetes.io/name: kafka-connect
         - namespaceSelector:
             matchLabels:
