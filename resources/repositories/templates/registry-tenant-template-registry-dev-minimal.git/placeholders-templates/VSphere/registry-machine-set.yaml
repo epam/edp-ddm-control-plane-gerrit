@@ -43,17 +43,17 @@ spec:
             name: vsphere-cloud-credentials
           network:
             devices:
-              - networkName: EPAM_OKD_Vlan9_EPG
+              - networkName: pg_ncr_9
           metadata:
             creationTimestamp: null
           numCPUs: 8
           kind: VSphereMachineProviderSpec
           workspace:
-            datacenter: HXDP-02
-            datastore: NCR_Data2
-            folder: /HXDP-02/vm/{{ .Values.cluster_prefix }}
-            resourcePool: /HXDP-02/host/HX-02/Resources
-            server: vcsa.ncr.loc
+            datacenter: HXDP-2
+            datastore: NCR-Data
+            folder: /HXDP-2/vm/ncr-x725x
+            resourcePool: /HXDP-2/host/HX-01/Resources
+            server: 10.26.60.128
           template: {{ .Values.cluster_prefix }}-rhcos
           apiVersion: vsphereprovider.openshift.io/v1beta1
 
