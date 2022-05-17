@@ -38,6 +38,9 @@ spec:
               app: registry-soap-api
         - podSelector:
             matchLabels:
+              app: excerpt-service-api
+        - podSelector:
+            matchLabels:
               app: process-history-service-persistence
         - namespaceSelector:
             matchLabels:
