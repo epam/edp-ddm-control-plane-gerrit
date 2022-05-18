@@ -48,6 +48,9 @@ spec:
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: kafka-connect
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: ddm-notification-service
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
