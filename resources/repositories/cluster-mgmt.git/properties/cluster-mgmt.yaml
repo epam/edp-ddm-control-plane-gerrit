@@ -15,7 +15,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/monitoring.git
-  version: 1.5.0-SNAPSHOT.64
+  version: 1.5.0-SNAPSHOT.66
   values: []
 - name: storage
   labels:
@@ -45,7 +45,7 @@ releases:
   version: 1.5.0-SNAPSHOT.60
   values: []
 - name: backup-management
-  version: 1.5.0-SNAPSHOT.3
+  version: 1.5.0-SNAPSHOT.4
   labels:
     type: remote
     update_scc: false
@@ -54,7 +54,7 @@ releases:
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/backup-management.git
   values: []
 - name: user-management
-  version: 1.5.0-SNAPSHOT.170
+  version: 1.5.0-SNAPSHOT.198
   labels:
     type: remote
     update_scc: false

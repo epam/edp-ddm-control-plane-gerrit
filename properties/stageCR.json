@@ -518,50 +518,6 @@
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/hashicorp/vault:1.7.3-ubi"
       }
    },
-   "autotests":    {
-      "auto-qa-setup":       {
-         "type": "autotests",
-         "name": "auto-qa-setup",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/platform-qa/auto-tests/auto-qa-setup.git",
-         "version": "build/1.6.0.7",
-         "promotedVersions": "build/1.6.0.7"
-      },
-      "certified-laboratories-registry-regulation":       {
-         "type": "autotests",
-         "name": "certified-laboratories-registry-regulation",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/registry-regulations/certified-laboratories-registry-regulation.git",
-         "version": "build/1.6.0.3",
-         "promotedVersions": "build/1.6.0.3"
-      },
-      "data-integration-tests":       {
-         "type": "autotests",
-         "name": "data-integration-tests",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/platform-qa/auto-tests/data-integration-tests.git",
-         "version": "build/1.6.0.8",
-         "promotedVersions": "build/1.6.0.8"
-      },
-      "form-modeler-ui-tests":       {
-         "type": "autotests",
-         "name": "form-modeler-ui-tests",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/platform-qa/auto-tests/form-modeler-ui-tests.git",
-         "version": "build/1.6.0.26",
-         "promotedVersions": "build/1.6.0.26"
-      },
-      "low-code-integration-tests":       {
-         "type": "autotests",
-         "name": "low-code-integration-tests",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/platform-qa/auto-tests/low-code-integration-tests.git",
-         "version": "build/1.6.0.6",
-         "promotedVersions": "build/1.6.0.6"
-      },
-      "users-cabinets-ui-tests":       {
-         "type": "autotests",
-         "name": "users-cabinets-ui-tests",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.30",
-         "promotedVersions": "build/1.6.0.30"
-      }
-   },
    "gitsources":    {
       "edp-library-pipelines-fork":       {
          "type": "gitsources",
