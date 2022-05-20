@@ -140,7 +140,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
     path: components/registry/
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.6.0.2
+  version: 1.6.0.5
   values:
   - values.yaml
   - values.gotmpl
@@ -162,7 +162,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/officer-portal.git
     path: components/registry/
   chart: /opt/repositories/officer-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.149
+  version: 1.5.0-SNAPSHOT.165
   values:
   - values.yaml
   - values.gotmpl
@@ -180,7 +180,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.146
+  version: 1.5.0-SNAPSHOT.152
   values:
   - values.yaml
   - values.gotmpl
@@ -202,7 +202,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.5.0-SNAPSHOT.221
+  version: 1.6.0.7
   values:
   - values.yaml
   - values.gotmpl
@@ -222,7 +222,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/gerrit-operator.git
     path: components/registry/
   chart: /opt/repositories/gerrit-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.61
+  version: 1.5.0-SNAPSHOT.62
   values:
   - operator:
       clusterRoleName: gerrit-operator-role-{{ env "globalEDPProject" }}
@@ -353,7 +353,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git
     path: components/registry/
   chart: /opt/repositories/kong/deploy-templates
-  version: 1.5.0-SNAPSHOT.27
+  version: 1.5.0-SNAPSHOT.37
   values:
   - values.yaml
   - values.gotmpl
@@ -397,7 +397,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/admin-portal.git
     path: components/registry/
   chart: /opt/repositories/admin-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.206
+  version: 1.5.0-SNAPSHOT.224
   values:
   - values.yaml
   - values.gotmpl
@@ -466,7 +466,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git
     path: components/registry/
   chart: /opt/repositories/citus/deploy-templates
-  version: 1.5.0-SNAPSHOT.103
+  version: 1.5.0-SNAPSHOT.105
   values:
   - values.yaml
   - values.gotmpl
@@ -487,7 +487,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git
     path: components/registry/
   chart: /opt/repositories/strimzi-kafka-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.64
+  version: 1.5.0-SNAPSHOT.74
   skipDeps: true
   values:
   - values.yaml
@@ -512,17 +512,17 @@ releases:
   version: 1.5.0-SNAPSHOT.1
   skipDeps: true
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   needs:
-    - '{{ env "NAMESPACE" }}/istio-configuration'
-    - '{{ env "NAMESPACE" }}/network-management'
-    - '{{ env "NAMESPACE" }}/jenkins-operator'
-    - '{{ env "NAMESPACE" }}/gerrit-operator'
-    - '{{ env "NAMESPACE" }}/keycloak-operator'
-    - '{{ env "NAMESPACE" }}/nexus'
-    - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: strimzi-drain-cleaner
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -534,18 +534,18 @@ releases:
   version: 1.5.0-SNAPSHOT.2
   skipDeps: true
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   needs:
-    - '{{ env "NAMESPACE" }}/istio-configuration'
-    - '{{ env "NAMESPACE" }}/network-management'
-    - '{{ env "NAMESPACE" }}/jenkins-operator'
-    - '{{ env "NAMESPACE" }}/gerrit-operator'
-    - '{{ env "NAMESPACE" }}/keycloak-operator'
-    - '{{ env "NAMESPACE" }}/nexus'
-    - '{{ env "NAMESPACE" }}/registry-configuration'
-    - '{{ env "NAMESPACE" }}/kafka-operator'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/jenkins-operator'
+  - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
+  - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/kafka-operator'
 - name: nexus
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -554,7 +554,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git
     path: components/registry/
   chart: /opt/repositories/nexus/deploy-templates
-  version: 1.5.0-SNAPSHOT.61
+  version: 1.5.0-SNAPSHOT.62
   values:
   - operator:
       clusterRoleName: nexus-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -574,7 +574,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/keycloak-operator.git
     path: components/registry/
   chart: /opt/repositories/keycloak-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.68
+  version: 1.5.0-SNAPSHOT.69
   values:
   - operator:
       clusterRoleName: keycloak-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -632,7 +632,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/citizen-portal.git
     path: components/registry/
   chart: /opt/repositories/citizen-portal/deploy-templates
-  version: 1.5.0-SNAPSHOT.139
+  version: 1.5.0-SNAPSHOT.152
   values:
   - values.yaml
   - values.gotmpl
@@ -745,7 +745,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-service-api.git
     path: components/registry/
   chart: /opt/repositories/excerpt-service-api/deploy-templates
-  version: 1.6.0.2
+  version: 1.6.0.3
   values:
   - values.yaml
   - values.gotmpl
@@ -785,18 +785,18 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-worker-docx.git
     path: components/registry/
   chart: /opt/repositories/excerpt-worker-docx/deploy-templates
-  version: 1.5.0-SNAPSHOT.3
+  version: 1.6.0.3
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   needs:
-    - '{{ env "NAMESPACE" }}/istio-configuration'
-    - '{{ env "NAMESPACE" }}/network-management'
-    - '{{ env "NAMESPACE" }}/registry-auth'
-    - '{{ env "NAMESPACE" }}/citus'
-    - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
-    - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: excerpt-worker-csv
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -805,18 +805,18 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-worker-csv.git
     path: components/registry/
   chart: /opt/repositories/excerpt-worker-csv/deploy-templates
-  version: 1.5.0-SNAPSHOT.1
+  version: 1.6.0.4
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   needs:
-    - '{{ env "NAMESPACE" }}/istio-configuration'
-    - '{{ env "NAMESPACE" }}/network-management'
-    - '{{ env "NAMESPACE" }}/registry-auth'
-    - '{{ env "NAMESPACE" }}/citus'
-    - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
-    - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: report-exporter
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -845,7 +845,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.93
+  version: 1.5.0-SNAPSHOT.101
   values:
   - values.yaml
   - values.gotmpl
