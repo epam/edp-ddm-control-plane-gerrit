@@ -51,7 +51,7 @@ spec:
           workspace:
             datacenter: HXDP-2
             datastore: NCR-Data
-            folder: /HXDP-2/vm/ncr-x725x
+            folder: /HXDP-2/vm/reestr1-gs7mb
             resourcePool: /HXDP-2/host/HX-01/Resources
             server: 10.26.60.128
           template: {{ .Values.cluster_prefix }}-rhcos
