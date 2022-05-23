@@ -29,10 +29,6 @@ global:
   citus:
     masterWorkers: 0
     replicaWorkers: 0
-  kong:
-    # Level of logging for the controller. Allowed values are 
-    # trace, debug, info, warn, error, fatal and panic. (default "info")
-    appLogLevel: warn
   disableRequestsLimits: true
 
 gerritCentralUrl: gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}
