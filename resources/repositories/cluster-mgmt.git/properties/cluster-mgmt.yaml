@@ -24,10 +24,10 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/storage.git
-  version: 1.5.0-SNAPSHOT.68
+  version: 1.5.0-SNAPSHOT.70
   values: []
 - name: logging
-  version: 1.5.0-SNAPSHOT.62
+  version: 1.5.0-SNAPSHOT.64
   labels:
     type: remote
     update_scc: false
