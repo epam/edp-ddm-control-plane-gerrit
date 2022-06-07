@@ -15,7 +15,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/monitoring.git
-  version: 1.5.0-SNAPSHOT.66
+  version: 1.5.0-SNAPSHOT.68
   values: []
 - name: storage
   labels:
