@@ -42,6 +42,13 @@
          "version": "1.5.0-SNAPSHOT.105",
          "env": "prod"
       },
+      "citus-data":       {
+         "type": "application",
+         "name": "citus-data",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus-data.git",
+         "version": "0.1.5-SNAPSHOT.4",
+         "env": "prod"
+      },
       "codebase-operator":       {
          "type": "application",
          "name": "codebase-operator",
@@ -281,6 +288,11 @@
          "type": "dockerimage",
          "name": "citus-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/citus-master:1.5.0-SNAPSHOT.105"
+      },
+      "citus-data-image":       {
+         "type": "dockerimage",
+         "name": "citus-data-image",
+         "image": "nexus-docker-hosted.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/citus-data-main:0.1.5-SNAPSHOT.4"
       },
       "codebase-operator-image":       {
          "type": "dockerimage",
