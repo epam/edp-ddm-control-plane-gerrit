@@ -151,7 +151,7 @@
          "type": "application",
          "name": "kong",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git",
-         "version": "1.5.0-SNAPSHOT.37",
+         "version": "1.5.0-SNAPSHOT.38",
          "env": "prod"
       },
       "nexus":       {
@@ -402,7 +402,7 @@
       "kong-image":       {
          "type": "dockerimage",
          "name": "kong-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kong-master:1.5.0-SNAPSHOT.37"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kong-master:1.5.0-SNAPSHOT.38"
       },
       "kubernetes-ingress-controller-image":       {
          "type": "dockerimage",
