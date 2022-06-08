@@ -12,7 +12,7 @@ spec:
     - {{ .Values.griada.url }}
     {{- else }}
     - griada.{{ .Values.dnsWildcard }}
-    {{- end }}s
+    {{- end }}
   location: MESH_EXTERNAL
   ports:
     - name: port1
