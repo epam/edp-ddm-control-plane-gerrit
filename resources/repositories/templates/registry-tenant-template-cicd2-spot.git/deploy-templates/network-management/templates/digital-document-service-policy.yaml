@@ -15,6 +15,9 @@ spec:
         - podSelector:
             matchLabels:
               jenkins: slave
+        - podSelector:
+            matchLabels:
+              app: bpms
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
