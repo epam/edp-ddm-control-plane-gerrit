@@ -90,7 +90,7 @@ releases:
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/cluster-kafka-operator.git
   values: []
 - name: smtp-server
-  version: 1.7.0-SNAPSHOT.2
+  version: 1.7.0-SNAPSHOT.3
   labels:
     type: remote
     update_scc: false
