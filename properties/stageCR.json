@@ -210,6 +210,13 @@
          "version": "1.5.0-SNAPSHOT.104",
          "env": "prod"
       },
+      "common-web-app":       {
+         "type": "application",
+         "name": "common-web-app",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git",
+         "version": "1.5.0-SNAPSHOT.36",
+         "env": "prod"
+      },
       "report-exporter":       {
          "type": "application",
          "name": "report-exporter",
@@ -221,7 +228,7 @@
          "type": "application",
          "name": "strimzi-kafka-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git",
-         "version": "1.5.0-SNAPSHOT.74",
+         "version": "1.5.0-SNAPSHOT.77",
          "env": "prod"
       },
       "user-process-management":       {
@@ -499,6 +506,11 @@
          "name": "rest-api-core-base-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/rest-api-core-base-image-master:1.6.0.3"
       },
+      "common-web-app-image":       {
+         "type": "dockerimage",
+         "name": "common-web-app-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.5.0-SNAPSHOT.36"
+      },
       "soap-api-core-base-image":       {
          "type": "dockerimage",
          "name": "soap-api-core-base-image",
@@ -507,7 +519,7 @@
       "strimzi-kafka-operator-image":       {
          "type": "dockerimage",
          "name": "strimzi-kafka-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/strimzi-kafka-operator-master:1.5.0-SNAPSHOT.74"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/strimzi-kafka-operator-master:1.5.0-SNAPSHOT.77"
       },
       "user-process-management-image":       {
          "type": "dockerimage",

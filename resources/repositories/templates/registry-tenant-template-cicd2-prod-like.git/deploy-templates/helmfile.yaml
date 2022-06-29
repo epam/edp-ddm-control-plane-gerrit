@@ -378,7 +378,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version:  1.5.0-SNAPSHOT.12
+  version:  1.5.0-SNAPSHOT.36
   values:
   - values.yaml
   - values.gotmpl
@@ -469,7 +469,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git
     path: components/registry/
   chart: /opt/repositories/strimzi-kafka-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.74
+  version: 1.5.0-SNAPSHOT.77
   skipDeps: true
   values:
   - values.yaml
