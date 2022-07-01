@@ -47,6 +47,9 @@ spec:
               app: excerpt-worker-csv
         - podSelector:
             matchLabels:
+              app: user-publisher
+        - podSelector:
+            matchLabels:
               app.kubernetes.io/name: kafka-connect
         - podSelector:
             matchLabels:

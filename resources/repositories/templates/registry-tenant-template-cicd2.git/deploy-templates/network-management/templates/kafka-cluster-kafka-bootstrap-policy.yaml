@@ -47,7 +47,10 @@ spec:
               app: excerpt-worker-docx
         - podSelector:
             matchLabels:
-              app: excerpt-worker-csv              
+              app: excerpt-worker-csv
+        - podSelector:
+            matchLabels:
+              app: user-publisher
         - podSelector:
             matchLabels:
               app: process-history-service-persistence

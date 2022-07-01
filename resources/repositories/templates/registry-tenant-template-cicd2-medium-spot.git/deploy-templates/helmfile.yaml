@@ -780,6 +780,25 @@ releases:
   - '{{ env "NAMESPACE" }}/citus'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+- name: user-publisher
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/libraries/user-publisher.git
+    path: components/registry/
+  chart: /opt/repositories/user-publisher/deploy-templates
+  version: 1.7.0.2
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
+    - '{{ env "NAMESPACE" }}/registry-auth'
+    - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
+    - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: report-exporter
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -913,6 +932,25 @@ releases:
   - values.yaml
   - values.gotmpl
   missingFileHandler: Warn
+- name: registry-regulation-management
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git
+    path: components/registry/
+  chart: /opt/repositories/registry-regulation-management/deploy-templates
+  version: 1.6.0.15
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
+    - '{{ env "NAMESPACE" }}/registry-auth'
+    - '{{ env "NAMESPACE" }}/registry-nodes'
+    - '{{ env "NAMESPACE" }}/registry-configuration'
 environments:
   default:
     missingFileHandler: Error
