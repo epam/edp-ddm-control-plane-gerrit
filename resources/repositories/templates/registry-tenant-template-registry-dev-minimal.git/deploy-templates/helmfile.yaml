@@ -162,7 +162,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.155
+  version: 1.5.0-SNAPSHOT.158
   values:
   - values.yaml
   - values.gotmpl
@@ -469,7 +469,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git
     path: components/registry/
   chart: /opt/repositories/strimzi-kafka-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.77
+  version: 1.5.0-SNAPSHOT.78
   skipDeps: true
   values:
   - values.yaml
@@ -722,7 +722,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/libraries/user-publisher.git
     path: components/registry/
   chart: /opt/repositories/user-publisher/deploy-templates
-  version: 1.7.0.12
+  version: 1.7.0.14
   values:
   - values.yaml
   - values.gotmpl
