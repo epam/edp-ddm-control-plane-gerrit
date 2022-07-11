@@ -1,13 +1,13 @@
 apiVersion: v2.edp.epam.com/v1alpha1
 kind: CodebaseBranch
 metadata:
-  name: registry-regulations-master
+  name: history-excerptor-master
   labels:
-    affiliatedWith: "registry-regulations"
+    affiliatedWith: "history-excerptor"
     recreateByCleanup: "true"
 spec:
   branchName: master
-  codebaseName: registry-regulations
+  codebaseName: history-excerptor
   fromCommit: ''
   release: false
   version: 0.0.1

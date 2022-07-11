@@ -2,6 +2,8 @@ apiVersion: v2.edp.epam.com/v1alpha1
 kind: Codebase
 metadata:
   name: history-excerptor
+  labels:
+    recreateByCleanup: "true"
 spec:
   commitMessagePattern: null
   jenkinsSlave: dataplatform-jenkins-agent
