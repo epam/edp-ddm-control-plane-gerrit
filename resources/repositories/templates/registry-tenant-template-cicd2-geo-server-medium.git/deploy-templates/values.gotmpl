@@ -3,7 +3,7 @@ namespace: {{ requiredEnv "NAMESPACE" }}
 dnsWildcard: {{ requiredEnv "dnsWildcard" }}
 cdPipelineName: {{ requiredEnv "NAMESPACE" }}
 cloudProvider: {{ env "cloudProvider" }}
-cluster_prefix: {{ env "CLUSTER_NAME" }}
+cluster_prefix: {{ exec "oc" (list "get" "infrastructure" "cluster" "--no-headers" "-o" "jsonpath='{.status.infrastructureName}'") }}
 globalEDPProject: {{ env "globalEDPProject" }}
 
 dockerRegistry: '{{ env "edpComponentDockerRegistryUrl" }}'
@@ -29,10 +29,6 @@ global:
   citus:
     masterWorkers: 0
     replicaWorkers: 0
-  kong:
-    # Level of logging for the controller. Allowed values are 
-    # trace, debug, info, warn, error, fatal and panic. (default "info")
-    appLogLevel: warn
   disableRequestsLimits: true
 
 gerritCentralUrl: gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}

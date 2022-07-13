@@ -41,7 +41,34 @@ spec:
               app: excerpt-service-api
         - podSelector:
             matchLabels:
+              app: excerpt-worker
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker-docx
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker-csv
+        - podSelector:
+            matchLabels:
+              app: user-publisher              
+        - podSelector:
+            matchLabels:
               app: process-history-service-persistence
+        - podSelector:
+            matchLabels:
+              app: user-settings-service-api
+        - podSelector:
+            matchLabels:
+              app: bpms
+        - podSelector:
+            matchLabels:
+              app: business-process-administration-portal
+        - podSelector:
+            matchLabels:
+              app: user-settings-service-persistence
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: ddm-notification-service
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

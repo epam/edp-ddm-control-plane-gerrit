@@ -1,23 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: digital-document-service-policy
+  name: common-web-app-policy
   namespace: {{ .Values.namespace }}
 spec:
   podSelector:
     matchLabels:
-      app: digital-document-service
+      app.kubernetes.io/name: common-web-app
   ingress:
     - from:
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: kong
-        - podSelector:
-            matchLabels:
-              jenkins: slave
-        - podSelector:
-            matchLabels:
-              app: bpms
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

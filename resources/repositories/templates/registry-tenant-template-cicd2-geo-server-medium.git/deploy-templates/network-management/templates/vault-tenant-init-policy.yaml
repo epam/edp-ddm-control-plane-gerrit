@@ -15,6 +15,12 @@ spec:
         - podSelector:
             matchLabels:
               job-name: vault-tenant-init
+        - podSelector:
+            matchLabels:
+              app: user-publisher
+        - podSelector:
+            matchLabels:
+              app: registry-regulation-management
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
