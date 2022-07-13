@@ -6,6 +6,22 @@ griada:
   enabled: true
 #  url: example.com
 
+# You may enable a Kong rate limiting plugin for portals
+# Also you may configure this plugin by changing the default variables below
+kongPluginsConfig:
+  rateLimitingPluginEnable: false
+  pluginsRateLimitByHeaderRequestsPerSecond: 5
+  pluginsRateLimitByHeaderRequestsPerHour: 10000
+  pluginsRateLimitByHeaderPolicy: "local"
+  pluginsRateLimitByHeaderFaultTolerant: "true"
+  pluginsRateLimitByHeaderHideClientHeaders: "false"
+  pluginsRateLimitByHeaderHeaderName: "token-claim"
+  pluginsRateLimitByIpRequestsPerSecond: 5
+  pluginsRateLimitByIpRequestsPerHour: 10000
+  pluginsRateLimitByIpPolicy: "local"
+  pluginsRateLimitByIpFaultTolerant: "true"
+  pluginsRateLimitByIpHideClientHeaders: "false"
+
 ## Level of logging for the kong and controller. Allowed values are
 ## trace, debug, info, warn, error, fatal and panic. (default "info")
 #env:
