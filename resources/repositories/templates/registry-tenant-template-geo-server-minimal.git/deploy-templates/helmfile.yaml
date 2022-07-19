@@ -224,7 +224,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/codebase-operator.git
     path: components/registry/
   chart: /opt/repositories/codebase-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.66
+  version: 1.5.0-SNAPSHOT.67
   values:
   - operator:
       clusterRoleName: codebase-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -483,51 +483,6 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/registry-configuration'
-- name: kafka-operator
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/kafka-operator.git
-    path: components/registry/
-  chart: /opt/repositories/kafka-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.1
-  skipDeps: true
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-  needs:
-  - '{{ env "NAMESPACE" }}/istio-configuration'
-  - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/jenkins-operator'
-  - '{{ env "NAMESPACE" }}/gerrit-operator'
-  - '{{ env "NAMESPACE" }}/keycloak-operator'
-  - '{{ env "NAMESPACE" }}/nexus'
-  - '{{ env "NAMESPACE" }}/registry-configuration'
-- name: strimzi-drain-cleaner
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/strimzi-drain-cleaner.git
-    path: components/registry/
-  chart: /opt/repositories/strimzi-drain-cleaner/deploy-templates
-  version: 1.5.0-SNAPSHOT.2
-  skipDeps: true
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-  needs:
-  - '{{ env "NAMESPACE" }}/istio-configuration'
-  - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/jenkins-operator'
-  - '{{ env "NAMESPACE" }}/gerrit-operator'
-  - '{{ env "NAMESPACE" }}/keycloak-operator'
-  - '{{ env "NAMESPACE" }}/nexus'
-  - '{{ env "NAMESPACE" }}/registry-configuration'
-  - '{{ env "NAMESPACE" }}/kafka-operator'
 - name: nexus
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -829,9 +784,10 @@ releases:
   chart: /opt/repositories/registry-configuration/deploy-templates
   version: 1.5.0-SNAPSHOT.106
   values:
+  - registryGroup:
+      name: '{{ env "registryGroup" }}'
   - values.yaml
   - values.gotmpl
-  - userValues.yaml
   missingFileHandler: Warn
 - name: process-history-service-api
   namespace: '{{ env "NAMESPACE" }}'
@@ -872,51 +828,6 @@ releases:
   - '{{ env "NAMESPACE" }}/citus'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
-- name: pgadmin-chart
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: false
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git
-    path: components/registry/
-  chart: /opt/repositories/pgadmin-chart/deploy-templates
-  version: 0.0.1-SNAPSHOT.62
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-  needs:
-  - '{{ env "NAMESPACE"}}/istio-configuration'
-  - '{{ env "NAMESPACE"}}/network-management'
-  - '{{ env "NAMESPACE"}}/citus'
-- name: trembita-dev
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/trembita.git
-    path: components/registry/
-    stream: master
-  chart: /opt/repositories/trembita/deploy-templates
-  version: 1.2.0-SNAPSHOT.4
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-- name: trembita-edr-registry-mock
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/mock/trembita-edr-registry-mock.git
-    path: components/registry/
-    stream: master
-  chart: /opt/repositories/trembita-edr-registry-mock/deploy-templates
-  version: 1.3.0-SNAPSHOT.19
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
 - name: platform-gateway
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -961,8 +872,8 @@ releases:
   chart: /opt/repositories/geo-server/deploy-templates
   version: 1.0.0-SNAPSHOT.7
   values:
-  - values.yaml
-  - values.gotmpl
+    - values.yaml
+    - values.gotmpl
   missingFileHandler: Warn
   needs:
     - '{{ env "NAMESPACE" }}/citus'

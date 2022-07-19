@@ -1,0 +1,13 @@
+apiVersion: v2.edp.epam.com/v1alpha1
+kind: CodebaseBranch
+metadata:
+  name: registry-regulations-master
+  labels:
+    affiliatedWith: "registry-regulations"
+    recreateByCleanup: "true"
+spec:
+  branchName: master
+  codebaseName: registry-regulations
+  fromCommit: ''
+  release: false
+  version: 0.0.1

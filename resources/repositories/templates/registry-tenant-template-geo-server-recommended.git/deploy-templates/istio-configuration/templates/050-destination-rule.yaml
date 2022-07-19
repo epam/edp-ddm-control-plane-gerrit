@@ -1,0 +1,11 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: kong-destination-rule
+  namespace: {{ .Values.namespace }}
+spec:
+  host: kong-kong-proxy
+  subsets:
+    - labels:
+        app.kubernetes.io/name: kong
+      name: main

@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: kong-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: kong
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: istio-ingressgateway
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}

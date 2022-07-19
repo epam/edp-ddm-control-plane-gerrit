@@ -1,0 +1,31 @@
+apiVersion: v2.edp.epam.com/v1alpha1
+kind: Codebase
+metadata:
+  name: registry-regulations
+  labels:
+    recreateByCleanup: "true"
+spec:
+  commitMessagePattern: null
+  jenkinsSlave: dataplatform-jenkins-agent
+  gitUrlPath: null
+  defaultBranch: master
+  buildTool: none
+  perf: null
+  versioning:
+    startFrom: 1.0.0
+    type: edp
+  jobProvisioning: registry
+  repository:
+    url: {{ .Values.codebases.registryRegulations.referenceRepoUrl }}
+  emptyProject: false
+  lang: groovy-pipeline
+  deploymentScript: ''
+  strategy: clone
+  jiraIssueMetadataPayload: null
+  gitServer: gerrit
+  testReportFramework: null
+  ticketNamePattern: null
+  type: library
+  description: null
+  framework: null
+  ciTool: Jenkins

@@ -1,35 +1,41 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: citus-policy
+  name: kafka-cluster-kafka-bootstrap-policy
   namespace: {{ .Values.namespace }}
 spec:
   podSelector:
     matchLabels:
-      app: citus-master
+      app.kubernetes.io/name: kafka
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              app.kubernetes.io/name: geo-server
+              app: kafka-schema-registry
         - podSelector:
             matchLabels:
-              job-name: run-db-scripts-job
+              app.kubernetes.io/name: kafka-ui
         - podSelector:
             matchLabels:
-              job-name: create-dashboard-job
+              app.kubernetes.io/name: entity-operator
         - podSelector:
             matchLabels:
-              app: business-process-administration-portal
+              app.kubernetes.io/name: kafka-exporter
         - podSelector:
             matchLabels:
-              app: user-settings-service-persistence
+              app.kubernetes.io/name: kafka-connect
         - podSelector:
             matchLabels:
-              app: citus-master-rep
+              app: registry-rest-api
         - podSelector:
             matchLabels:
-              app: bpms
+              app: registry-rest-api-ext
+        - podSelector:
+            matchLabels:
+              app: registry-kafka-api
+        - podSelector:
+            matchLabels:
+              app: registry-soap-api
         - podSelector:
             matchLabels:
               app: excerpt-service-api
@@ -44,37 +50,25 @@ spec:
               app: excerpt-worker-csv
         - podSelector:
             matchLabels:
-              app: prometheus-postgres-exporter
-        - podSelector:
-            matchLabels:
-              app: registry-rest-api
-        - podSelector:
-            matchLabels:
-              app: registry-rest-api-ext
-        - podSelector:
-            matchLabels:
-              app: registry-kafka-api
-        - podSelector:
-            matchLabels:
-              app: citus-workers
-        - podSelector:
-            matchLabels:
-              app.kubernetes.io/name: redash-viewer
-        - podSelector:
-            matchLabels:
-              app: process-history-service-api
+              app: user-publisher              
         - podSelector:
             matchLabels:
               app: process-history-service-persistence
-        - namespaceSelector:
-            matchLabels:
-              name: {{ .Values.namespace }}
         - podSelector:
             matchLabels:
-              app.kubernetes.io/name: kafka-connect
+              app: user-settings-service-api
+        - podSelector:
+            matchLabels:
+              app: bpms
+        - podSelector:
+            matchLabels:
+              app: business-process-administration-portal
+        - podSelector:
+            matchLabels:
+              app: user-settings-service-persistence
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: ddm-notification-service
-      ports:
-        - protocol: TCP
-          port: 5432
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}
