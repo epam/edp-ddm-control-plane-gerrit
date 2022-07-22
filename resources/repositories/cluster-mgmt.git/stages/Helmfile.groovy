@@ -174,7 +174,7 @@ class Helmfile {
                     ]
                     routes.each {
                         script.sh "oc annotate route ${it.key} --overwrite -n ${it.value} " +
-                                "haproxy.router.openshift.io/ip_whitelist=\"${script.envADMIN_ROUTES_WHITELIST_CIDR}\"\n"
+                                "haproxy.router.openshift.io/ip_whitelist=\"${script.env.ADMIN_ROUTES_WHITELIST_CIDR}\"\n"
                     }
                 }
             }
