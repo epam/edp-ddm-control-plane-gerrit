@@ -85,3 +85,6 @@ kongPluginsConfig:
 #    nginx:
 #      logLevel: error
 #      disableAccessLog: false
+global:
+  whiteListIP:
+    adminRoutes: "0.0.0.0/0"

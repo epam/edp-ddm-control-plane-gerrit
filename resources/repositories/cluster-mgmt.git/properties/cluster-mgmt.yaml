@@ -15,7 +15,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/monitoring.git
-  version: 1.5.0-SNAPSHOT.68
+  version: 1.5.0-SNAPSHOT.71
   values: []
 - name: storage
   labels:
@@ -24,7 +24,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/storage.git
-  version: 1.5.0-SNAPSHOT.72
+  version: 1.5.0-SNAPSHOT.76
   values: []
 - name: logging
   version: 1.5.0-SNAPSHOT.65
@@ -42,7 +42,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/service-mesh.git
-  version: 1.5.0-SNAPSHOT.60
+  version: 1.5.0-SNAPSHOT.62
   values: []
 - name: backup-management
   version: 1.7.0.4
@@ -63,7 +63,7 @@ releases:
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/user-management.git
   values: []
 - name: control-plane-nexus
-  version: 1.5.0-SNAPSHOT.67
+  version: 1.5.0-SNAPSHOT.70
   labels:
     type: remote
     update_scc: false
@@ -72,7 +72,7 @@ releases:
     repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/control-plane-nexus.git
   values: []
 - name: external-integration-mocks
-  version: 1.5.0-SNAPSHOT.20
+  version: 1.5.0-SNAPSHOT.29
   labels:
     type: remote
     update_scc: false

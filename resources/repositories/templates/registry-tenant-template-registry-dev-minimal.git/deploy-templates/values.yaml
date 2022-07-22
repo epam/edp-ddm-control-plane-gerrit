@@ -1,4 +1,7 @@
 # helm values
+global:
+  whiteListIP:
+    adminRoutes: "0.0.0.0/0"
 
 # You may disable griada instance and set the url
 # Griada url by default is: griada.<clusterDnsWildcard>

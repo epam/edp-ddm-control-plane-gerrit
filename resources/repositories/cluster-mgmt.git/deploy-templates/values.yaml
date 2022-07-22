@@ -3,3 +3,6 @@
 source_catalog_version: 4.6
 cdPipelineName: platform
 cdPipelineStageName: main
+global:
+  whiteListIP:
+    adminRoutes: "0.0.0.0/0"

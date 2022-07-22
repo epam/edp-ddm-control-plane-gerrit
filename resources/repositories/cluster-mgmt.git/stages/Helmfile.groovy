@@ -11,6 +11,7 @@ class Helmfile {
         script.openshift.withCluster() {
             script.openshift.withProject() {
                 script.dir("${context.workDir}") {
+                    def values = script.readYaml file: "deploy-templates/values.yaml"
                     script.env.NAMESPACE = context.codebase.config.name
                     script.env.ciProject = context.job.ciProject
                     script.env.dnsWildcard = context.job.dnsWildcard
@@ -36,6 +37,7 @@ class Helmfile {
                     script.env.idgovuaClientId = script.sh(script: """ oc get secret -n ${script.env.edpProject} id-gov-ua-client-secret -o jsonpath='{.data.clientId}' | base64 -d -w0 """, returnStdout: true).trim()
                     script.env.idgovuaClientSecret = script.sh(script: """ oc get secret -n ${script.env.edpProject} id-gov-ua-client-secret -o jsonpath='{.data.clientSecret}' | base64 -d -w0 """, returnStdout: true).trim()
                     script.env.globalNexusNamespace = context.job.dnsWildcard.startsWith("apps.cicd") ? 'mdtu-ddm-edp-cicd' : script.env.dockerRegistry.replaceAll(/.*\.(.*)\.svc:[0-9]+/, '\$1')
+                    script.env.ADMIN_ROUTES_WHITELIST_CIDR = values.global.whiteListIP.adminRoutes
 
                     String helmfile = 'deploy-templates/helmfile.yaml'
                     String clustermgmt = 'properties/cluster-mgmt.yaml'
@@ -153,6 +155,26 @@ class Helmfile {
                         }
 
                         script.sh("helmfile -f ${helmfile} sync --concurrency 1")
+                    }
+                    LinkedHashMap routes = [
+                            'grafana' : 'openshift-monitoring',
+                            'prometheus-k8s' : 'openshift-monitoring',
+                            'alertmanager-main' : 'openshift-monitoring',
+                            'thanos-querier' : 'openshift-monitoring',
+                            'kibana' : 'openshift-logging',
+                            'console' : 'openshift-console',
+                            'noobaa-mgmt' : 'openshift-storage',
+                            's3' : 'openshift-storage',
+                            'oauth-openshift' : 'openshift-authentication',
+                            'jaeger' : 'istio-system',
+                            'gerrit' : 'control-plane',
+                            'jenkins' : 'control-plane',
+                            'control-plane-console' : 'control-plane',
+                            'ddm-architecture' : 'documentation'
+                    ]
+                    routes.each {
+                        script.sh "oc annotate route ${it.key} --overwrite -n ${it.value} " +
+                                "haproxy.router.openshift.io/ip_whitelist=\"${script.envADMIN_ROUTES_WHITELIST_CIDR}\"\n"
                     }
                 }
             }
