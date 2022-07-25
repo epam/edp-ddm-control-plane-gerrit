@@ -547,7 +547,7 @@ releases:
     update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/ddm-notification-service.git
     path: components/registry/
-  chart: /opt/repositories/kafka-schema-registry/deploy-templates
+  chart: /opt/repositories/ddm-notification-service/deploy-templates
   version: 1.6.0.48
   values:
   - values.yaml
