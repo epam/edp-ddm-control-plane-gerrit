@@ -459,7 +459,7 @@
          "type": "application",
          "name": "jenkins-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git",
-         "version": "1.5.0-SNAPSHOT.163",
+         "version": "1.5.0-SNAPSHOT.164",
          "env": "prod"
       },
       "kafka-schema-registry":       {
