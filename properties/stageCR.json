@@ -601,14 +601,14 @@
          "type": "gitsources",
          "name": "edp-library-pipelines-fork",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-pipelines-fork.git",
-         "version": "build/0.2.0-SNAPSHOT.86",
+         "version": "build/0.2.0-SNAPSHOT.88",
          "path": "/libraries"
       },
       "edp-library-stages-fork":       {
          "type": "gitsources",
          "name": "edp-library-stages-fork",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/general/libraries/edp-library-stages-fork.git",
-         "version": "build/0.2.1-SNAPSHOT.281",
+         "version": "build/0.2.1-SNAPSHOT.287",
          "path": "/libraries"
       },
       "empty-template-registry-regulation":       {
