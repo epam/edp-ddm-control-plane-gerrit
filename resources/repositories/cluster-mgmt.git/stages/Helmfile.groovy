@@ -1,13 +1,16 @@
+import com.epam.edp.customStages.helper.DeployHelper
 import com.epam.edp.stages.impl.ci.ProjectType
 import com.epam.edp.stages.impl.ci.Stage
 
 @Stage(name = "deploy-via-helmfile", buildTool = ["gitops"], type = [ProjectType.CLUSTERMGMT])
 class Helmfile {
     Script script
+    DeployHelper deployHelper
 
     ArrayList<String> COMPOSITE_COMPONENTS = ["user-management", "external-integration-mocks", "cluster-kafka-operator"]
 
     void run(context) {
+        deployHelper = new DeployHelper(script)
         script.openshift.withCluster() {
             script.openshift.withProject() {
                 script.dir("${context.workDir}") {
@@ -40,6 +43,7 @@ class Helmfile {
                     script.env.ADMIN_ROUTES_WHITELIST_CIDR = values.global.whiteListIP.adminRoutes
 
                     String helmfile = 'deploy-templates/helmfile.yaml'
+                    String helmValuesPath = 'deploy-templates/values.yaml'
                     String clustermgmt = 'properties/cluster-mgmt.yaml'
                     String gitURL = "ssh://${context.git.autouser}@${context.git.host}:${context.git.sshPort}/"
                     LinkedHashMap components = script.readYaml file: clustermgmt
@@ -115,7 +119,7 @@ class Helmfile {
                                                 && rm -rf ${context.workDir}/${registry}/source/${registry}-\$i
                                             fi
                                         done
-                                        
+
                                         rm -rf ${context.workDir}/${registry}/source
                                         rm -rf ${context.workDir}/${registry}/target
                                     """
@@ -123,36 +127,7 @@ class Helmfile {
                             }
                         }
 
-                        def gerritGroupMemberYAML = script.readYaml file: 'placeholders-templates/gerrit_gerritgroupmember.yaml'
-                        def gerritAdminGroup = "administrators"
-                        def gerritReadGroup = "readonly"
-                        def gerritAdministratorslist = script.sh(script: """oc get -n user-management KeycloakRealmUser -o json | jq -r --arg ROLE "cp-cluster-mgmt-admin" '.items[] | select(.spec.roles | index(\$ROLE)) | .metadata.name + "-${gerritAdminGroup}" + ":" + .spec.username' """, returnStdout: true).tokenize('\n')
-                        def gerritReaderslist = script.sh(script: """oc get -n user-management KeycloakRealmUser -o json | jq -r --arg ROLE "cp-registry-reader" '.items[] | select(.spec.roles | index(\$ROLE)) | .metadata.name + "-${gerritReadGroup}" + ":" + .spec.username' """, returnStdout: true).tokenize('\n')
-                        def gerritRoles = ["${gerritAdminGroup}": gerritAdministratorslist, "${gerritReadGroup}": gerritReaderslist]
-                        def gerritUsersRemoveList = []
-
-                        gerritRoles.each { role, users ->
-                            // Assign gerrit group members
-                            if (users) {
-                                def gerritGroupMember = [], gerritGroupMemberList = []
-                                users.eachWithIndex { username, index ->
-                                    gerritGroupMember = username.tokenize(':')
-                                    gerritGroupMemberList += gerritGroupMember[0]
-                                    gerritGroupMemberYAML.metadata.name = gerritGroupMember[0]
-                                    gerritGroupMemberYAML.metadata.namespace = script.env.globalEDPProject
-                                    gerritGroupMemberYAML.metadata.labels.registry = 'cluster-mgmt'
-                                    gerritGroupMemberYAML.spec.groupId = role
-                                    gerritGroupMemberYAML.spec.accountId = gerritGroupMember[1]
-                                    script.writeYaml file: "gerrit_gerritgroupmember-${index}.yaml", data: gerritGroupMemberYAML, overwrite: true
-                                    script.sh(""" oc apply -n ${script.env.globalEDPProject} -f gerrit_gerritgroupmember-${index}.yaml """)
-                                }
-                                gerritUsersRemoveList = script.sh(script: """oc get -n ${script.env.globalEDPProject} GerritGroupMember -o jsonpath='{.items[?(@.spec.groupId == "${role}")].metadata.name}' """, returnStdout: true).tokenize(' ')
-                                gerritUsersRemoveList -= gerritGroupMemberList
-                                gerritUsersRemoveList.each { username ->
-                                    script.sh(""" oc delete -n ${script.env.globalEDPProject} --force GerritGroupMember ${username} """)
-                                }
-                            }
-                        }
+                        deployHelper.createClusterAdmin(helmValuesPath, context)
 
                         script.sh("helmfile -f ${helmfile} sync --concurrency 1")
                     }
