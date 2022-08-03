@@ -10,13 +10,13 @@ griada:
 # Also you may configure this plugin by changing the default variables below
 kongPluginsConfig:
   rateLimitingPluginEnable: false
-  pluginsRateLimitByHeaderRequestsPerSecond: 5
+  pluginsRateLimitByHeaderRequestsPerSecond: 10
   pluginsRateLimitByHeaderRequestsPerHour: 10000
   pluginsRateLimitByHeaderPolicy: "local"
   pluginsRateLimitByHeaderFaultTolerant: "true"
   pluginsRateLimitByHeaderHideClientHeaders: "false"
   pluginsRateLimitByHeaderHeaderName: "token-claim"
-  pluginsRateLimitByIpRequestsPerSecond: 5
+  pluginsRateLimitByIpRequestsPerSecond: 10
   pluginsRateLimitByIpRequestsPerHour: 10000
   pluginsRateLimitByIpPolicy: "local"
   pluginsRateLimitByIpFaultTolerant: "true"
