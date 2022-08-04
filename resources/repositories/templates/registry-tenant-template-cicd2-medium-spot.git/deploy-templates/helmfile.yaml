@@ -889,6 +889,23 @@ releases:
   - '{{ env "NAMESPACE"}}/istio-configuration'
   - '{{ env "NAMESPACE"}}/network-management'
   - '{{ env "NAMESPACE"}}/citus'
+- name: defectdojo-helm
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: false
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/security/defectdojo-helm.git
+    path: components/registry/
+  chart: /opt/repositories/defectdojo-helm/deploy-templates
+  version: 0.0.1-SNAPSHOT.63
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE"}}/istio-configuration'
+  - '{{ env "NAMESPACE"}}/network-management'
+  - '{{ env "NAMESPACE"}}/keycloak-operator'
 - name: trembita-dev
   namespace: '{{ env "NAMESPACE" }}'
   labels:
