@@ -896,8 +896,9 @@ releases:
     update_scc: false
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/security/defectdojo-helm.git
     path: components/registry/
+    stream: deployment
   chart: /opt/repositories/defectdojo-helm/deploy-templates
-  version: 0.0.1-SNAPSHOT.63
+  version: 0.0.1-DEPLOYMENT-SNAPSHOT.169
   values:
   - values.yaml
   - values.gotmpl
