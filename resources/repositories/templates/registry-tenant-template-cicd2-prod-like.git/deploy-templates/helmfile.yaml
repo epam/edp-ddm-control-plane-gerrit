@@ -907,6 +907,7 @@ releases:
   - '{{ env "NAMESPACE" }}/registry-nodes'
   - '{{ env "NAMESPACE" }}/registry-configuration'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/codebase-operator'
 environments:
   default:
     missingFileHandler: Error

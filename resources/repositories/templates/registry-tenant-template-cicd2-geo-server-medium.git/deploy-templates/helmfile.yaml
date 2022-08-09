@@ -952,6 +952,7 @@ releases:
   - '{{ env "NAMESPACE" }}/registry-nodes'
   - '{{ env "NAMESPACE" }}/registry-configuration'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
+  - '{{ env "NAMESPACE" }}/codebase-operator'
 - name: geo-server
   namespace: '{{ env "NAMESPACE" }}'
   labels:
