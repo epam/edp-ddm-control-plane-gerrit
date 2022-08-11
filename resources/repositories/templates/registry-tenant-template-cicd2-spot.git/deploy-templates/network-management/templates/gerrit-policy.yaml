@@ -18,6 +18,9 @@ spec:
         - podSelector:
             matchLabels:
               name: codebase-operator
+        - podSelector:
+            matchLabels:
+              app: registry-regulation-management
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
