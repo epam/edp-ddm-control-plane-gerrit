@@ -23,6 +23,9 @@ spec:
               app: excerpt-service-api
         - podSelector:
             matchLabels:
+              app: form-schema-provider
+        - podSelector:
+            matchLabels:
               app: registry-rest-api
         - podSelector:
             matchLabels:
