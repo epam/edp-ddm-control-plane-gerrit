@@ -11,6 +11,9 @@ spec:
     - from:
         - podSelector:
             matchLabels:
+              app.kubernetes.io/name: redis-sentinel
+        - podSelector:
+            matchLabels:
               app: bpms
         - podSelector:
             matchLabels:
