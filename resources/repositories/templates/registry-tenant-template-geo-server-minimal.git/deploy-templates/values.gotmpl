@@ -30,6 +30,11 @@ global:
   citus:
     masterWorkers: 0
     replicaWorkers: 0
+  redisSentinel:
+    redis:
+      replicas: 3
+    sentinel:
+      replicas: 3
   disableRequestsLimits: true
 
 storageClass: ocs-storagecluster-ceph-rbd

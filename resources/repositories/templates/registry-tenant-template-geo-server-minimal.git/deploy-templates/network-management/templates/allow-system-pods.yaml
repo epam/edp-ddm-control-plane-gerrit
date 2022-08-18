@@ -21,6 +21,9 @@ spec:
               name: openshift-ingress
         - namespaceSelector:
             matchLabels:
+              name: redis-operator
+        - namespaceSelector:
+            matchLabels:
               policy-group.network.openshift.io/host-network: ''
   policyTypes:
     - Ingress

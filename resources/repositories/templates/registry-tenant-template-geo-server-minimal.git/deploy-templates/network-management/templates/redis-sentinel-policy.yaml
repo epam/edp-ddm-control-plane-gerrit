@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: redis-sentinel-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: redis-sentinel
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: redis-sentinel
+        - podSelector:
+            matchLabels:
+              app: bpms
+        - podSelector:
+            matchLabels:
+              app: bp-webservice-gateway
+        - podSelector:
+            matchLabels:
+              app: excerpt-service-api
+        - podSelector:
+            matchLabels:
+              app: form-schema-provider
+        - podSelector:
+            matchLabels:
+              app: registry-rest-api
+        - podSelector:
+            matchLabels:
+              app: user-process-management
+        - podSelector:
+            matchLabels:
+              app: user-task-management
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}

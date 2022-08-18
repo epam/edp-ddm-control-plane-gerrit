@@ -132,6 +132,22 @@ releases:
   - '{{ env "NAMESPACE" }}/jenkins-operator'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/codebase-operator'
+- name: redis-sentinel
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/redis-sentinel.git
+    path: components/registry/
+  chart: /opt/repositories/redis-sentinel/deploy-templates
+  version: 1.8.0-SNAPSHOT.1
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
 - name: bpms
   namespace: '{{ env "NAMESPACE" }}'
   labels:
