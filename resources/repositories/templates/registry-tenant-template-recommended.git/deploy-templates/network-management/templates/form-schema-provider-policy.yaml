@@ -10,10 +10,10 @@ spec:
     - from:
         - podSelector:
             matchLabels:
-              app: form-submission-validation
+              app.kubernetes.io/instance: form-submission-validation
         - podSelector:
             matchLabels:
-              app: kong
+              app.kubernetes.io/instance: kong
         - namespaceSelector:
             matchLabels:
               name: {{ .Release.Namespace }}
