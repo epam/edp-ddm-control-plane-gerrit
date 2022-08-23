@@ -96,7 +96,7 @@ releases:
     update_scc: false
     isbranch: false
     path: components/infra/
-    repoURL: git@gitbud.epam.com:mdtu-ddm/infrastructure/smtp-server.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/smtp-server.git
   values: []
 - name: redis-operator
   version: 1.8.0-SNAPSHOT.1
@@ -105,6 +105,6 @@ releases:
     update_scc: false
     isbranch: false
     path: components/infra/
-    repoURL: git@gitbud.epam.com:mdtu-ddm/devops/operators/redis-operator.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/redis-operator.git
     branch: 1.8.0-SNAPSHOT.1
   values: []
