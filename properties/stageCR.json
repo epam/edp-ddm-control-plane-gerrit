@@ -179,11 +179,6 @@
          "name": "form-management-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/form-management-master:1.8.0.1"
       },
-      "form-schema-provider-image":       {
-         "type": "dockerimage",
-         "name": "form-schema-provider-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/form-schema-provider-master:1.8.0.6"
-      },
       "form-submission-validation-image":       {
          "type": "dockerimage",
          "name": "form-submission-validation-image",
@@ -593,13 +588,6 @@
          "name": "form-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-management.git",
          "version": "1.8.0.1",
-         "env": "prod"
-      },
-      "form-schema-provider":       {
-         "type": "application",
-         "name": "form-schema-provider",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-schema-provider.git",
-         "version": "1.8.0.6",
          "env": "prod"
       },
       "form-submission-validation":       {
