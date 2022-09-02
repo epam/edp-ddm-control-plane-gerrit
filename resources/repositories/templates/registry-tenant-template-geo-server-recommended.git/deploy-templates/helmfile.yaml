@@ -895,45 +895,6 @@ releases:
   missingFileHandler: Warn
   needs:
   - '{{ env "NAMESPACE" }}/citus'
-- name: form-schema-provider
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-schema-provider.git
-    path: components/registry/
-  chart: /opt/repositories/form-schema-provider/deploy-templates
-  version: 1.8.0.6
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-  needs:
-  - '{{ env "NAMESPACE" }}/istio-configuration'
-  - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/registry-auth'
-  - '{{ env "NAMESPACE" }}/registry-nodes'
-  - '{{ env "NAMESPACE" }}/registry-configuration'
-  - '{{ env "NAMESPACE" }}/redis-sentinel'
-- name: form-submission-validation
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-submission-validation.git
-    path: components/registry/
-  chart: /opt/repositories/form-submission-validation/deploy-templates
-  version: 1.8.0-MDTUDDM-16614-SNAPSHOT.6
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-  needs:
-  - '{{ env "NAMESPACE" }}/istio-configuration'
-  - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/registry-auth'
-  - '{{ env "NAMESPACE" }}/registry-nodes'
-  - '{{ env "NAMESPACE" }}/registry-configuration'
 environments:
   default:
     missingFileHandler: Error
