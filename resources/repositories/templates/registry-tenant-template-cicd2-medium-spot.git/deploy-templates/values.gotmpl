@@ -34,6 +34,9 @@ global:
       replicas: 3
     sentinel:
       replicas: 3
+  notifications:
+    email:
+      password: '{{ env "smtpExternalUserPassword" | b64enc }}'
   disableRequestsLimits: true
 
 gerritCentralUrl: gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}
