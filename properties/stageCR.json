@@ -416,7 +416,7 @@
          "type": "platform-component",
          "name": "ddm-architecture",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/ddm-architecture.git",
-         "version": "1.8.0.186"
+         "version": "1.8.0.192"
       },
       "external-integration-mocks":       {
          "type": "platform-component",
@@ -759,7 +759,7 @@
          "type": "gitsources",
          "name": "edp-library-stages-fork",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/libraries/edp-library-stages-fork.git",
-         "version": "build/0.2.1-SNAPSHOT.308",
+         "version": "build/0.2.1-SNAPSHOT.311",
          "path": "/libraries"
       },
       "empty-template-registry-regulation":       {
