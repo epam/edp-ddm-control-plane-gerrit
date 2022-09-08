@@ -428,7 +428,7 @@
          "type": "platform-component",
          "name": "infrastructure-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/infrastructure-jenkins-agent.git",
-         "version": "1.5.0-SNAPSHOT.62"
+         "version": "1.5.0-SNAPSHOT.66"
       },
       "logging":       {
          "type": "platform-component",
