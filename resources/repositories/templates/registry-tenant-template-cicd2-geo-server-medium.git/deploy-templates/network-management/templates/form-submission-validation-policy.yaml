@@ -5,7 +5,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: form-submission-validation
+      app.kubernetes.io/name: form-submission-validation
   ingress:
     - from:
         - podSelector:
