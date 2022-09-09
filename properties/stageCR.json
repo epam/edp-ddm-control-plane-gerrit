@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.31",
-         "promotedVersions": "build/1.6.0.29,build/1.6.0.31"
+         "version": "build/1.6.0.32",
+         "promotedVersions": "build/1.6.0.29,build/1.6.0.31,build/1.6.0.32"
       },
       "data-factory-integration-tests":       {
          "type": "autotests",
