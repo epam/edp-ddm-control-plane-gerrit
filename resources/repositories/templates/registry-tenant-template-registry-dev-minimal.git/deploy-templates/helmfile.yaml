@@ -636,7 +636,7 @@ releases:
   namespace: '{{ env "NAMESPACE" }}'
   labels:
     type: remote
-    update_scc: true
+    update_scc: false
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/hashicorp-vault.git
     path: components/registry/
   chart: /opt/repositories/hashicorp-vault/deploy-templates
