@@ -4,8 +4,8 @@
          "type": "autotests",
          "name": "admin-portal-api-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-api-tests.git",
-         "version": "build/1.8.0-SNAPSHOT.13",
-         "promotedVersions": "build/1.8.0-SNAPSHOT.13"
+         "version": "build/1.8.0-SNAPSHOT.14",
+         "promotedVersions": "build/1.8.0-SNAPSHOT.13,build/1.8.0-SNAPSHOT.14"
       },
       "admin-portal-ui-tests":       {
          "type": "autotests",
@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.32",
-         "promotedVersions": "build/1.6.0.29,build/1.6.0.31,build/1.6.0.32"
+         "version": "build/1.6.0.33",
+         "promotedVersions": "build/1.6.0.29,build/1.6.0.31,build/1.6.0.32,build/1.6.0.33"
       },
       "data-factory-integration-tests":       {
          "type": "autotests",
@@ -132,7 +132,7 @@
       "dataplatform-jenkins-agent-image":       {
          "type": "dockerimage",
          "name": "dataplatform-jenkins-agent-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.8.0.20"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.8.0.22"
       },
       "ddm-notification-service-image":       {
          "type": "dockerimage",
@@ -277,7 +277,7 @@
       "platform-gateway-image":       {
          "type": "dockerimage",
          "name": "platform-gateway-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/platform-gateway-master:1.6.0.11"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/platform-gateway-master:1.6.0.12"
       },
       "postgres_exporter-image":       {
          "type": "dockerimage",
@@ -317,7 +317,7 @@
       "registry-regulation-management-image":       {
          "type": "dockerimage",
          "name": "registry-regulation-management-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/registry-regulation-management-master:1.7.0.11"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/registry-regulation-management-master:1.7.0.12"
       },
       "report-exporter-image":       {
          "type": "dockerimage",
@@ -526,7 +526,7 @@
          "type": "application",
          "name": "dataplatform-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git",
-         "version": "1.8.0.20",
+         "version": "1.8.0.22",
          "env": "prod"
       },
       "ddm-notification-service":       {
@@ -659,7 +659,7 @@
          "type": "application",
          "name": "platform-gateway",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/platform-gateway.git",
-         "version": "1.6.0.11",
+         "version": "1.6.0.12",
          "env": "prod"
       },
       "process-history-service-api":       {
@@ -694,7 +694,7 @@
          "type": "application",
          "name": "registry-regulation-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git",
-         "version": "1.7.0.11",
+         "version": "1.7.0.12",
          "env": "prod"
       },
       "report-exporter":       {
