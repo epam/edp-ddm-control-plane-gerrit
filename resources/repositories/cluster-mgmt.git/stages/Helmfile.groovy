@@ -134,11 +134,13 @@ class Helmfile {
                     LinkedHashMap routes = [
                             'grafana' : 'openshift-monitoring',
                             'prometheus-k8s' : 'openshift-monitoring',
+                            'prometheus-k8s-federate' : 'openshift-monitoring',
                             'alertmanager-main' : 'openshift-monitoring',
                             'thanos-querier' : 'openshift-monitoring',
                             'kibana' : 'openshift-logging',
                             'console' : 'openshift-console',
                             'noobaa-mgmt' : 'openshift-storage',
+                            'ocs-storagecluster-cephobjectstore': 'openshift-storage',
                             's3' : 'openshift-storage',
                             'oauth-openshift' : 'openshift-authentication',
                             'jaeger' : 'istio-system',
@@ -148,8 +150,12 @@ class Helmfile {
                             'ddm-architecture' : 'documentation'
                     ]
                     routes.each {
-                        script.sh "oc annotate route ${it.key} --overwrite -n ${it.value} " +
-                                "haproxy.router.openshift.io/ip_whitelist=\"${script.env.ADMIN_ROUTES_WHITELIST_CIDR}\"\n"
+                        try {
+                            script.sh "oc annotate route ${it.key} --overwrite -n ${it.value} " +
+                                    "haproxy.router.openshift.io/ip_whitelist=\"${script.env.ADMIN_ROUTES_WHITELIST_CIDR}\"\n"
+                        } catch (any) {
+                            script.println("WARN: failed to annotate route ${it.key} in namespace ${it.value}")
+                        }
                     }
                 }
             }
