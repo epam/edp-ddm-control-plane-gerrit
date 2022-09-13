@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: czo-gov-ua
+  namespace: {{ .Values.namespace }}
+spec:
+  hosts:
+    - czo.gov.ua
+  exportTo:
+    - "."
+  ports:
+    - number: 443
+      name: https
+      protocol: HTTPS
+    - name: http
+      number: 80
+      protocol: HTTP
+  resolution: DNS
+  location: MESH_EXTERNAL
