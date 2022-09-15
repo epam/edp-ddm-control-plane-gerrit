@@ -3,11 +3,12 @@ global:
   whiteListIP:
     adminRoutes: "0.0.0.0/0"
 
-# You may disable griada instance and set the url
-# Griada url by default is: griada.<clusterDnsWildcard>
 griada:
   enabled: true
-#  url: example.com
+  # ip: 10.0.0.1
+  # port: 3080
+  # Griada url by default is: griada.<clusterDnsWildcard>
+  # url: example.com
 
 nontrembita-external-registration: []
 
@@ -26,6 +27,18 @@ kongPluginsConfig:
   pluginsRateLimitByIpPolicy: "local"
   pluginsRateLimitByIpFaultTolerant: "true"
   pluginsRateLimitByIpHideClientHeaders: "false"
+
+signWidget:
+  url: https://eu.iit.com.ua/sign-widget/v20200922/
+
+# Redash service settings
+redash: {}
+# customUrl: https://example.com
+
+# Digital signature ops service settings
+dso:
+  minReplicas: 1
+  maxReplicas: 3
 
 ## Level of logging for the kong and controller. Allowed values are
 ## trace, debug, info, warn, error, fatal and panic. (default "info")
