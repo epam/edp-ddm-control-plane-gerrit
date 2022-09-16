@@ -416,7 +416,7 @@
          "type": "platform-component",
          "name": "ddm-architecture",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/ddm-architecture.git",
-         "version": "1.8.0.99"
+         "version": "1.8.0.215"
       },
       "external-integration-mocks":       {
          "type": "platform-component",
@@ -687,7 +687,7 @@
          "type": "application",
          "name": "registry-configuration",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git",
-         "version": "1.5.0-SNAPSHOT.110",
+         "version": "1.5.0-SNAPSHOT.111",
          "env": "prod"
       },
       "registry-regulation-management":       {
