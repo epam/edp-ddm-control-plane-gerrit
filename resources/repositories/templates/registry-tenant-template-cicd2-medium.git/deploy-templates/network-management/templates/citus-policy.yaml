@@ -20,6 +20,9 @@ spec:
               app: business-process-administration-portal
         - podSelector:
             matchLabels:
+              app: user-settings-service-api
+        - podSelector:
+            matchLabels:
               app: user-settings-service-persistence
         - podSelector:
             matchLabels:
