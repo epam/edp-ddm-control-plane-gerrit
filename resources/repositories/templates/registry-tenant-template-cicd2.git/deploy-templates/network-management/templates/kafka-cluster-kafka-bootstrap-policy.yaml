@@ -65,9 +65,6 @@ spec:
               app: business-process-administration-portal
         - podSelector:
             matchLabels:
-              app: user-settings-service-persistence
-        - podSelector:
-            matchLabels:
               app.kubernetes.io/name: ddm-notification-service
         - namespaceSelector:
             matchLabels:

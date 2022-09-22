@@ -622,26 +622,6 @@ releases:
   - '{{ env "NAMESPACE" }}/user-settings-service-api'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/citus'
-- name: user-settings-service-persistence
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-persistence.git
-    path: components/registry/
-  chart: /opt/repositories/user-settings-service-persistence/deploy-templates
-  version: 1.6.0.14
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-  needs:
-  - '{{ env "NAMESPACE" }}/istio-configuration'
-  - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/registry-auth'
-  - '{{ env "NAMESPACE" }}/citus'
-  - '{{ env "NAMESPACE" }}/common-web-app'
-  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: user-settings-service-api
   namespace: '{{ env "NAMESPACE" }}'
   labels:

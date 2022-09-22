@@ -359,11 +359,6 @@
          "name": "user-settings-service-api-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-api-master:1.6.0.19"
       },
-      "user-settings-service-persistence-image":       {
-         "type": "dockerimage",
-         "name": "user-settings-service-persistence-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-persistence-master:1.6.0.14"
-      },
       "user-task-management-image":       {
          "type": "dockerimage",
          "name": "user-task-management-image",
@@ -730,13 +725,6 @@
          "name": "user-settings-service-api",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git",
          "version": "1.6.0.19",
-         "env": "prod"
-      },
-      "user-settings-service-persistence":       {
-         "type": "application",
-         "name": "user-settings-service-persistence",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-persistence.git",
-         "version": "1.6.0.14",
          "env": "prod"
       },
       "user-task-management":       {
