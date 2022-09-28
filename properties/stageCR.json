@@ -647,7 +647,7 @@
          "type": "application",
          "name": "pgadmin-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git",
-         "version": "0.0.1-SNAPSHOT.63",
+         "version": "0.0.1-SNAPSHOT.64",
          "env": "dev"
       },
       "platform-gateway":       {
