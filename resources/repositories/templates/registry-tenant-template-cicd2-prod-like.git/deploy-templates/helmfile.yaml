@@ -827,11 +827,11 @@ releases:
   namespace: '{{ env "NAMESPACE" }}'
   labels:
     type: remote
-    update_scc: false
+    update_scc: true
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git
     path: components/registry/
   chart: /opt/repositories/pgadmin-chart/deploy-templates
-  version: 0.0.1-SNAPSHOT.63
+  version: 0.0.1-SNAPSHOT.64
   values:
   - values.yaml
   - values.gotmpl
