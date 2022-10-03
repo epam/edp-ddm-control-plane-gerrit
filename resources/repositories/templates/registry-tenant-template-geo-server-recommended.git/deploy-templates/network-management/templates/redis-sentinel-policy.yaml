@@ -39,6 +39,9 @@ spec:
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: kong
+        - podSelector:
+            matchLabels:
+              app: user-settings-service-api
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
