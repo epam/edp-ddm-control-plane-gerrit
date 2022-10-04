@@ -874,6 +874,7 @@ releases:
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/registry-nodes'
+  - '{{ env "NAMESPACE" }}/citus'
   - '{{ env "NAMESPACE" }}/registry-configuration'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/codebase-operator'
