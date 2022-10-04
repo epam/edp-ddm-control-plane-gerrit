@@ -37,6 +37,3 @@ rules:
       - create
     resources:
       - secrets
-    resourceNames:
-      - system-digital-sign-{{ .Release.Namespace }}-key
-      - system-digital-sign-{{ .Release.Namespace }}-ca
