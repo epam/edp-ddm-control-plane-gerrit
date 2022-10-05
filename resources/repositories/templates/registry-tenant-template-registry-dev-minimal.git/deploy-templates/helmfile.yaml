@@ -485,7 +485,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git
     path: components/registry/
   chart: /opt/repositories/strimzi-kafka-operator/deploy-templates
-  version: 1.5.0-MDTUDDM-18687-SNAPSHOT.1
+  version: 1.5.0-SNAPSHOT.79
   skipDeps: true
   values:
   - values.yaml
