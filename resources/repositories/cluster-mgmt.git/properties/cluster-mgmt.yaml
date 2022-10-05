@@ -24,10 +24,10 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/storage.git
-  version: 1.5.0-SNAPSHOT.85
+  version: 1.5.0-SNAPSHOT.80
   values: []
 - name: logging
-  version: 1.5.0-SNAPSHOT.75
+  version: 1.5.0-SNAPSHOT.71
   labels:
     type: remote
     update_scc: false

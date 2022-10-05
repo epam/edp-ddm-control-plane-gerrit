@@ -11,15 +11,15 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.103",
-         "promotedVersions": "build/1.6.0.82,build/1.6.0.86,build/1.6.0.88,build/1.6.0.90,build/1.6.0.91,build/1.6.0.92,build/1.6.0.93,build/1.6.0.95,build/1.6.0.101,build/1.6.0.103"
+         "version": "build/1.6.0.106",
+         "promotedVersions": "build/1.6.0.86,build/1.6.0.88,build/1.6.0.90,build/1.6.0.91,build/1.6.0.92,build/1.6.0.93,build/1.6.0.95,build/1.6.0.101,build/1.6.0.103,build/1.6.0.106"
       },
       "auto-qa-setup":       {
          "type": "autotests",
          "name": "auto-qa-setup",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/auto-qa-setup.git",
-         "version": "build/1.6.0.29",
-         "promotedVersions": "build/1.6.0.14,build/1.6.0.15,build/1.6.0.20,build/1.6.0.21,build/1.6.0.22,build/1.6.0.23,build/1.6.0.26,build/1.6.0.27,build/1.6.0.28,build/1.6.0.29"
+         "version": "build/1.6.0.30",
+         "promotedVersions": "build/1.6.0.15,build/1.6.0.20,build/1.6.0.21,build/1.6.0.22,build/1.6.0.23,build/1.6.0.26,build/1.6.0.27,build/1.6.0.28,build/1.6.0.29,build/1.6.0.30"
       },
       "certified-laboratories-registry-regulation":       {
          "type": "autotests",
@@ -32,15 +32,15 @@
          "type": "autotests",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.41",
-         "promotedVersions": "build/1.6.0.29,build/1.6.0.31,build/1.6.0.32,build/1.6.0.33,build/1.6.0.34,build/1.6.0.35,build/1.6.0.37,build/1.6.0.40,build/1.6.0.41"
+         "version": "build/1.6.0.43",
+         "promotedVersions": "build/1.6.0.29,build/1.6.0.31,build/1.6.0.32,build/1.6.0.33,build/1.6.0.34,build/1.6.0.35,build/1.6.0.37,build/1.6.0.40,build/1.6.0.41,build/1.6.0.43"
       },
       "data-factory-integration-tests":       {
          "type": "autotests",
          "name": "data-factory-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/data-factory-integration-tests.git",
-         "version": "build/1.6.0.57",
-         "promotedVersions": "build/1.6.0.50,build/1.6.0.53,build/1.6.0.54,build/1.6.0.56,build/1.6.0.57"
+         "version": "build/1.6.0.58",
+         "promotedVersions": "build/1.6.0.50,build/1.6.0.53,build/1.6.0.54,build/1.6.0.56,build/1.6.0.57,build/1.6.0.58"
       },
       "data-integration-tests":       {
          "type": "autotests",
@@ -67,15 +67,15 @@
          "type": "autotests",
          "name": "users-cabinets-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-integration-tests.git",
-         "version": "build/1.6.0.40",
-         "promotedVersions": "build/1.6.0.38,build/1.6.0.40"
+         "version": "build/1.6.0.41",
+         "promotedVersions": "build/1.6.0.38,build/1.6.0.40,build/1.6.0.41"
       },
       "users-cabinets-ui-tests":       {
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.140",
-         "promotedVersions": "build/1.6.0.112,build/1.6.0.115,build/1.6.0.120,build/1.6.0.121,build/1.6.0.128,build/1.6.0.129,build/1.6.0.131,build/1.6.0.133,build/1.6.0.135,build/1.6.0.140"
+         "version": "build/1.6.0.141",
+         "promotedVersions": "build/1.6.0.115,build/1.6.0.120,build/1.6.0.121,build/1.6.0.128,build/1.6.0.129,build/1.6.0.131,build/1.6.0.133,build/1.6.0.135,build/1.6.0.140,build/1.6.0.141"
       }
    },
    "dockerimage":    {
@@ -117,7 +117,7 @@
       "common-web-app-image":       {
          "type": "dockerimage",
          "name": "common-web-app-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.8.0.39"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.8.0.40"
       },
       "cp-schema-registry-image":       {
          "type": "dockerimage",
@@ -302,7 +302,7 @@
       "redash-chart-image":       {
          "type": "dockerimage",
          "name": "redash-chart-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/redash-chart-master:1.5.0-SNAPSHOT.91"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/redash-chart-master:1.5.0-SNAPSHOT.92"
       },
       "redash-exporter-image":       {
          "type": "dockerimage",
@@ -434,7 +434,7 @@
          "type": "platform-component",
          "name": "logging",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/logging.git",
-         "version": "1.5.0-SNAPSHOT.75"
+         "version": "1.5.0-SNAPSHOT.71"
       },
       "monitoring":       {
          "type": "platform-component",
@@ -470,7 +470,7 @@
          "type": "platform-component",
          "name": "storage",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/storage.git",
-         "version": "1.5.0-SNAPSHOT.84"
+         "version": "1.5.0-SNAPSHOT.80"
       },
       "user-management":       {
          "type": "platform-component",
@@ -519,7 +519,7 @@
          "type": "application",
          "name": "common-web-app",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git",
-         "version": "1.8.0.39",
+         "version": "1.8.0.40",
          "env": "prod"
       },
       "dataplatform-jenkins-agent":       {
@@ -680,7 +680,7 @@
          "type": "application",
          "name": "redash-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git",
-         "version": "1.5.0-SNAPSHOT.91",
+         "version": "1.5.0-SNAPSHOT.92",
          "env": "prod"
       },
       "registry-configuration":       {
