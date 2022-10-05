@@ -63,6 +63,9 @@ spec:
         - podSelector:
             matchLabels:
               app: process-history-service-persistence
+        - podSelector:
+            matchLabels:
+              app: registry-regulation-management
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
