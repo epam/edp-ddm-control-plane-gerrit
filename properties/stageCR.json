@@ -434,7 +434,7 @@
          "type": "platform-component",
          "name": "logging",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/logging.git",
-         "version": "1.5.0-SNAPSHOT.71"
+         "version": "1.5.0-SNAPSHOT.75"
       },
       "monitoring":       {
          "type": "platform-component",
@@ -470,7 +470,7 @@
          "type": "platform-component",
          "name": "storage",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/storage.git",
-         "version": "1.5.0-SNAPSHOT.80"
+         "version": "1.5.0-SNAPSHOT.84"
       },
       "user-management":       {
          "type": "platform-component",
