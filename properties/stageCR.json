@@ -174,6 +174,11 @@
          "name": "excerpt-worker-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/excerpt-worker-master:1.6.0.6"
       },
+      "form-submission-validation-image":       {
+         "type": "dockerimage",
+         "name": "form-submission-validation-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/form-submission-validation-mdtuddm-16614:1.8.0-MDTUDDM-16614-SNAPSHOT.6"
+      },
       "geo-server-image":       {
          "type": "dockerimage",
          "name": "geo-server-image",
@@ -571,6 +576,13 @@
          "name": "excerpt-worker-docx",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-worker-docx.git",
          "version": "1.6.0.6",
+         "env": "prod"
+      },
+      "form-submission-validation":       {
+         "type": "application",
+         "name": "form-submission-validation",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-submission-validation.git",
+         "version": "1.8.0-MDTUDDM-16614-SNAPSHOT.6",
          "env": "prod"
       },
       "geo-server":       {
