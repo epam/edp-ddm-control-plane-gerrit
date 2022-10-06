@@ -363,29 +363,6 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/registry-configuration'
-- name: form-management
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-management.git
-    path: components/registry/
-  chart: /opt/repositories/form-management/deploy-templates
-  version: 1.8.0.2
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-  needs:
-  - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
-  - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/citus'
-  - '{{ env "NAMESPACE" }}/istio-configuration'
-  - '{{ env "NAMESPACE" }}/jenkins-operator'
-  - '{{ env "NAMESPACE" }}/gerrit-operator'
-  - '{{ env "NAMESPACE" }}/keycloak-operator'
-  - '{{ env "NAMESPACE" }}/nexus'
-  - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: common-web-app
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -408,7 +385,7 @@ releases:
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
-  - '{{ env "NAMESPACE" }}/form-management'
+  - '{{ env "NAMESPACE" }}/form-schema-provider'
   - '{{ env "NAMESPACE" }}/registry-configuration'
   - '{{ env "NAMESPACE" }}/kong'
 - name: redash-chart
