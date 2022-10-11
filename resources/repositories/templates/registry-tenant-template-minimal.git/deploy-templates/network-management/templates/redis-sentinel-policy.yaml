@@ -33,6 +33,9 @@ spec:
         - podSelector:
             matchLabels:
               app: user-task-management
+        - podSelector:
+            matchLabels:
+              name: history-excerptor-job
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
