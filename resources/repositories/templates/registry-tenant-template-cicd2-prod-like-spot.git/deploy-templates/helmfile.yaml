@@ -817,6 +817,38 @@ releases:
   - '{{ env "NAMESPACE"}}/istio-configuration'
   - '{{ env "NAMESPACE"}}/network-management'
   - '{{ env "NAMESPACE"}}/citus'
+- name: wiremock
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/wiremock.git
+    path: components/registry/
+  chart: /opt/repositories/wiremock/deploy-templates
+  version: 1.5.0-SNAPSHOT.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE"}}/istio-configuration'
+  - '{{ env "NAMESPACE"}}/network-management'
+- name: wiremock-studio
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/wiremock-studio.git
+    path: components/registry/
+  chart: /opt/repositories/wiremock-studio/deploy-templates
+  version: 1.6.0-SNAPSHOT.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE"}}/istio-configuration'
+  - '{{ env "NAMESPACE"}}/network-management'
 - name: trembita-dev
   namespace: '{{ env "NAMESPACE" }}'
   labels:
