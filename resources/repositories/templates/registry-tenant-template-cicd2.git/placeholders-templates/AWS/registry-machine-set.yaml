@@ -6,6 +6,7 @@ metadata:
   namespace: openshift-machine-api
   labels:
     machine.openshift.io/cluster-api-cluster: {{ .Values.cluster_prefix }}
+    namespace: {{ .Release.Namespace }}
 spec:
   deletePolicy: Oldest
   replicas: {{ .Values.instance_count_per_region }}
