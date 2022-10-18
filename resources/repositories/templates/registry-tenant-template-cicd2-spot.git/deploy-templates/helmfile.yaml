@@ -305,7 +305,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-task-management.git
     path: components/registry/
   chart: /opt/repositories/user-task-management/deploy-templates
-  version: 1.8.0.9
+  version: 1.8.0.10
   values:
   - values.yaml
   - values.gotmpl
@@ -396,7 +396,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git
     path: components/registry/
   chart: /opt/repositories/redash-chart/deploy-templates
-  version: 1.5.0-SNAPSHOT.93
+  version: 1.5.0-SNAPSHOT.94
   values:
   - values.yaml
   - values.gotmpl
@@ -562,7 +562,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git
     path: components/registry/
   chart: /opt/repositories/user-settings-service-api/deploy-templates
-  version: 1.6.0.22
+  version: 1.6.0.23
   values:
   - values.yaml
   - values.gotmpl
@@ -716,7 +716,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/libraries/user-publisher.git
     path: components/registry/
   chart: /opt/repositories/user-publisher/deploy-templates
-  version: 1.8.0.7
+  version: 1.8.0.9
   values:
   - values.yaml
   - values.gotmpl
@@ -868,7 +868,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git
     path: components/registry/
   chart: /opt/repositories/registry-regulation-management/deploy-templates
-  version: 1.7.0.29
+  version: 1.7.0.30
   values:
   - values.yaml
   - values.gotmpl
