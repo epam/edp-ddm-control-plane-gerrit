@@ -11,8 +11,8 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.108",
-         "promotedVersions": "build/1.6.0.90,build/1.6.0.91,build/1.6.0.92,build/1.6.0.93,build/1.6.0.95,build/1.6.0.101,build/1.6.0.103,build/1.6.0.106,build/1.6.0.107,build/1.6.0.108"
+         "version": "build/1.6.0.109",
+         "promotedVersions": "build/1.6.0.91,build/1.6.0.92,build/1.6.0.93,build/1.6.0.95,build/1.6.0.101,build/1.6.0.103,build/1.6.0.106,build/1.6.0.107,build/1.6.0.108,build/1.6.0.109"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.50",
-         "promotedVersions": "build/1.6.0.32,build/1.6.0.33,build/1.6.0.34,build/1.6.0.35,build/1.6.0.37,build/1.6.0.40,build/1.6.0.41,build/1.6.0.43,build/1.6.0.45,build/1.6.0.50"
+         "version": "build/1.6.0.51",
+         "promotedVersions": "build/1.6.0.33,build/1.6.0.34,build/1.6.0.35,build/1.6.0.37,build/1.6.0.40,build/1.6.0.41,build/1.6.0.43,build/1.6.0.45,build/1.6.0.50,build/1.6.0.51"
       },
       "data-factory-integration-tests":       {
          "type": "autotests",
@@ -74,8 +74,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.146",
-         "promotedVersions": "build/1.6.0.129,build/1.6.0.131,build/1.6.0.133,build/1.6.0.135,build/1.6.0.140,build/1.6.0.141,build/1.6.0.142,build/1.6.0.143,build/1.6.0.144,build/1.6.0.146"
+         "version": "build/1.6.0.148",
+         "promotedVersions": "build/1.6.0.131,build/1.6.0.133,build/1.6.0.135,build/1.6.0.140,build/1.6.0.141,build/1.6.0.142,build/1.6.0.143,build/1.6.0.144,build/1.6.0.146,build/1.6.0.148"
       }
    },
    "dockerimage":    {
@@ -312,7 +312,7 @@
       "redash-chart-image":       {
          "type": "dockerimage",
          "name": "redash-chart-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/redash-chart-master:1.5.0-SNAPSHOT.93"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/redash-chart-master:1.5.0-SNAPSHOT.94"
       },
       "redash-exporter-image":       {
          "type": "dockerimage",
@@ -327,7 +327,7 @@
       "registry-regulation-management-image":       {
          "type": "dockerimage",
          "name": "registry-regulation-management-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/registry-regulation-management-master:1.7.0.29"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/registry-regulation-management-master:1.7.0.30"
       },
       "report-exporter-image":       {
          "type": "dockerimage",
@@ -337,7 +337,7 @@
       "report-publisher-image":       {
          "type": "dockerimage",
          "name": "report-publisher-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/report-publisher-master:1.7.0.3"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/report-publisher-master:1.7.0.5"
       },
       "rest-api-core-base-image":       {
          "type": "dockerimage",
@@ -362,12 +362,12 @@
       "user-publisher-image":       {
          "type": "dockerimage",
          "name": "user-publisher-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-publisher-master:1.8.0.2"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-publisher-master:1.8.0.9"
       },
       "user-settings-service-api-image":       {
          "type": "dockerimage",
          "name": "user-settings-service-api-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-api-master:1.6.0.22"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-settings-service-api-master:1.6.0.23"
       },
       "user-settings-service-persistence-image":       {
          "type": "dockerimage",
@@ -377,7 +377,7 @@
       "user-task-management-image":       {
          "type": "dockerimage",
          "name": "user-task-management-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-task-management-master:1.8.0.9"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-task-management-master:1.8.0.10"
       },
       "vault-image":       {
          "type": "dockerimage",
@@ -486,7 +486,7 @@
          "type": "platform-component",
          "name": "user-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git",
-         "version": "1.5.0-SNAPSHOT.229"
+         "version": "1.5.0-SNAPSHOT.236"
       }
    },
    "application":    {
@@ -704,7 +704,7 @@
          "type": "application",
          "name": "redash-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git",
-         "version": "1.5.0-SNAPSHOT.93",
+         "version": "1.5.0-SNAPSHOT.94",
          "env": "prod"
       },
       "redis-sentinel":       {
@@ -725,7 +725,7 @@
          "type": "application",
          "name": "registry-regulation-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git",
-         "version": "1.7.0.29",
+         "version": "1.7.0.30",
          "env": "prod"
       },
       "report-exporter":       {
@@ -753,21 +753,21 @@
          "type": "application",
          "name": "user-publisher",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/libraries/user-publisher.git",
-         "version": "1.8.0.7",
+         "version": "1.8.0.9",
          "env": "prod"
       },
       "user-settings-service-api":       {
          "type": "application",
          "name": "user-settings-service-api",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git",
-         "version": "1.6.0.22",
+         "version": "1.6.0.23",
          "env": "prod"
       },
       "user-task-management":       {
          "type": "application",
          "name": "user-task-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-task-management.git",
-         "version": "1.8.0.9",
+         "version": "1.8.0.10",
          "env": "prod"
       }
    },
@@ -790,7 +790,7 @@
          "type": "gitsources",
          "name": "empty-template-registry-regulation",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
-         "version": "build/1.5.0-SNAPSHOT.54",
+         "version": "build/1.5.0-SNAPSHOT.56",
          "path": "/"
       },
       "history-excerptor-chart":       {
