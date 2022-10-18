@@ -20,6 +20,7 @@ spec:
         machine.openshift.io/cluster-api-machine-role: worker
         machine.openshift.io/cluster-api-machine-type: worker
         machine.openshift.io/cluster-api-machineset: {{ .Values.cluster_prefix }}-{{ .Values.node_zone }}-{{ .Release.Namespace | trimPrefix "mdtu-ddm-edp-cicd-" }}
+        namespace: {{ .Release.Namespace }}
     spec:
       taints:
         - effect: NoSchedule
