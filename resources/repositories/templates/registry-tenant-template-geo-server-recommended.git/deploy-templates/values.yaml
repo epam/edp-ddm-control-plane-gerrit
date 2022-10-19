@@ -101,3 +101,4 @@ dso:
 global:
   whiteListIP:
     adminRoutes: "0.0.0.0/0"
+  excludePortals: ['']
