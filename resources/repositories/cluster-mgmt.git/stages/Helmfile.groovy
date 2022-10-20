@@ -41,6 +41,7 @@ class Helmfile {
                     script.env.idgovuaClientSecret = script.sh(script: """ oc get secret -n ${script.env.edpProject} id-gov-ua-client-secret -o jsonpath='{.data.clientSecret}' | base64 -d -w0 """, returnStdout: true).trim()
                     script.env.globalNexusNamespace = context.job.dnsWildcard.startsWith("apps.cicd") ? 'mdtu-ddm-edp-cicd' : script.env.dockerRegistry.replaceAll(/.*\.(.*)\.svc:[0-9]+/, '\$1')
                     script.env.ADMIN_ROUTES_WHITELIST_CIDR = values.global.whiteListIP.adminRoutes
+                    script.env.deploymentMode = values.global.deploymentMode
 
                     String helmfile = 'deploy-templates/helmfile.yaml'
                     String helmValuesPath = 'deploy-templates/values.yaml'
