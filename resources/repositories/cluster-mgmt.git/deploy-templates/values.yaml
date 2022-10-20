@@ -6,3 +6,4 @@ cdPipelineStageName: main
 global:
   whiteListIP:
     adminRoutes: "0.0.0.0/0"
+  deploymentMode: development
