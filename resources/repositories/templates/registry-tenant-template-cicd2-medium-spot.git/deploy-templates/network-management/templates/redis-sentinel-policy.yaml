@@ -36,6 +36,9 @@ spec:
         - podSelector:
             matchLabels:
               name: history-excerptor-job
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kong
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
