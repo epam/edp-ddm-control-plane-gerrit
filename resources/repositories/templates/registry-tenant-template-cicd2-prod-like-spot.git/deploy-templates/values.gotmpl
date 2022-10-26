@@ -260,6 +260,9 @@ nexus:
     class: ocs-storagecluster-ceph-rbd
   edpMavenRepoUrl: {{ env "edpMavenRepoUrl" }}
 
+commonWebApp:
+  businessProcessModelerExtensionsVersion: 1.8.0.11
+
 keycloak:
   host: platform-keycloak.{{ requiredEnv "dnsWildcard" }}
   url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}

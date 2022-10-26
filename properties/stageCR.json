@@ -825,6 +825,11 @@
          "type": "resource",
          "name": "liquibase-ext-schema-latest",
          "path": "repository/extensions/com/epam/digital/data/platform/liquibase-ext-schema/latest/liquibase-ext-schema-latest.xsd"
+      },
+      "business-process-modeler-extensions":       {
+         "type": "resource",
+         "name": "business-process-modeler-extensions",
+         "path": "repository/edp-maven-releases/com/epam/digital/data/platform/business-process-modeler-extensions/1.8.0.11/business-process-modeler-extensions-1.8.0.11.zip"
       }
    }
 }
