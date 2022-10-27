@@ -249,6 +249,11 @@
          "name": "kong-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kong-master:1.5.0-SNAPSHOT.44"
       },
+      "kong-admin-tools-image":       {
+         "type": "dockerimage",
+         "name": "kong-admin-tools-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kong-admin-tools-master:1.6.0-SNAPSHOT.1"
+      },
       "kubernetes-ingress-controller-image":       {
          "type": "dockerimage",
          "name": "kubernetes-ingress-controller-image",
@@ -656,6 +661,13 @@
          "name": "kong",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git",
          "version": "1.5.0-SNAPSHOT.44",
+         "env": "prod"
+      },
+      "kong-admin-tools":       {
+         "type": "application",
+         "name": "kong-admin-tools",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong-admin-tools.git",
+         "version": "1.6.0-SNAPSHOT.1",
          "env": "prod"
       },
       "nexus":       {

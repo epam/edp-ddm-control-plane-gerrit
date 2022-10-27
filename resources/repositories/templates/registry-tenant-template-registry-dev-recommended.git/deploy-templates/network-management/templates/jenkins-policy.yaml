@@ -15,6 +15,9 @@ spec:
         - podSelector:
             matchLabels:
               name: codebase-operator
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kong-admin-tools
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

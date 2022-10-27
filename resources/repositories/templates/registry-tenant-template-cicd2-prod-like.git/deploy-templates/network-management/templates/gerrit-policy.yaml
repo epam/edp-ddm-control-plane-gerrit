@@ -21,6 +21,9 @@ spec:
         - podSelector:
             matchLabels:
               app: registry-regulation-management
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kong-admin-tools
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
