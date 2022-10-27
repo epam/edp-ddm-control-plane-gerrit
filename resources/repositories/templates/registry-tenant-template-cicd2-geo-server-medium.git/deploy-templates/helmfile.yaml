@@ -192,6 +192,7 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/kong-admin-tools'
 - name: dataplatform-jenkins-agent
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -232,6 +233,7 @@ releases:
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/kong-admin-tools'
 - name: codebase-operator
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -358,10 +360,27 @@ releases:
   needs:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/jenkins-operator'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
+- name: kong-admin-tools
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong-admin-tools.git
+    path: components/registry/
+  chart: /opt/repositories/kong-admin-tools/deploy-templates
+  version: 1.6.0-SNAPSHOT.1
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: common-web-app
   namespace: '{{ env "NAMESPACE" }}'
