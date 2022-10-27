@@ -72,7 +72,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-nexus.git
   values: []
 - name: external-integration-mocks
-  version: 1.5.0-SNAPSHOT.35
+  version: 1.5.0-SNAPSHOT.39
   labels:
     type: remote
     update_scc: false
