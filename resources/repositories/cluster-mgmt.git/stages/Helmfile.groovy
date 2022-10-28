@@ -7,7 +7,7 @@ class Helmfile {
     Script script
     DeployHelper deployHelper
 
-    ArrayList<String> COMPOSITE_COMPONENTS = ["user-management", "external-integration-mocks", "cluster-kafka-operator"]
+    ArrayList<String> COMPOSITE_COMPONENTS = ["user-management", "external-integration-mocks", "cluster-kafka-operator", "postgres-operator"]
 
     void run(context) {
         deployHelper = new DeployHelper(script)
