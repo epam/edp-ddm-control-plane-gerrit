@@ -24,9 +24,11 @@ for repo in `find . -type d \( -name "*.git" ! -name "*cicd*" \)`; do
                 git checkout $i;
                 cd "/opt/git/dst_repo";
                 su-exec ${GERRIT_USER} git checkout -f -B $i ;
+                cp ./deploy-templates/values.yaml /tmp/values-backup.yaml || echo "No values.yaml to backup";
                 rm -rf ./*;
                 rm -rf /opt/git/source_repo/.git; rm -f /opt/git/source_repo/.gitignore /opt/git/source_repo/.helmignore;
                 scp -rp /opt/git/source_repo/* ./ || echo "Nothing to copy";
+                mv /tmp/values-backup.yaml ./deploy-templates/values.yaml || echo "No values.yaml to restore";
                 chown -R ${GERRIT_USER} ./ && chown -R ${GERRIT_USER} ./.git;
                 su-exec ${GERRIT_USER} git add --all || echo "Nothing to add";
                 su-exec ${GERRIT_USER} git commit -am "Add new branch $i " || echo "Nothing to commit";
