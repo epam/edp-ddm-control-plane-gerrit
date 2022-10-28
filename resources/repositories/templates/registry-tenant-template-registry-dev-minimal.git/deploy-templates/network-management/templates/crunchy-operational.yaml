@@ -1,0 +1,90 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: crunchy-pgo-operational-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      postgres-operator.crunchydata.com/cluster: operational
+  ingress:
+    - ports:
+        - protocol: TCP
+          port: 5432
+        - protocol: TCP
+          port: 2022
+        - protocol: TCP
+          port: 55018
+        - protocol: TCP
+          port: 8432
+        - protocol: TCP
+          port: 8008
+      from:
+        - podSelector:
+            matchLabels:
+              postgres-operator.crunchydata.com/cluster: analytical
+        - podSelector:
+            matchLabels:
+              postgres-operator.crunchydata.com/cluster: operational
+        - podSelector:
+            matchLabels:
+              job-name: run-db-scripts-job
+        - podSelector:
+            matchLabels:
+              job-name: create-dashboard-job
+        - podSelector:
+            matchLabels:
+              app: business-process-administration-portal
+        - podSelector:
+            matchLabels:
+              app: user-settings-service-persistence
+        - podSelector:
+            matchLabels:
+              app: citus-master-rep
+        - podSelector:
+            matchLabels:
+              app: bpms
+        - podSelector:
+            matchLabels:
+              app: excerpt-service-api
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker-docx
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker-csv
+        - podSelector:
+            matchLabels:
+              app: prometheus-postgres-exporter
+        - podSelector:
+            matchLabels:
+              app: registry-rest-api
+        - podSelector:
+            matchLabels:
+              app: registry-kafka-api
+        - podSelector:
+            matchLabels:
+              app: citus-workers
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: redash-viewer
+        - podSelector:
+            matchLabels:
+              app: process-history-service-api
+        - podSelector:
+            matchLabels:
+              app: process-history-service-persistence
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: ddm-notification-service
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kafka-connect
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}
+  policyTypes:
+    - Ingress
