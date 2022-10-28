@@ -6,7 +6,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: ddm-notification-service
+      app.kubernetes.io/name: ddm-notification-service
   ingress:
     - from:
         - podSelector:
