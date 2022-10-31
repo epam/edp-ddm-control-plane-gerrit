@@ -40,6 +40,9 @@ spec:
               app: user-settings-service-persistence
         - podSelector:
             matchLabels:
+              app: user-settings-service-api
+        - podSelector:
+            matchLabels:
               app: citus-master-rep
         - podSelector:
             matchLabels:
