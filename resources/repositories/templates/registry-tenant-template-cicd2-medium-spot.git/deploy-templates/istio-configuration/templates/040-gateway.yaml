@@ -12,7 +12,7 @@ spec:
         name: http2
         protocol: HTTP
       hosts:
-        - citizen-portal-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
-        - officer-portal-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
+        - {{ include "citizen-portal.url" . }}
+        - {{ include "officer-portal.url" . }}
         - admin-portal-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
         - external-service-api-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}

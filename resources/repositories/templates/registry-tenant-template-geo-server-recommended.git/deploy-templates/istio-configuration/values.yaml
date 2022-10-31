@@ -1,0 +1,5 @@
+portals:
+  officer:
+    customDns: {}
+  citizen:
+    customDns: {}
