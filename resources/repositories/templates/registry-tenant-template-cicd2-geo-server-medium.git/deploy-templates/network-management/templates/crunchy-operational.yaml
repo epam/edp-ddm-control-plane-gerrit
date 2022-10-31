@@ -28,6 +28,15 @@ spec:
               postgres-operator.crunchydata.com/cluster: operational
         - podSelector:
             matchLabels:
+              app.kubernetes.io/name: geo-server
+        - podSelector:
+            matchLabels:
+              app: registry-rest-api-ext
+        - podSelector:
+            matchLabels:
+              app: registry-regulation-management
+        - podSelector:
+            matchLabels:
               job-name: run-db-scripts-job
         - podSelector:
             matchLabels:
