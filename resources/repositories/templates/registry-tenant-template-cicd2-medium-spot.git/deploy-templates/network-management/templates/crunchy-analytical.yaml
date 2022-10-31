@@ -31,6 +31,9 @@ spec:
               postgres-operator.crunchydata.com/cluster: analytical
         - podSelector:
             matchLabels:
+              app.kubernetes.io/name: redash-admin
+        - podSelector:
+            matchLabels:
               job-name: run-db-scripts-job
         - podSelector:
             matchLabels:
