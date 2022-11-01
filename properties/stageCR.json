@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.71",
-         "promotedVersions": "build/1.6.0.50,build/1.6.0.51,build/1.6.0.61,build/1.6.0.62,build/1.6.0.64,build/1.6.0.66,build/1.6.0.68,build/1.6.0.69,build/1.6.0.70,build/1.6.0.71"
+         "version": "build/1.6.0.72",
+         "promotedVersions": "build/1.6.0.51,build/1.6.0.61,build/1.6.0.62,build/1.6.0.64,build/1.6.0.66,build/1.6.0.68,build/1.6.0.69,build/1.6.0.70,build/1.6.0.71,build/1.6.0.72"
       },
       "data-factory-integration-tests":       {
          "type": "autotests",
@@ -97,7 +97,7 @@
       "bpms-image":       {
          "type": "dockerimage",
          "name": "bpms-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bpms-master:1.8.0.19"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bpms-master:1.8.0.20"
       },
       "citus-data-image":       {
          "type": "dockerimage",
@@ -132,7 +132,7 @@
       "dataplatform-jenkins-agent-image":       {
          "type": "dockerimage",
          "name": "dataplatform-jenkins-agent-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.8.0.42"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.8.0.43"
       },
       "ddm-notification-service-image":       {
          "type": "dockerimage",
@@ -508,7 +508,7 @@
          "type": "application",
          "name": "bpms",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git",
-         "version": "1.8.0.19",
+         "version": "1.8.0.20",
          "env": "prod"
       },
       "citus":       {
@@ -536,7 +536,7 @@
          "type": "application",
          "name": "dataplatform-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git",
-         "version": "1.8.0.42",
+         "version": "1.8.0.43",
          "env": "prod"
       },
       "ddm-notification-service":       {
@@ -634,7 +634,7 @@
          "type": "application",
          "name": "jenkins-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git",
-         "version": "1.5.0-SNAPSHOT.178",
+         "version": "1.5.0-SNAPSHOT.179",
          "env": "prod"
       },
       "kafka-schema-registry":       {
@@ -718,7 +718,7 @@
          "type": "application",
          "name": "registry-configuration",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git",
-         "version": "1.5.0-SNAPSHOT.119",
+         "version": "1.5.0-SNAPSHOT.120",
          "env": "prod"
       },
       "registry-regulation-management":       {
@@ -804,7 +804,7 @@
          "type": "gitsources",
          "name": "registry-regulations-publication-pipeline",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
-         "version": "build/1.5.0-SNAPSHOT.190",
+         "version": "build/1.5.0-SNAPSHOT.191",
          "path": "/libraries"
       },
       "registry-regulations-publication-stages":       {
