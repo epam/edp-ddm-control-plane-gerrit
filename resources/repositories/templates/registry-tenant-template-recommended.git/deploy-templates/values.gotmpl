@@ -27,6 +27,11 @@ global:
     zookeepers: 3
     replicationFactor: 3
     kafkaCentralNamespace: {{ env "KAFKA_CENTRAL_NAMESPACE" }}
+    storage:
+      zookeeper:
+        size: 5Gi
+      kafka:
+        size: 20Gi
   crunchyPostgresOperator:
     instances:
       operational:
