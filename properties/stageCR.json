@@ -402,7 +402,7 @@
          "type": "platform-component",
          "name": "cluster-kafka-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/cluster-kafka-operator.git",
-         "version": "1.5.0-SNAPSHOT.2"
+         "version": "1.5.0-SNAPSHOT.4"
       },
       "control-plane-console":       {
          "type": "platform-component",
