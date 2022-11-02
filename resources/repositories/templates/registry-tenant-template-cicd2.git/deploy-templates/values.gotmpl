@@ -43,6 +43,11 @@ global:
   notifications:
     email:
       password: '{{ env "smtpExternalUserPassword" | b64enc }}'
+    diia:
+      url: https://api2t.diia.gov.ua/
+      partner:
+        token: {{ exec "oc" (list "-n" "mdtu-ddm-edp-cicd" "get" "secret" "diia-partner-token" "-o" "jsonpath={.data.token}") | b64dec }}
+
   disableRequestsLimits: true
   registry:
     kong:
