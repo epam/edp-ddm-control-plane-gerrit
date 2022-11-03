@@ -11,8 +11,8 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.127",
-         "promotedVersions": "build/1.6.0.109,build/1.6.0.112,build/1.6.0.113,build/1.6.0.116,build/1.6.0.118,build/1.6.0.119,build/1.6.0.122,build/1.6.0.124,build/1.6.0.126,build/1.6.0.127"
+         "version": "build/1.6.0.128",
+         "promotedVersions": "build/1.6.0.112,build/1.6.0.113,build/1.6.0.116,build/1.6.0.118,build/1.6.0.119,build/1.6.0.122,build/1.6.0.124,build/1.6.0.126,build/1.6.0.127,build/1.6.0.128"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.72",
-         "promotedVersions": "build/1.6.0.51,build/1.6.0.61,build/1.6.0.62,build/1.6.0.64,build/1.6.0.66,build/1.6.0.68,build/1.6.0.69,build/1.6.0.70,build/1.6.0.71,build/1.6.0.72"
+         "version": "build/1.6.0.73",
+         "promotedVersions": "build/1.6.0.61,build/1.6.0.62,build/1.6.0.64,build/1.6.0.66,build/1.6.0.68,build/1.6.0.69,build/1.6.0.70,build/1.6.0.71,build/1.6.0.72,build/1.6.0.73"
       },
       "data-factory-integration-tests":       {
          "type": "autotests",
@@ -74,8 +74,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.167",
-         "promotedVersions": "build/1.6.0.150,build/1.6.0.151,build/1.6.0.154,build/1.6.0.156,build/1.6.0.158,build/1.6.0.161,build/1.6.0.163,build/1.6.0.164,build/1.6.0.166,build/1.6.0.167"
+         "version": "build/1.6.0.168",
+         "promotedVersions": "build/1.6.0.151,build/1.6.0.154,build/1.6.0.156,build/1.6.0.158,build/1.6.0.161,build/1.6.0.163,build/1.6.0.164,build/1.6.0.166,build/1.6.0.167,build/1.6.0.168"
       }
    },
    "dockerimage":    {
@@ -352,7 +352,7 @@
       "strimzi-kafka-operator-image":       {
          "type": "dockerimage",
          "name": "strimzi-kafka-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/strimzi-kafka-operator-master:1.5.0-SNAPSHOT.84"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/strimzi-kafka-operator-master:1.5.0-SNAPSHOT.85"
       },
       "user-process-management-image":       {
          "type": "dockerimage",
@@ -634,7 +634,7 @@
          "type": "application",
          "name": "jenkins-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git",
-         "version": "1.5.0-SNAPSHOT.183",
+         "version": "1.5.0-SNAPSHOT.184",
          "env": "prod"
       },
       "kafka-schema-registry":       {
@@ -739,7 +739,7 @@
          "type": "application",
          "name": "strimzi-kafka-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git",
-         "version": "1.5.0-SNAPSHOT.84",
+         "version": "1.5.0-SNAPSHOT.85",
          "env": "prod"
       },
       "user-process-management":       {
