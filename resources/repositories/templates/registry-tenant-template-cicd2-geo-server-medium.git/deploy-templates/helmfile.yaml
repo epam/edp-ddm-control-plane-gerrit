@@ -178,7 +178,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.182
+  version: 1.5.0-SNAPSHOT.183
   values:
   - values.yaml
   - values.gotmpl
@@ -200,7 +200,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.8.0.44
+  version: 1.8.0.45
   values:
   - values.yaml
   - values.gotmpl
@@ -371,7 +371,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version: 1.8.0.71
+  version: 1.8.0.74
   values:
   - values.yaml
   - values.gotmpl
@@ -441,7 +441,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git
     path: components/registry/
   chart: /opt/repositories/citus/deploy-templates
-  version: 1.5.0-SNAPSHOT.130
+  version: 1.5.0-SNAPSHOT.131
   values:
   - values.yaml
   - values.gotmpl
@@ -549,7 +549,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/keycloak-operator.git
     path: components/registry/
   chart: /opt/repositories/keycloak-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.70
+  version: 1.5.0-SNAPSHOT.71
   values:
   - operator:
       clusterRoleName: keycloak-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -586,7 +586,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/ddm-notification-service.git
     path: components/registry/
   chart: /opt/repositories/ddm-notification-service/deploy-templates
-  version: 1.8.0.4
+  version: 1.8.0.5
   values:
   - values.yaml
   - values.gotmpl
@@ -800,7 +800,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.123
+  version: 1.5.0-SNAPSHOT.124
   values:
   - values.yaml
   - values.gotmpl
