@@ -156,7 +156,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
     path: components/registry/
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.8.0.20
+  version: 1.8.0.21
   values:
   - values.yaml
   - values.gotmpl
@@ -178,7 +178,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.184
+  version: 1.5.0-SNAPSHOT.186
   values:
   - values.yaml
   - values.gotmpl
@@ -200,7 +200,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.8.0.45
+  version: 1.8.0.46
   values:
   - values.yaml
   - values.gotmpl
@@ -220,7 +220,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/gerrit-operator.git
     path: components/registry/
   chart: /opt/repositories/gerrit-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.65
+  version: 1.5.0-SNAPSHOT.69
   values:
   - operator:
       clusterRoleName: gerrit-operator-role-{{ env "globalEDPProject" }}
@@ -371,7 +371,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version: 1.8.0.74
+  version: 1.8.0.77
   values:
   - values.yaml
   - values.gotmpl
@@ -504,7 +504,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/keycloak-operator.git
     path: components/registry/
   chart: /opt/repositories/keycloak-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.71
+  version: 1.5.0-SNAPSHOT.72
   values:
   - operator:
       clusterRoleName: keycloak-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -541,7 +541,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/ddm-notification-service.git
     path: components/registry/
   chart: /opt/repositories/ddm-notification-service/deploy-templates
-  version: 1.8.0.5
+  version: 1.8.0.6
   values:
   - values.yaml
   - values.gotmpl
@@ -562,7 +562,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/user-settings-service-api.git
     path: components/registry/
   chart: /opt/repositories/user-settings-service-api/deploy-templates
-  version: 1.6.0.27
+  version: 1.6.0.28
   values:
   - values.yaml
   - values.gotmpl
@@ -716,7 +716,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/libraries/user-publisher.git
     path: components/registry/
   chart: /opt/repositories/user-publisher/deploy-templates
-  version: 1.8.0.12
+  version: 1.8.0.13
   values:
   - values.yaml
   - values.gotmpl
@@ -755,7 +755,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.124
+  version: 1.5.0-SNAPSHOT.125
   values:
   - registryGroup:
       name: '{{ env "registryGroup" }}'
