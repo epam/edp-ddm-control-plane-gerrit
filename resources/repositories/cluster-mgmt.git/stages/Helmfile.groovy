@@ -133,22 +133,24 @@ class Helmfile {
                         script.sh("helmfile -f ${helmfile} sync --concurrency 1")
                     }
                     LinkedHashMap routes = [
-                            'grafana' : 'openshift-monitoring',
-                            'prometheus-k8s' : 'openshift-monitoring',
-                            'prometheus-k8s-federate' : 'openshift-monitoring',
-                            'alertmanager-main' : 'openshift-monitoring',
-                            'thanos-querier' : 'openshift-monitoring',
-                            'kibana' : 'openshift-logging',
-                            'console' : 'openshift-console',
-                            'noobaa-mgmt' : 'openshift-storage',
+                            'grafana'                           : 'openshift-monitoring',
+                            'prometheus-k8s'                    : 'openshift-monitoring',
+                            'prometheus-k8s-federate'           : 'openshift-monitoring',
+                            'alertmanager-main'                 : 'openshift-monitoring',
+                            'thanos-querier'                    : 'openshift-monitoring',
+                            'kibana'                            : 'openshift-logging',
+                            'console'                           : 'openshift-console',
+                            'noobaa-mgmt'                       : 'openshift-storage',
                             'ocs-storagecluster-cephobjectstore': 'openshift-storage',
-                            's3' : 'openshift-storage',
-                            'oauth-openshift' : 'openshift-authentication',
-                            'jaeger' : 'istio-system',
-                            'gerrit' : 'control-plane',
-                            'jenkins' : 'control-plane',
-                            'control-plane-console' : 'control-plane',
-                            'ddm-architecture' : 'documentation'
+                            's3'                                : 'openshift-storage',
+                            'oauth-openshift'                   : 'openshift-authentication',
+                            'jaeger'                            : 'istio-system',
+                            'gerrit'                            : 'control-plane',
+                            'jenkins'                           : 'control-plane',
+                            'control-plane-console'             : 'control-plane',
+                            'ddm-architecture'                  : 'documentation',
+                            'mailu-admin'                       : 'smtp-server',
+                            'mailu-web'                         : 'smtp-server'
                     ]
                     routes.each {
                         try {
