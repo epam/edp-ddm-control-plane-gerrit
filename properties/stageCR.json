@@ -11,8 +11,8 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.129",
-         "promotedVersions": "build/1.6.0.113,build/1.6.0.116,build/1.6.0.118,build/1.6.0.119,build/1.6.0.122,build/1.6.0.124,build/1.6.0.126,build/1.6.0.127,build/1.6.0.128,build/1.6.0.129"
+         "version": "build/1.6.0.130",
+         "promotedVersions": "build/1.6.0.116,build/1.6.0.118,build/1.6.0.119,build/1.6.0.122,build/1.6.0.124,build/1.6.0.126,build/1.6.0.127,build/1.6.0.128,build/1.6.0.129,build/1.6.0.130"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.75",
-         "promotedVersions": "build/1.6.0.62,build/1.6.0.64,build/1.6.0.66,build/1.6.0.68,build/1.6.0.69,build/1.6.0.70,build/1.6.0.71,build/1.6.0.72,build/1.6.0.73,build/1.6.0.75"
+         "version": "build/1.6.0.76",
+         "promotedVersions": "build/1.6.0.64,build/1.6.0.66,build/1.6.0.68,build/1.6.0.69,build/1.6.0.70,build/1.6.0.71,build/1.6.0.72,build/1.6.0.73,build/1.6.0.75,build/1.6.0.76"
       },
       "data-factory-integration-tests":       {
          "type": "autotests",
@@ -74,8 +74,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.170",
-         "promotedVersions": "build/1.6.0.154,build/1.6.0.156,build/1.6.0.158,build/1.6.0.161,build/1.6.0.163,build/1.6.0.164,build/1.6.0.166,build/1.6.0.167,build/1.6.0.168,build/1.6.0.170"
+         "version": "build/1.6.0.171",
+         "promotedVersions": "build/1.6.0.156,build/1.6.0.158,build/1.6.0.161,build/1.6.0.163,build/1.6.0.164,build/1.6.0.166,build/1.6.0.167,build/1.6.0.168,build/1.6.0.170,build/1.6.0.171"
       }
    },
    "dockerimage":    {
@@ -117,7 +117,7 @@
       "common-web-app-image":       {
          "type": "dockerimage",
          "name": "common-web-app-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.8.0.77"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.8.0.79"
       },
       "cp-schema-registry-image":       {
          "type": "dockerimage",
@@ -426,7 +426,7 @@
          "type": "platform-component",
          "name": "ddm-architecture",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/ddm-architecture.git",
-         "version": "1.8.0.278"
+         "version": "1.8.0.287"
       },
       "external-integration-mocks":       {
          "type": "platform-component",
@@ -529,7 +529,7 @@
          "type": "application",
          "name": "common-web-app",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git",
-         "version": "1.8.0.77",
+         "version": "1.8.0.79",
          "env": "prod"
       },
       "dataplatform-jenkins-agent":       {
