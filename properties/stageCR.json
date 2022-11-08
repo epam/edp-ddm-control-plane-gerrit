@@ -390,7 +390,7 @@
          "type": "platform-component",
          "name": "backup-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/backup-management.git",
-         "version": "1.8.0.4"
+         "version": "1.8.0.5"
       },
       "catalog-source":       {
          "type": "platform-component",
@@ -438,7 +438,7 @@
          "type": "platform-component",
          "name": "infrastructure-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/infrastructure-jenkins-agent.git",
-         "version": "1.5.0-SNAPSHOT.66"
+         "version": "1.5.0-SNAPSHOT.67"
       },
       "logging":       {
          "type": "platform-component",
