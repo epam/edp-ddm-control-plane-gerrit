@@ -11,8 +11,8 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.130",
-         "promotedVersions": "build/1.6.0.116,build/1.6.0.118,build/1.6.0.119,build/1.6.0.122,build/1.6.0.124,build/1.6.0.126,build/1.6.0.127,build/1.6.0.128,build/1.6.0.129,build/1.6.0.130"
+         "version": "build/1.6.0.131",
+         "promotedVersions": "build/1.6.0.118,build/1.6.0.119,build/1.6.0.122,build/1.6.0.124,build/1.6.0.126,build/1.6.0.127,build/1.6.0.128,build/1.6.0.129,build/1.6.0.130,build/1.6.0.131"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -67,8 +67,8 @@
          "type": "autotests",
          "name": "users-cabinets-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-integration-tests.git",
-         "version": "build/1.6.0.52",
-         "promotedVersions": "build/1.6.0.38,build/1.6.0.40,build/1.6.0.41,build/1.6.0.43,build/1.6.0.44,build/1.6.0.45,build/1.6.0.46,build/1.6.0.49,build/1.6.0.50,build/1.6.0.52"
+         "version": "build/1.6.0.53",
+         "promotedVersions": "build/1.6.0.40,build/1.6.0.41,build/1.6.0.43,build/1.6.0.44,build/1.6.0.45,build/1.6.0.46,build/1.6.0.49,build/1.6.0.50,build/1.6.0.52,build/1.6.0.53"
       },
       "users-cabinets-ui-tests":       {
          "type": "autotests",
@@ -408,7 +408,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.0.4"
+         "version": "1.9.0.5"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -426,7 +426,7 @@
          "type": "platform-component",
          "name": "ddm-architecture",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/ddm-architecture.git",
-         "version": "1.8.0.287"
+         "version": "1.8.0.288"
       },
       "external-integration-mocks":       {
          "type": "platform-component",
@@ -718,7 +718,7 @@
          "type": "application",
          "name": "registry-configuration",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git",
-         "version": "1.5.0-SNAPSHOT.125",
+         "version": "1.5.0-SNAPSHOT.126",
          "env": "prod"
       },
       "registry-regulation-management":       {
