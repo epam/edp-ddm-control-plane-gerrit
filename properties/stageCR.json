@@ -11,8 +11,8 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.131",
-         "promotedVersions": "build/1.6.0.118,build/1.6.0.119,build/1.6.0.122,build/1.6.0.124,build/1.6.0.126,build/1.6.0.127,build/1.6.0.128,build/1.6.0.129,build/1.6.0.130,build/1.6.0.131"
+         "version": "build/1.6.0.132",
+         "promotedVersions": "build/1.6.0.119,build/1.6.0.122,build/1.6.0.124,build/1.6.0.126,build/1.6.0.127,build/1.6.0.128,build/1.6.0.129,build/1.6.0.130,build/1.6.0.131,build/1.6.0.132"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -67,15 +67,15 @@
          "type": "autotests",
          "name": "users-cabinets-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-integration-tests.git",
-         "version": "build/1.6.0.53",
-         "promotedVersions": "build/1.6.0.40,build/1.6.0.41,build/1.6.0.43,build/1.6.0.44,build/1.6.0.45,build/1.6.0.46,build/1.6.0.49,build/1.6.0.50,build/1.6.0.52,build/1.6.0.53"
+         "version": "build/1.6.0.55",
+         "promotedVersions": "build/1.6.0.41,build/1.6.0.43,build/1.6.0.44,build/1.6.0.45,build/1.6.0.46,build/1.6.0.49,build/1.6.0.50,build/1.6.0.52,build/1.6.0.53,build/1.6.0.55"
       },
       "users-cabinets-ui-tests":       {
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.171",
-         "promotedVersions": "build/1.6.0.156,build/1.6.0.158,build/1.6.0.161,build/1.6.0.163,build/1.6.0.164,build/1.6.0.166,build/1.6.0.167,build/1.6.0.168,build/1.6.0.170,build/1.6.0.171"
+         "version": "build/1.6.0.172",
+         "promotedVersions": "build/1.6.0.158,build/1.6.0.161,build/1.6.0.163,build/1.6.0.164,build/1.6.0.166,build/1.6.0.167,build/1.6.0.168,build/1.6.0.170,build/1.6.0.171,build/1.6.0.172"
       }
    },
    "dockerimage":    {
@@ -117,7 +117,7 @@
       "common-web-app-image":       {
          "type": "dockerimage",
          "name": "common-web-app-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.8.0.80"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.8.0.81"
       },
       "cp-schema-registry-image":       {
          "type": "dockerimage",
@@ -408,7 +408,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.0.5"
+         "version": "1.9.0.7"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -426,7 +426,7 @@
          "type": "platform-component",
          "name": "ddm-architecture",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/ddm-architecture.git",
-         "version": "1.8.0.288"
+         "version": "1.8.0.289"
       },
       "external-integration-mocks":       {
          "type": "platform-component",
@@ -450,7 +450,7 @@
          "type": "platform-component",
          "name": "monitoring",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/monitoring.git",
-         "version": "1.5.0-SNAPSHOT.75"
+         "version": "1.5.0-SNAPSHOT.77"
       },
       "redis-operator":       {
          "type": "platform-component",
@@ -529,7 +529,7 @@
          "type": "application",
          "name": "common-web-app",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git",
-         "version": "1.8.0.80",
+         "version": "1.8.0.81",
          "env": "prod"
       },
       "dataplatform-jenkins-agent":       {
