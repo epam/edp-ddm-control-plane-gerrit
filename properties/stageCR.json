@@ -486,7 +486,7 @@
          "type": "platform-component",
          "name": "user-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git",
-         "version": "1.5.0-SNAPSHOT.236"
+         "version": "1.5.0-SNAPSHOT.241"
       }
    },
    "application":    {
