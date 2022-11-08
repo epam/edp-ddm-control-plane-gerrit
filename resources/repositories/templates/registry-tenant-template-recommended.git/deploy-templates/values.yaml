@@ -4,6 +4,213 @@ global:
     adminRoutes: "0.0.0.0/0"
   excludePortals: ['']
   deploymentMode: production
+  registry:
+    kong:
+      istio:
+        sidecar:
+          enabled: true
+          resources:
+            requests:
+              cpu: 600m
+              memory: 512Mi
+            limits:
+              cpu: 600m
+              memory: 512Mi
+      container:
+        resources:
+          limits:
+            cpu: 300m
+            memory: 1Gi
+          requests:
+            cpu: 300m
+            memory: 1Gi
+    bpms:
+      istio:
+        sidecar:
+          enabled: true
+          resources:
+            requests:
+              cpu: 350m
+              memory: 128Mi
+            limits:
+              cpu: 350m
+              memory: 128Mi
+      container:
+        resources:
+          limits:
+            cpu: '1'
+            memory: 2Gi
+          requests:
+            cpu: '1'
+            memory: 2Gi
+        envVars:
+          JAVA_OPTS: "-Xms1536m -Xmx1536m -Duser.timezone=UTC"
+    digitalSignatureOps:
+      istio:
+        sidecar:
+          enabled: true
+          resources:
+            requests:
+              cpu: 350m
+              memory: 128Mi
+            limits:
+              cpu: 350m
+              memory: 128Mi
+      container:
+        resources:
+          limits:
+            cpu: '1'
+            memory: 1Gi
+          requests:
+            cpu: '1'
+            memory: 1Gi
+        envVars:
+          JAVA_OPTS: "-Xms768m -Xmx768m -Duser.timezone=UTC"
+    userTaskManagement:
+      istio:
+        sidecar:
+          enabled: true
+          resources:
+            requests:
+              cpu: 350m
+              memory: 128Mi
+            limits:
+              cpu: 350m
+              memory: 128Mi
+      container:
+        resources:
+          limits:
+            cpu: 500m
+            memory: 768Mi
+          requests:
+            cpu: 500m
+            memory: 768Mi
+        envVars:
+          JAVA_OPTS: "-Xms512m -Xmx512m"
+    userProcessManagement:
+      istio:
+        sidecar:
+          enabled: true
+          resources:
+            requests:
+              cpu: 350m
+              memory: 128Mi
+            limits:
+              cpu: 350m
+              memory: 128Mi
+      container:
+        resources:
+          limits:
+            cpu: 500m
+            memory: 768Mi
+          requests:
+            cpu: 500m
+            memory: 768Mi
+        envVars:
+          JAVA_OPTS: "-Xms512m -Xmx512m"
+    formManagementProvider:
+      istio:
+        sidecar:
+          enabled: true
+          resources:
+            requests:
+              cpu: 350m
+              memory: 128Mi
+            limits:
+              cpu: 350m
+              memory: 128Mi
+      container:
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 500m
+            memory: 512Mi
+    digitalDocumentService:
+      istio:
+        sidecar:
+          enabled: true
+          resources:
+            requests:
+              cpu: 350m
+              memory: 128Mi
+            limits:
+              cpu: 350m
+              memory: 128Mi
+      container:
+        resources:
+          limits:
+            cpu: 500m
+            memory: 768Mi
+          requests:
+            cpu: 500m
+            memory: 768Mi
+        envVars:
+          JAVA_OPTS: "-Xms512m -Xmx512m"
+    restApi:
+      istio:
+        sidecar:
+          enabled: true
+          resources:
+            requests:
+              cpu: 350m
+              memory: 128Mi
+            limits:
+              cpu: 350m
+              memory: 128Mi
+      container:
+        resources:
+          limits:
+            cpu: '1'
+            memory: 2Gi
+          requests:
+            cpu: '1'
+            memory: 2Gi
+        envVars:
+          JAVA_OPTS: "-Xms1200m -Xmx1200m -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent"
+    kafkaApi:
+      istio:
+        sidecar:
+          enabled: true
+          resources:
+            requests:
+              cpu: 350m
+              memory: 128Mi
+            limits:
+              cpu: 350m
+              memory: 128Mi
+      container:
+        resources:
+          limits:
+            cpu: '1'
+            memory: 2Gi
+          requests:
+            cpu: '1'
+            memory: 2Gi
+        envVars:
+          JAVA_OPTS: "-Xms1200m -Xmx1200m -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent"
+    soapApi:
+      istio:
+        sidecar:
+          enabled: true
+          resources:
+            requests:
+              cpu: 350m
+              memory: 128Mi
+            limits:
+              cpu: 350m
+              memory: 128Mi
+      container:
+        resources:
+          limits:
+            cpu: 300m
+            memory: 600Mi
+          requests:
+            cpu: 300m
+            memory: 600Mi
+        envVars:
+          JAVA_OPTS: "-Xms128m -Xmx128m -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent"
 
 griada:
   enabled: true
