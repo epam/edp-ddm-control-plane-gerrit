@@ -58,7 +58,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.keycloakIntegration.client.secretName }}
-                  key: client_secret
+                  key: clientSecret
             {{- end }}
             {{- end }}
           resources:
