@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.76",
-         "promotedVersions": "build/1.6.0.64,build/1.6.0.66,build/1.6.0.68,build/1.6.0.69,build/1.6.0.70,build/1.6.0.71,build/1.6.0.72,build/1.6.0.73,build/1.6.0.75,build/1.6.0.76"
+         "version": "build/1.6.0.77",
+         "promotedVersions": "build/1.6.0.66,build/1.6.0.68,build/1.6.0.69,build/1.6.0.70,build/1.6.0.71,build/1.6.0.72,build/1.6.0.73,build/1.6.0.75,build/1.6.0.76,build/1.6.0.77"
       },
       "data-factory-integration-tests":       {
          "type": "autotests",
@@ -67,15 +67,15 @@
          "type": "autotests",
          "name": "users-cabinets-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-integration-tests.git",
-         "version": "build/1.6.0.55",
-         "promotedVersions": "build/1.6.0.41,build/1.6.0.43,build/1.6.0.44,build/1.6.0.45,build/1.6.0.46,build/1.6.0.49,build/1.6.0.50,build/1.6.0.52,build/1.6.0.53,build/1.6.0.55"
+         "version": "build/1.6.0.56",
+         "promotedVersions": "build/1.6.0.43,build/1.6.0.44,build/1.6.0.45,build/1.6.0.46,build/1.6.0.49,build/1.6.0.50,build/1.6.0.52,build/1.6.0.53,build/1.6.0.55,build/1.6.0.56"
       },
       "users-cabinets-ui-tests":       {
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.172",
-         "promotedVersions": "build/1.6.0.158,build/1.6.0.161,build/1.6.0.163,build/1.6.0.164,build/1.6.0.166,build/1.6.0.167,build/1.6.0.168,build/1.6.0.170,build/1.6.0.171,build/1.6.0.172"
+         "version": "build/1.6.0.174",
+         "promotedVersions": "build/1.6.0.161,build/1.6.0.163,build/1.6.0.164,build/1.6.0.166,build/1.6.0.167,build/1.6.0.168,build/1.6.0.170,build/1.6.0.171,build/1.6.0.172,build/1.6.0.174"
       }
    },
    "dockerimage":    {
@@ -247,7 +247,7 @@
       "kong-image":       {
          "type": "dockerimage",
          "name": "kong-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kong-master:1.5.0-SNAPSHOT.41"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kong-master:1.5.0-SNAPSHOT.44"
       },
       "kubernetes-ingress-controller-image":       {
          "type": "dockerimage",
@@ -655,7 +655,7 @@
          "type": "application",
          "name": "kong",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git",
-         "version": "1.5.0-SNAPSHOT.41",
+         "version": "1.5.0-SNAPSHOT.44",
          "env": "prod"
       },
       "nexus":       {
@@ -669,14 +669,14 @@
          "type": "application",
          "name": "pg-exporter-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pg-exporter-chart.git",
-         "version": "1.5.0-SNAPSHOT.52",
+         "version": "1.5.0-SNAPSHOT.53",
          "env": "prod"
       },
       "pgadmin-chart":       {
          "type": "application",
          "name": "pgadmin-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git",
-         "version": "0.0.1-SNAPSHOT.66",
+         "version": "0.0.1-SNAPSHOT.68",
          "env": "dev"
       },
       "platform-gateway":       {
@@ -807,7 +807,7 @@
          "type": "gitsources",
          "name": "empty-template-registry-regulation",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
-         "version": "build/1.5.0-SNAPSHOT.60",
+         "version": "build/1.5.0-SNAPSHOT.61",
          "path": "/"
       },
       "history-excerptor-chart":       {

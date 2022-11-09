@@ -350,7 +350,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git
     path: components/registry/
   chart: /opt/repositories/kong/deploy-templates
-  version: 1.5.0-SNAPSHOT.41
+  version: 1.5.0-SNAPSHOT.44
   values:
   - values.yaml
   - values.gotmpl
@@ -419,7 +419,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pg-exporter-chart.git
     path: components/registry/
   chart: /opt/repositories/pg-exporter-chart/deploy-templates
-  version: 1.5.0-SNAPSHOT.52
+  version: 1.5.0-SNAPSHOT.53
   values:
   - values.yaml
   - values.gotmpl
@@ -809,7 +809,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git
     path: components/registry/
   chart: /opt/repositories/pgadmin-chart/deploy-templates
-  version: 0.0.1-SNAPSHOT.66
+  version: 0.0.1-SNAPSHOT.68
   values:
   - values.yaml
   - values.gotmpl
