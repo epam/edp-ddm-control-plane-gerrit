@@ -11,6 +11,9 @@ spec:
     - from:
         - podSelector:
             matchLabels:
+              app: pgadmin
+        - podSelector:
+            matchLabels:
               app: create-citus-dump-pod
         - podSelector:
             matchLabels:
