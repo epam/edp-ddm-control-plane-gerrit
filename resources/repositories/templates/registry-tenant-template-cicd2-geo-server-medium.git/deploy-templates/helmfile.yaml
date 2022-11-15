@@ -441,7 +441,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git
     path: components/registry/
   chart: /opt/repositories/citus/deploy-templates
-  version: 1.5.0-SNAPSHOT.131
+  version: 1.5.0-SNAPSHOT.132
   values:
   - values.yaml
   - values.gotmpl
