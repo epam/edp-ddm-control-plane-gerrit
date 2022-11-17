@@ -178,7 +178,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.186
+  version: 1.5.0-SNAPSHOT.187
   values:
   - values.yaml
   - values.gotmpl
@@ -945,7 +945,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git
     path: components/registry/
   chart: /opt/repositories/registry-regulation-management/deploy-templates
-  version: 1.7.0.38
+  version: 1.9.0.2
   values:
   - values.yaml
   - values.gotmpl
