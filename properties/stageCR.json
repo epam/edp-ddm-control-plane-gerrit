@@ -408,7 +408,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.0.14"
+         "version": "1.9.0.15"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
