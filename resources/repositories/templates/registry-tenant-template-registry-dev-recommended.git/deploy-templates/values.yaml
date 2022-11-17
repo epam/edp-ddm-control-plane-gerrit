@@ -211,6 +211,37 @@ global:
             memory: 600Mi
         envVars:
           JAVA_OPTS: "-Xms128m -Xmx128m -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent"
+    redis:
+      istio:
+        sidecar:
+          enabled: false
+      container:
+        resources:
+          limits:
+            cpu: '500m'
+            memory: 500Mi
+          requests:
+            cpu: '500m'
+            memory: 500Mi
+    sentinel:
+      istio:
+        sidecar:
+          enabled: true
+          resources:
+            requests:
+              cpu: 350m
+              memory: 128Mi
+            limits:
+              cpu: 350m
+              memory: 128Mi
+      container:
+        resources:
+          limits:
+            cpu: 350m
+            memory: 128Mi
+          requests:
+            cpu: 350m
+            memory: 128Mi
 
 # You may disable griada instance and set the url
 # Griada url by default is: griada.<clusterDnsWildcard>

@@ -40,9 +40,9 @@ global:
     minioConf:
       endpoint: {{ env "MINIO_ENDPOINT" }}
       bucketName: {{ env "MINIO_BUCKET_NAME" }}
-  redisSentinel:
+  registry:
     redis:
-      replicas: 3
+      replicas: 2
     sentinel:
       replicas: 3
   notifications:

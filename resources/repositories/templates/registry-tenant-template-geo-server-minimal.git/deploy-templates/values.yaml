@@ -169,3 +169,11 @@ global:
       container:
         envVars:
           JAVA_OPTS: "-Xms128m -Xmx128m -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent"
+    redis:
+      istio:
+        sidecar:
+          enabled: false
+    sentinel:
+      istio:
+        sidecar:
+          enabled: true
