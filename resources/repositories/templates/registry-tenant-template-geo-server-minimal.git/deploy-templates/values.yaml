@@ -104,6 +104,11 @@ global:
   excludePortals: ['']
   deploymentMode: production
   registry:
+    crunchyPostgres:
+      postgresql:
+        parameters:
+          max_connections: 200
+      storageSize: 10Gi
     kong:
       istio:
         sidecar:
