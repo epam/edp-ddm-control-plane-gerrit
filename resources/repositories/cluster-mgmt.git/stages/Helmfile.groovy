@@ -130,7 +130,7 @@ class Helmfile {
 
                         deployHelper.createClusterAdmin(helmValuesPath, context)
 
-                        script.sh("helmfile -f ${helmfile} sync --concurrency 1")
+                        script.sh("helmfile -f ${helmfile} sync --values ${context.workDir}/deploy-templates/values.yaml --concurrency 1")
                     }
                     LinkedHashMap routes = [
                             'grafana'                           : 'openshift-monitoring',
