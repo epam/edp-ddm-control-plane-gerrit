@@ -460,7 +460,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git
     path: components/registry/
   chart: /opt/repositories/citus/deploy-templates
-  version: 1.5.0-SNAPSHOT.132
+  version: 1.5.0-SNAPSHOT.136
   values:
   - values.yaml
   - values.gotmpl
@@ -774,7 +774,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.133
+  version: 1.5.0-SNAPSHOT.134
   values:
   - registryGroup:
       name: '{{ env "registryGroup" }}'
