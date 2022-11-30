@@ -11,8 +11,8 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.144",
-         "promotedVersions": "build/1.6.0.130,build/1.6.0.131,build/1.6.0.132,build/1.6.0.133,build/1.6.0.135,build/1.6.0.137,build/1.6.0.140,build/1.6.0.141,build/1.6.0.142,build/1.6.0.144"
+         "version": "build/1.6.0.145",
+         "promotedVersions": "build/1.6.0.131,build/1.6.0.132,build/1.6.0.133,build/1.6.0.135,build/1.6.0.137,build/1.6.0.140,build/1.6.0.141,build/1.6.0.142,build/1.6.0.144,build/1.6.0.145"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -819,7 +819,7 @@
          "type": "gitsources",
          "name": "empty-template-registry-regulation",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
-         "version": "build/1.5.0-SNAPSHOT.61",
+         "version": "build/1.5.0-SNAPSHOT.62",
          "path": "/"
       },
       "history-excerptor-chart":       {
