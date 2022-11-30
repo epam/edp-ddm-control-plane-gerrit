@@ -225,6 +225,8 @@ releases:
   values:
   - operator:
       clusterRoleName: gerrit-operator-role-{{ env "globalEDPProject" }}
+      image:
+        name: '{{ env "globalEDPProject" }}/gerrit-operator'
   - values.yaml
   - values.gotmpl
   missingFileHandler: Warn
