@@ -155,6 +155,9 @@ class Helmfile {
                             'gerrit'                            : 'control-plane',
                             'jenkins'                           : 'control-plane',
                             'control-plane-console'             : 'control-plane',
+                            'platform-vault'                    : 'control-plane',
+                            'platform-minio-ui'                 : 'control-plane',
+                            'platform-minio'                    : 'control-plane',
                             'ddm-architecture'                  : 'documentation',
                             'mailu-admin'                       : 'smtp-server',
                             'mailu-web'                         : 'smtp-server'
