@@ -833,7 +833,7 @@
          "type": "gitsources",
          "name": "registry-regulations-publication-pipeline",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
-         "version": "build/1.5.0-SNAPSHOT.200",
+         "version": "build/1.5.0-SNAPSHOT.201",
          "path": "/libraries"
       },
       "registry-regulations-publication-stages":       {
