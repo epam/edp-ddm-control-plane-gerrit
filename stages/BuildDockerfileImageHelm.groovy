@@ -97,6 +97,10 @@ class BuildDockerfileImageHelm {
                     script.println "Repository repositories/${repositoryPath} and branch ${release.version} already exists"
                 }
             }
+            if (release.name == 'codebases') {
+                helmfileYAML.releases[releaseIndex].values.add([codebases: [registryRegulations: [ registryRegulationsRepoVersion: stageCRJSON.gitsources.'empty-template-registry-regulation'.version]]])
+                helmfileYAML.releases[releaseIndex].values.add([codebases: [registryRegulations: [ historyExcerptorRepoVersion: stageCRJSON.gitsources.'history-excerptor-chart'.version]]])
+            }
         }
 
         script.writeYaml data: helmfileYAML, file: helmfile, overwrite: true
