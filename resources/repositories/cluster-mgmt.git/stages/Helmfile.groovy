@@ -130,6 +130,13 @@ class Helmfile {
 
                         deployHelper.createClusterAdmin(helmValuesPath, context)
 
+                        //temporary solution. Move to pre-upgrade script when implemented
+                        try {
+                            deployHelper.annotateCephConfig(context)
+                        } catch (any) {
+                            script.println("WARN: failed to annotate ceph config map. Skipping")
+                        }
+
                         script.sh("helmfile -f ${helmfile} sync --values ${context.workDir}/deploy-templates/values.yaml --concurrency 1")
                     }
                     LinkedHashMap routes = [
