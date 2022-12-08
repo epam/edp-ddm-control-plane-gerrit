@@ -8,6 +8,7 @@ spec:
   jenkinsSlave: dataplatform-jenkins-agent
   gitUrlPath: null
   defaultBranch: master
+  branchToCopyInDefaultBranch: {{ .Values.codebases.registryRegulations.registryRegulationsRepoVersion }}
   buildTool: none
   route: null
   perf: null
