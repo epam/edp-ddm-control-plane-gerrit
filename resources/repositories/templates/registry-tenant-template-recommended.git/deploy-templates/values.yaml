@@ -4,12 +4,12 @@ global:
     adminRoutes: "0.0.0.0/0"
   excludePortals: ['']
   deploymentMode: production
+  crunchyPostgres:
+    postgresql:
+      parameters:
+        max_connections: 200
+    storageSize: 10Gi
   registry:
-    crunchyPostgres:
-      postgresql:
-        parameters:
-          max_connections: 200
-      storageSize: 10Gi
     kong:
       istio:
         sidecar:
