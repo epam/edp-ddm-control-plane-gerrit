@@ -409,6 +409,7 @@ releases:
   - '{{ env "NAMESPACE" }}/form-schema-provider'
   - '{{ env "NAMESPACE" }}/registry-configuration'
   - '{{ env "NAMESPACE" }}/kong'
+  - '{{ env "NAMESPACE" }}/kong-admin-tools'
 - name: redash-chart
   namespace: '{{ env "NAMESPACE" }}'
   labels:

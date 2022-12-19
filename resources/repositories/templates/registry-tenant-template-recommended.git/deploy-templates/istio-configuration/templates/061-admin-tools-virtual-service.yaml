@@ -11,7 +11,7 @@ spec:
   http:
     - route:
         - destination:
-            host: kong-admin-tools-kong-proxy
+            host: kong-admin-tools-kong-admin-tools-proxy
             subset: main
           weight: 100
           headers:
