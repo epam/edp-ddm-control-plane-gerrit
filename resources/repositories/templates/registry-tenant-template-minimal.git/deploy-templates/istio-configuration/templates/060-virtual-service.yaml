@@ -7,7 +7,6 @@ spec:
   hosts:
     - {{ include "citizen-portal.url" . }}
     - {{ include "officer-portal.url" . }}
-    - admin-portal-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
     - external-service-api-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
   gateways:
     - gateway

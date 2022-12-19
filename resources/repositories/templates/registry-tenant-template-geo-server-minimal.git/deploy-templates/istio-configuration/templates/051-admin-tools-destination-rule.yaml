@@ -4,7 +4,7 @@ metadata:
   name: kong-admin-tools-destination-rule
   namespace: {{ .Values.namespace }}
 spec:
-  host: kong-admin-tools-kong-proxy
+  host: kong-admin-tools-kong-admin-tools-proxy
   subsets:
     - labels:
         app.kubernetes.io/name: kong-admin-tools
