@@ -913,6 +913,24 @@ releases:
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/registry-nodes'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+- name: ddm-language-server
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/ddm-language-server.git
+    path: components/registry/
+  chart: /opt/repositories/ddm-language-server/deploy-templates
+  version: 1.9.2-SNAPSHOT.5
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/common-web-app'
 environments:
   default:
     missingFileHandler: Error
