@@ -347,7 +347,7 @@
       "rest-api-core-base-image":       {
          "type": "dockerimage",
          "name": "rest-api-core-base-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/rest-api-core-base-image-master:1.8.0.22"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/rest-api-core-base-image-master:1.8.0.23"
       },
       "soap-api-core-base-image":       {
          "type": "dockerimage",
