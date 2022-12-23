@@ -45,7 +45,7 @@ releases:
   version: 1.5.0-SNAPSHOT.64
   values: []
 - name: backup-management
-  version: 1.9.0.3
+  version: 1.9.0.8
   labels:
     type: remote
     update_scc: false
