@@ -18,9 +18,10 @@ for repo in `find . -type d \( -name "*.git" ! -name "*cicd*" \)`; do
             chown -R ${GERRIT_USER} /opt/git/source_repo;
             chown -R ${GERRIT_USER} /opt/git/dst_repo;
             for i in $(git branch -r | sed "s#^[ \t]*origin/##" | grep -Ev '^master$' | grep -Ev '^HEAD') ; do
-              if [[ `cd /opt/git/dst_repo && git branch -r | grep -E "^[ \t]*origin/$i"` ]]; then
+              if [[ `cd /opt/git/dst_repo && git branch -r | grep -E "^[ \t]*origin/$i$"` ]]; then
                   echo "Branch $i exists, skipping update"
               else
+                echo "Branch $i does not exist, creating now"
                 git checkout $i;
                 cd "/opt/git/dst_repo";
                 su-exec ${GERRIT_USER} git checkout -f -B $i ;
@@ -31,6 +32,7 @@ for repo in `find . -type d \( -name "*.git" ! -name "*cicd*" \)`; do
                 su-exec ${GERRIT_USER} git add --all || echo "Nothing to add";
                 su-exec ${GERRIT_USER} git commit -am "Add new branch $i " || echo "Nothing to commit";
                 su-exec ${GERRIT_USER} git push origin refs/heads/$i:$i --force || echo "No push to repo";
+                cd "/opt/git/source_repo";
               fi
             done
             cd /opt/git
