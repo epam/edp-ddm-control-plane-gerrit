@@ -117,7 +117,7 @@
       "common-web-app-image":       {
          "type": "dockerimage",
          "name": "common-web-app-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.0.57"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.0.59"
       },
       "cp-schema-registry-image":       {
          "type": "dockerimage",
@@ -534,7 +534,7 @@
          "type": "application",
          "name": "common-web-app",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git",
-         "version": "1.9.0.57",
+         "version": "1.9.0.59",
          "env": "prod"
       },
       "dataplatform-jenkins-agent":       {
@@ -723,14 +723,14 @@
          "type": "application",
          "name": "redis-sentinel",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/redis-sentinel.git",
-         "version": "1.8.0-SNAPSHOT.6",
+         "version": "1.8.0-SNAPSHOT.7",
          "env": "prod"
       },
       "registry-configuration":       {
          "type": "application",
          "name": "registry-configuration",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git",
-         "version": "1.5.0-SNAPSHOT.139",
+         "version": "1.5.0-SNAPSHOT.140",
          "env": "prod"
       },
       "registry-regulation-management":       {
