@@ -26,6 +26,9 @@ spec:
               app.kubernetes.io/name: kong
         - podSelector:
             matchLabels:
+              app.kubernetes.io/name: kong-admin-tools
+        - podSelector:
+            matchLabels:
               app.kubernetes.io/name: form-submission-validation
         - namespaceSelector:
             matchLabels:
