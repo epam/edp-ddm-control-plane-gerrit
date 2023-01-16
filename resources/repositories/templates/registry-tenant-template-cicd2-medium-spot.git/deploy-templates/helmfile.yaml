@@ -140,7 +140,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/redis-sentinel.git
     path: components/registry/
   chart: /opt/repositories/redis-sentinel/deploy-templates
-  version: 1.8.0-SNAPSHOT.7
+  version: 1.8.0-SNAPSHOT.8
   values:
   - values.yaml
   - values.gotmpl
