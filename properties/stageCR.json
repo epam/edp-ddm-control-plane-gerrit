@@ -723,7 +723,7 @@
          "type": "application",
          "name": "redis-sentinel",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/redis-sentinel.git",
-         "version": "1.8.0-SNAPSHOT.7",
+         "version": "1.8.0-SNAPSHOT.8",
          "env": "prod"
       },
       "registry-configuration":       {
