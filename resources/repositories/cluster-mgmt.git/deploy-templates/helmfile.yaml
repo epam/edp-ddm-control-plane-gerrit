@@ -16,6 +16,16 @@ releases:
       - values.yaml
       - values.gotmpl
     missingFileHandler: Warn
+  - name: gerritaccess
+    namespace: control-plane
+    chart: gerritaccess
+    version: 1.0.0
+    labels:
+      type: local
+    values:
+      - values.yaml
+      - values.gotmpl
+    missingFileHandler: Warn
 # end of TODO:
 
 helmfiles:

@@ -45,6 +45,7 @@ class Helmfile {
 
                     String helmfile = 'deploy-templates/helmfile.yaml'
                     String helmValuesPath = 'deploy-templates/values.yaml'
+                    LinkedHashMap helmValues = script.readYaml file: helmValuesPath
                     String clustermgmt = 'properties/cluster-mgmt.yaml'
                     String gitURL = "ssh://${context.git.autouser}@${context.git.host}:${context.git.sshPort}/"
                     LinkedHashMap components = script.readYaml file: clustermgmt
@@ -79,6 +80,8 @@ class Helmfile {
                             }
                         }
                     }
+                    if(helmValues.'digital-signature')
+                        deployHelper.exportDigitalSignatureSecretsInTarget(context, helmValues, "user-management", context.workDir)
 
                     // DON'T UNCOMMENT ON CICD* CLUSTERS
                     if (context.job.dnsWildcard.startsWith("apps.cicd")) {
