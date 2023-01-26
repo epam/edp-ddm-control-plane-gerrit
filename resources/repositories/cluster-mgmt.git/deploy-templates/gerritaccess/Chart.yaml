@@ -1,0 +1,6 @@
+apiVersion: v2
+name: gerritaccess
+description: A Helm chart for granting acess to gerrit
+type: application
+version: 0.1.0
+appVersion: "0.0.1"
