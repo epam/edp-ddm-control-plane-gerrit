@@ -30,14 +30,6 @@ kongPluginsConfig:
 #  env:
 #    log_level: info
 #
-## Level of logging for the formManagementProvider. Allowed values are
-## TRACE, DEBUG, INFO, WARN, ERROR. (default "INFO")
-#formManagementProvider:
-#  log_level: INFO
-## Enable or disable logging http body. Allowed values are
-## true or false. (default "false")
-#  log_http_body: 'false'
-#
 ## Level of logging for the pg-exporter-chart. Allowed values are
 ## debug, info, warn, error, fatal. (default "info")
 #config:
@@ -197,25 +189,6 @@ global:
             memory: 768Mi
         envVars:
           JAVA_OPTS: "-Xms512m -Xmx512m"
-    formManagementProvider:
-      istio:
-        sidecar:
-          enabled: true
-          resources:
-            requests:
-              cpu: 350m
-              memory: 128Mi
-            limits:
-              cpu: 350m
-              memory: 128Mi
-      container:
-        resources:
-          limits:
-            cpu: 500m
-            memory: 512Mi
-          requests:
-            cpu: 500m
-            memory: 512Mi
     digitalDocumentService:
       istio:
         sidecar:
