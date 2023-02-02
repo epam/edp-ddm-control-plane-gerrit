@@ -306,3 +306,18 @@ global:
           requests:
             cpu: 350m
             memory: 128Mi
+external-systems:
+  diia:
+    protocol: REST
+    type: platform
+trembita:
+  registries:
+    dracs-registry:
+      protocol: SOAP
+      type: platform
+    edr-registry:
+      protocol: SOAP
+      type: platform
+    idp-exchange-service-registry:
+      protocol: SOAP
+      type: platform

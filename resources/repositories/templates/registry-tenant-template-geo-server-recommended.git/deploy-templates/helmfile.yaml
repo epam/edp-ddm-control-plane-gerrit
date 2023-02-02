@@ -170,6 +170,7 @@ releases:
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/external-secrets'
 - name: jenkins-operator
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -576,6 +577,7 @@ releases:
   - '{{ env "NAMESPACE" }}/user-settings-service-api'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/external-secrets'
 - name: user-settings-service-api
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -932,6 +934,25 @@ releases:
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-configuration'
   - '{{ env "NAMESPACE" }}/common-web-app'
+- name: external-secrets
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/external-secrets.git
+    path: components/registry/
+  chart: /opt/repositories/external-secrets/deploy-templates
+  version: 1.9.0-SNAPSHOT.2
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
+    - '{{ env "NAMESPACE" }}/network-management'
+    - '{{ env "NAMESPACE" }}/registry-auth'
+    - '{{ env "NAMESPACE" }}/registry-nodes'
+    - '{{ env "NAMESPACE" }}/registry-configuration'
 environments:
   default:
     missingFileHandler: Error
