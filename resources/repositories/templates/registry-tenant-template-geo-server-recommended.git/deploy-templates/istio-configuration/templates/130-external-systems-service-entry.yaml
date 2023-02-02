@@ -1,0 +1,27 @@
+{{- if (index .Values "external-systems") -}}
+{{- $root := .Values }}
+{{- range $k, $v := index $root "external-systems" }}
+  {{- if $v.url }}
+---
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: {{ $k }}
+  namespace: {{ $root.namespace }}
+spec:
+  hosts:
+    - {{- regexReplaceAll "http(s?)://" $v.url "${2}" | replace "/" "" | indent 1}}
+  exportTo:
+    - "."
+  ports:
+    - name: https
+      number: 443
+      protocol: HTTPS
+    - name: http
+      number: 80
+      protocol: HTTP
+  resolution: DNS
+  location: MESH_EXTERNAL
+  {{- end -}}
+{{- end -}}
+{{- end -}}
