@@ -49,6 +49,7 @@ global:
   notifications:
     email:
       password: '{{ env "smtpExternalUserPassword" | b64enc }}'
+  disableRequestsLimits: false
 
 gerritCentralUrl: gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}
 
