@@ -140,7 +140,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/redis-sentinel.git
     path: components/registry/
   chart: /opt/repositories/redis-sentinel/deploy-templates
-  version: 1.8.0-SNAPSHOT.8
+  version: 1.8.0-SNAPSHOT.9
   values:
   - values.yaml
   - values.gotmpl
@@ -156,7 +156,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
     path: components/registry/
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.9.0.15
+  version: 1.9.0.17
   values:
   - values.yaml
   - values.gotmpl
@@ -179,7 +179,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.199
+  version: 1.5.0-SNAPSHOT.202
   values:
   - values.yaml
   - values.gotmpl
@@ -202,7 +202,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.8.0.69
+  version: 1.8.0.70
   values:
   - values.yaml
   - values.gotmpl
@@ -266,7 +266,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-process-management.git
     path: components/registry/
   chart: /opt/repositories/user-process-management/deploy-templates
-  version: 1.9.0.8
+  version: 1.9.0.10
   values:
   - values.yaml
   - values.gotmpl
@@ -355,7 +355,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git
     path: components/registry/
   chart: /opt/repositories/kong/deploy-templates
-  version: 1.5.0-SNAPSHOT.48
+  version: 1.5.0-SNAPSHOT.49
   values:
   - values.yaml
   - values.gotmpl
@@ -375,7 +375,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong-admin-tools.git
     path: components/registry/
   chart: /opt/repositories/kong-admin-tools/deploy-templates
-  version: 1.6.0-SNAPSHOT.4
+  version: 1.6.0-SNAPSHOT.5
   values:
   - values.yaml
   - values.gotmpl
@@ -393,7 +393,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version: 1.9.0.59
+  version: 1.9.0.76
   values:
   - values.yaml
   - values.gotmpl
@@ -609,7 +609,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/ddm-notification-service.git
     path: components/registry/
   chart: /opt/repositories/ddm-notification-service/deploy-templates
-  version: 1.8.0.11
+  version: 1.8.0.12
   values:
   - values.yaml
   - values.gotmpl
@@ -669,7 +669,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-document-service.git
     path: components/registry/
   chart: /opt/repositories/digital-document-service/deploy-templates
-  version: 1.9.0.13
+  version: 1.9.0.20
   values:
   - values.yaml
   - values.gotmpl
@@ -824,7 +824,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.140
+  version: 1.5.0-SNAPSHOT.144
   values:
   - values.yaml
   - values.gotmpl
@@ -877,7 +877,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git
     path: components/registry/
   chart: /opt/repositories/pgadmin-chart/deploy-templates
-  version: 0.0.1-SNAPSHOT.69
+  version: 0.0.1-SNAPSHOT.70
   values:
   - values.yaml
   - values.gotmpl
@@ -987,7 +987,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git
     path: components/registry/
   chart: /opt/repositories/registry-regulation-management/deploy-templates
-  version: 1.9.0.13
+  version: 1.9.0.19
   values:
   - values.yaml
   - values.gotmpl
@@ -1048,7 +1048,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/ddm-language-server.git
     path: components/registry/
   chart: /opt/repositories/ddm-language-server/deploy-templates
-  version: 1.9.2-SNAPSHOT.5
+  version: 1.9.2-SNAPSHOT.15
   values:
   - values.yaml
   - values.gotmpl
@@ -1068,15 +1068,15 @@ releases:
   chart: /opt/repositories/external-secrets/deploy-templates
   version: 1.9.0-SNAPSHOT.2
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   needs:
-    - '{{ env "NAMESPACE" }}/istio-configuration'
-    - '{{ env "NAMESPACE" }}/network-management'
-    - '{{ env "NAMESPACE" }}/registry-auth'
-    - '{{ env "NAMESPACE" }}/registry-nodes'
-    - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/istio-configuration'
+  - '{{ env "NAMESPACE" }}/network-management'
+  - '{{ env "NAMESPACE" }}/registry-auth'
+  - '{{ env "NAMESPACE" }}/registry-nodes'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 environments:
   default:
     missingFileHandler: Error
