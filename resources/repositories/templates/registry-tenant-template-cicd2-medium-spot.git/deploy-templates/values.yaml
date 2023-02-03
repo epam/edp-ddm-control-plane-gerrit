@@ -85,7 +85,7 @@ global:
   crunchyPostgres:
     postgresql:
       parameters:
-        max_connections: 200
+        max_connections: 500
     storageSize: 10Gi
   registry:
     kong:
