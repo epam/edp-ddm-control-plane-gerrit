@@ -85,6 +85,11 @@ global:
       parameters:
         max_connections: 200
     storageSize: 10Gi
+    backups:
+      pgbackrest:
+        repos:
+          schedules:
+            full: "0 1 * * *"
   registry:
     kong:
       istio:
