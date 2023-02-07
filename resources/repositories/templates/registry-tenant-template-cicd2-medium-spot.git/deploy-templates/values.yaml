@@ -79,7 +79,7 @@ kongPluginsConfig:
 #      disableAccessLog: false
 
 scheduled:
-  repositoryRefreshCron: '-'
+  repositoryRefreshCron: "'-'"
 
 global:
   whiteListIP:
