@@ -77,6 +77,10 @@ kongPluginsConfig:
 #    nginx:
 #      logLevel: error
 #      disableAccessLog: false
+
+scheduled:
+  repositoryRefreshCron: '-'
+
 global:
   whiteListIP:
     adminRoutes: "0.0.0.0/0"
