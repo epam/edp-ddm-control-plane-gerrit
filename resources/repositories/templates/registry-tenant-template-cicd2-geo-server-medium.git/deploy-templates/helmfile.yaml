@@ -156,7 +156,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
     path: components/registry/
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.9.0.17
+  version: 1.9.0.18
   values:
   - values.yaml
   - values.gotmpl
@@ -179,7 +179,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.202
+  version: 1.5.0-SNAPSHOT.206
   values:
   - values.yaml
   - values.gotmpl
@@ -266,7 +266,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/user-process-management.git
     path: components/registry/
   chart: /opt/repositories/user-process-management/deploy-templates
-  version: 1.9.0.10
+  version: 1.9.0.11
   values:
   - values.yaml
   - values.gotmpl
@@ -333,7 +333,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
     path: components/registry/
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.9.0.13
+  version: 1.9.0.15
   values:
   - values.yaml
   - values.gotmpl
@@ -393,7 +393,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version: 1.9.0.76
+  version: 1.9.0.82
   values:
   - values.yaml
   - values.gotmpl
@@ -464,7 +464,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git
     path: components/registry/
   chart: /opt/repositories/citus/deploy-templates
-  version: 1.5.0-SNAPSHOT.144
+  version: 1.5.0-SNAPSHOT.146
   values:
   - values.yaml
   - values.gotmpl
@@ -669,7 +669,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-document-service.git
     path: components/registry/
   chart: /opt/repositories/digital-document-service/deploy-templates
-  version: 1.9.0.20
+  version: 1.9.0.21
   values:
   - values.yaml
   - values.gotmpl
@@ -705,7 +705,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-service-api.git
     path: components/registry/
   chart: /opt/repositories/excerpt-service-api/deploy-templates
-  version: 1.8.0.8
+  version: 1.8.0.9
   values:
   - values.yaml
   - values.gotmpl
@@ -824,7 +824,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.144
+  version: 1.5.0-SNAPSHOT.146
   values:
   - values.yaml
   - values.gotmpl
@@ -969,7 +969,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git
     path: components/registry/
   chart: /opt/repositories/registry-regulation-management/deploy-templates
-  version: 1.9.0.19
+  version: 1.9.0.20
   values:
   - values.yaml
   - values.gotmpl
