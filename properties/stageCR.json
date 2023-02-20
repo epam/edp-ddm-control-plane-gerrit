@@ -423,7 +423,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.0.38"
+         "version": "1.9.0.39"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -649,7 +649,7 @@
          "type": "application",
          "name": "gerrit-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/gerrit-operator.git",
-         "version": "1.5.0-SNAPSHOT.72",
+         "version": "1.5.0-SNAPSHOT.73",
          "env": "prod"
       },
       "hashicorp-vault":       {
@@ -836,7 +836,7 @@
          "type": "gitsources",
          "name": "edp-library-stages-fork",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/libraries/edp-library-stages-fork.git",
-         "version": "build/0.2.1-SNAPSHOT.357",
+         "version": "build/0.2.1-SNAPSHOT.358",
          "path": "/libraries"
       },
       "empty-template-registry-regulation":       {
