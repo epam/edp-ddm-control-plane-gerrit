@@ -1,0 +1,12 @@
+apiVersion: v2.edp.epam.com/v1alpha1
+kind: GerritProjectAccess
+metadata:
+  name: cluster-mgmt
+  namespace: control-plane
+spec:
+  projectName: cluster-mgmt
+  references:
+  - action: ALLOW
+    groupName: administrators
+    permissionName: addPatchSet
+    refPattern: refs/for/*
