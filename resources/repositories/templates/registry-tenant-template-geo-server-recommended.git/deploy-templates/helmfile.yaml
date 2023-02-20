@@ -222,7 +222,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/gerrit-operator.git
     path: components/registry/
   chart: /opt/repositories/gerrit-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.72
+  version: 1.5.0-SNAPSHOT.73
   values:
   - operator:
       clusterRoleName: gerrit-operator-role-{{ env "globalEDPProject" }}
