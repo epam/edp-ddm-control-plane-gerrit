@@ -42,6 +42,9 @@ global:
       bucketName: {{ env "MINIO_BUCKET_NAME" }}
   registry:
     redis:
+      container:
+        customConfig:
+          - "maxmemory 500m"
       replicas: 2
     sentinel:
       replicas: 3
