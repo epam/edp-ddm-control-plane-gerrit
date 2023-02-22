@@ -1,0 +1,10 @@
+apiVersion: v2.edp.epam.com/v1alpha1
+kind: JenkinsAuthorizationRoleMapping
+metadata:
+  name: cp-registry-admin-{{ .Release.Namespace }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  roleType: "globalRoles"
+  roles:
+    - admin
+  group: cp-registry-admin-{{ .Release.Namespace }}
