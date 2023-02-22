@@ -7,12 +7,12 @@ spec:
   providers:
     - keycloak:
         credentialsSecret:
-          name: keycloak
+          name: keycloak-user-management
           namespace: group-sync-operator
         loginRealm: master
-        realm: {{ .Release.Namespace }}-admin
+        realm: openshift
         groups:
-          - cp-{{ .Release.Namespace }}-admins
+          - cp-registry-admin-{{ .Release.Namespace }}
         scope: sub
         url: '{{ .Values.keycloak.url }}'
       name: keycloak
