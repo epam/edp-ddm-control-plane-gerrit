@@ -165,7 +165,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
@@ -318,7 +318,7 @@ releases:
   needs:
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/jenkins-operator'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
@@ -401,7 +401,7 @@ releases:
   needs:
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/jenkins-operator'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
@@ -427,44 +427,22 @@ releases:
   needs:
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/jenkins-operator'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/keycloak-operator'
   - '{{ env "NAMESPACE" }}/nexus'
   - '{{ env "NAMESPACE" }}/registry-configuration'
-- name: pg-exporter-chart
+- name: registry-postgres
   namespace: '{{ env "NAMESPACE" }}'
   labels:
     type: remote
     update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pg-exporter-chart.git
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/registry-postgres.git
     path: components/registry/
-  chart: /opt/repositories/pg-exporter-chart/deploy-templates
-  version: 1.5.0-SNAPSHOT.53
-  values:
-  - values.yaml
-  - values.gotmpl
-  missingFileHandler: Warn
-  needs:
-  - '{{ env "NAMESPACE" }}/istio-configuration'
-  - '{{ env "NAMESPACE" }}/network-management'
-  - '{{ env "NAMESPACE" }}/jenkins-operator'
-  - '{{ env "NAMESPACE" }}/gerrit-operator'
-  - '{{ env "NAMESPACE" }}/keycloak-operator'
-  - '{{ env "NAMESPACE" }}/nexus'
-  - '{{ env "NAMESPACE" }}/citus'
-  - '{{ env "NAMESPACE" }}/registry-configuration'
-- name: citus
-  namespace: '{{ env "NAMESPACE" }}'
-  labels:
-    type: remote
-    update_scc: true
-    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git
-    path: components/registry/
-  chart: /opt/repositories/citus/deploy-templates
-  version: 1.5.0-SNAPSHOT.147
+  chart: /opt/repositories/registry-postgres/deploy-templates
+  version: 1.9.4-SNAPSHOT.1
   values:
   - values.yaml
   - values.gotmpl
@@ -621,7 +599,7 @@ releases:
   - '{{ env "NAMESPACE" }}/registry-configuration'
   - '{{ env "NAMESPACE" }}/user-settings-service-api'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/external-secrets'
 - name: user-settings-service-api
   namespace: '{{ env "NAMESPACE" }}'
@@ -640,7 +618,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: bp-webservice-gateway
   namespace: '{{ env "NAMESPACE" }}'
@@ -714,7 +692,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: excerpt-worker
@@ -734,7 +712,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: excerpt-worker-docx
@@ -754,7 +732,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: excerpt-worker-csv
@@ -774,7 +752,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: user-publisher
@@ -847,7 +825,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: process-history-service-persistence
   namespace: '{{ env "NAMESPACE" }}'
@@ -866,7 +844,7 @@ releases:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/strimzi-kafka-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
 - name: pgadmin-chart
@@ -885,7 +863,7 @@ releases:
   needs:
   - '{{ env "NAMESPACE"}}/istio-configuration'
   - '{{ env "NAMESPACE"}}/network-management'
-  - '{{ env "NAMESPACE"}}/citus'
+  - '{{ env "NAMESPACE"}}/registry-postgres'
 - name: wiremock
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -997,7 +975,7 @@ releases:
   - '{{ env "NAMESPACE" }}/network-management'
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/registry-nodes'
-  - '{{ env "NAMESPACE" }}/citus'
+  - '{{ env "NAMESPACE" }}/registry-postgres'
   - '{{ env "NAMESPACE" }}/registry-configuration'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/codebase-operator'
