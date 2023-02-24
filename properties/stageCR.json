@@ -423,7 +423,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.0.39"
+         "version": "1.9.0.41"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -441,7 +441,7 @@
          "type": "platform-component",
          "name": "ddm-architecture",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/ddm-architecture.git",
-         "version": "1.9.0.639"
+         "version": "1.9.0.654"
       },
       "external-integration-mocks":       {
          "type": "platform-component",
@@ -811,7 +811,7 @@
       "business-process-modeler-extensions":       {
          "type": "resource",
          "name": "business-process-modeler-extensions",
-         "path": "repository/edp-maven-releases/com/epam/digital/data/platform/business-process-modeler-extensions/1.9.0.1/business-process-modeler-extensions-1.9.0.1.zip"
+         "path": "repository/edp-maven-releases/com/epam/digital/data/platform/business-process-modeler-extensions/1.9.0.3/business-process-modeler-extensions-1.9.0.3.zip"
       },
       "liquibase-ext-schema":       {
          "type": "resource",
