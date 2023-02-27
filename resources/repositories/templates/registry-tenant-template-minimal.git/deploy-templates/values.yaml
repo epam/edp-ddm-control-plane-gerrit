@@ -1,5 +1,9 @@
 # helm values
 global:
+  kafkaOperator:
+    storage:
+      kafka:
+        size: 20Gi
   whiteListIP:
     adminRoutes: "0.0.0.0/0"
   excludePortals: ['']
