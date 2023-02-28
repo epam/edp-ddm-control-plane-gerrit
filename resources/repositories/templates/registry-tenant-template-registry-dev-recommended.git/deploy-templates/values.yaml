@@ -326,3 +326,5 @@ trembita:
     idp-exchange-service-registry:
       protocol: SOAP
       type: platform
+signWidget:
+  url: https://eu.iit.com.ua/sign-widget/v20200922/
