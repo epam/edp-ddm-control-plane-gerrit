@@ -178,3 +178,10 @@ trembita:
       type: platform
 signWidget:
   url: https://eu.iit.com.ua/sign-widget/v20200922/
+keycloak:
+  realms:
+    officerPortal:
+      browserFlow: dso-officer-auth-flow
+  authFlows:
+    officerAuthFlow:
+      widgetHeight: 720

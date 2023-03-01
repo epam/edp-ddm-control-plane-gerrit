@@ -189,3 +189,10 @@ trembita:
     idp-exchange-service-registry:
       protocol: SOAP
       type: platform
+keycloak:
+  realms:
+    officerPortal:
+      browserFlow: dso-officer-auth-flow
+  authFlows:
+    officerAuthFlow:
+      widgetHeight: 720
