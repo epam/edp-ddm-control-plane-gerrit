@@ -1,6 +1,8 @@
 import com.epam.edp.customStages.helper.DeployHelper
 import com.epam.edp.stages.impl.ci.ProjectType
 import com.epam.edp.stages.impl.ci.Stage
+import groovy.json.JsonSlurperClassic
+
 
 @Stage(name = "deploy-via-helmfile", buildTool = ["gitops"], type = [ProjectType.CLUSTERMGMT])
 class Helmfile {
@@ -8,6 +10,30 @@ class Helmfile {
     DeployHelper deployHelper
 
     ArrayList<String> COMPOSITE_COMPONENTS = ["user-management", "external-integration-mocks", "cluster-kafka-operator", "postgres-operator"]
+
+    void placeCertificatesForKeycloak(context, String customDnsHost, String vaultPath) {
+        String vaultNamespace = "user-management"
+        String vaultUrl = "http://hashicorp-vault.user-management.svc.cluster.local:8200"
+        String vaultToken = (new String(context.platform.getJsonPathValue("secrets", "vault-root-token",
+                ".data.VAULT_ROOT_TOKEN", vaultNamespace).decodeBase64()))
+        String keycloakChartPath = "/opt/repositories/components/infra/keycloak.git/deploy-templates"
+        String certificateFolderName = customDnsHost.replace(".","-")
+
+        def secretDataResponse = script.httpRequest url: vaultUrl + "/v1/" + vaultPath.replaceFirst('/', '/data/'),
+                httpMode: 'GET',
+                customHeaders: [[name: 'X-Vault-Token', value: "${vaultToken}"]],
+                validResponseCodes: '200,404',
+                quiet: true
+
+        if (secretDataResponse.status.equals(200)) {
+            def folder = new File("${keycloakChartPath}/certificates/${certificateFolderName}")
+            new JsonSlurperClassic().parseText(secretDataResponse.content).data.data.each { secretKey, secretValue ->
+                script.dir("${folder}") {
+                    script.writeFile(file: secretKey, text: secretValue)
+                }
+            }
+        }
+    }
 
     void run(context) {
         deployHelper = new DeployHelper(script)
@@ -82,6 +108,12 @@ class Helmfile {
                     }
                     if(helmValues.'digital-signature')
                         deployHelper.exportDigitalSignatureSecretsInTarget(context, helmValues, "user-management", context.workDir)
+
+                    if(helmValues.keycloak) {
+                        helmValues.keycloak.customHosts.each {
+                            placeCertificatesForKeycloak(context, it.host, it.certificatePath)
+                        }
+                    }
 
                     // DON'T UNCOMMENT ON CICD* CLUSTERS
                     if (context.job.dnsWildcard.startsWith("apps.cicd")) {
