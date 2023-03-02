@@ -95,6 +95,9 @@ spec:
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: kafka-connect
+        - podSelector:
+            matchLabels:
+              app: operational-audit-clean
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
