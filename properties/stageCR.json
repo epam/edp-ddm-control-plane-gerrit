@@ -843,7 +843,7 @@
          "type": "gitsources",
          "name": "empty-template-registry-regulation",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/empty-template-registry-regulation.git",
-         "version": "build/1.5.0-SNAPSHOT.65",
+         "version": "build/1.5.0-SNAPSHOT.66",
          "path": "/"
       },
       "history-excerptor-chart":       {
