@@ -185,3 +185,5 @@ keycloak:
   authFlows:
     officerAuthFlow:
       widgetHeight: 720
+    citizenAuthFlow:
+      edrCheck: true
