@@ -82,6 +82,12 @@ global:
     adminRoutes: "0.0.0.0/0"
   excludePortals: ['']
   deploymentMode: production
+  bpAdminPortal:
+    camunda:
+      bpm:
+        metrics:
+          enabled: true
+          scrapeInterval: 60s
   crunchyPostgres:
     postgresql:
       parameters:
