@@ -324,3 +324,7 @@ trembita:
     idp-exchange-service-registry:
       protocol: SOAP
       type: platform
+keycloak:
+  authFlows:
+    citizenAuthFlow:
+      edrCheck: true
