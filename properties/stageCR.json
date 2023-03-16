@@ -822,6 +822,11 @@
          "type": "resource",
          "name": "liquibase-ext-schema-latest",
          "path": "repository/extensions/com/epam/digital/data/platform/liquibase-ext-schema/latest/liquibase-ext-schema-latest.xsd"
+      },
+      "dbchangelog":       {
+         "type": "resource",
+         "name": "dbchangelog",
+         "path": "repository/extensions/com/epam/digital/data/platform/dbchangelog/4.5/dbchangelog-4.5.xsd"
       }
    },
    "gitsources":    {
