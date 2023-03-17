@@ -15,7 +15,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/monitoring.git
-  version: 1.5.0-SNAPSHOT.86
+  version: 1.5.0-SNAPSHOT.90
   values: []
 - name: storage
   labels:
@@ -54,7 +54,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/backup-management.git
   values: []
 - name: user-management
-  version: 1.5.0-SNAPSHOT.249
+  version: 1.5.0-SNAPSHOT.96
   labels:
     type: remote
     update_scc: false
