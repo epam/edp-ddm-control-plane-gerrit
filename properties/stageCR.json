@@ -227,7 +227,7 @@
       "jenkins-operator-image":       {
          "type": "dockerimage",
          "name": "jenkins-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/jenkins-operator:2.11.0-MDTU-DDM-SNAPSHOT.4"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/jenkins-operator:2.11.0-MDTU-DDM-SNAPSHOT.6"
       },
       "kafdrop-image":       {
          "type": "dockerimage",
