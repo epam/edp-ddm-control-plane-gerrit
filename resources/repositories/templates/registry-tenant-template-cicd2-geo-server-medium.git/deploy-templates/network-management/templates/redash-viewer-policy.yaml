@@ -15,6 +15,12 @@ spec:
         - podSelector:
             matchLabels:
               app: jenkins
+        - podSelector:
+            matchLabels:
+              job-name: create-dashboard-job
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kong
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
