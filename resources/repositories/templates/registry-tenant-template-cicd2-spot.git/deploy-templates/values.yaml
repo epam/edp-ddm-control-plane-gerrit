@@ -187,6 +187,5 @@ trembita:
       protocol: SOAP
       type: platform
 keycloak:
-  authFlows:
-    citizenAuthFlow:
-      edrCheck: true
+  citizenAuthFlow:
+    edrCheck: true
