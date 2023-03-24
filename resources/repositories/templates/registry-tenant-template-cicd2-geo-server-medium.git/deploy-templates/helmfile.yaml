@@ -185,6 +185,8 @@ releases:
   - values.gotmpl
   - operator:
       clusterRoleName: jenkins-operator-clusterrole-{{ env "edpProject" }}
+      image:
+        name: '{{ env "globalEDPProject" }}/jenkins-operator'
   - dockerRegistry: nexus-docker-hosted-{{ env "NAMESPACE" }}.{{ env "dnsWildcard" }}
   missingFileHandler: Warn
   needs:
