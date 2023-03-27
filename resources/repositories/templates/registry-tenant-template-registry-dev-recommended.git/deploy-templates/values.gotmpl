@@ -122,3 +122,6 @@ keycloak:
     autoRedirectEnabled: {{ env "autoRedirectEnabled" }}
 
 gerritCentralUrl: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}
+logging:
+  kong:
+    accessLogsEnabled: false

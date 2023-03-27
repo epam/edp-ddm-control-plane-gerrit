@@ -26,6 +26,15 @@ releases:
       - values.yaml
       - values.gotmpl
     missingFileHandler: Warn
+  - name: kong-global-resources
+    chart: kong-global-resources
+    version: 1.0.0
+    labels:
+      type: local
+    values:
+      - values.yaml
+      - values.gotmpl
+    missingFileHandler: Warn
 # end of TODO:
 
 helmfiles:
