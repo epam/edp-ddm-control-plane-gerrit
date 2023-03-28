@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.118",
-         "promotedVersions": "build/1.6.0.98,build/1.6.0.99,build/1.6.0.101,build/1.6.0.102,build/1.6.0.103,build/1.6.0.104,build/1.6.0.111,build/1.6.0.113,build/1.6.0.115,build/1.6.0.118"
+         "version": "build/1.6.0.120",
+         "promotedVersions": "build/1.6.0.99,build/1.6.0.101,build/1.6.0.102,build/1.6.0.103,build/1.6.0.104,build/1.6.0.111,build/1.6.0.113,build/1.6.0.115,build/1.6.0.118,build/1.6.0.120"
       },
       "data-factory-integration-tests":       {
          "type": "autotests",
@@ -74,8 +74,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.232",
-         "promotedVersions": "build/1.6.0.208,build/1.6.0.211,build/1.6.0.212,build/1.6.0.213,build/1.6.0.214,build/1.6.0.224,build/1.6.0.225,build/1.6.0.227,build/1.6.0.231,build/1.6.0.232"
+         "version": "build/1.6.0.234",
+         "promotedVersions": "build/1.6.0.211,build/1.6.0.212,build/1.6.0.213,build/1.6.0.214,build/1.6.0.224,build/1.6.0.225,build/1.6.0.227,build/1.6.0.231,build/1.6.0.232,build/1.6.0.234"
       }
    },
    "dockerimage":    {
@@ -98,16 +98,6 @@
          "type": "dockerimage",
          "name": "bpms-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bpms-master:1.9.4.16"
-      },
-      "citus-data-image":       {
-         "type": "dockerimage",
-         "name": "citus-data-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/citus-data-main:0.1.5-SNAPSHOT.4"
-      },
-      "citus-image":       {
-         "type": "dockerimage",
-         "name": "citus-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/citus-master:1.5.0-SNAPSHOT.147"
       },
       "codebase-operator-image":       {
          "type": "dockerimage",
@@ -222,12 +212,7 @@
       "history-excerptor-chart-image":       {
          "type": "dockerimage",
          "name": "history-excerptor-chart-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/history-excerptor-master:1.8.0.1"
-      },
-      "history-excerptor-image":       {
-         "type": "dockerimage",
-         "name": "history-excerptor-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/history-excerptor-master:1.8.0.1"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/history-excerptor-master:1.8.0.10"
       },
       "jenkins-operator-image":       {
          "type": "dockerimage",
@@ -451,7 +436,7 @@
          "type": "platform-component",
          "name": "ddm-architecture",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/ddm-architecture.git",
-         "version": "1.9.4.53"
+         "version": "1.9.4.62"
       },
       "external-integration-mocks":       {
          "type": "platform-component",
@@ -534,13 +519,6 @@
          "name": "bpms",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git",
          "version": "1.9.4.16",
-         "env": "prod"
-      },
-      "citus":       {
-         "type": "application",
-         "name": "citus",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/citus.git",
-         "version": "1.5.0-SNAPSHOT.147",
          "env": "prod"
       },
       "codebase-operator":       {
@@ -872,7 +850,7 @@
          "type": "gitsources",
          "name": "history-excerptor-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/history-excerptor-chart.git",
-         "version": "build/1.5.0-SNAPSHOT.76",
+         "version": "build/1.5.0-SNAPSHOT.78",
          "path": "/components/runtime"
       },
       "registry-regulations-publication-pipeline":       {
