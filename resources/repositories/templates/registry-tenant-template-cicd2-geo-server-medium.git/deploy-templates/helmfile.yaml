@@ -179,7 +179,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.215
+  version: 1.5.0-SNAPSHOT.219
   values:
   - values.yaml
   - values.gotmpl
@@ -204,7 +204,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.9.4.6
+  version: 1.9.4.7
   values:
   - values.yaml
   - values.gotmpl
@@ -224,7 +224,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/gerrit-operator.git
     path: components/registry/
   chart: /opt/repositories/gerrit-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.74
+  version: 1.5.0-SNAPSHOT.75
   values:
   - operator:
       clusterRoleName: gerrit-operator-role-{{ env "globalEDPProject" }}
@@ -335,7 +335,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
     path: components/registry/
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.9.4.1
+  version: 1.9.4.2
   values:
   - values.yaml
   - values.gotmpl
@@ -357,7 +357,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git
     path: components/registry/
   chart: /opt/repositories/kong/deploy-templates
-  version: 1.5.0-SNAPSHOT.53
+  version: 1.5.0-SNAPSHOT.55
   values:
   - values.yaml
   - values.gotmpl
@@ -377,7 +377,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong-admin-tools.git
     path: components/registry/
   chart: /opt/repositories/kong-admin-tools/deploy-templates
-  version: 1.6.0-SNAPSHOT.8
+  version: 1.6.0-SNAPSHOT.9
   values:
   - values.yaml
   - values.gotmpl
@@ -395,7 +395,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version: 1.9.4.10
+  version: 1.9.4.20
   values:
   - values.yaml
   - values.gotmpl
@@ -421,7 +421,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git
     path: components/registry/
   chart: /opt/repositories/redash-chart/deploy-templates
-  version: 1.5.0-SNAPSHOT.105
+  version: 1.5.0-SNAPSHOT.107
   values:
   - values.yaml
   - values.gotmpl
@@ -444,7 +444,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/registry-postgres.git
     path: components/registry/
   chart: /opt/repositories/registry-postgres/deploy-templates
-  version: 1.9.4-SNAPSHOT.2
+  version: 1.9.4-SNAPSHOT.4
   values:
   - values.yaml
   - values.gotmpl
@@ -532,7 +532,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git
     path: components/registry/
   chart: /opt/repositories/nexus/deploy-templates
-  version: 1.5.0-SNAPSHOT.65
+  version: 1.5.0-SNAPSHOT.68
   values:
   - operator:
       clusterRoleName: nexus-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -552,7 +552,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/keycloak-operator.git
     path: components/registry/
   chart: /opt/repositories/keycloak-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.72
+  version: 1.5.0-SNAPSHOT.73
   values:
   - operator:
       clusterRoleName: keycloak-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -804,7 +804,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.152
+  version: 1.5.0-SNAPSHOT.153
   values:
   - values.yaml
   - values.gotmpl
@@ -971,7 +971,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/geo-server.git
     path: components/registry/
   chart: /opt/repositories/geo-server/deploy-templates
-  version: 1.0.0-SNAPSHOT.21
+  version: 1.0.0-SNAPSHOT.23
   values:
   - values.yaml
   - values.gotmpl
