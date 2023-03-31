@@ -189,3 +189,7 @@ trembita:
 keycloak:
   citizenAuthFlow:
     edrCheck: true
+  realms:
+    officerPortal:
+      browserFlow: dso-officer-auth-flow
+      selfRegistration: false
