@@ -179,7 +179,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.219
+  version: 1.5.0-SNAPSHOT.223
   values:
   - values.yaml
   - values.gotmpl
@@ -204,7 +204,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.9.4.7
+  version: 1.9.4.8
   values:
   - values.yaml
   - values.gotmpl
@@ -395,7 +395,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version: 1.9.4.20
+  version: 1.9.4.23
   values:
   - values.yaml
   - values.gotmpl
@@ -444,7 +444,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/registry-postgres.git
     path: components/registry/
   chart: /opt/repositories/registry-postgres/deploy-templates
-  version: 1.9.4-SNAPSHOT.4
+  version: 1.9.4-SNAPSHOT.6
   values:
   - values.yaml
   - values.gotmpl
@@ -759,7 +759,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.153
+  version: 1.5.0-SNAPSHOT.155
   values:
   - registryGroup:
       name: '{{ env "registryGroup" }}'
@@ -813,7 +813,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git
     path: components/registry/
   chart: /opt/repositories/pgadmin-chart/deploy-templates
-  version: 0.0.1-SNAPSHOT.70
+  version: 0.0.1-SNAPSHOT.71
   values:
   - values.yaml
   - values.gotmpl
@@ -845,7 +845,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git
     path: components/registry/
   chart: /opt/repositories/registry-regulation-management/deploy-templates
-  version: 1.9.4.7
+  version: 1.9.4.11
   values:
   - values.yaml
   - values.gotmpl
