@@ -1,6 +1,0 @@
-apiVersion: v2
-name: kong-global-resources
-description: A Helm chart for creating of Kong global resources
-type: application
-version: 1.0.0
-appVersion: 1.0.0
