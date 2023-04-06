@@ -357,7 +357,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git
     path: components/registry/
   chart: /opt/repositories/kong/deploy-templates
-  version: 1.5.0-SNAPSHOT.58
+  version: 1.5.0-SNAPSHOT.59
   values:
   - values.yaml
   - values.gotmpl
@@ -377,7 +377,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong-admin-tools.git
     path: components/registry/
   chart: /opt/repositories/kong-admin-tools/deploy-templates
-  version: 1.6.0-SNAPSHOT.12
+  version: 1.6.0-SNAPSHOT.13
   values:
   - values.yaml
   - values.gotmpl

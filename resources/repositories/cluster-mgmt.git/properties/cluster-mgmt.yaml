@@ -54,7 +54,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/backup-management.git
   values: []
 - name: user-management
-  version: 1.5.0-SNAPSHOT.260
+  version: 1.5.0-SNAPSHOT.261
   labels:
     type: remote
     update_scc: false
@@ -63,7 +63,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git
   values: []
 - name: control-plane-nexus
-  version: 1.5.0-SNAPSHOT.73
+  version: 1.5.0-SNAPSHOT.74
   labels:
     type: remote
     update_scc: false
@@ -90,7 +90,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/cluster-kafka-operator.git
   values: []
 - name: smtp-server
-  version: 1.7.0-SNAPSHOT.4
+  version: 1.7.0-SNAPSHOT.5
   labels:
     type: remote
     update_scc: false

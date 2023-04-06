@@ -257,12 +257,12 @@
       "kong-admin-tools-image":       {
          "type": "dockerimage",
          "name": "kong-admin-tools-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kong-admin-tools-master:1.6.0-SNAPSHOT.12"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kong-admin-tools-master:1.6.0-SNAPSHOT.13"
       },
       "kong-image":       {
          "type": "dockerimage",
          "name": "kong-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kong-master:1.5.0-SNAPSHOT.58"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kong-master:1.5.0-SNAPSHOT.59"
       },
       "kubernetes-ingress-controller-image":       {
          "type": "dockerimage",
@@ -364,6 +364,46 @@
          "name": "rest-api-core-base-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/rest-api-core-base-image-master:1.9.4.4"
       },
+      "smtp-server-mailu-admin-image":       {
+         "type": "dockerimage",
+         "name": "smtp-server-mailu-admin-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mailu/admin:1.8"
+      },
+      "smtp-server-mailu-clamav-image":       {
+         "type": "dockerimage",
+         "name": "smtp-server-mailu-clamav-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mailu/clamav:1.8"
+      },
+      "smtp-server-mailu-dovecot-image":       {
+         "type": "dockerimage",
+         "name": "smtp-server-mailu-dovecot-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mailu/dovecot:1.8"
+      },
+      "smtp-server-mailu-nginx-image":       {
+         "type": "dockerimage",
+         "name": "smtp-server-mailu-nginx-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mailu/nginx:1.8"
+      },
+      "smtp-server-mailu-postfix-image":       {
+         "type": "dockerimage",
+         "name": "smtp-server-mailu-postfix-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mailu/postfix:1.8"
+      },
+      "smtp-server-mailu-redis-image":       {
+         "type": "dockerimage",
+         "name": "smtp-server-mailu-redis-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mailu/redis:1.8"
+      },
+      "smtp-server-mailu-roundcube-image":       {
+         "type": "dockerimage",
+         "name": "smtp-server-mailu-roundcube-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mailu/roundcube:1.8"
+      },
+      "smtp-server-mailu-rspamd-image":       {
+         "type": "dockerimage",
+         "name": "smtp-server-mailu-rspamd-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mailu/rspamd:1.8"
+      },
       "soap-api-core-base-image":       {
          "type": "dockerimage",
          "name": "soap-api-core-base-image",
@@ -440,7 +480,7 @@
          "type": "platform-component",
          "name": "control-plane-nexus",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-nexus.git",
-         "version": "1.5.0-SNAPSHOT.73"
+         "version": "1.5.0-SNAPSHOT.74"
       },
       "ddm-architecture":       {
          "type": "platform-component",
@@ -494,7 +534,7 @@
          "type": "platform-component",
          "name": "smtp-server",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/smtp-server.git",
-         "version": "1.7.0-SNAPSHOT.4"
+         "version": "1.7.0-SNAPSHOT.5"
       },
       "storage":       {
          "type": "platform-component",
@@ -506,7 +546,7 @@
          "type": "platform-component",
          "name": "user-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git",
-         "version": "1.5.0-SNAPSHOT.260"
+         "version": "1.5.0-SNAPSHOT.261"
       }
    },
    "application":    {
@@ -682,14 +722,14 @@
          "type": "application",
          "name": "kong",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong.git",
-         "version": "1.5.0-SNAPSHOT.58",
+         "version": "1.5.0-SNAPSHOT.59",
          "env": "prod"
       },
       "kong-admin-tools":       {
          "type": "application",
          "name": "kong-admin-tools",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/kong-admin-tools.git",
-         "version": "1.6.0-SNAPSHOT.12",
+         "version": "1.6.0-SNAPSHOT.13",
          "env": "prod"
       },
       "nexus":       {
