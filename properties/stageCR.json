@@ -11,8 +11,8 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.226",
-         "promotedVersions": "build/1.6.0.200,build/1.6.0.208,build/1.6.0.211,build/1.6.0.213,build/1.6.0.218,build/1.6.0.220,build/1.6.0.221,build/1.6.0.222,build/1.6.0.223,build/1.6.0.226"
+         "version": "build/1.6.0.228",
+         "promotedVersions": "build/1.6.0.211,build/1.6.0.213,build/1.6.0.218,build/1.6.0.220,build/1.6.0.221,build/1.6.0.222,build/1.6.0.223,build/1.6.0.226,build/1.6.0.227,build/1.6.0.228"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.126",
-         "promotedVersions": "build/1.6.0.103,build/1.6.0.104,build/1.6.0.111,build/1.6.0.113,build/1.6.0.115,build/1.6.0.118,build/1.6.0.120,build/1.6.0.122,build/1.6.0.123,build/1.6.0.126"
+         "version": "build/1.6.0.127",
+         "promotedVersions": "build/1.6.0.104,build/1.6.0.111,build/1.6.0.113,build/1.6.0.115,build/1.6.0.118,build/1.6.0.120,build/1.6.0.122,build/1.6.0.123,build/1.6.0.126,build/1.6.0.127"
       },
       "data-factory-integration-tests":       {
          "type": "autotests",
@@ -132,7 +132,7 @@
       "dataplatform-jenkins-agent-image":       {
          "type": "dockerimage",
          "name": "dataplatform-jenkins-agent-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.9.4.10"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.9.4.12"
       },
       "ddm-language-server-image":       {
          "type": "dockerimage",
@@ -468,7 +468,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.0.55"
+         "version": "1.9.0.56"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -687,7 +687,7 @@
          "type": "application",
          "name": "gerrit-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/gerrit-operator.git",
-         "version": "1.5.0-SNAPSHOT.76",
+         "version": "1.5.0-SNAPSHOT.77",
          "env": "prod"
       },
       "hashicorp-vault":       {
@@ -701,7 +701,7 @@
          "type": "application",
          "name": "jenkins-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git",
-         "version": "1.5.0-SNAPSHOT.225",
+         "version": "1.5.0-SNAPSHOT.226",
          "env": "prod"
       },
       "kafka-schema-registry":       {
