@@ -1,7 +1,7 @@
 {{- if (index .Values "external-systems") -}}
 {{- $root := .Values }}
 {{- range $k, $v := index $root "external-systems" }}
-  {{- if $v.url }}
+  {{- if and ($v.url) (not $v.mock) }}
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry

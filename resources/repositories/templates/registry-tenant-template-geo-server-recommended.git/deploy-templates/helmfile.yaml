@@ -766,6 +766,22 @@ releases:
   - values.yaml
   - values.gotmpl
   missingFileHandler: Warn
+- name: wiremock
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/wiremock.git
+    path: components/registry/
+  chart: /opt/repositories/wiremock/deploy-templates
+  version: 1.5.0-SNAPSHOT.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE"}}/istio-configuration'
+  - '{{ env "NAMESPACE"}}/network-management'
 - name: process-history-service-api
   namespace: '{{ env "NAMESPACE" }}'
   labels:
@@ -933,6 +949,22 @@ releases:
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/registry-nodes'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+- name: wiremock
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: true
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/wiremock.git
+    path: components/registry/
+  chart: /opt/repositories/wiremock/deploy-templates
+  version: 1.5.0-SNAPSHOT.2
+  values:
+  - values.yaml
+  - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+  - '{{ env "NAMESPACE"}}/istio-configuration'
+  - '{{ env "NAMESPACE"}}/network-management'
 environments:
   default:
     missingFileHandler: Error
