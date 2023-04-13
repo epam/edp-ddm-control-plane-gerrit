@@ -45,7 +45,7 @@ releases:
   version: 1.5.0-SNAPSHOT.68
   values: []
 - name: backup-management
-  version: 1.9.4.2
+  version: 1.9.4.4
   labels:
     type: remote
     update_scc: false
@@ -54,7 +54,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/backup-management.git
   values: []
 - name: user-management
-  version: 1.5.0-SNAPSHOT.261
+  version: 1.5.0-SNAPSHOT.262
   labels:
     type: remote
     update_scc: false
