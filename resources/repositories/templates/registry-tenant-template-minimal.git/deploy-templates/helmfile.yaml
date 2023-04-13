@@ -260,6 +260,7 @@ releases:
   - '{{ env "NAMESPACE" }}/jenkins-operator'
   - '{{ env "NAMESPACE" }}/gerrit-operator'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/redash-chart'
 - name: user-process-management
   namespace: '{{ env "NAMESPACE" }}'
   labels:
