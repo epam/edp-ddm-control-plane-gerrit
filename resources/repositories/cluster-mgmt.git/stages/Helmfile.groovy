@@ -1,4 +1,5 @@
 import com.epam.edp.customStages.helper.DeployHelper
+import com.epam.edp.customStages.helper.UpgradeHelper
 import com.epam.edp.stages.impl.ci.ProjectType
 import com.epam.edp.stages.impl.ci.Stage
 import groovy.json.JsonSlurperClassic
@@ -8,6 +9,7 @@ import groovy.json.JsonSlurperClassic
 class Helmfile {
     Script script
     DeployHelper deployHelper
+    UpgradeHelper upgradeHelper
 
     ArrayList<String> COMPOSITE_COMPONENTS = ["user-management", "external-integration-mocks", "cluster-kafka-operator", "postgres-operator"]
 
@@ -37,6 +39,7 @@ class Helmfile {
 
     void run(context) {
         deployHelper = new DeployHelper(script)
+        upgradeHelper = new UpgradeHelper(script)
         script.openshift.withCluster() {
             script.openshift.withProject() {
                 script.dir("${context.workDir}") {
@@ -171,7 +174,26 @@ class Helmfile {
                         } catch (any) {
                             script.println("WARN: failed to annotate ceph config map. Skipping")
                         }
+                        components.releases.each() { release ->
 
+                            // For user-management keycloak by now
+                            if (release.name == "user-management") {
+                                String userManagementComponent = "keycloak"
+                                try {
+                                    if (deployHelper.isReleaseDeployed(userManagementComponent, release.name)) {
+                                        script.dir("/opt/repositories/components/infra/${userManagementComponent}.git") {
+                                            script.println("Running pre-upgrade scripts for ${userManagementComponent}")
+                                            upgradeHelper.runPreUpgradeScripts(context, userManagementComponent, release.name)
+                                        }
+                                    } else {
+                                        script.println("Skip pre-upgrade scripts for ${userManagementComponent} because it is not deployed")
+                                    }
+                                } catch (any) {
+                                    script.error "pre-upgrade scripts execution for ${userManagementComponent} has been failed"
+                                }
+
+                            }
+                        }
                         script.sh("helmfile -f ${helmfile} sync --values ${context.workDir}/deploy-templates/values.yaml --concurrency 1")
                     }
                     LinkedHashMap routes = [
