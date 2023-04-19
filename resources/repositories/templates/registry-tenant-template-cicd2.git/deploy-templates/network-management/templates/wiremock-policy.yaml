@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: wiremock-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: wiremock
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: bpms
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: ddm-notification-service
+        - podSelector:
+            matchLabels:
+              app: jenkins
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: keycloak
+        - namespaceSelector:
+            matchLabels:
+              name: user-management
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}
