@@ -74,8 +74,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.241",
-         "promotedVersions": "build/1.6.0.225,build/1.6.0.227,build/1.6.0.231,build/1.6.0.232,build/1.6.0.234,build/1.6.0.235,build/1.6.0.236,build/1.6.0.237,build/1.6.0.238,build/1.6.0.241"
+         "version": "build/1.6.0.243",
+         "promotedVersions": "build/1.6.0.227,build/1.6.0.231,build/1.6.0.232,build/1.6.0.234,build/1.6.0.235,build/1.6.0.236,build/1.6.0.237,build/1.6.0.238,build/1.6.0.241,build/1.6.0.243"
       }
    },
    "dockerimage":    {
@@ -132,7 +132,7 @@
       "dataplatform-jenkins-agent-image":       {
          "type": "dockerimage",
          "name": "dataplatform-jenkins-agent-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.9.4.13"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.9.4.14"
       },
       "ddm-language-server-image":       {
          "type": "dockerimage",
@@ -152,7 +152,7 @@
       "digital-signature-ops-image":       {
          "type": "dockerimage",
          "name": "digital-signature-ops-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/digital-signature-ops-master:1.9.4.7"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/digital-signature-ops-master:1.9.4.8"
       },
       "edp-jenkins-image":       {
          "type": "dockerimage",
@@ -162,7 +162,7 @@
       "excerpt-service-api-image":       {
          "type": "dockerimage",
          "name": "excerpt-service-api-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/excerpt-service-api-master:1.8.0.18"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/excerpt-service-api-master:1.8.0.19"
       },
       "excerpt-worker-csv-image":       {
          "type": "dockerimage",
@@ -202,7 +202,7 @@
       "geo-server-image":       {
          "type": "dockerimage",
          "name": "geo-server-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/geo-server-master:1.0.0-SNAPSHOT.24"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/geo-server-master:1.0.0-SNAPSHOT.25"
       },
       "gerrit-image":       {
          "type": "dockerimage",
@@ -252,7 +252,7 @@
       "keycloak-operator-image":       {
          "type": "dockerimage",
          "name": "keycloak-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/keycloak-operator:1.11.0-RC.8"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/epamedp/keycloak-operator:1.11.0-RC.9"
       },
       "kong-admin-tools-image":       {
          "type": "dockerimage",
@@ -317,7 +317,7 @@
       "process-history-service-api-image":       {
          "type": "dockerimage",
          "name": "process-history-service-api-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/process-history-service-api-master:1.6.0.35"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/process-history-service-api-master:1.6.0.36"
       },
       "process-history-service-persistence-image":       {
          "type": "dockerimage",
@@ -327,7 +327,7 @@
       "redash-chart-image":       {
          "type": "dockerimage",
          "name": "redash-chart-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/redash-chart-master:1.5.0-SNAPSHOT.113"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/redash-chart-master:1.5.0-SNAPSHOT.115"
       },
       "redash-exporter-image":       {
          "type": "dockerimage",
@@ -468,7 +468,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.0.61"
+         "version": "1.9.0.62"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -589,7 +589,7 @@
          "type": "application",
          "name": "dataplatform-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git",
-         "version": "1.9.4.13",
+         "version": "1.9.4.14",
          "env": "prod"
       },
       "ddm-language-server":       {
@@ -617,14 +617,14 @@
          "type": "application",
          "name": "digital-signature-ops",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git",
-         "version": "1.9.4.7",
+         "version": "1.9.4.8",
          "env": "prod"
       },
       "excerpt-service-api":       {
          "type": "application",
          "name": "excerpt-service-api",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/excerpt-service-api.git",
-         "version": "1.8.0.18",
+         "version": "1.8.0.19",
          "env": "prod"
       },
       "excerpt-worker":       {
@@ -680,7 +680,7 @@
          "type": "application",
          "name": "geo-server",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/geo-server.git",
-         "version": "1.0.0-SNAPSHOT.24",
+         "version": "1.0.0-SNAPSHOT.25",
          "env": "prod"
       },
       "gerrit-operator":       {
@@ -715,7 +715,7 @@
          "type": "application",
          "name": "keycloak-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/keycloak-operator.git",
-         "version": "1.5.0-SNAPSHOT.74",
+         "version": "1.5.0-SNAPSHOT.75",
          "env": "prod"
       },
       "kong":       {
@@ -757,14 +757,14 @@
          "type": "application",
          "name": "platform-gateway",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/platform-gateway.git",
-         "version": "1.6.0.24",
+         "version": "1.6.0.25",
          "env": "prod"
       },
       "process-history-service-api":       {
          "type": "application",
          "name": "process-history-service-api",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/application/process-history-service-api.git",
-         "version": "1.6.0.35",
+         "version": "1.6.0.36",
          "env": "prod"
       },
       "process-history-service-persistence":       {
@@ -778,7 +778,7 @@
          "type": "application",
          "name": "redash-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git",
-         "version": "1.5.0-SNAPSHOT.113",
+         "version": "1.5.0-SNAPSHOT.115",
          "env": "prod"
       },
       "redis-sentinel":       {
