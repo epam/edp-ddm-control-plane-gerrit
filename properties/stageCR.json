@@ -74,8 +74,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.248",
-         "promotedVersions": "build/1.6.0.232,build/1.6.0.234,build/1.6.0.235,build/1.6.0.236,build/1.6.0.237,build/1.6.0.238,build/1.6.0.241,build/1.6.0.243,build/1.6.0.244,build/1.6.0.248"
+         "version": "build/1.6.0.249",
+         "promotedVersions": "build/1.6.0.234,build/1.6.0.235,build/1.6.0.236,build/1.6.0.237,build/1.6.0.238,build/1.6.0.241,build/1.6.0.243,build/1.6.0.244,build/1.6.0.248,build/1.6.0.249"
       }
    },
    "dockerimage":    {
@@ -486,7 +486,7 @@
          "type": "platform-component",
          "name": "ddm-architecture",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/ddm-architecture.git",
-         "version": "1.9.4.182"
+         "version": "1.9.4.188"
       },
       "external-integration-mocks":       {
          "type": "platform-component",
