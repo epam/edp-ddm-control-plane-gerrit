@@ -4,15 +4,15 @@
          "type": "autotests",
          "name": "admin-portal-api-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-api-tests.git",
-         "version": "build/1.8.0-SNAPSHOT.45",
-         "promotedVersions": "build/1.8.0-SNAPSHOT.32,build/1.8.0-SNAPSHOT.33,build/1.8.0-SNAPSHOT.35,build/1.8.0-SNAPSHOT.37,build/1.8.0-SNAPSHOT.40,build/1.8.0-SNAPSHOT.41,build/1.8.0-SNAPSHOT.42,build/1.8.0-SNAPSHOT.43,build/1.8.0-SNAPSHOT.44,build/1.8.0-SNAPSHOT.45"
+         "version": "build/1.8.0-SNAPSHOT.46",
+         "promotedVersions": "build/1.8.0-SNAPSHOT.33,build/1.8.0-SNAPSHOT.35,build/1.8.0-SNAPSHOT.37,build/1.8.0-SNAPSHOT.40,build/1.8.0-SNAPSHOT.41,build/1.8.0-SNAPSHOT.42,build/1.8.0-SNAPSHOT.43,build/1.8.0-SNAPSHOT.44,build/1.8.0-SNAPSHOT.45,build/1.8.0-SNAPSHOT.46"
       },
       "admin-portal-ui-tests":       {
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.229",
-         "promotedVersions": "build/1.6.0.213,build/1.6.0.218,build/1.6.0.220,build/1.6.0.221,build/1.6.0.222,build/1.6.0.223,build/1.6.0.226,build/1.6.0.227,build/1.6.0.228,build/1.6.0.229"
+         "version": "build/1.6.0.230",
+         "promotedVersions": "build/1.6.0.218,build/1.6.0.220,build/1.6.0.221,build/1.6.0.222,build/1.6.0.223,build/1.6.0.226,build/1.6.0.227,build/1.6.0.228,build/1.6.0.229,build/1.6.0.230"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -32,15 +32,15 @@
          "type": "autotests",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.132",
-         "promotedVersions": "build/1.6.0.118,build/1.6.0.120,build/1.6.0.122,build/1.6.0.123,build/1.6.0.126,build/1.6.0.127,build/1.6.0.128,build/1.6.0.130,build/1.6.0.131,build/1.6.0.132"
+         "version": "build/1.6.0.135",
+         "promotedVersions": "build/1.6.0.120,build/1.6.0.122,build/1.6.0.123,build/1.6.0.126,build/1.6.0.127,build/1.6.0.128,build/1.6.0.130,build/1.6.0.131,build/1.6.0.132,build/1.6.0.135"
       },
       "data-factory-integration-tests":       {
          "type": "autotests",
          "name": "data-factory-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/data-factory-integration-tests.git",
-         "version": "build/1.6.0.81",
-         "promotedVersions": "build/1.6.0.71,build/1.6.0.72,build/1.6.0.73,build/1.6.0.74,build/1.6.0.75,build/1.6.0.76,build/1.6.0.77,build/1.6.0.78,build/1.6.0.80,build/1.6.0.81"
+         "version": "build/1.6.0.82",
+         "promotedVersions": "build/1.6.0.72,build/1.6.0.73,build/1.6.0.74,build/1.6.0.75,build/1.6.0.76,build/1.6.0.77,build/1.6.0.78,build/1.6.0.80,build/1.6.0.81,build/1.6.0.82"
       },
       "data-integration-tests":       {
          "type": "autotests",
@@ -67,15 +67,15 @@
          "type": "autotests",
          "name": "users-cabinets-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-integration-tests.git",
-         "version": "build/1.6.0.75",
-         "promotedVersions": "build/1.6.0.63,build/1.6.0.64,build/1.6.0.65,build/1.6.0.66,build/1.6.0.67,build/1.6.0.68,build/1.6.0.69,build/1.6.0.73,build/1.6.0.74,build/1.6.0.75"
+         "version": "build/1.6.0.76",
+         "promotedVersions": "build/1.6.0.64,build/1.6.0.65,build/1.6.0.66,build/1.6.0.67,build/1.6.0.68,build/1.6.0.69,build/1.6.0.73,build/1.6.0.74,build/1.6.0.75,build/1.6.0.76"
       },
       "users-cabinets-ui-tests":       {
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.244",
-         "promotedVersions": "build/1.6.0.231,build/1.6.0.232,build/1.6.0.234,build/1.6.0.235,build/1.6.0.236,build/1.6.0.237,build/1.6.0.238,build/1.6.0.241,build/1.6.0.243,build/1.6.0.244"
+         "version": "build/1.6.0.248",
+         "promotedVersions": "build/1.6.0.232,build/1.6.0.234,build/1.6.0.235,build/1.6.0.236,build/1.6.0.237,build/1.6.0.238,build/1.6.0.241,build/1.6.0.243,build/1.6.0.244,build/1.6.0.248"
       }
    },
    "dockerimage":    {
@@ -327,7 +327,7 @@
       "redash-chart-image":       {
          "type": "dockerimage",
          "name": "redash-chart-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/redash-chart-master:1.5.0-SNAPSHOT.115"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/redash-chart-master:1.5.0-SNAPSHOT.116"
       },
       "redash-exporter-image":       {
          "type": "dockerimage",
@@ -468,7 +468,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.0.65"
+         "version": "1.9.0.67"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -778,7 +778,7 @@
          "type": "application",
          "name": "redash-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git",
-         "version": "1.5.0-SNAPSHOT.115",
+         "version": "1.5.0-SNAPSHOT.116",
          "env": "prod"
       },
       "redis-sentinel":       {

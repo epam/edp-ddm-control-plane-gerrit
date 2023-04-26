@@ -421,7 +421,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git
     path: components/registry/
   chart: /opt/repositories/redash-chart/deploy-templates
-  version: 1.5.0-SNAPSHOT.115
+  version: 1.5.0-SNAPSHOT.116
   values:
   - values.yaml
   - values.gotmpl
