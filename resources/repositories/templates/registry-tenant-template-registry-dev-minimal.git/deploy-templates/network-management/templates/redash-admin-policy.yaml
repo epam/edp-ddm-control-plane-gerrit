@@ -18,6 +18,9 @@ spec:
         - podSelector:
             matchLabels:
               app: jenkins
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kong-admin-tools
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}
