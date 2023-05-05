@@ -325,8 +325,22 @@ trembita:
       protocol: SOAP
       type: platform
     edr-registry:
+      auth:
+        type: AUTH_TOKEN
+      client:
+        member-class: GOV
+        member-code: "43395033"
+        subsystem-code: IDGOV_TEST_01
+        x-road-instance: SEVDEIR-TEST
       protocol: SOAP
+      protocol-version: "4.0"
+      service:
+        member-class: GOV
+        member-code: "00015622"
+        subsystem-code: 2_MJU_EDR_prod
+        x-road-instance: SEVDEIR-TEST
       type: platform
+      user-id: DDM
     idp-exchange-service-registry:
       protocol: SOAP
       type: platform
