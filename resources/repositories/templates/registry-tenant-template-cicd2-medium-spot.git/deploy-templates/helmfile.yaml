@@ -116,6 +116,18 @@ releases:
   needs:
   - '{{ env "NAMESPACE" }}/istio-configuration'
   - '{{ env "NAMESPACE" }}/network-management'
+- name: cicd2-trembita-config
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: local
+    update_scc: false
+  chart: cicd2-trembita-config
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/istio-configuration'
 - name: codebases
   namespace: '{{ env "NAMESPACE" }}'
   labels:

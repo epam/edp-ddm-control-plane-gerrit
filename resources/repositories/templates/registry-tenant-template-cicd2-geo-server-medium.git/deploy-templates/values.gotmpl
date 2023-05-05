@@ -116,3 +116,8 @@ instance_count_per_region: "1"
 logging:
   kong:
     accessLogsEnabled: false
+
+trembita:
+  registries:
+    edr-registry:
+      url: 'https://trembita-edr-registry-mock.{{ env "dnsWildcard" }}/mockEDRService'
