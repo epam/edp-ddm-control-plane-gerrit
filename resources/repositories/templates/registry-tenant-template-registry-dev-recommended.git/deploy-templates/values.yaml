@@ -348,3 +348,6 @@ keycloak:
       widgetHeight: 720
   citizenAuthFlow:
     edrCheck: true
+digitalDocuments:
+  maxFileSize: 100MB
+  maxTotalFileSize: 100MB

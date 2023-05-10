@@ -207,3 +207,6 @@ keycloak:
     officerPortal:
       browserFlow: dso-officer-auth-flow
       selfRegistration: false
+digitalDocuments:
+  maxFileSize: 100MB
+  maxTotalFileSize: 100MB
