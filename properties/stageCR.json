@@ -916,6 +916,13 @@
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-stages.git",
          "version": "build/1.5.0-SNAPSHOT.6",
          "path": "/libraries"
+      },
+      "consent-data":       {
+         "type": "gitsources",
+         "name": "consent-data",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
+         "version": "build/1.6.0.143",
+         "path": "/"
       }
    }
 }
