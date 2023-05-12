@@ -67,8 +67,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.264",
-         "promotedVersions": "build/1.6.0.244,build/1.6.0.248,build/1.6.0.249,build/1.6.0.253,build/1.6.0.255,build/1.6.0.256,build/1.6.0.257,build/1.6.0.260,build/1.6.0.262,build/1.6.0.264"
+         "version": "build/1.6.0.266",
+         "promotedVersions": "build/1.6.0.248,build/1.6.0.249,build/1.6.0.253,build/1.6.0.255,build/1.6.0.256,build/1.6.0.257,build/1.6.0.260,build/1.6.0.262,build/1.6.0.264,build/1.6.0.266"
       }
    },
    "dockerimage":    {
@@ -473,7 +473,7 @@
          "type": "platform-component",
          "name": "control-plane-nexus",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-nexus.git",
-         "version": "1.5.0-SNAPSHOT.74"
+         "version": "1.5.0-SNAPSHOT.75"
       },
       "ddm-architecture":       {
          "type": "platform-component",
@@ -539,7 +539,7 @@
          "type": "platform-component",
          "name": "user-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git",
-         "version": "1.5.0-SNAPSHOT.265"
+         "version": "1.5.0-SNAPSHOT.268"
       }
    },
    "application":    {
@@ -877,7 +877,7 @@
          "type": "gitsources",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.143",
+         "version": "build/1.6.0.145",
          "path": "/"
       },
       "edp-library-pipelines-fork":       {
