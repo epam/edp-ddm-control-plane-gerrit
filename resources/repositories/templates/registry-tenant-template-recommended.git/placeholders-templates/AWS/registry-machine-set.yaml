@@ -61,16 +61,16 @@ spec:
             - name: kubernetes.io/cluster/{{ .Values.cluster_prefix }}
               value: owned
             - name: 'user:tag'
-              value: {{ .Values.cluster_prefix }}                
+              value: {{ .Values.cluster_prefix }}
           deviceIndex: 0
           ami:
-            id: ami-08eeb2c051c7b2746
+            id: ami-094fe1584439e91dd
           subnet:
             filters:
               - name: 'tag:Name'
                 values:
                   - {{ .Values.cluster_prefix }}-private-{{ .Values.node_zone }}
-          apiVersion: awsproviderconfig.openshift.io/v1beta1
+          apiVersion: machine.openshift.io/v1beta1
           iamInstanceProfile:
             id: {{ .Values.cluster_prefix }}-worker-profile
 
