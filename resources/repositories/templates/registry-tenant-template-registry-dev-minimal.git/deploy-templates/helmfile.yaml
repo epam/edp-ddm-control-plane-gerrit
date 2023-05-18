@@ -179,7 +179,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.227
+  version: 1.5.0-SNAPSHOT.231
   values:
   - values.yaml
   - values.gotmpl
@@ -204,7 +204,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.9.5.3
+  version: 1.9.5.5
   values:
   - values.yaml
   - values.gotmpl
@@ -335,7 +335,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
     path: components/registry/
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.9.5.2
+  version: 1.9.5.3
   values:
   - values.yaml
   - values.gotmpl
@@ -395,7 +395,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version: 1.9.4.36
+  version: 1.9.4.44
   values:
   - values.yaml
   - values.gotmpl
@@ -563,7 +563,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-webservice-gateway.git
     path: components/registry/
   chart: /opt/repositories/bp-webservice-gateway/deploy-templates
-  version: 1.8.0.8
+  version: 1.8.0.9
   values:
   - values.yaml
   - values.gotmpl
@@ -737,7 +737,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.158
+  version: 1.5.0-SNAPSHOT.159
   values:
   - registryGroup:
       name: '{{ env "registryGroup" }}'
@@ -752,7 +752,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/wiremock.git
     path: components/registry/
   chart: /opt/repositories/wiremock/deploy-templates
-  version: 1.5.0-SNAPSHOT.2
+  version: 1.5.0-SNAPSHOT.4
   values:
   - values.yaml
   - values.gotmpl
