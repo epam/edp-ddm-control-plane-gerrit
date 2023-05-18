@@ -88,6 +88,8 @@ global:
         metrics:
           enabled: true
           scrapeInterval: 60s
+  regulationManagement:
+    maxCandidateVersions: 10
   crunchyPostgres:
     postgresql:
       parameters:
