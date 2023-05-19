@@ -166,6 +166,7 @@ class Helmfile {
                             }
                         }
 
+                        deployHelper.addCpClusterMgmtAdminMapper()
                         deployHelper.createClusterAdmin(helmValuesPath, context)
 
                         //temporary solution. Move to pre-upgrade script when implemented
