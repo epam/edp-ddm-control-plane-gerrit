@@ -436,6 +436,11 @@
          "type": "dockerimage",
          "name": "vault-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/hashicorp/vault:1.9.7"
+      },
+      "pgpool-image":       {
+         "type": "dockerimage",
+         "name": "pgpool-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/pgpool/pgpool:4.4.3"
       }
    },
    "platform-component":    {
