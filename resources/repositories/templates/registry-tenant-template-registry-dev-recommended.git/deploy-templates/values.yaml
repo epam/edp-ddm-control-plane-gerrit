@@ -355,6 +355,10 @@ keycloak:
       widgetHeight: 720
   citizenAuthFlow:
     edrCheck: true
+    authType: widget
+    widget:
+      url: https://eu.iit.com.ua/sign-widget/v20200922/
+      height: 720
 digitalDocuments:
   maxFileSize: 100MB
   maxTotalFileSize: 100MB
