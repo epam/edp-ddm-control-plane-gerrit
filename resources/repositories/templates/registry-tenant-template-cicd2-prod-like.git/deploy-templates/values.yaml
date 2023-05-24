@@ -356,6 +356,10 @@ trembita:
 keycloak:
   citizenAuthFlow:
     edrCheck: true
+    authType: widget
+    widget:
+      url: https://eu.iit.com.ua/sign-widget/v20200922/
+      height: 720
   realms:
     officerPortal:
       browserFlow: dso-officer-auth-flow
