@@ -1,4 +1,6 @@
 #helm values
+{{ $cluster_version := exec "oc" (list "get" "clusterversion" "--no-headers") | regexFind "[0-9]+.[0-9]+.[0-9]" }}
+
 namespace: {{ requiredEnv "NAMESPACE" }}
 baseDomain: {{ env "baseDomain" }}
 
@@ -14,6 +16,7 @@ SECRET_ACCESS_KEY: '{{ env "SECRET_ACCESS_KEY" }}'
 backupBucket: '{{ env "backupBucket" }}'
 
 global:
+  clusterVersion: {{ $cluster_version }}
   storageClass: {{ requiredEnv "platformStorageClass" }}
   imageRegistry: '{{ env "edpComponentDockerRegistryUrl" }}'
 # uncomment below to override default

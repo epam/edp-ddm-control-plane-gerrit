@@ -1,4 +1,6 @@
 #helm values
+{{ $cluster_version := exec "oc" (list "get" "clusterversion" "--no-headers") | regexFind "[0-9]+.[0-9]+.[0-9]" }}
+
 namespace: {{ requiredEnv "NAMESPACE" }}
 dnsWildcard: {{ requiredEnv "dnsWildcard" }}
 cdPipelineName: {{ requiredEnv "NAMESPACE" }}
@@ -12,6 +14,7 @@ edpProject: '{{ env "edpProject" }}'
 stageName: '{{ env "stageName" }}'
 
 global:
+  clusterVersion: {{ $cluster_version }}
   imageRegistry: '{{ env "dockerProxyRegistry" }}'
   storageClass: ocs-storagecluster-ceph-rbd
   nexus:
