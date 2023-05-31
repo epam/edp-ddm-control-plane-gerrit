@@ -15,11 +15,6 @@ releases:
     values:
       - values.yaml
       - values.gotmpl
-    hooks:
-      - events: [ "postsync" ]
-        showlogs: true
-        command: "sh"
-        args: [ "../scripts/add_restriction.sh"]
     missingFileHandler: Warn
   - name: gerritaccess
     namespace: control-plane
