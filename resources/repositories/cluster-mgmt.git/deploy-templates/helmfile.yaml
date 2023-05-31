@@ -6,16 +6,6 @@ missingFileHandler: Warn
 
 # TODO: automate values.image.* handling
 releases:
-  - name: ip-restrictions
-    namespace: control-plane
-    chart: ip-restrictions
-    version: 1.0.0
-    labels:
-      type: local
-    values:
-      - values.yaml
-      - values.gotmpl
-    missingFileHandler: Warn
   - name: gerritaccess
     namespace: control-plane
     chart: gerritaccess

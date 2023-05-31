@@ -123,7 +123,6 @@ class Helmfile {
                         script.println "cluster-mgmt could not be triggered on 'cicd?' clusters"
                     } else {
                         script.sh("cat ${helmfile}")
-                        script.sh("helmfile -f ${helmfile} -l name=ip-restrictions sync")
 
                         // add new branches from template to registry repo
                         String templateURL
