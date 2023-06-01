@@ -42,7 +42,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/service-mesh.git
-  version: 1.5.0-SNAPSHOT.76
+  version: 1.5.0-SNAPSHOT.71
   values: []
 - name: backup-management
   version: 1.9.4.9
