@@ -18,8 +18,8 @@
          "type": "autotests",
          "name": "auto-qa-setup",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/auto-qa-setup.git",
-         "version": "build/1.6.0.52",
-         "promotedVersions": "build/1.6.0.42,build/1.6.0.43,build/1.6.0.44,build/1.6.0.45,build/1.6.0.47,build/1.6.0.48,build/1.6.0.49,build/1.6.0.50,build/1.6.0.51,build/1.6.0.52"
+         "version": "build/1.6.0.53",
+         "promotedVersions": "build/1.6.0.43,build/1.6.0.44,build/1.6.0.45,build/1.6.0.47,build/1.6.0.48,build/1.6.0.49,build/1.6.0.50,build/1.6.0.51,build/1.6.0.52,build/1.6.0.53"
       },
       "certified-laboratories-registry-regulation":       {
          "type": "autotests",
@@ -125,7 +125,7 @@
       "dataplatform-jenkins-agent-image":       {
          "type": "dockerimage",
          "name": "dataplatform-jenkins-agent-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.9.5.13"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.9.5.14"
       },
       "ddm-language-server-image":       {
          "type": "dockerimage",
