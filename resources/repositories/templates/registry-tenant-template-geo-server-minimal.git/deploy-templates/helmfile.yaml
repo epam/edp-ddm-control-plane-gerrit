@@ -950,6 +950,23 @@ releases:
   - '{{ env "NAMESPACE" }}/registry-auth'
   - '{{ env "NAMESPACE" }}/registry-nodes'
   - '{{ env "NAMESPACE" }}/registry-configuration'
+- name: reloader
+  namespace: '{{ env "NAMESPACE" }}'
+  labels:
+    type: remote
+    update_scc: false
+    repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/reloader.git
+    path: components/registry/
+    branch: 1.9.6-SNAPSHOT.1
+  chart: /opt/repositories/reloader/deploy-templates
+  version: 1.9.6-SNAPSHOT.1
+  values:
+    - values.yaml
+    - values.gotmpl
+  missingFileHandler: Warn
+  needs:
+    - '{{ env "NAMESPACE" }}/registry-nodes'
+    - '{{ env "NAMESPACE" }}/registry-configuration'
 environments:
   default:
     missingFileHandler: Error
