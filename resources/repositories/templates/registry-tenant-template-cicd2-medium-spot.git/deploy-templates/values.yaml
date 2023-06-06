@@ -217,3 +217,9 @@ keycloak:
 digitalDocuments:
   maxFileSize: 100MB
   maxTotalFileSize: 100MB
+portals:
+  citizen:
+    signWidget:
+      url: https://eu.iit.com.ua/sign-widget/v20200922/
+      height: 720
+      copyFromAuthWidget: true
