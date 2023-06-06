@@ -11,8 +11,8 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.255",
-         "promotedVersions": "build/1.6.0.237,build/1.6.0.239,build/1.6.0.241,build/1.6.0.243,build/1.6.0.244,build/1.6.0.246,build/1.6.0.247,build/1.6.0.250,build/1.6.0.254,build/1.6.0.255"
+         "version": "build/1.6.0.256",
+         "promotedVersions": "build/1.6.0.239,build/1.6.0.241,build/1.6.0.243,build/1.6.0.244,build/1.6.0.246,build/1.6.0.247,build/1.6.0.250,build/1.6.0.254,build/1.6.0.255,build/1.6.0.256"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -479,7 +479,7 @@
          "type": "platform-component",
          "name": "ddm-architecture",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/ddm-architecture.git",
-         "version": "1.9.4.188"
+         "version": "1.9.5.194"
       },
       "external-integration-mocks":       {
          "type": "platform-component",
@@ -729,7 +729,7 @@
          "type": "application",
          "name": "nexus",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git",
-         "version": "1.5.0-SNAPSHOT.71",
+         "version": "1.5.0-SNAPSHOT.72",
          "env": "prod"
       },
       "pg-exporter-chart":       {
