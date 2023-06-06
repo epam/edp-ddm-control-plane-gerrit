@@ -479,7 +479,7 @@
          "type": "platform-component",
          "name": "ddm-architecture",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/ddm-architecture.git",
-         "version": "1.9.5.194"
+         "version": "1.9.5.200"
       },
       "external-integration-mocks":       {
          "type": "platform-component",
