@@ -11,8 +11,8 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.260",
-         "promotedVersions": "build/1.6.0.241,build/1.6.0.243,build/1.6.0.244,build/1.6.0.246,build/1.6.0.247,build/1.6.0.250,build/1.6.0.254,build/1.6.0.255,build/1.6.0.256,build/1.6.0.260"
+         "version": "build/1.6.0.264",
+         "promotedVersions": "build/1.6.0.243,build/1.6.0.244,build/1.6.0.246,build/1.6.0.247,build/1.6.0.250,build/1.6.0.254,build/1.6.0.255,build/1.6.0.256,build/1.6.0.260,build/1.6.0.264"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -67,8 +67,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.291",
-         "promotedVersions": "build/1.6.0.278,build/1.6.0.280,build/1.6.0.281,build/1.6.0.282,build/1.6.0.283,build/1.6.0.284,build/1.6.0.286,build/1.6.0.288,build/1.6.0.289,build/1.6.0.291"
+         "version": "build/1.6.0.292",
+         "promotedVersions": "build/1.6.0.280,build/1.6.0.281,build/1.6.0.282,build/1.6.0.283,build/1.6.0.284,build/1.6.0.286,build/1.6.0.288,build/1.6.0.289,build/1.6.0.291,build/1.6.0.292"
       }
    },
    "dockerimage":    {
@@ -100,7 +100,7 @@
       "common-web-app-image":       {
          "type": "dockerimage",
          "name": "common-web-app-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.55"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.74"
       },
       "control-plane-gerrit-operator-image":       {
          "type": "dockerimage",
@@ -145,7 +145,7 @@
       "digital-signature-ops-image":       {
          "type": "dockerimage",
          "name": "digital-signature-ops-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/digital-signature-ops-master:1.9.5.8"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/digital-signature-ops-master:1.9.5.9"
       },
       "edp-jenkins-image":       {
          "type": "dockerimage",
@@ -340,7 +340,12 @@
       "registry-regulation-management-image":       {
          "type": "dockerimage",
          "name": "registry-regulation-management-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/registry-regulation-management-master:1.9.5.8"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/registry-regulation-management-master:1.9.5.9"
+      },
+      "reloader-image":       {
+         "type": "dockerimage",
+         "name": "reloader-image",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/reloader-master:1.9.6-SNAPSHOT.1"
       },
       "report-exporter-image":       {
          "type": "dockerimage",
@@ -461,7 +466,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.0.85"
+         "version": "1.9.6.16"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -539,7 +544,7 @@
          "type": "platform-component",
          "name": "user-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git",
-         "version": "1.5.0-SNAPSHOT.273"
+         "version": "1.5.0-SNAPSHOT.276"
       }
    },
    "application":    {
@@ -575,7 +580,7 @@
          "type": "application",
          "name": "common-web-app",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git",
-         "version": "1.9.4.55",
+         "version": "1.9.4.74",
          "env": "prod"
       },
       "dataplatform-jenkins-agent":       {
@@ -610,7 +615,7 @@
          "type": "application",
          "name": "digital-signature-ops",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git",
-         "version": "1.9.5.8",
+         "version": "1.9.5.9",
          "env": "prod"
       },
       "excerpt-service-api":       {
@@ -729,7 +734,7 @@
          "type": "application",
          "name": "nexus",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git",
-         "version": "1.5.0-SNAPSHOT.72",
+         "version": "1.5.0-SNAPSHOT.75",
          "env": "prod"
       },
       "pg-exporter-chart":       {
@@ -799,7 +804,14 @@
          "type": "application",
          "name": "registry-regulation-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git",
-         "version": "1.9.5.8",
+         "version": "1.9.5.9",
+         "env": "prod"
+      },
+      "reloader":       {
+         "type": "application",
+         "name": "reloader",
+         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/reloader.git",
+         "version": "1.9.6-SNAPSHOT.1",
          "env": "prod"
       },
       "report-exporter":       {
@@ -850,13 +862,6 @@
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/wiremock.git",
          "version": "1.5.0-SNAPSHOT.5",
          "env": "prod"
-      },
-      "reloader":       {
-         "type": "application",
-         "name": "reloader",
-         "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/reloader.git",
-         "version": "1.9.6-SNAPSHOT.1",
-         "env": "prod"
       }
    },
    "resource":    {
@@ -905,7 +910,7 @@
          "type": "gitsources",
          "name": "edp-library-stages-fork",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/libraries/edp-library-stages-fork.git",
-         "version": "build/0.2.1-SNAPSHOT.395",
+         "version": "build/0.2.1-SNAPSHOT.400",
          "path": "/libraries"
       },
       "empty-template-registry-regulation":       {

@@ -348,7 +348,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
     path: components/registry/
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.9.5.8
+  version: 1.9.5.9
   values:
   - values.yaml
   - values.gotmpl
@@ -408,7 +408,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version: 1.9.4.55
+  version: 1.9.4.74
   values:
   - values.yaml
   - values.gotmpl
@@ -500,7 +500,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/nexus.git
     path: components/registry/
   chart: /opt/repositories/nexus/deploy-templates
-  version: 1.5.0-SNAPSHOT.72
+  version: 1.5.0-SNAPSHOT.75
   values:
   - operator:
       clusterRoleName: nexus-operator-{{ env "globalEDPProject" }}-clusterrole
@@ -917,7 +917,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git
     path: components/registry/
   chart: /opt/repositories/registry-regulation-management/deploy-templates
-  version: 1.9.5.8
+  version: 1.9.5.9
   values:
   - values.yaml
   - values.gotmpl
@@ -1018,12 +1018,12 @@ releases:
   chart: /opt/repositories/reloader/deploy-templates
   version: 1.9.6-SNAPSHOT.1
   values:
-    - values.yaml
-    - values.gotmpl
+  - values.yaml
+  - values.gotmpl
   missingFileHandler: Warn
   needs:
-    - '{{ env "NAMESPACE" }}/registry-nodes'
-    - '{{ env "NAMESPACE" }}/registry-configuration'
+  - '{{ env "NAMESPACE" }}/registry-nodes'
+  - '{{ env "NAMESPACE" }}/registry-configuration'
 environments:
   default:
     missingFileHandler: Error
