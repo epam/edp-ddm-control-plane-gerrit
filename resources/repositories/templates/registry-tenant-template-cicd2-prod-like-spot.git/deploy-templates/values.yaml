@@ -21,6 +21,11 @@ kongPluginsConfig:
   pluginsRateLimitByIpPolicy: "local"
   pluginsRateLimitByIpFaultTolerant: "true"
   pluginsRateLimitByIpHideClientHeaders: "false"
+  pluginsProxyCacheTtl: 900
+  pluginsPrometheusStatusCodeMetrics: true
+  pluginsPrometheusLatencyMetrics: true
+  pluginsPrometheusBandwidthMetrics: true
+  pluginsPrometheusPerConsumerMetrics: true
 
 ## Level of logging for the kong and controller. Allowed values are
 ## trace, debug, info, warn, error, fatal and panic. (default "info")

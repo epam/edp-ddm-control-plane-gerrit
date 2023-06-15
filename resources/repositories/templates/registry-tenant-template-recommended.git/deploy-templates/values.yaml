@@ -270,6 +270,11 @@ kongPluginsConfig:
   pluginsRateLimitByIpPolicy: "local"
   pluginsRateLimitByIpFaultTolerant: "true"
   pluginsRateLimitByIpHideClientHeaders: "false"
+  pluginsProxyCacheTtl: 900
+  pluginsPrometheusStatusCodeMetrics: true
+  pluginsPrometheusLatencyMetrics: true
+  pluginsPrometheusBandwidthMetrics: true
+  pluginsPrometheusPerConsumerMetrics: true
 
 signWidget:
   url: https://eu.iit.com.ua/sign-widget/v20200922/

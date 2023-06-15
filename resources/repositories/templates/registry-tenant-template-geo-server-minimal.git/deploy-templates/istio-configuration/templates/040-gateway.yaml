@@ -16,3 +16,4 @@ spec:
         - {{ include "officer-portal.url" . }}
         - external-service-api-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
         - admin-tools-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
+        - platform-gateway-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}

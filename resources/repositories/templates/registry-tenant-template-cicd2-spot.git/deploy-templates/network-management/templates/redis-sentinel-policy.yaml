@@ -32,6 +32,9 @@ spec:
               app: registry-rest-api-ext
         - podSelector:
             matchLabels:
+              app: registry-rest-api-public
+        - podSelector:
+            matchLabels:
               app: user-process-management
         - podSelector:
             matchLabels:
