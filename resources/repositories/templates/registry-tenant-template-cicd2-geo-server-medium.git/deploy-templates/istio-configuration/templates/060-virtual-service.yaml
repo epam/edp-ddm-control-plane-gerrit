@@ -8,6 +8,7 @@ spec:
     - {{ include "citizen-portal.url" . }}
     - {{ include "officer-portal.url" . }}
     - external-service-api-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
+    - platform-gateway-{{ .Values.stageName }}.{{ .Values.dnsWildcard }}
   gateways:
     - gateway
   http:

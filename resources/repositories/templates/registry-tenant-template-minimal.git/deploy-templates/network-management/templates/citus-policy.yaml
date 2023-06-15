@@ -50,6 +50,9 @@ spec:
               app: registry-rest-api
         - podSelector:
             matchLabels:
+              app: registry-rest-api-public
+        - podSelector:
+            matchLabels:
               app: registry-rest-api-ext
         - podSelector:
             matchLabels:
