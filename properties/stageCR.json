@@ -67,8 +67,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.297",
-         "promotedVersions": "build/1.6.0.283,build/1.6.0.284,build/1.6.0.286,build/1.6.0.288,build/1.6.0.289,build/1.6.0.291,build/1.6.0.292,build/1.6.0.294,build/1.6.0.295,build/1.6.0.297"
+         "version": "build/1.6.0.298",
+         "promotedVersions": "build/1.6.0.284,build/1.6.0.286,build/1.6.0.288,build/1.6.0.289,build/1.6.0.291,build/1.6.0.292,build/1.6.0.294,build/1.6.0.295,build/1.6.0.297,build/1.6.0.298"
       }
    },
    "dockerimage":    {
@@ -100,7 +100,7 @@
       "common-web-app-image":       {
          "type": "dockerimage",
          "name": "common-web-app-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.77"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.78"
       },
       "control-plane-gerrit-operator-image":       {
          "type": "dockerimage",
@@ -466,7 +466,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.6.17"
+         "version": "1.9.6.18"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -580,7 +580,7 @@
          "type": "application",
          "name": "common-web-app",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git",
-         "version": "1.9.4.77",
+         "version": "1.9.4.78",
          "env": "prod"
       },
       "dataplatform-jenkins-agent":       {
