@@ -93,12 +93,14 @@ class Helmfile {
                     script.env.ADMIN_ROUTES_WHITELIST_CIDR = values.global.whiteListIP.adminRoutes
                     script.env.deploymentMode = values.global.deploymentMode
 
-                    String helmfile = 'deploy-templates/helmfile.yaml'
+                    String helmfilePath = 'deploy-templates/helmfile.yaml'
                     String helmValuesPath = 'deploy-templates/values.yaml'
                     LinkedHashMap helmValues = script.readYaml file: helmValuesPath
                     String clustermgmt = 'properties/cluster-mgmt.yaml'
                     String gitURL = "ssh://${context.git.autouser}@${context.git.host}:${context.git.sshPort}/"
                     LinkedHashMap components = script.readYaml file: clustermgmt
+                    LinkedHashMap helmfile = script.readYaml file: helmfilePath
+                    components.releases.addAll(helmfile.releases)
                     ArrayList<String> registries = script.sh(script: """oc get codebase -n ${script.env.globalEDPProject} -o=jsonpath='{.items[?(@.spec.type == "registry")].metadata.name}'""", returnStdout: true).trim().tokenize(" ")
 
                     components.releases.each { component ->
@@ -143,7 +145,7 @@ class Helmfile {
                     if (context.job.dnsWildcard.startsWith("apps.cicd")) {
                         script.println "cluster-mgmt could not be triggered on 'cicd?' clusters"
                     } else {
-                        script.sh("cat ${helmfile}")
+                        script.sh("cat ${helmfilePath}")
 
                         // add new branches from template to registry repo
                         String templateURL
@@ -203,7 +205,7 @@ class Helmfile {
                                 prepareToRunPreUpgradeScripts(context, "keycloak-idps", release.labels.path, release.name, release.name)
                             }
                         }
-                        script.sh("helmfile -f ${helmfile} sync --values ${context.workDir}/deploy-templates/values.yaml --concurrency 1")
+                        script.sh("helmfile -f ${helmfilePath} sync --values ${context.workDir}/deploy-templates/values.yaml --concurrency 1")
                     }
                     LinkedHashMap routes = [
                             'grafana'                           : 'openshift-monitoring',
