@@ -11,8 +11,8 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.266",
-         "promotedVersions": "build/1.6.0.246,build/1.6.0.247,build/1.6.0.250,build/1.6.0.254,build/1.6.0.255,build/1.6.0.256,build/1.6.0.260,build/1.6.0.264,build/1.6.0.265,build/1.6.0.266"
+         "version": "build/1.6.0.269",
+         "promotedVersions": "build/1.6.0.247,build/1.6.0.250,build/1.6.0.254,build/1.6.0.255,build/1.6.0.256,build/1.6.0.260,build/1.6.0.264,build/1.6.0.265,build/1.6.0.266,build/1.6.0.269"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -67,8 +67,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.298",
-         "promotedVersions": "build/1.6.0.284,build/1.6.0.286,build/1.6.0.288,build/1.6.0.289,build/1.6.0.291,build/1.6.0.292,build/1.6.0.294,build/1.6.0.295,build/1.6.0.297,build/1.6.0.298"
+         "version": "build/1.6.0.301",
+         "promotedVersions": "build/1.6.0.286,build/1.6.0.288,build/1.6.0.289,build/1.6.0.291,build/1.6.0.292,build/1.6.0.294,build/1.6.0.295,build/1.6.0.297,build/1.6.0.298,build/1.6.0.301"
       }
    },
    "dockerimage":    {
@@ -80,7 +80,7 @@
       "bp-admin-portal-image":       {
          "type": "dockerimage",
          "name": "bp-admin-portal-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bp-admin-portal-master:1.9.5.6"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bp-admin-portal-master:1.9.5.8"
       },
       "bp-webservice-gateway-image":       {
          "type": "dockerimage",
@@ -100,7 +100,7 @@
       "common-web-app-image":       {
          "type": "dockerimage",
          "name": "common-web-app-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.78"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.79"
       },
       "control-plane-gerrit-operator-image":       {
          "type": "dockerimage",
@@ -448,7 +448,7 @@
          "type": "platform-component",
          "name": "backup-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/backup-management.git",
-         "version": "1.9.4.10"
+         "version": "1.9.6.1"
       },
       "catalog-source":       {
          "type": "platform-component",
@@ -466,7 +466,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.6.18"
+         "version": "1.9.6.19"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -552,7 +552,7 @@
          "type": "application",
          "name": "bp-admin-portal",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-admin-portal.git",
-         "version": "1.9.5.6",
+         "version": "1.9.5.8",
          "env": "prod"
       },
       "bp-webservice-gateway":       {
@@ -580,7 +580,7 @@
          "type": "application",
          "name": "common-web-app",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git",
-         "version": "1.9.4.78",
+         "version": "1.9.4.79",
          "env": "prod"
       },
       "dataplatform-jenkins-agent":       {
@@ -896,7 +896,7 @@
          "type": "gitsources",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.160",
+         "version": "build/1.6.0.163",
          "path": "/"
       },
       "edp-library-pipelines-fork":       {
