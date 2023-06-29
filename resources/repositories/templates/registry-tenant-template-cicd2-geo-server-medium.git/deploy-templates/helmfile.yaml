@@ -303,7 +303,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bp-admin-portal.git
     path: components/registry/
   chart: /opt/repositories/bp-admin-portal/deploy-templates
-  version: 1.9.5.6
+  version: 1.9.5.8
   values:
   - values.yaml
   - values.gotmpl
@@ -408,7 +408,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version: 1.9.4.78
+  version: 1.9.4.79
   values:
   - values.yaml
   - values.gotmpl
