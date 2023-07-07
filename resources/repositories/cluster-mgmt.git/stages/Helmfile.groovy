@@ -11,6 +11,27 @@ class Helmfile {
     DeployHelper deployHelper
     UpgradeHelper upgradeHelper
 
+    /**
+     The Description of the function to explain what the function does
+     @component - helm chart that needs to be deployed (not release name)
+     @path - the name of the repository where the script is located (components/infra/user-management -> components/infra/)
+     @repository - the short name of the repository where the script is located (components/infra/user-management -> user-management)
+     */
+    void prepareToRunPreUpgradeScripts(context, component, path, repository, ns) {
+        try {
+            if (deployHelper.isReleaseDeployed(component, ns)) {
+                script.dir('/opt/repositories/' + path + '/' + repository + '.git') {
+                    script.println("Running pre-upgrade scripts for ${component}")
+                    upgradeHelper.runPreUpgradeScripts(context, component, ns)
+                }
+            } else {
+                script.println("Skip pre-upgrade scripts for ${component} because it is not deployed")
+            }
+        } catch (any) {
+            script.error "pre-upgrade scripts execution for ${component} has been failed"
+        }
+    }
+
     ArrayList<String> COMPOSITE_COMPONENTS = ["user-management", "external-integration-mocks", "cluster-kafka-operator", "postgres-operator"]
 
     void placeCertificatesForKeycloak(context, String customDnsHost, String vaultPath) {
@@ -176,22 +197,10 @@ class Helmfile {
                         }
                         components.releases.each() { release ->
 
-                            // For user-management keycloak by now
+                            // For keycloak, keycloak-idps in user-management ns by now
                             if (release.name == "user-management") {
-                                String userManagementComponent = "keycloak"
-                                try {
-                                    if (deployHelper.isReleaseDeployed(userManagementComponent, release.name)) {
-                                        script.dir("/opt/repositories/components/infra/${userManagementComponent}.git") {
-                                            script.println("Running pre-upgrade scripts for ${userManagementComponent}")
-                                            upgradeHelper.runPreUpgradeScripts(context, userManagementComponent, release.name)
-                                        }
-                                    } else {
-                                        script.println("Skip pre-upgrade scripts for ${userManagementComponent} because it is not deployed")
-                                    }
-                                } catch (any) {
-                                    script.error "pre-upgrade scripts execution for ${userManagementComponent} has been failed"
-                                }
-
+                                prepareToRunPreUpgradeScripts(context, "keycloak", release.labels.path, "keycloak", release.name)
+                                prepareToRunPreUpgradeScripts(context, "keycloak-idps", release.labels.path, release.name, release.name)
                             }
                         }
                         script.sh("helmfile -f ${helmfile} sync --values ${context.workDir}/deploy-templates/values.yaml --concurrency 1")
