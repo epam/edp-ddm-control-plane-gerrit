@@ -54,7 +54,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/backup-management.git
   values: []
 - name: user-management
-  version: 1.9.6.2
+  version: 1.9.6.5
   labels:
     type: remote
     update_scc: false
@@ -99,7 +99,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/smtp-server.git
   values: []
 - name: redis-operator
-  version: 1.8.0-SNAPSHOT.2
+  version: 1.8.0-SNAPSHOT.3
   labels:
     type: remote
     update_scc: false
