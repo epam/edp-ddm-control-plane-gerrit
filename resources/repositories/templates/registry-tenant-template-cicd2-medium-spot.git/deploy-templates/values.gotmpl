@@ -76,6 +76,16 @@ keycloak:
   url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}
   ssoRealm:
     autoRedirectEnabled: {{ env "autoRedirectEnabled" }}
+  citizenAuthFlow:
+    edrCheck: true
+    authType: widget
+    widget:
+      url: https://sign-widget-mock.{{ requiredEnv "dnsWildcard" }}
+      height: 720
+  realms:
+    officerPortal:
+      browserFlow: dso-officer-auth-flow
+      selfRegistration: false
 
 jenkins:
   edpComponentDockerRegistryrepoURL: '{{ env "edpComponentDockerRegistryUrl" }}'
@@ -124,3 +134,10 @@ trembita:
   registries:
     edr-registry:
       url: 'https://trembita-edr-registry-mock.{{ env "dnsWildcard" }}/mockEDRService'
+
+portals:
+  citizen:
+    signWidget:
+      url: https://sign-widget-mock.{{ requiredEnv "dnsWildcard" }}
+      height: 720
+      copyFromAuthWidget: true

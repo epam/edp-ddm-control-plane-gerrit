@@ -351,23 +351,6 @@ trembita:
     idp-exchange-service-registry:
       protocol: SOAP
       type: platform
-keycloak:
-  citizenAuthFlow:
-    edrCheck: true
-    authType: widget
-    widget:
-      url: https://eu.iit.com.ua/sign-widget/v20200922/
-      height: 720
-  realms:
-    officerPortal:
-      browserFlow: dso-officer-auth-flow
-      selfRegistration: false
 digitalDocuments:
   maxFileSize: 100MB
   maxTotalFileSize: 100MB
-portals:
-  citizen:
-    signWidget:
-      url: https://eu.iit.com.ua/sign-widget/v20200922/
-      height: 720
-      copyFromAuthWidget: true
