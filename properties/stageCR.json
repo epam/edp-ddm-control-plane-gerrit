@@ -544,7 +544,7 @@
          "type": "platform-component",
          "name": "user-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git",
-         "version": "1.9.6.5"
+         "version": "1.9.6.6"
       }
    },
    "application":    {
@@ -896,7 +896,7 @@
          "type": "gitsources",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.168",
+         "version": "build/1.6.0.169",
          "path": "/"
       },
       "edp-library-pipelines-fork":       {
