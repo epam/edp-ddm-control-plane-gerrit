@@ -4,15 +4,15 @@
          "type": "autotests",
          "name": "admin-portal-api-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-api-tests.git",
-         "version": "build/1.8.0-SNAPSHOT.61",
-         "promotedVersions": "build/1.8.0-SNAPSHOT.51,build/1.8.0-SNAPSHOT.52,build/1.8.0-SNAPSHOT.53,build/1.8.0-SNAPSHOT.54,build/1.8.0-SNAPSHOT.55,build/1.8.0-SNAPSHOT.56,build/1.8.0-SNAPSHOT.58,build/1.8.0-SNAPSHOT.59,build/1.8.0-SNAPSHOT.60,build/1.8.0-SNAPSHOT.61"
+         "version": "build/1.8.0-SNAPSHOT.62",
+         "promotedVersions": "build/1.8.0-SNAPSHOT.52,build/1.8.0-SNAPSHOT.53,build/1.8.0-SNAPSHOT.54,build/1.8.0-SNAPSHOT.55,build/1.8.0-SNAPSHOT.56,build/1.8.0-SNAPSHOT.58,build/1.8.0-SNAPSHOT.59,build/1.8.0-SNAPSHOT.60,build/1.8.0-SNAPSHOT.61,build/1.8.0-SNAPSHOT.62"
       },
       "admin-portal-ui-tests":       {
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.275",
-         "promotedVersions": "build/1.6.0.256,build/1.6.0.260,build/1.6.0.264,build/1.6.0.265,build/1.6.0.266,build/1.6.0.269,build/1.6.0.270,build/1.6.0.271,build/1.6.0.272,build/1.6.0.275"
+         "version": "build/1.6.0.279",
+         "promotedVersions": "build/1.6.0.260,build/1.6.0.264,build/1.6.0.265,build/1.6.0.266,build/1.6.0.269,build/1.6.0.270,build/1.6.0.271,build/1.6.0.272,build/1.6.0.275,build/1.6.0.279"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -100,7 +100,7 @@
       "common-web-app-image":       {
          "type": "dockerimage",
          "name": "common-web-app-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.84"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.85"
       },
       "control-plane-gerrit-operator-image":       {
          "type": "dockerimage",
@@ -340,7 +340,7 @@
       "registry-regulation-management-image":       {
          "type": "dockerimage",
          "name": "registry-regulation-management-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/registry-regulation-management-master:1.9.6.2"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/registry-regulation-management-master:1.9.6.3"
       },
       "reloader-image":       {
          "type": "dockerimage",
@@ -466,7 +466,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.6.22"
+         "version": "1.9.6.23"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -544,7 +544,7 @@
          "type": "platform-component",
          "name": "user-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git",
-         "version": "1.9.6.6"
+         "version": "1.9.6.8"
       }
    },
    "application":    {
@@ -580,7 +580,7 @@
          "type": "application",
          "name": "common-web-app",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git",
-         "version": "1.9.4.84",
+         "version": "1.9.4.85",
          "env": "prod"
       },
       "dataplatform-jenkins-agent":       {
@@ -804,7 +804,7 @@
          "type": "application",
          "name": "registry-regulation-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git",
-         "version": "1.9.6.2",
+         "version": "1.9.6.3",
          "env": "prod"
       },
       "reloader":       {
