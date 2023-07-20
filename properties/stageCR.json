@@ -102,15 +102,15 @@
          "name": "common-web-app-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.89"
       },
-      "control-plane-gerrit-operator-image":       {
+      "registry-gerrit-operator-backup-image":       {
          "type": "dockerimage",
          "name": "control-plane-gerrit-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/gerrit-operator:2.12.0-SNAPSHOT.1-1668595949"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/gerrit-operator:2.13.5"
       },
-      "control-plane-jenkins-operator-image":       {
+      "registry-jenkins-operator-backup-image":       {
          "type": "dockerimage",
          "name": "control-plane-jenkins-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/jenkins-operator:2.11.0-MDTU-DDM-SNAPSHOT.6"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/jenkins-operator:2.13.2"
       },
       "cp-schema-registry-image":       {
          "type": "dockerimage",
@@ -883,7 +883,7 @@
       "business-process-modeler-extensions":       {
          "type": "resource",
          "name": "business-process-modeler-extensions",
-         "path": "repository/edp-maven-releases/com/epam/digital/data/platform/business-process-modeler-extensions/1.9.6.1/business-process-modeler-extensions-1.9.6.1.zip"
+         "path": "repository/edp-maven-releases/com/epam/digital/data/platform/business-process-modeler-extensions/1.9.4.8/business-process-modeler-extensions-1.9.4.8.zip"
       },
       "dbchangelog":       {
          "type": "resource",

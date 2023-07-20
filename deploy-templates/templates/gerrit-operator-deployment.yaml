@@ -35,6 +35,8 @@ spec:
               value: gerrit-operator
             - name: PLATFORM_TYPE
               value: openshift
+            - name: GERRIT_GROUP_MEMBER_SYNC_INTERVAL
+              value: {{ .Values.operator.groupMemberSyncInterval }}
           securityContext:
             allowPrivilegeEscalation: false
           imagePullPolicy: IfNotPresent

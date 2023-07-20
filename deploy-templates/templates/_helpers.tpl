@@ -46,6 +46,19 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- printf "%s%s" "https://" (include "gerrit.hostname" .) }}
 {{- end }}
 
+{{/*
+If condition is required to save old CI git user name for existing envs till 1.9.6.
+Since new user name is forced by upgrade gerrit-operator to v2.14.0
+*/}}
+{{- define "gerrit.gitUser" }}
+{{- $gitServer := (lookup "v2.edp.epam.com/v1alpha1" "GitServer" .Release.Namespace "gerrit") -}}
+{{- if $gitServer }}
+{{- $gitServer.spec.gitUser }}
+{{ else -}}
+edp-ci
+{{- end -}}
+{{ end -}}
+
 {{- define "keycloak.realm" -}}
 {{- printf "%s-%s" .Release.Namespace .Values.keycloakIntegration.realm }}
 {{- end -}}
@@ -56,5 +69,3 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- else -}}
 {{- end -}}
 {{- end }}
-
-

@@ -1,36 +1,12 @@
-apiVersion: v2.edp.epam.com/v1alpha1
+apiVersion: v2.edp.epam.com/v1
 kind: Gerrit
 metadata:
   name: gerrit
   labels:
   {{- include "gerrit-operator.metaLabels" . | nindent 4 }}
 spec:
-  image: {{ .Values.image.name }}
   keycloakSpec:
     enabled: {{ .Values.keycloakIntegration.enabled }}
     realm: {{ template "keycloak.realm" . }}
     url: {{ template "gerrit.url" . }}
-  type: Gerrit
   sshPort: {{ .Values.gerrit.sshPort }}
-  users:
-  {{- if .Values.global -}}
-    {{- if .Values.global.gerrit.administrators -}}
-    {{- range .Values.global.gerrit.administrators }}
-    - username: {{ . }}
-      groups:
-        - Administrators
-        - Continuous Integration Tools
-    {{- end -}}
-    {{- end -}}
-    {{- if .Values.global.gerrit.readers -}}
-    {{- range .Values.global.gerrit.readers }}
-    - username: {{ . }}
-      groups: []
-    {{- end -}}
-  {{- end -}}
-  {{- end }}
-  version: {{ .Values.image.version }}
-  volumes:
-    - capacity: {{ .Values.gerrit.storage.size }}
-      name: data
-      storage_class: {{ .Values.storageClass }}
