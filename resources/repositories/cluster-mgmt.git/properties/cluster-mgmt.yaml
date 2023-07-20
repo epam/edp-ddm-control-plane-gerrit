@@ -54,7 +54,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/backup-management.git
   values: []
 - name: user-management
-  version: 1.9.6.8
+  version: 1.9.6.9
   labels:
     type: remote
     update_scc: false

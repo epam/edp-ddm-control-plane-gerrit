@@ -11,8 +11,8 @@
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.279",
-         "promotedVersions": "build/1.6.0.260,build/1.6.0.264,build/1.6.0.265,build/1.6.0.266,build/1.6.0.269,build/1.6.0.270,build/1.6.0.271,build/1.6.0.272,build/1.6.0.275,build/1.6.0.279"
+         "version": "build/1.6.0.282",
+         "promotedVersions": "build/1.6.0.264,build/1.6.0.265,build/1.6.0.266,build/1.6.0.269,build/1.6.0.270,build/1.6.0.271,build/1.6.0.272,build/1.6.0.275,build/1.6.0.279,build/1.6.0.282"
       },
       "auto-qa-setup":       {
          "type": "autotests",
@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "data-factory-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/data-factory-integration-tests.git",
-         "version": "build/1.6.0.95",
-         "promotedVersions": "build/1.6.0.83,build/1.6.0.84,build/1.6.0.87,build/1.6.0.88,build/1.6.0.89,build/1.6.0.90,build/1.6.0.91,build/1.6.0.93,build/1.6.0.94,build/1.6.0.95"
+         "version": "build/1.6.0.96",
+         "promotedVersions": "build/1.6.0.84,build/1.6.0.87,build/1.6.0.88,build/1.6.0.89,build/1.6.0.90,build/1.6.0.91,build/1.6.0.93,build/1.6.0.94,build/1.6.0.95,build/1.6.0.96"
       },
       "data-integration-tests":       {
          "type": "autotests",
@@ -67,8 +67,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.317",
-         "promotedVersions": "build/1.6.0.294,build/1.6.0.295,build/1.6.0.297,build/1.6.0.298,build/1.6.0.301,build/1.6.0.303,build/1.6.0.304,build/1.6.0.305,build/1.6.0.310,build/1.6.0.317"
+         "version": "build/1.6.0.318",
+         "promotedVersions": "build/1.6.0.295,build/1.6.0.297,build/1.6.0.298,build/1.6.0.301,build/1.6.0.303,build/1.6.0.304,build/1.6.0.305,build/1.6.0.310,build/1.6.0.317,build/1.6.0.318"
       }
    },
    "dockerimage":    {
@@ -125,7 +125,7 @@
       "dataplatform-jenkins-agent-image":       {
          "type": "dockerimage",
          "name": "dataplatform-jenkins-agent-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.9.6.7"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.9.6.9"
       },
       "ddm-language-server-image":       {
          "type": "dockerimage",
@@ -230,7 +230,7 @@
       "kafka-api-core-base-image":       {
          "type": "dockerimage",
          "name": "kafka-api-core-base-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kafka-api-core-base-image-master:1.9.4.16"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kafka-api-core-base-image-master:1.9.4.17"
       },
       "kafka-connect-image":       {
          "type": "dockerimage",
@@ -360,7 +360,7 @@
       "rest-api-core-base-image":       {
          "type": "dockerimage",
          "name": "rest-api-core-base-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/rest-api-core-base-image-master:1.9.6.7"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/rest-api-core-base-image-master:1.9.6.8"
       },
       "smtp-server-mailu-admin-image":       {
          "type": "dockerimage",
@@ -466,7 +466,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.6.23"
+         "version": "1.9.6.24"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -544,7 +544,7 @@
          "type": "platform-component",
          "name": "user-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git",
-         "version": "1.9.6.8"
+         "version": "1.9.6.9"
       }
    },
    "application":    {
@@ -587,7 +587,7 @@
          "type": "application",
          "name": "dataplatform-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git",
-         "version": "1.9.6.7",
+         "version": "1.9.6.9",
          "env": "prod"
       },
       "ddm-language-server":       {
