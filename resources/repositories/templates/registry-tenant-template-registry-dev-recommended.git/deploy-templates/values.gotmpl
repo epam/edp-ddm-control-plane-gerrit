@@ -66,15 +66,16 @@ nexus:
 commonWebApp:
   businessProcessModelerExtensionsVersion: 1.9.6.1
 
+{{ $centralGitUser := exec "oc" (list "get" "GitServer" "-n" (env "globalEDPProject") "gerrit" "--no-headers" "-o" "jsonpath={.spec.gitUser}") }}
 jenkins:
   edpComponentDockerRegistryrepoURL: '{{ env "edpComponentDockerRegistryUrl" }}'
 {{- if eq (env "envType") "target" }}
   sharedLibraries:
     edp-library-stages:
-      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedStagesPath" }}
+      url: ssh://{{ $centralGitUser }}@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedStagesPath" }}
       secret: {{ env "libGerritCredId" }}
     edp-library-pipelines:
-      url: ssh://jenkins@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedPipelinesPath" }}
+      url: ssh://{{ $centralGitUser }}@gerrit.{{ env "globalEDPProject" }}.svc:{{ env "libGerritSshPort" }}/{{ env "sharedPipelinesPath" }}
       secret: {{ env "libGerritCredId" }}
 {{- end }}
 
