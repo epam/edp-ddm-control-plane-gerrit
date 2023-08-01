@@ -21,7 +21,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git
-  version: 1.9.6.19
+  version: 1.9.6.28
   values:
   - values.yaml
   - values.gotmpl
@@ -31,12 +31,24 @@ releases:
     command: python3
     args:
     - ../scripts/modify_control_plane_version.py
-  - events: [ "presync" ]
-    command: "oc"
-    args: [ "adm", "policy", "add-scc-to-user", "anyuid", 'system:serviceaccount:{{ env "globalEDPProject" }}:control-plane-console' ]
-  - events: [ "postuninstall" ]
-    command: "oc"
-    args: [ "adm", "policy", "remove-scc-from-user", "anyuid", 'system:serviceaccount:{{ env "globalEDPProject" }}:control-plane-console' ]
+  - events:
+    - presync
+    command: oc
+    args:
+    - adm
+    - policy
+    - add-scc-to-user
+    - anyuid
+    - system:serviceaccount:{{ env "globalEDPProject" }}:control-plane-console
+  - events:
+    - postuninstall
+    command: oc
+    args:
+    - adm
+    - policy
+    - remove-scc-from-user
+    - anyuid
+    - system:serviceaccount:{{ env "globalEDPProject" }}:control-plane-console
 helmfiles:
 - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/catalog-source.git/deploy-templates/helmfile.yaml'
 - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/storage.git/deploy-templates/helmfile.yaml'

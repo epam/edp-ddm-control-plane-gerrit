@@ -699,7 +699,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/libraries/user-publisher.git
     path: components/registry/
   chart: /opt/repositories/user-publisher/deploy-templates
-  version: 1.8.0.24
+  version: 1.8.0.25
   values:
   - values.yaml
   - values.gotmpl
@@ -738,7 +738,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git
     path: components/registry/
   chart: /opt/repositories/registry-configuration/deploy-templates
-  version: 1.5.0-SNAPSHOT.174
+  version: 1.9.6.2
   values:
   - registryGroup:
       name: '{{ env "registryGroup" }}'

@@ -1,9 +1,20 @@
-#helm values
-#cluster_version: `oc version | grep Server | awk {'print $3'} | cut -c-3 `
 source_catalog_version: 4.6
 cdPipelineName: platform
 cdPipelineStageName: main
 global:
   whiteListIP:
-    adminRoutes: "0.0.0.0/0"
+    adminRoutes: 0.0.0.0/0
   deploymentMode: development
+consoleVersions:
+- consoleVersion: 1.9.5-FIX.4
+  stream: 1-9-5-fix
+  registryVersion: 1.9.5
+- consoleVersion: 1.9.0.67
+  stream: master
+  registryVersion: 1.9.4
+- consoleVersion: 1.9.0.41
+  stream: master
+  registryVersion: 1.9.3
+- consoleVersion: 1.9.6.28
+  stream: master
+  registryVersion: 1.9.6

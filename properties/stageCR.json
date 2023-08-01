@@ -420,7 +420,7 @@
       "user-publisher-image":       {
          "type": "dockerimage",
          "name": "user-publisher-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-publisher-master:1.8.0.24"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/user-publisher-master:1.8.0.25"
       },
       "user-settings-service-api-image":       {
          "type": "dockerimage",
@@ -441,6 +441,21 @@
          "type": "dockerimage",
          "name": "vault-image",
          "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/hashicorp/vault:1.9.7"
+      },
+      "control-plane-console-1-9-5-FIX-4":       {
+         "type": "dockerimage",
+         "name": "control-plane-console-1-9-5-FIX-4",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/control-plane-console-1-9-5-fix:1.9.5-FIX.4"
+      },
+      "control-plane-console-1-9-0-67":       {
+         "type": "dockerimage",
+         "name": "control-plane-console-1-9-0-67",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/control-plane-console-master:1.9.0.67"
+      },
+      "control-plane-console-1-9-0-41":       {
+         "type": "dockerimage",
+         "name": "control-plane-console-1-9-0-41",
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/control-plane-console-master:1.9.0.41"
       }
    },
    "platform-component":    {
@@ -466,7 +481,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.6.26"
+         "version": "1.9.6.28"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -496,7 +511,7 @@
          "type": "platform-component",
          "name": "infrastructure-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/infrastructure-jenkins-agent.git",
-         "version": "1.5.0-SNAPSHOT.80"
+         "version": "1.9.6.2"
       },
       "logging":       {
          "type": "platform-component",
@@ -520,7 +535,7 @@
          "type": "platform-component",
          "name": "service-mesh",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/service-mesh.git",
-         "version": "1.9.6.1"
+         "version": "1.9.6.4"
       },
       "smpt-server":       {
          "type": "platform-component",
@@ -790,7 +805,7 @@
          "type": "application",
          "name": "registry-configuration",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git",
-         "version": "1.5.0-SNAPSHOT.174",
+         "version": "1.9.6.2",
          "env": "prod"
       },
       "registry-postgres":       {
@@ -839,7 +854,7 @@
          "type": "application",
          "name": "user-publisher",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/libraries/user-publisher.git",
-         "version": "1.8.0.24",
+         "version": "1.8.0.25",
          "env": "prod"
       },
       "user-settings-service-api":       {
@@ -910,7 +925,7 @@
          "type": "gitsources",
          "name": "edp-library-stages-fork",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/libraries/edp-library-stages-fork.git",
-         "version": "build/0.2.1-SNAPSHOT.408",
+         "version": "build/0.2.1-SNAPSHOT.411",
          "path": "/libraries"
       },
       "empty-template-registry-regulation":       {
