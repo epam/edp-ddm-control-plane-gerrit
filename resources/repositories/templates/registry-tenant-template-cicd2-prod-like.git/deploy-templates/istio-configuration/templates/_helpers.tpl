@@ -1,9 +1,17 @@
+{{- define "portal.default.host" }}
+{{- $root := .root }}
+{{- $portalName := .portalName }}
+{{- printf "%s-%s-%s.%s" $portalName $root.Values.cdPipelineName $root.Values.cdPipelineStageName $root.Values.dnsWildcard }}
+{{- end }}
+
 {{- define "officer-portal.url" -}}
-{{- .Values.portals.officer.customDns.host | default ( printf "%s-%s.%s" "officer-portal" .Values.stageName .Values.dnsWildcard )}}
+{{ $host := ternary .Values.portals.officer.customDns.host (include "portal.default.host" (dict  "root" . "portalName" "officer-portal")) .Values.portals.officer.customDns.enabled }}
+{{- $host }}
 {{- end }}
 
 {{- define "citizen-portal.url" -}}
-{{- .Values.portals.citizen.customDns.host | default ( printf "%s-%s.%s" "citizen-portal" .Values.stageName .Values.dnsWildcard ) }}
+{{ $host := ternary .Values.portals.citizen.customDns.host (include "portal.default.host" (dict  "root" . "portalName" "citizen-portal")) .Values.portals.citizen.customDns.enabled }}
+{{- $host }}
 {{- end }}
 
 {{- define "notifications.diia.url" -}}
