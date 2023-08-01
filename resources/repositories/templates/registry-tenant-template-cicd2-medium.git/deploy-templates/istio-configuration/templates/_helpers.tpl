@@ -1,7 +1,7 @@
 {{- define "portal.default.host" }}
 {{- $root := .root }}
 {{- $portalName := .portalName }}
-{{- printf "%s-%s-%s.%s" $portalName $root.Values.cdPipelineName $root.Values.cdPipelineStageName $root.Values.dnsWildcard }}
+{{- printf "%s-%s.%s" $portalName $root.Values.stageName $root.Values.dnsWildcard }}
 {{- end }}
 
 {{- define "officer-portal.url" -}}
