@@ -2,7 +2,7 @@
 {{- $release := .Release }}
 {{- range $realm := .Values.keycloak.realms }}
 ---
-apiVersion: v1.edp.epam.com/v1alpha1
+apiVersion: v1.edp.epam.com/v1
 kind: KeycloakRealm
 metadata:
   annotations:

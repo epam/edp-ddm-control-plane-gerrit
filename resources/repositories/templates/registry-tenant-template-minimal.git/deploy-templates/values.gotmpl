@@ -122,7 +122,7 @@ trembitaExchangeGateway:
 #TODO end
 keycloak:
   host: platform-keycloak.{{ requiredEnv "dnsWildcard" }}
-  url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}
+  url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}/auth
   ssoRealm:
     autoRedirectEnabled: {{ env "autoRedirectEnabled" }}
 
