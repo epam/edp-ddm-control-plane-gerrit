@@ -73,7 +73,7 @@ commonWebApp:
 
 keycloak:
   host: platform-keycloak.{{ requiredEnv "dnsWildcard" }}
-  url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}
+  url: https://platform-keycloak.{{ requiredEnv "dnsWildcard" }}/auth
   ssoRealm:
     autoRedirectEnabled: {{ env "autoRedirectEnabled" }}
   citizenAuthFlow:
@@ -134,6 +134,7 @@ trembita:
   registries:
     edr-registry:
       url: 'https://trembita-edr-registry-mock.{{ env "dnsWildcard" }}/mockEDRService'
+
 
 portals:
   citizen:
