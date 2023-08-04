@@ -191,7 +191,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.9.6.7
+  version: 1.9.6.9
   values:
   - values.yaml
   - values.gotmpl
@@ -216,7 +216,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.9.6.18
+  version: 1.9.6.19
   values:
   - values.yaml
   - values.gotmpl
@@ -236,7 +236,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/gerrit-operator.git
     path: components/registry/
   chart: /opt/repositories/gerrit-operator/deploy-templates
-  version: 1.5.0-SNAPSHOT.78
+  version: 1.9.6.1
   values:
   - operator:
       clusterRoleName: gerrit-operator-role-{{ env "globalEDPProject" }}
@@ -408,7 +408,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version: 1.9.4.89
+  version: 1.9.4.90
   values:
   - values.yaml
   - values.gotmpl
@@ -434,7 +434,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/redash-chart.git
     path: components/registry/
   chart: /opt/repositories/redash-chart/deploy-templates
-  version: 1.5.0-SNAPSHOT.128
+  version: 1.5.0-SNAPSHOT.129
   values:
   - values.yaml
   - values.gotmpl
@@ -635,7 +635,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/hashicorp-vault.git
     path: components/registry/
   chart: /opt/repositories/hashicorp-vault/deploy-templates
-  version: 1.5.0-SNAPSHOT.71
+  version: 1.5.0-SNAPSHOT.72
   values:
   - values.yaml
   - values.gotmpl
