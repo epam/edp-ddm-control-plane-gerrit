@@ -15,7 +15,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/monitoring.git
-  version: 1.9.6.2
+  version: 1.9.6.4
   values: []
 - name: storage
   labels:
