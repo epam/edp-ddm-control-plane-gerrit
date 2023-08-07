@@ -15,7 +15,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/monitoring.git
-  version: 1.9.6.4
+  version: 1.9.6.5
   values: []
 - name: storage
   labels:
@@ -54,7 +54,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/backup-management.git
   values: []
 - name: user-management
-  version: 1.9.6.9
+  version: 1.9.6.16
   labels:
     type: remote
     update_scc: false
@@ -63,7 +63,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git
   values: []
 - name: control-plane-nexus
-  version: 1.9.6.1
+  version: 1.9.6.2
   labels:
     type: remote
     update_scc: false
