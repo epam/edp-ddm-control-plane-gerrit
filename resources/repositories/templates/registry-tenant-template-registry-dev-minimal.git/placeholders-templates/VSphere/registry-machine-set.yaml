@@ -52,8 +52,16 @@ spec:
           workspace:
             datacenter: {{ $vsphereConfig.data.datacenter }}
             datastore: {{ $vsphereConfig.data.datastore }}
+            {{- if $vsphereConfig.data.folder }}
+            folder: /{{ $vsphereConfig.data.datacenter }}/vm/{{ $vsphereConfig.data.folder }}
+            {{- else }}
             folder: /{{ $vsphereConfig.data.datacenter }}/vm/{{ .Values.cluster_prefix }}
+            {{- end }}
+            {{- if $vsphereConfig.data.resourcePool }}
+            resourcePool: /{{ $vsphereConfig.data.datacenter }}/host/{{ $vsphereConfig.data.cluster }}/Resources/{{ $vsphereConfig.data.resourcePool }}
+            {{- else }}
             resourcePool: /{{ $vsphereConfig.data.datacenter }}/host/{{ $vsphereConfig.data.cluster }}/Resources
+            {{- end }}
             server: {{ $vsphereConfig.data.server }}
           template: {{ .Values.cluster_prefix }}-rhcos
           apiVersion: vsphereprovider.openshift.io/v1beta1
