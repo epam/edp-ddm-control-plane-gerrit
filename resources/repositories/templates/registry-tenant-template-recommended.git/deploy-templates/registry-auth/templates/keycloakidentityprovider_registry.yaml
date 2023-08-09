@@ -23,24 +23,6 @@ data:
 
 ---
 apiVersion: v1.edp.epam.com/v1
-kind: KeycloakAuthFlow
-metadata:
-  name: openshift-{{ .Release.Namespace }}-auth-flow
-  annotations:
-    helm.sh/resource-policy: keep
-spec:
-  alias: "openshift authenticator"
-  authenticationExecutions:
-    - authenticator: openshift-authenticator
-      requirement: REQUIRED
-      priority: 0
-  builtIn: false
-  providerId: basic-flow
-  realm: admin
-  topLevel: true
-
----
-apiVersion: v1.edp.epam.com/v1
 kind: KeycloakRealmIdentityProvider
 metadata:
   name: openshift-{{ .Release.Namespace }}
@@ -51,7 +33,7 @@ spec:
   alias: openshift
   authenticateByDefault: false
   enabled: true
-  firstBrokerLoginFlowAlias: "openshift authenticator"
+  firstBrokerLoginFlowAlias: "first broker login"
   providerId: keycloak-oidc
   displayName: "openshift-sso"
   config:
