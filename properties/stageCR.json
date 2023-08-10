@@ -67,8 +67,8 @@
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.346",
-         "promotedVersions": "build/1.6.0.317,build/1.6.0.318,build/1.6.0.323,build/1.6.0.325,build/1.6.0.326,build/1.6.0.331,build/1.6.0.335,build/1.6.0.338,build/1.6.0.341,build/1.6.0.346"
+         "version": "build/1.6.0.348",
+         "promotedVersions": "build/1.6.0.318,build/1.6.0.323,build/1.6.0.325,build/1.6.0.326,build/1.6.0.331,build/1.6.0.335,build/1.6.0.338,build/1.6.0.341,build/1.6.0.346,build/1.6.0.348"
       }
    },
    "dockerimage":    {
@@ -481,7 +481,7 @@
          "type": "platform-component",
          "name": "control-plane-console",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git",
-         "version": "1.9.6.31"
+         "version": "1.9.6.32"
       },
       "control-plane-jenkins":       {
          "type": "platform-component",
@@ -911,7 +911,7 @@
          "type": "gitsources",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.180",
+         "version": "build/1.6.0.181",
          "path": "/"
       },
       "edp-library-pipelines-fork":       {
