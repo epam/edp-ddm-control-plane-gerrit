@@ -238,9 +238,15 @@ class Helmfile {
                         }
                     }
 
-                    ArrayList registryNamespaces = script.sh(script: "oc get codebases -n control-plane --no-headers -o custom-columns=':metadata.name' --field-selector=metadata.name!=cluster-mgmt", returnStdout: true).split('\n')
-                    registryNamespaces.each {registry ->
-                        script.sh("oc delete -n ${registry} pods --all --force --grace-period=0")
+                    boolean ifIstioFixPodsReloaded = script.sh(script: "oc get -n control-plane Codebase cluster-mgmt -o jsonpath='{.metadata.labels.istioFixPodsReloaded}'", returnStdout: true)
+                    if (ifIstioFixPodsReloaded) {
+                        script.println("Reload not needed")
+                    } else {
+                        ArrayList registryNamespaces = script.sh(script: "oc get codebases -n control-plane --no-headers -o custom-columns=':metadata.name' --field-selector=metadata.name!=cluster-mgmt", returnStdout: true).split('\n')
+                        registryNamespaces.each { registry ->
+                            script.sh("oc delete -n ${registry} pods --all --force --grace-period=0")
+                        }
+                        script.sh("oc label -n control-plane Codebase cluster-mgmt istioFixPodsReloaded='true'")
                     }
                 }
             }
