@@ -105,7 +105,7 @@
       "control-plane-gerrit-operator-image":       {
          "type": "dockerimage",
          "name": "control-plane-gerrit-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/gerrit-operator:2.12.0-SNAPSHOT.1-1668595949"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/gerrit-operator:2.13.5"
       },
       "control-plane-jenkins-operator-image":       {
          "type": "dockerimage",
@@ -559,7 +559,7 @@
          "type": "platform-component",
          "name": "user-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git",
-         "version": "1.9.6.21"
+         "version": "1.9.6.22"
       }
    },
    "application":    {
