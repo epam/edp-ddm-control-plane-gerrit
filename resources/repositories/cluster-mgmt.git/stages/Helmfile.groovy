@@ -237,6 +237,11 @@ class Helmfile {
                             script.println("WARN: failed to annotate route ${it.key} in namespace ${it.value}")
                         }
                     }
+
+                    ArrayList registryNamespaces = script.sh(script: "oc get codebases -n control-plane --no-headers -o custom-columns=':metadata.name' --field-selector=metadata.name!=cluster-mgmt", returnStdout: true).split('\n')
+                    registryNamespaces.each {registry ->
+                        script.sh("oc delete -n ${registry} pods --all --force --grace-period=0")
+                    }
                 }
             }
         }
