@@ -243,8 +243,10 @@ class Helmfile {
                         script.println("Reload not needed")
                     } else {
                         ArrayList registryNamespaces = script.sh(script: "oc get codebases -n control-plane --no-headers -o custom-columns=':metadata.name' --field-selector=metadata.name!=cluster-mgmt", returnStdout: true).split('\n')
-                        registryNamespaces.each { registry ->
-                            script.sh("oc delete -n ${registry} pods --all --force --grace-period=0")
+                        if (registryNamespaces[0]) {
+                            registryNamespaces.each { registry ->
+                                script.sh("oc delete -n ${registry} pods --all --force --grace-period=0")
+                            }
                         }
                         script.sh("oc label -n control-plane Codebase cluster-mgmt istioFixPodsReloaded='true'")
                     }
