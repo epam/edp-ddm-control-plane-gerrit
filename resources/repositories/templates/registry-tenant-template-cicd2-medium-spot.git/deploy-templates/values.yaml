@@ -190,6 +190,7 @@ trembita:
     edr-registry:
       auth:
         type: AUTH_TOKEN
+        secret: vault:registry-kv/registry/mock-registry/trembita-registries/mock-secret
       client:
         member-class: GOV
         member-code: "43395033"
