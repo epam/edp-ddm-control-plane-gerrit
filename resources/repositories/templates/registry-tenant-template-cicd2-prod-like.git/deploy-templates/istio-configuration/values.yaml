@@ -1,7 +1,0 @@
-portals:
-  citizen:
-    customDns:
-      enabled: false
-  officer:
-    customDns:
-      enabled: false

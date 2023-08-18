@@ -1,0 +1,81 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  annotations: {}
+  name: {{ .Values.cluster_prefix }}-{{ .Values.node_zone }}-{{ .Release.Namespace }}
+  namespace: openshift-machine-api
+  labels:
+    machine.openshift.io/cluster-api-cluster: {{ .Values.cluster_prefix }}
+spec:
+  deletePolicy: Oldest
+  replicas: {{ .Values.global.computeResources.instanceCount }}
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: {{ .Values.cluster_prefix }}
+      machine.openshift.io/cluster-api-machineset: {{ .Values.cluster_prefix }}-{{ .Values.node_zone }}-{{ .Release.Namespace }}
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: {{ .Values.cluster_prefix }}
+        machine.openshift.io/cluster-api-machine-role: worker
+        machine.openshift.io/cluster-api-machine-type: worker
+        machine.openshift.io/cluster-api-machineset: {{ .Values.cluster_prefix }}-{{ .Values.node_zone }}-{{ .Release.Namespace }}
+    spec:
+      taints:
+        - effect: NoSchedule
+          key: node/{{ .Release.Namespace }}
+          value: 'true'
+        - effect: NoExecute
+          key: node/{{ .Release.Namespace }}
+          value: 'true'
+      metadata:
+        labels:
+          node: {{ .Release.Namespace }}
+      providerSpec:
+        value:
+          {{- if and (.Values.global.computeResources.awsSpotInstance) (not .Values.global.computeResources.awsSpotInstanceMaxPrice) }}
+          spotMarketOptions: {}
+          {{- else if and (.Values.global.computeResources.awsSpotInstance) (.Values.global.computeResources.awsSpotInstanceMaxPrice) }}
+          spotMarketOptions:
+            maxPrice: {{ .Values.global.computeResources.awsSpotInstanceMaxPrice }}
+          {{- end }}
+          userDataSecret:
+            name: worker-user-data
+          placement:
+            availabilityZone: {{ .Values.node_zone }}
+            region: {{ .Values.node_region }}
+          credentialsSecret:
+            name: aws-cloud-credentials
+          instanceType: {{ .Values.global.computeResources.awsInstanceType }}
+          metadata:
+            creationTimestamp: null
+          blockDevices:
+            - ebs:
+                encrypted: true
+                iops: 0
+                kmsKey:
+                  arn: ''
+                volumeSize: {{ .Values.global.computeResources.instanceVolumeSize }}
+                volumeType: {{ .Values.global.computeResources.awsInstanceVolumeType }}
+          securityGroups:
+            - filters:
+                - name: 'tag:Name'
+                  values:
+                    - {{ .Values.cluster_prefix }}-worker-sg
+          kind: AWSMachineProviderConfig
+          tags:
+            - name: kubernetes.io/cluster/{{ .Values.cluster_prefix }}
+              value: owned
+            - name: 'user:tag'
+              value: {{ .Values.cluster_prefix }}
+          deviceIndex: 0
+          ami:
+            id: ami-094fe1584439e91dd
+          subnet:
+            filters:
+              - name: 'tag:Name'
+                values:
+                  - {{ .Values.cluster_prefix }}-private-{{ .Values.node_zone }}
+          apiVersion: machine.openshift.io/v1beta1
+          iamInstanceProfile:
+            id: {{ .Values.cluster_prefix }}-worker-profile

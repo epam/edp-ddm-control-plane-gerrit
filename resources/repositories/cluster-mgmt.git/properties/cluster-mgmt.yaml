@@ -15,7 +15,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/monitoring.git
-  version: 1.9.6.5
+  version: 1.9.7.6
   values: []
 - name: storage
   labels:
@@ -24,10 +24,10 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/storage.git
-  version: 1.5.0-SNAPSHOT.91
+  version: 1.9.7.3
   values: []
 - name: logging
-  version: 1.9.6.4
+  version: 1.9.7.2
   labels:
     type: remote
     update_scc: false
@@ -42,10 +42,10 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/service-mesh.git
-  version: 1.9.6.4
+  version: 1.9.7.7
   values: []
 - name: backup-management
-  version: 1.9.7.2
+  version: 1.9.7.4
   labels:
     type: remote
     update_scc: false
@@ -54,7 +54,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/backup-management.git
   values: []
 - name: user-management
-  version: 1.9.7.2
+  version: 1.9.7.9
   labels:
     type: remote
     update_scc: false
@@ -63,7 +63,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git
   values: []
 - name: control-plane-nexus
-  version: 1.9.6.2
+  version: 1.9.7.1
   labels:
     type: remote
     update_scc: false
@@ -72,7 +72,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-nexus.git
   values: []
 - name: external-integration-mocks
-  version: 1.5.0-SNAPSHOT.39
+  version: 1.9.7.2
   labels:
     type: remote
     update_scc: false
@@ -81,7 +81,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/external-integration-mocks.git
   values: []
 - name: cluster-kafka-operator
-  version: 1.5.0-SNAPSHOT.7
+  version: 1.9.7.1
   labels:
     type: remote
     update_scc: false
@@ -90,7 +90,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/cluster-kafka-operator.git
   values: []
 - name: smtp-server
-  version: 1.7.0-SNAPSHOT.5
+  version: 1.9.7.1
   labels:
     type: remote
     update_scc: false
@@ -99,7 +99,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/smtp-server.git
   values: []
 - name: redis-operator
-  version: 1.8.0-SNAPSHOT.3
+  version: 1.9.7.1
   labels:
     type: remote
     update_scc: false
@@ -109,7 +109,7 @@ releases:
     branch: 1.8.0-SNAPSHOT.1
   values: []
 - name: postgres-operator
-  version: 1.5.0-SNAPSHOT.5
+  version: 1.5.0-SNAPSHOT.7
   labels:
     type: remote
     update_scc: false

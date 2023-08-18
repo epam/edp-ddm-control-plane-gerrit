@@ -1,14 +1,15 @@
 import os
-import sys
 import yaml
+import sys
 from kubernetes import client, config
 from kubernetes.client.rest import ApiException
 from os.path import expanduser
 
+cp_console_values_path = sys.argv[1]
 home_dir = expanduser("~")
 client_namespace = os.environ.get("globalEDPProject", "control-plane")
 kubeconfig_path = os.environ.get("KUBECONFIG", home_dir + "/.kube/config")
-cp_console_values_path = sys.argv[1]
+versions_to_keep = 2
 
 codebase = {
     "group": "v2.edp.epam.com",
@@ -32,19 +33,22 @@ def fetch_codebases_version(api_instance, group, version, namespace, plural):
     return unique_versions
 
 
-def parse_console_versions(values_file, cp_values_file, allowed_values):
+def parse_console_versions(values_file, codebase_versions, cp_values_file):
     filtered_list = []
     unique_data = []
     with open(values_file, 'r') as file:
         try:
             data = yaml.safe_load(file)
             console_versions = data.get('consoleVersions')
+            versions_list = [d['registryVersion'] for d in console_versions]
+            sorted_versions = sorted(versions_list,
+                                     key=lambda x: tuple(map(int, x.split('.'))), reverse=True)[:versions_to_keep]
 
-            if allowed_values:
-                filtered_list = [d for d in console_versions if d['registryVersion'] in allowed_values]
-            filtered_list.append(max(console_versions, key=lambda x: x['registryVersion']))
+            filtered_list = [d for d in console_versions if d['registryVersion'] in sorted_versions]
 
-            # Find the maximum registryVersion
+            if codebase_versions:
+                versions_by_codebases = ([d for d in console_versions if d['registryVersion'] in codebase_versions])
+                filtered_list = filtered_list + versions_by_codebases
 
             for d in filtered_list:
                 if d not in unique_data:
@@ -55,7 +59,6 @@ def parse_console_versions(values_file, cp_values_file, allowed_values):
             for d in unique_data:
                 if d['registryVersion'] == max_version:
                     d['latest'] = True
-
             data['consoleVersions'] = unique_data
 
         except yaml.YAMLError as e:
@@ -79,11 +82,11 @@ def main():
 
     api_instance = client.CustomObjectsApi()
     try:
-        codebase_versions = fetch_codebases_version(api_instance, codebase['group'], codebase['version'],
-                                                    codebase['namespace'], codebase['plural'])
-        parse_console_versions("console-versions.yaml", cp_console_values_path, codebase_versions)
-    except ApiException as e:
-        print(f"Error updating values: {e}")
+        codebase_versions = fetch_codebases_version(api_instance, codebase["group"], codebase["version"],
+                                                    codebase["namespace"], codebase["plural"])
+        parse_console_versions("console-versions.yaml", codebase_versions, cp_console_values_path)
+    except:
+        sys.exit('Error occured while proceed values')
 
 
 if __name__ == "__main__":

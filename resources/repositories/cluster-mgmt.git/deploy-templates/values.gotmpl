@@ -6,7 +6,7 @@ baseDomain: {{ env "baseDomain" }}
 
 dnsWildcard: {{ requiredEnv "dnsWildcard" }}
 cdPipelineName: {{ requiredEnv "NAMESPACE" }}
-
+cloudProvider: {{ requiredEnv "cloudProvider" }}
 dockerRegistry: '{{ env "edpComponentDockerRegistryUrl" }}'
 dockerProxyRegistry: '{{ env "dockerProxyRegistry" }}'
 edpProject: '{{ env "edpProject" }}'

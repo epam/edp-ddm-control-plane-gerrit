@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /opt/git
-for repo in `find . -type d \( -name "*.git" ! -name "*cicd*" \)`; do
+for repo in `find . -type d -name "*.git"`; do
         if ! [[ -d "$GERRIT_SITE/git/$repo" ]]; then
 #            rm -rvf $GERRIT_SITE/git/$repo
             echo "Adding template repository $GERRIT_SITE/git/$repo"

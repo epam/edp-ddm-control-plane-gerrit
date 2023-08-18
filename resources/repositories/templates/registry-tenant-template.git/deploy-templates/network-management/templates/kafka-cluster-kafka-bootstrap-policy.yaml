@@ -1,0 +1,77 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: kafka-cluster-kafka-bootstrap-policy
+  namespace: {{ .Values.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: kafka
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: kafka-schema-registry
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kafka-ui
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: entity-operator
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kafka-exporter
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: kafka-connect
+        - podSelector:
+            matchLabels:
+              app: registry-rest-api
+        - podSelector:
+            matchLabels:
+              app: registry-rest-api-public
+        - podSelector:
+            matchLabels:
+              app: registry-rest-api-ext
+        - podSelector:
+            matchLabels:
+              app: registry-kafka-api
+        - podSelector:
+            matchLabels:
+              app: registry-soap-api
+        - podSelector:
+            matchLabels:
+              app: excerpt-service-api
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker-docx
+        - podSelector:
+            matchLabels:
+              app: excerpt-worker-csv
+        - podSelector:
+            matchLabels:
+              app: user-publisher              
+        - podSelector:
+            matchLabels:
+              app: process-history-service-persistence
+        - podSelector:
+            matchLabels:
+              app: user-settings-service-api
+        - podSelector:
+            matchLabels:
+              app: bpms
+        - podSelector:
+            matchLabels:
+              app: business-process-administration-portal
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: ddm-notification-service
+        - namespaceSelector:
+            matchLabels:
+              name: {{ .Values.namespace }}
+        - podSelector:
+            matchLabels:
+              app: digital-document-service
