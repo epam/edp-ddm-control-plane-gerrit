@@ -6,15 +6,15 @@ global:
     adminRoutes: 0.0.0.0/0
   deploymentMode: development
 consoleVersions:
+- consoleVersion: 1.9.6.33
+  stream: master
+  registryVersion: 1.9.6
 - consoleVersion: 1.9.5-FIX.4
   stream: 1-9-5-fix
   registryVersion: 1.9.5
 - consoleVersion: 1.9.0.67
   stream: master
   registryVersion: 1.9.4
-- consoleVersion: 1.9.0.41
+- consoleVersion: 1.9.6.34
   stream: master
-  registryVersion: 1.9.3
-- consoleVersion: 1.9.6.33
-  stream: master
-  registryVersion: 1.9.6
+  registryVersion: 1.9.7
