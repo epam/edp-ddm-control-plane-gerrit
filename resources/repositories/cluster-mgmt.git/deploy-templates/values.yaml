@@ -15,6 +15,6 @@ consoleVersions:
 - consoleVersion: 1.9.0.67
   stream: master
   registryVersion: 1.9.4
-- consoleVersion: 1.9.6.34
+- consoleVersion: 1.9.6.35
   stream: master
   registryVersion: 1.9.7
