@@ -21,7 +21,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git
-  version: 1.9.6.35
+  version: 1.9.6.43
   values:
   - values.yaml
   - values.gotmpl
