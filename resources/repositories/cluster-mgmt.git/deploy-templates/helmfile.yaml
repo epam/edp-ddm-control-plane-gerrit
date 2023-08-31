@@ -31,6 +31,7 @@ releases:
     command: python3
     args:
     - ../scripts/modify_control_plane_version.py
+    - '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/control-plane-console.git/deploy-templates/values.yaml'
   - events:
     - presync
     command: oc
