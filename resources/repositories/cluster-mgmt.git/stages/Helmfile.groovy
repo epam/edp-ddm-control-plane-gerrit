@@ -32,6 +32,35 @@ class Helmfile {
         }
     }
 
+    boolean processGit(context, buildUser, helmValuesPath) {
+        boolean isChanged = false
+        script.sshagent([context.git.credentialsId]) {
+            if (script.sh(script: "git diff", returnStdout: true)) {
+                isChanged = true
+                script.sh "git config --global user.email ${context.git.autouser}@epam.com " +
+                        "&& git config --global user.name ${context.git.autouser} " +
+                        "&& git add ${helmValuesPath}" +
+                        "&& gitdir=\$(git rev-parse --git-dir); scp -p -P ${context.git.sshPort} ${context.git.autouser}@${context.git.host}:hooks/commit-msg \${gitdir}/hooks/ " +
+                        "&& git commit -a --allow-empty -m 'Remove section consoleVersions from values.yaml. " +
+                        "Started by ${buildUser}'" +
+                        "&& git push origin HEAD:${context.git.branch}"
+
+            }
+        }
+        return isChanged
+    }
+    /**
+     Delete section from values.yaml for updating control-plane-console [ONLY FOR 1.9.7 release]
+     */
+    void deleteConsoleVersionsFromValues(context, valuesPath){
+        script.dir("${context.workDir}"){
+            LinkedHashMap valuesContext = script.readYaml file: valuesPath
+            valuesContext.remove('consoleVersions')
+            script.writeYaml data: valuesContext, file: valuesPath, encoding: "UTF-8", overwrite: true
+            processGit(context, "admin", valuesPath)
+
+        }
+    }
     ArrayList<String> COMPOSITE_COMPONENTS = ["user-management", "external-integration-mocks", "cluster-kafka-operator", "postgres-operator"]
 
     void placeCertificatesForKeycloak(context, String customDnsHost, String vaultPath) {
@@ -140,6 +169,8 @@ class Helmfile {
                             placeCertificatesForKeycloak(context, it.host, it.certificatePath)
                         }
                     }
+                    if(helmValues.'consoleVersions')
+                        deleteConsoleVersionsFromValues(context, helmValuesPath)
 
                     // DON'T UNCOMMENT ON CICD* CLUSTERS
                     if (context.job.dnsWildcard.startsWith("apps.cicd")) {
