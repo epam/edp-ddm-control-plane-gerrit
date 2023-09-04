@@ -4,22 +4,22 @@
          "type": "autotests",
          "name": "admin-portal-api-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-api-tests.git",
-         "version": "build/1.8.0-SNAPSHOT.69",
-         "promotedVersions": "build/1.8.0-SNAPSHOT.60,build/1.8.0-SNAPSHOT.61,build/1.8.0-SNAPSHOT.62,build/1.8.0-SNAPSHOT.63,build/1.8.0-SNAPSHOT.64,build/1.8.0-SNAPSHOT.65,build/1.8.0-SNAPSHOT.66,build/1.8.0-SNAPSHOT.67,build/1.8.0-SNAPSHOT.68,build/1.8.0-SNAPSHOT.69"
+         "version": "build/1.8.0-SNAPSHOT.76",
+         "promotedVersions": "build/1.8.0-SNAPSHOT.63,build/1.8.0-SNAPSHOT.64,build/1.8.0-SNAPSHOT.65,build/1.8.0-SNAPSHOT.66,build/1.8.0-SNAPSHOT.67,build/1.8.0-SNAPSHOT.68,build/1.8.0-SNAPSHOT.69,build/1.8.0-SNAPSHOT.73,build/1.8.0-SNAPSHOT.75,build/1.8.0-SNAPSHOT.76"
       },
       "admin-portal-ui-tests":       {
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.300",
-         "promotedVersions": "build/1.6.0.286,build/1.6.0.287,build/1.6.0.288,build/1.6.0.289,build/1.6.0.290,build/1.6.0.296,build/1.6.0.297,build/1.6.0.298,build/1.6.0.299,build/1.6.0.300"
+         "version": "build/1.6.0.307",
+         "promotedVersions": "build/1.6.0.289,build/1.6.0.290,build/1.6.0.296,build/1.6.0.297,build/1.6.0.298,build/1.6.0.299,build/1.6.0.300,build/1.6.0.302,build/1.6.0.304,build/1.6.0.307"
       },
       "auto-qa-setup":       {
          "type": "autotests",
          "name": "auto-qa-setup",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/auto-qa-setup.git",
-         "version": "build/1.6.0.56",
-         "promotedVersions": "build/1.6.0.47,build/1.6.0.48,build/1.6.0.49,build/1.6.0.50,build/1.6.0.51,build/1.6.0.52,build/1.6.0.53,build/1.6.0.54,build/1.6.0.55,build/1.6.0.56"
+         "version": "build/1.6.0.57",
+         "promotedVersions": "build/1.6.0.48,build/1.6.0.49,build/1.6.0.50,build/1.6.0.51,build/1.6.0.52,build/1.6.0.53,build/1.6.0.54,build/1.6.0.55,build/1.6.0.56,build/1.6.0.57"
       },
       "certified-laboratories-registry-regulation":       {
          "type": "autotests",
@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "data-factory-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/data-factory-integration-tests.git",
-         "version": "build/1.6.0.100",
-         "promotedVersions": "build/1.6.0.90,build/1.6.0.91,build/1.6.0.93,build/1.6.0.94,build/1.6.0.95,build/1.6.0.96,build/1.6.0.97,build/1.6.0.98,build/1.6.0.99,build/1.6.0.100"
+         "version": "build/1.6.0.105",
+         "promotedVersions": "build/1.6.0.94,build/1.6.0.95,build/1.6.0.96,build/1.6.0.97,build/1.6.0.98,build/1.6.0.99,build/1.6.0.100,build/1.6.0.101,build/1.6.0.102,build/1.6.0.105"
       },
       "data-integration-tests":       {
          "type": "autotests",
@@ -60,15 +60,15 @@
          "type": "autotests",
          "name": "users-cabinets-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-integration-tests.git",
-         "version": "build/1.6.0.92",
-         "promotedVersions": "build/1.6.0.81,build/1.6.0.82,build/1.6.0.83,build/1.6.0.84,build/1.6.0.85,build/1.6.0.86,build/1.6.0.89,build/1.6.0.90,build/1.6.0.91,build/1.6.0.92"
+         "version": "build/1.6.0.94",
+         "promotedVersions": "build/1.6.0.83,build/1.6.0.84,build/1.6.0.85,build/1.6.0.86,build/1.6.0.89,build/1.6.0.90,build/1.6.0.91,build/1.6.0.92,build/1.6.0.93,build/1.6.0.94"
       },
       "users-cabinets-ui-tests":       {
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.357",
-         "promotedVersions": "build/1.6.0.331,build/1.6.0.335,build/1.6.0.338,build/1.6.0.341,build/1.6.0.346,build/1.6.0.348,build/1.6.0.349,build/1.6.0.350,build/1.6.0.353,build/1.6.0.357"
+         "version": "build/1.6.0.369",
+         "promotedVersions": "build/1.6.0.341,build/1.6.0.346,build/1.6.0.348,build/1.6.0.349,build/1.6.0.350,build/1.6.0.353,build/1.6.0.357,build/1.6.0.364,build/1.6.0.365,build/1.6.0.369"
       }
    },
    "dockerimage":    {
@@ -90,7 +90,7 @@
       "bpms-image":       {
          "type": "dockerimage",
          "name": "bpms-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bpms-master:1.9.7.2"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/bpms-master:1.9.7.4"
       },
       "codebase-operator-image":       {
          "type": "dockerimage",
@@ -100,7 +100,7 @@
       "common-web-app-image":       {
          "type": "dockerimage",
          "name": "common-web-app-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.100"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.104"
       },
       "control-plane-gerrit-operator-image":       {
          "type": "dockerimage",
@@ -125,12 +125,12 @@
       "dataplatform-jenkins-agent-image":       {
          "type": "dockerimage",
          "name": "dataplatform-jenkins-agent-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.9.6.27"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/dataplatform-jenkins-agent-master:1.9.7.6"
       },
       "ddm-language-server-image":       {
          "type": "dockerimage",
          "name": "ddm-language-server-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/ddm-language-server-master:1.9.2-SNAPSHOT.24"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/ddm-language-server-master:1.9.2-SNAPSHOT.25"
       },
       "ddm-notification-service-image":       {
          "type": "dockerimage",
@@ -230,7 +230,7 @@
       "kafka-api-core-base-image":       {
          "type": "dockerimage",
          "name": "kafka-api-core-base-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kafka-api-core-base-image-master:1.9.4.21"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/kafka-api-core-base-image-master:1.9.4.23"
       },
       "kafka-connect-image":       {
          "type": "dockerimage",
@@ -265,7 +265,7 @@
       "model-core-base-image":       {
          "type": "dockerimage",
          "name": "model-core-base-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/model-core-base-image-master:1.9.4.7"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/model-core-base-image-master:1.9.4.9"
       },
       "mongo-image":       {
          "type": "dockerimage",
@@ -295,7 +295,7 @@
       "platform-gateway-image":       {
          "type": "dockerimage",
          "name": "platform-gateway-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/platform-gateway-master:1.9.6.1"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/platform-gateway-master:1.9.7.2"
       },
       "postgres_exporter-image":       {
          "type": "dockerimage",
@@ -340,7 +340,7 @@
       "registry-regulation-management-image":       {
          "type": "dockerimage",
          "name": "registry-regulation-management-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/registry-regulation-management-master:1.9.6.6"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/registry-regulation-management-master:1.9.6.7"
       },
       "reloader-image":       {
          "type": "dockerimage",
@@ -360,7 +360,7 @@
       "rest-api-core-base-image":       {
          "type": "dockerimage",
          "name": "rest-api-core-base-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/rest-api-core-base-image-master:1.9.6.13"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/rest-api-core-base-image-master:1.9.6.15"
       },
       "smtp-server-mailu-admin-image":       {
          "type": "dockerimage",
@@ -405,12 +405,12 @@
       "soap-api-core-base-image":       {
          "type": "dockerimage",
          "name": "soap-api-core-base-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/soap-api-core-base-image-master:1.9.4.10"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/soap-api-core-base-image-master:1.9.4.13"
       },
       "strimzi-kafka-operator-image":       {
          "type": "dockerimage",
          "name": "strimzi-kafka-operator-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/strimzi-kafka-operator-master:1.9.5.1"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/strimzi-kafka-operator-master:1.9.5.2"
       },
       "user-process-management-image":       {
          "type": "dockerimage",
@@ -581,7 +581,7 @@
          "type": "application",
          "name": "bpms",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git",
-         "version": "1.9.7.2",
+         "version": "1.9.7.4",
          "env": "prod"
       },
       "codebase-operator":       {
@@ -595,21 +595,21 @@
          "type": "application",
          "name": "common-web-app",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git",
-         "version": "1.9.4.100",
+         "version": "1.9.4.104",
          "env": "prod"
       },
       "dataplatform-jenkins-agent":       {
          "type": "application",
          "name": "dataplatform-jenkins-agent",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git",
-         "version": "1.9.6.27",
+         "version": "1.9.7.6",
          "env": "prod"
       },
       "ddm-language-server":       {
          "type": "application",
          "name": "ddm-language-server",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/ddm-language-server.git",
-         "version": "1.9.2-SNAPSHOT.24",
+         "version": "1.9.2-SNAPSHOT.25",
          "env": "prod"
       },
       "ddm-notification-service":       {
@@ -714,7 +714,7 @@
          "type": "application",
          "name": "jenkins-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git",
-         "version": "1.9.6.13",
+         "version": "1.9.7.1",
          "env": "prod"
       },
       "kafka-schema-registry":       {
@@ -770,7 +770,7 @@
          "type": "application",
          "name": "platform-gateway",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/platform-gateway.git",
-         "version": "1.9.6.1",
+         "version": "1.9.7.2",
          "env": "prod"
       },
       "process-history-service-api":       {
@@ -805,7 +805,7 @@
          "type": "application",
          "name": "registry-configuration",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git",
-         "version": "1.9.7.4",
+         "version": "1.9.7.6",
          "env": "prod"
       },
       "registry-postgres":       {
@@ -819,7 +819,7 @@
          "type": "application",
          "name": "registry-regulation-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/registry-regulation-management.git",
-         "version": "1.9.6.6",
+         "version": "1.9.6.7",
          "env": "prod"
       },
       "reloader":       {
@@ -840,7 +840,7 @@
          "type": "application",
          "name": "strimzi-kafka-operator",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git",
-         "version": "1.9.5.1",
+         "version": "1.9.5.2",
          "env": "prod"
       },
       "user-process-management":       {
@@ -893,12 +893,12 @@
       "liquibase-ddm-ext":       {
          "type": "resource",
          "name": "liquibase-ddm-ext",
-         "path": "repository/edp-maven-releases/com/epam/digital/data/platform/liquibase-ddm-ext/1.9.6.6/liquibase-ddm-ext-1.9.6.6.jar"
+         "path": "repository/edp-maven-releases/com/epam/digital/data/platform/liquibase-ddm-ext/1.9.7.2/liquibase-ddm-ext-1.9.7.2.jar"
       },
       "liquibase-ext-schema":       {
          "type": "resource",
          "name": "liquibase-ext-schema",
-         "path": "repository/extensions/com/epam/digital/data/platform/liquibase-ext-schema/1.9.6.2/liquibase-ext-schema-1.9.6.2.xsd"
+         "path": "repository/extensions/com/epam/digital/data/platform/liquibase-ext-schema/1.9.7.1/liquibase-ext-schema-1.9.7.1.xsd"
       },
       "liquibase-ext-schema-latest":       {
          "type": "resource",
@@ -911,7 +911,7 @@
          "type": "gitsources",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.185",
+         "version": "build/1.6.0.192",
          "path": "/"
       },
       "edp-library-pipelines-fork":       {
@@ -946,7 +946,7 @@
          "type": "gitsources",
          "name": "registry-regulations-publication-pipeline",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd.svc:32114/mdtu-ddm/devops/registry-regulations-publications/registry-regulations-publication-pipeline.git",
-         "version": "build/1.9.6.5",
+         "version": "build/1.9.7.1",
          "path": "/libraries"
       },
       "registry-regulations-publication-stages":       {
