@@ -45,7 +45,7 @@ releases:
   version: 1.9.6.4
   values: []
 - name: backup-management
-  version: 1.9.7.1
+  version: 1.9.7.2
   labels:
     type: remote
     update_scc: false
