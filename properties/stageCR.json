@@ -463,7 +463,7 @@
          "type": "platform-component",
          "name": "backup-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/backup-management.git",
-         "version": "1.9.7.1"
+         "version": "1.9.7.2"
       },
       "catalog-source":       {
          "type": "platform-component",
