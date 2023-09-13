@@ -168,7 +168,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/bpms.git
     path: components/registry/
   chart: /opt/repositories/bpms/deploy-templates
-  version: 1.9.7.4
+  version: 1.9.7.5
   values:
   - values.yaml
   - values.gotmpl
@@ -191,7 +191,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/devops/operators/jenkins-operator.git
     path: components/registry/
   chart: /opt/repositories/jenkins-operator/deploy-templates
-  version: 1.9.7.1
+  version: 1.9.7.2
   values:
   - values.yaml
   - values.gotmpl
@@ -216,7 +216,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/dataplatform-jenkins-agent.git
     path: components/registry/
   chart: /opt/repositories/dataplatform-jenkins-agent/deploy-templates
-  version: 1.9.7.6
+  version: 1.9.7.8
   values:
   - values.yaml
   - values.gotmpl
@@ -348,7 +348,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/digital-signature-ops.git
     path: components/registry/
   chart: /opt/repositories/digital-signature-ops/deploy-templates
-  version: 1.9.6.3
+  version: 1.9.7.1
   values:
   - values.yaml
   - values.gotmpl
@@ -408,7 +408,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git
     path: components/registry/
   chart: /opt/repositories/common-web-app/deploy-templates
-  version: 1.9.4.105
+  version: 1.9.4.106
   values:
   - values.yaml
   - values.gotmpl
@@ -478,7 +478,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/strimzi-kafka-operator.git
     path: components/registry/
   chart: /opt/repositories/strimzi-kafka-operator/deploy-templates
-  version: 1.9.5.2
+  version: 1.9.5.3
   skipDeps: true
   values:
   - values.yaml
@@ -965,7 +965,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/platform-gateway.git
     path: components/registry/
   chart: /opt/repositories/platform-gateway/deploy-templates
-  version: 1.9.7.2
+  version: 1.9.7.3
   needs:
   - '{{ env "NAMESPACE" }}/bpms'
   values:
@@ -1022,7 +1022,7 @@ releases:
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/backend/applications/form-submission-validation.git
     path: components/registry/
   chart: /opt/repositories/form-submission-validation/deploy-templates
-  version: 1.9.4.7
+  version: 1.9.4.10
   values:
   - values.yaml
   - values.gotmpl
