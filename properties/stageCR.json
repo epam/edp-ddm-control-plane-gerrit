@@ -4,22 +4,22 @@
          "type": "autotests",
          "name": "admin-portal-api-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-api-tests.git",
-         "version": "build/1.8.0-SNAPSHOT.77",
-         "promotedVersions": "build/1.8.0-SNAPSHOT.64,build/1.8.0-SNAPSHOT.65,build/1.8.0-SNAPSHOT.66,build/1.8.0-SNAPSHOT.67,build/1.8.0-SNAPSHOT.68,build/1.8.0-SNAPSHOT.69,build/1.8.0-SNAPSHOT.73,build/1.8.0-SNAPSHOT.75,build/1.8.0-SNAPSHOT.76,build/1.8.0-SNAPSHOT.77"
+         "version": "build/1.8.0-SNAPSHOT.78",
+         "promotedVersions": "build/1.8.0-SNAPSHOT.65,build/1.8.0-SNAPSHOT.66,build/1.8.0-SNAPSHOT.67,build/1.8.0-SNAPSHOT.68,build/1.8.0-SNAPSHOT.69,build/1.8.0-SNAPSHOT.73,build/1.8.0-SNAPSHOT.75,build/1.8.0-SNAPSHOT.76,build/1.8.0-SNAPSHOT.77,build/1.8.0-SNAPSHOT.78"
       },
       "admin-portal-ui-tests":       {
          "type": "autotests",
          "name": "admin-portal-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/admin-portal-ui-tests.git",
-         "version": "build/1.6.0.311",
-         "promotedVersions": "build/1.6.0.296,build/1.6.0.297,build/1.6.0.298,build/1.6.0.299,build/1.6.0.300,build/1.6.0.302,build/1.6.0.304,build/1.6.0.307,build/1.6.0.310,build/1.6.0.311"
+         "version": "build/1.6.0.312",
+         "promotedVersions": "build/1.6.0.297,build/1.6.0.298,build/1.6.0.299,build/1.6.0.300,build/1.6.0.302,build/1.6.0.304,build/1.6.0.307,build/1.6.0.310,build/1.6.0.311,build/1.6.0.312"
       },
       "auto-qa-setup":       {
          "type": "autotests",
          "name": "auto-qa-setup",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/auto-qa-setup.git",
-         "version": "build/1.6.0.58",
-         "promotedVersions": "build/1.6.0.49,build/1.6.0.50,build/1.6.0.51,build/1.6.0.52,build/1.6.0.53,build/1.6.0.54,build/1.6.0.55,build/1.6.0.56,build/1.6.0.57,build/1.6.0.58"
+         "version": "build/1.6.0.59",
+         "promotedVersions": "build/1.6.0.50,build/1.6.0.51,build/1.6.0.52,build/1.6.0.53,build/1.6.0.54,build/1.6.0.55,build/1.6.0.56,build/1.6.0.57,build/1.6.0.58,build/1.6.0.59"
       },
       "certified-laboratories-registry-regulation":       {
          "type": "autotests",
@@ -32,8 +32,8 @@
          "type": "autotests",
          "name": "data-factory-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/data-factory-integration-tests.git",
-         "version": "build/1.6.0.106",
-         "promotedVersions": "build/1.6.0.95,build/1.6.0.96,build/1.6.0.97,build/1.6.0.98,build/1.6.0.99,build/1.6.0.100,build/1.6.0.101,build/1.6.0.102,build/1.6.0.105,build/1.6.0.106"
+         "version": "build/1.6.0.109",
+         "promotedVersions": "build/1.6.0.96,build/1.6.0.97,build/1.6.0.98,build/1.6.0.99,build/1.6.0.100,build/1.6.0.101,build/1.6.0.102,build/1.6.0.105,build/1.6.0.106,build/1.6.0.109"
       },
       "data-integration-tests":       {
          "type": "autotests",
@@ -60,15 +60,15 @@
          "type": "autotests",
          "name": "users-cabinets-integration-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-integration-tests.git",
-         "version": "build/1.6.0.95",
-         "promotedVersions": "build/1.6.0.84,build/1.6.0.85,build/1.6.0.86,build/1.6.0.89,build/1.6.0.90,build/1.6.0.91,build/1.6.0.92,build/1.6.0.93,build/1.6.0.94,build/1.6.0.95"
+         "version": "build/1.6.0.97",
+         "promotedVersions": "build/1.6.0.85,build/1.6.0.86,build/1.6.0.89,build/1.6.0.90,build/1.6.0.91,build/1.6.0.92,build/1.6.0.93,build/1.6.0.94,build/1.6.0.95,build/1.6.0.97"
       },
       "users-cabinets-ui-tests":       {
          "type": "autotests",
          "name": "users-cabinets-ui-tests",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/platform-qa/auto-tests/users-cabinets-ui-tests.git",
-         "version": "build/1.6.0.378",
-         "promotedVersions": "build/1.6.0.350,build/1.6.0.353,build/1.6.0.357,build/1.6.0.364,build/1.6.0.365,build/1.6.0.369,build/1.6.0.371,build/1.6.0.374,build/1.6.0.377,build/1.6.0.378"
+         "version": "build/1.6.0.381",
+         "promotedVersions": "build/1.6.0.353,build/1.6.0.357,build/1.6.0.364,build/1.6.0.365,build/1.6.0.369,build/1.6.0.371,build/1.6.0.374,build/1.6.0.377,build/1.6.0.378,build/1.6.0.381"
       }
    },
    "dockerimage":    {
@@ -100,7 +100,7 @@
       "common-web-app-image":       {
          "type": "dockerimage",
          "name": "common-web-app-image",
-         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.106"
+         "image": "nexus-docker-registry.apps.cicd2.mdtu-ddm.projects.epam.com/mdtu-ddm-edp-cicd/common-web-app-master:1.9.4.107"
       },
       "control-plane-gerrit-operator-image":       {
          "type": "dockerimage",
@@ -559,7 +559,7 @@
          "type": "platform-component",
          "name": "user-management",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/user-management.git",
-         "version": "1.9.6.26"
+         "version": "1.9.7.2"
       }
    },
    "application":    {
@@ -595,7 +595,7 @@
          "type": "application",
          "name": "common-web-app",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/low-code-platform/platform/frontend/applications/common-web-app.git",
-         "version": "1.9.4.106",
+         "version": "1.9.4.107",
          "env": "prod"
       },
       "dataplatform-jenkins-agent":       {
@@ -763,7 +763,7 @@
          "type": "application",
          "name": "pgadmin-chart",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/data-architecture/devops-application/pgadmin-chart.git",
-         "version": "0.0.1-SNAPSHOT.72",
+         "version": "0.0.1-SNAPSHOT.73",
          "env": "dev"
       },
       "platform-gateway":       {
@@ -805,7 +805,7 @@
          "type": "application",
          "name": "registry-configuration",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/general/registry-configuration.git",
-         "version": "1.9.7.6",
+         "version": "1.9.7.7",
          "env": "prod"
       },
       "registry-postgres":       {
@@ -911,7 +911,7 @@
          "type": "gitsources",
          "name": "consent-data",
          "repoURL": "ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/registry-regulations/consent-data.git",
-         "version": "build/1.6.0.199",
+         "version": "build/1.6.0.202",
          "path": "/"
       },
       "edp-library-pipelines-fork":       {
