@@ -8,6 +8,6 @@ consoleVersions:
 - consoleVersion: 1.9.0.67
   stream: master
   registryVersion: 1.9.4
-- consoleVersion: 1.9.7.4
+- consoleVersion: 1.9.7.5
   stream: master
   registryVersion: 1.9.7

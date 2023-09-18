@@ -21,7 +21,7 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git
-  version: 1.9.7.4
+  version: 1.9.7.5
   values:
   - values.yaml
   - values.gotmpl
@@ -60,95 +60,95 @@ releases:
     path: components/control-plane/
     stream: master
   values:
-    - values.yaml
-    - values.gotmpl
-  version: 1.9.6.423
+  - values.yaml
+  - values.gotmpl
+  version: 1.9.6.800
   hooks:
-    - events:
-        - presync
-      showlogs: true
-      command: bash
-      args:
-        - ../scripts/create_namespace.sh
-        - '{{`{{ .Release.Namespace }}`}}'
-    - events:
-        - presync
-      showlogs: true
-      command: oc
-      args:
-        - adm
-        - policy
-        - add-scc-to-user
-        - anyuid
-        - -z
-        - ddm-architecture
-        - -n
-        - '{{`{{ .Release.Namespace }}`}}'
-    - events:
-        - postuninstall
-      showlogs: true
-      command: oc
-      args:
-        - adm
-        - policy
-        - remove-scc-from-user
-        - anyuid
-        - -z
-        - ddm-architecture
-        - -n
-        - '{{`{{ .Release.Namespace }}`}}'
-    - events:
-        - presync
-      showlogs: true
-      command: oc
-      args:
-        - adm
-        - policy
-        - add-scc-to-user
-        - privileged
-        - -z
-        - ddm-architecture
-        - -n
-        - '{{`{{ .Release.Namespace }}`}}'
-    - events:
-        - postuninstall
-      showlogs: true
-      command: oc
-      args:
-        - adm
-        - policy
-        - remove-scc-from-user
-        - privileged
-        - -z
-        - ddm-architecture
-        - -n
-        - '{{`{{ .Release.Namespace }}`}}'
-    - events:
-        - presync
-      showlogs: true
-      command: oc
-      args:
-        - adm
-        - policy
-        - add-role-to-user
-        - view
-        - -z
-        - ddm-architecture
-        - -n
-        - '{{`{{ .Release.Namespace }}`}}'
-    - events:
-        - postuninstall
-      showlogs: true
-      command: oc
-      args:
-        - adm
-        - policy
-        - remove-role-from-user
-        - view
-        - -z
-        - ddm-architecture
-        - -n
-        - '{{`{{ .Release.Namespace }}`}}'
+  - events:
+    - presync
+    showlogs: true
+    command: bash
+    args:
+    - ../scripts/create_namespace.sh
+    - '{{`{{ .Release.Namespace }}`}}'
+  - events:
+    - presync
+    showlogs: true
+    command: oc
+    args:
+    - adm
+    - policy
+    - add-scc-to-user
+    - anyuid
+    - -z
+    - ddm-architecture
+    - -n
+    - '{{`{{ .Release.Namespace }}`}}'
+  - events:
+    - postuninstall
+    showlogs: true
+    command: oc
+    args:
+    - adm
+    - policy
+    - remove-scc-from-user
+    - anyuid
+    - -z
+    - ddm-architecture
+    - -n
+    - '{{`{{ .Release.Namespace }}`}}'
+  - events:
+    - presync
+    showlogs: true
+    command: oc
+    args:
+    - adm
+    - policy
+    - add-scc-to-user
+    - privileged
+    - -z
+    - ddm-architecture
+    - -n
+    - '{{`{{ .Release.Namespace }}`}}'
+  - events:
+    - postuninstall
+    showlogs: true
+    command: oc
+    args:
+    - adm
+    - policy
+    - remove-scc-from-user
+    - privileged
+    - -z
+    - ddm-architecture
+    - -n
+    - '{{`{{ .Release.Namespace }}`}}'
+  - events:
+    - presync
+    showlogs: true
+    command: oc
+    args:
+    - adm
+    - policy
+    - add-role-to-user
+    - view
+    - -z
+    - ddm-architecture
+    - -n
+    - '{{`{{ .Release.Namespace }}`}}'
+  - events:
+    - postuninstall
+    showlogs: true
+    command: oc
+    args:
+    - adm
+    - policy
+    - remove-role-from-user
+    - view
+    - -z
+    - ddm-architecture
+    - -n
+    - '{{`{{ .Release.Namespace }}`}}'
 helmfiles:
 - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/catalog-source.git/deploy-templates/helmfile.yaml'
 - path: '{{ env "CUSTOM_BASEDIR" | default "/opt" }}/repositories/components/infra/storage.git/deploy-templates/helmfile.yaml'
