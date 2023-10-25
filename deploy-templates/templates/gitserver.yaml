@@ -1,12 +1,12 @@
-apiVersion: v2.edp.epam.com/v1alpha1
+apiVersion: v2.edp.epam.com/v1
 kind: GitServer
 metadata:
   name: gerrit
   labels:
   {{- include "gerrit-operator.metaLabels" . | nindent 4 }}
 spec:
-  createCodeReviewPipeline: false
   gitHost: gerrit
+  gitProvider: gerrit
   gitUser: {{ include "gerrit.gitUser" . }}
   httpsPort: 8080
   nameSshKeySecret: gerrit-ciuser-sshkey

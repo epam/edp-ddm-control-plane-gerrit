@@ -61,7 +61,7 @@ class Helmfile {
 
         }
     }
-    ArrayList<String> COMPOSITE_COMPONENTS = ["user-management", "external-integration-mocks", "cluster-kafka-operator", "postgres-operator"]
+    ArrayList<String> COMPOSITE_COMPONENTS = ["user-management", "external-integration-mocks", "cluster-kafka-operator"]
 
     void placeCertificatesForKeycloak(context, String customDnsHost, String vaultPath) {
         String vaultNamespace = "user-management"
@@ -116,11 +116,11 @@ class Helmfile {
                     script.env.openshiftApiUrl = script.sh(script: """ oc whoami --show-server """, returnStdout: true).trim()
                     script.env.platformStorageClass = script.sh(script: """ oc get storageclass -o=jsonpath='{.items[?(@.metadata.annotations.storageclass\\.kubernetes\\.io/is-default-class=="true")].metadata.name}' | awk '{print \$1}' """, returnStdout: true).trim()
                     script.env.baseDomain = script.sh(script: """oc get dns cluster --no-headers -o jsonpath='{.spec.baseDomain}'""", returnStdout: true).trim()
-                    script.env.idgovuaClientId = script.sh(script: """ oc get secret -n ${script.env.edpProject} id-gov-ua-client-secret -o jsonpath='{.data.clientId}' | base64 -d -w0 """, returnStdout: true).trim()
-                    script.env.idgovuaClientSecret = script.sh(script: """ oc get secret -n ${script.env.edpProject} id-gov-ua-client-secret -o jsonpath='{.data.clientSecret}' | base64 -d -w0 """, returnStdout: true).trim()
+                    script.env.ID_GOV_UA_CLIENT_ID = script.sh(script: """ oc get secret -n ${script.env.edpProject} id-gov-ua-client-secret -o jsonpath='{.data.clientId}' | base64 -d -w0 """, returnStdout: true).trim()
+                    script.env.ID_GOV_UA_CLIENT_SECRET = script.sh(script: """ oc get secret -n ${script.env.edpProject} id-gov-ua-client-secret -o jsonpath='{.data.clientSecret}' | base64 -d -w0 """, returnStdout: true).trim()
                     script.env.globalNexusNamespace = context.job.dnsWildcard.startsWith("apps.cicd") ? 'mdtu-ddm-edp-cicd' : script.env.dockerRegistry.replaceAll(/.*\.(.*)\.svc:[0-9]+/, '\$1')
                     script.env.ADMIN_ROUTES_WHITELIST_CIDR = values.global.whiteListIP.adminRoutes
-                    script.env.deploymentMode = values.global.deploymentMode
+                    script.env.PLATFORM_DEPLOYMENT_MODE = values.global.deploymentMode
 
                     String helmfilePath = 'deploy-templates/helmfile.yaml'
                     String helmValuesPath = 'deploy-templates/values.yaml'
@@ -161,15 +161,17 @@ class Helmfile {
                             }
                         }
                     }
-                    if(helmValues.'digital-signature')
-                        deployHelper.exportDigitalSignatureSecretsInTarget(context, helmValues, "user-management", context.workDir)
+                    if (helmValues.'digital-signature') {
+                        deployHelper.exportDigitalSignatureSecretsInTargetV2(context, helmValues, "user-management", context.workDir)
+                        deployHelper.exportDigitalSignatureKeysInTarget(context, helmValues, "user-management", context.workDir)
+                    }
 
-                    if(helmValues.keycloak) {
+                    if (helmValues.keycloak) {
                         helmValues.keycloak.customHosts.each {
                             placeCertificatesForKeycloak(context, it.host, it.certificatePath)
                         }
                     }
-                    if(helmValues.'consoleVersions')
+                    if (helmValues.'consoleVersions')
                         deleteConsoleVersionsFromValues(context, helmValuesPath)
 
                     // DON'T UNCOMMENT ON CICD* CLUSTERS
@@ -233,6 +235,12 @@ class Helmfile {
                             if (release.name == "user-management") {
                                 prepareToRunPreUpgradeScripts(context, "keycloak", release.labels.path, "keycloak", release.name)
                                 prepareToRunPreUpgradeScripts(context, "keycloak-idps", release.labels.path, release.name, release.name)
+                                if (helmValues.global.region == "global") {
+                                    String umHelmfilePath = "/opt/repositories/${release.labels.path}${release.name}.git/deploy-templates/helmfile.yaml"
+                                    LinkedHashMap umYaml = script.readYaml file: umHelmfilePath
+                                    umYaml["releases"].find { it.name == "digital-signature-ops" }.installed = false
+                                    script.writeYaml data: umYaml, file: umHelmfilePath, overwrite: true
+                                }
                             }
                         }
                         script.sh("helmfile -f ${helmfilePath} sync --values ${context.workDir}/deploy-templates/values.yaml --concurrency 1")

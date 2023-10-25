@@ -1,13 +1,17 @@
 consoleVersions:
-- stream: 1-9-6-fix
-  consoleVersion: 1.9.6-FIX.3
-  registryVersion: 1.9.6
 - stream: 1-9-5-fix
   consoleVersion: 1.9.5-FIX.4
   registryVersion: 1.9.5
-- stream: master
-  consoleVersion: 1.9.0.67
-  registryVersion: 1.9.4
-- consoleVersion: 1.9.7.22
-  stream: master
+  previousVersion: 1.9.4
+- stream: 1-9-6-fix
+  consoleVersion: 1.9.6-FIX.3
+  registryVersion: 1.9.6
+  previousVersion: 1.9.5
+- stream: 1-9-7-fix
+  consoleVersion: 1.9.7-FIX.6
   registryVersion: 1.9.7
+  previousVersion: 1.9.6
+- consoleVersion: 1.9.8.39
+  stream: 1-9-8
+  registryVersion: 1.9.8
+  previousVersion: 1.9.7

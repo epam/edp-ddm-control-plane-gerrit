@@ -19,6 +19,9 @@ spec:
         - podSelector:
             matchLabels:
               app.kubernetes.io/component: scheduledworker
+        - podSelector:
+            matchLabels:
+              job-name: migrate-redash-script-one-time-viewer
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

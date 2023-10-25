@@ -1,4 +1,4 @@
-apiVersion: v2.edp.epam.com/v1alpha1
+apiVersion: v2.edp.epam.com/v1
 kind: Codebase
 metadata:
   name: history-excerptor
@@ -7,7 +7,7 @@ metadata:
 spec:
   commitMessagePattern: null
   jenkinsSlave: dataplatform-jenkins-agent
-  gitUrlPath: null
+  gitUrlPath: /history-excerptor
   defaultBranch: master
   branchToCopyInDefaultBranch: {{ .Values.codebases.registryRegulations.historyExcerptorRepoVersion }}
   buildTool: none
@@ -28,6 +28,6 @@ spec:
   ticketNamePattern: null
   type: library
   description: null
-  framework: null
-  ciTool: Jenkins
+  framework: ''
+  ciTool: jenkins
 

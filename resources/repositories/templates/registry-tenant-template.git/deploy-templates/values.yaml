@@ -1,5 +1,5 @@
 # helm values
-
+---
 griada:
   enabled: false
   # 10.0.0.1
@@ -34,7 +34,7 @@ kongPluginsConfig:
   pluginsPrometheusPerConsumerMetrics: true
 
 signWidget:
-  url: https://eu.iit.com.ua/sign-widget/v20200922/
+  url: https://eu.iit.com.ua/sign-widget/v20240301/
 
 # Redash service settings
 redash: {}
@@ -94,7 +94,12 @@ redash: {}
 #      logLevel: error
 #      disableAccessLog: false
 global:
-  disableRequestsLimits: true
+  language: ""
+  container:
+    requestsLimitsEnabled: true
+  istio:
+    sidecar:
+      requestsLimitsEnabled: true
   computeResources:
     instanceCount: 2
     awsInstanceType: "r5.2xlarge"
@@ -104,16 +109,21 @@ global:
     instanceVolumeSize: 80
     vSphereInstanceCPUCount: 8
     vSphereInstanceCoresPerCPUCount: 1
-    vSphereInstanceRAMSize: 32768
+    vSphereInstanceRAMSize: 65536
   geoServerEnabled: false
   kafkaOperator:
+    replicationFactor: 1
     storage:
       kafka:
         size: 20Gi
+      zookeeper:
+        size: 5Gi
   whiteListIP:
     adminRoutes: "0.0.0.0/0"
   excludePortals: ['']
+  connectSourceList: []
   deploymentMode: development
+  region: ua
   bpAdminPortal:
     camunda:
       bpm:
@@ -133,130 +143,365 @@ global:
           schedules:
             full: "0 1 * * *"
   registry:
-    geoServer:
-      replicas: 1
-      istio:
-        sidecar:
-          enabled: true
-    kong:
-      replicas: 1
-      hpa:
-        enabled: false
-        minReplicas: 1
-        maxReplicas: 3
-      istio:
-        sidecar:
-          enabled: true
-    bpms:
-      replicas: 1
-      hpa:
-        enabled: false
-        minReplicas: 1
-        maxReplicas: 3
-      istio:
-        sidecar:
-          enabled: true
-      container:
-        envVars:
-          JAVA_OPTS: "-Xms1536m -Xmx1536m -Duser.timezone=UTC"
-    digitalSignatureOps:
-      replicas: 1
-      hpa:
-        enabled: false
-        minReplicas: 1
-        maxReplicas: 3
-      istio:
-        sidecar:
-          enabled: true
-      container:
-        envVars:
-          JAVA_OPTS: "-Xms768m -Xmx768m -Duser.timezone=UTC"
-    userTaskManagement:
-      replicas: 1
-      hpa:
-        enabled: false
-        minReplicas: 1
-        maxReplicas: 3
-      istio:
-        sidecar:
-          enabled: true
-      container:
-        envVars:
-          JAVA_OPTS: "-Xms512m -Xmx512m"
-    userProcessManagement:
-      replicas: 1
-      hpa:
-        enabled: false
-        minReplicas: 1
-        maxReplicas: 3
-      istio:
-        sidecar:
-          enabled: true
-      container:
-        envVars:
-          JAVA_OPTS: "-Xms512m -Xmx512m"
-    digitalDocumentService:
-      replicas: 1
-      hpa:
-        enabled: false
-        minReplicas: 1
-        maxReplicas: 3
-      istio:
-        sidecar:
-          enabled: true
-      container:
-        envVars:
-          JAVA_OPTS: "-Xms512m -Xmx512m"
-    restApi:
-      replicas: 1
-      hpa:
-        enabled: false
-        minReplicas: 1
-        maxReplicas: 3
-      istio:
-        sidecar:
-          enabled: true
-      container:
-        envVars:
-          JAVA_OPTS: "-Xms1200m -Xmx1200m -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent"
-      datasource:
-        maxPoolSize: 10
-    kafkaApi:
-      replicas: 1
-      hpa:
-        enabled: false
-        minReplicas: 1
-        maxReplicas: 3
-      istio:
-        sidecar:
-          enabled: true
-      container:
-        envVars:
-          JAVA_OPTS: "-Xms1200m -Xmx1200m -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent"
-      datasource:
-        maxPoolSize: 10
-    soapApi:
-      replicas: 1
-      hpa:
-        enabled: false
-        minReplicas: 1
-        maxReplicas: 3
-      istio:
-        sidecar:
-          enabled: true
-      container:
-        envVars:
-          JAVA_OPTS: "-Xms128m -Xmx128m -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent"
-    redis:
-      replicas: 2
+    istioIngressGateway:
       istio:
         sidecar:
           enabled: false
-    sentinel:
-      replicas: 3
+      replicas: 1
+    geoServer:
       istio:
         sidecar:
           enabled: true
+      replicas: 1
+    kong:
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    kongAdminTools:
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    bpms:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms1536m -Xmx1536m -Duser.timezone=UTC"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    digitalSignatureOps:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms768m -Xmx768m -Duser.timezone=UTC"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    userTaskManagement:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms512m -Xmx512m"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    userProcessManagement:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms512m -Xmx512m"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    digitalDocumentService:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms512m -Xmx512m"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    restApi:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms1200m -Xmx1200m -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent"
+      datasource:
+        maxPoolSize: 10
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    kafkaApi:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms1200m -Xmx1200m -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent"
+      datasource:
+        maxPoolSize: 10
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    soapApi:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms128m -Xmx128m -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    redis:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 2
+    sentinel:
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 3
+    kafkaClusterKafka:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    kafkaClusterZookeper:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    kafkaConnectClusterConnect:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    kafkaClusterEntityOperator:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    kafkaClusterKafkaExporter:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    kafkaUi:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    wiremock:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    operationalInstance:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    analyticalInstance:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    operationalPool:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    kafkaSchemaRegistry:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    externalSecrets:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    adminPortal:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    citizenPortal:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    officerPortal:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    bpAdminPortal:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms512m -Xmx512m"
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    bpWebserviceGateway:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms512m -Xmx512m"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    ddmLanguageServer:
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    ddmNotificationService:
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    excerptServiceApi:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms330m -Xmx330m -XX:+AlwaysPreTouch -XX:+UseG1GC"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    excerptWorkerCsv:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms330m -Xmx330m -XX:+AlwaysPreTouch -XX:+UseG1GC"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    excerptWorker:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms330m -Xmx330m -XX:+AlwaysPreTouch -XX:+UseG1GC"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    excerptWorkerDocx:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms330m -Xmx330m -XX:+AlwaysPreTouch -XX:+UseG1GC"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    formSchemaProvider:
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    formSubmissionValidation:
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    gerrit:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    hashicorpVault:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    jenkins:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    nexus:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    pgAdmin:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    platformGateway:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms330m -Xmx330m -XX:+AlwaysPreTouch -XX:+UseG1GC"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    processHistoryServicePersistence:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms330m -Xmx330m -XX:+AlwaysPreTouch -XX:+UseG1GC"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    processHistoryServiceApi:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms330m -Xmx330m -XX:+AlwaysPreTouch -XX:+UseG1GC"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    registryRegulationManagement:
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    reloader:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    reportExporter:
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    userSettingsServiceApi:
+      container:
+        envVars:
+          JAVA_OPTS: "-Xms330m -Xmx330m -XX:+AlwaysPreTouch -XX:+UseG1GC"
+      istio:
+        sidecar:
+          enabled: true
+      replicas: 1
+    redashAdmin:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    redashAdminAdhocworker:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    redashAdminRedisMaster:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    redashAdminScheduler:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    redashExporter:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    redashViewer:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    redashViewerAdhocworker:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    redashViewerRedisMaster:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+    redashViewerScheduler:
+      istio:
+        sidecar:
+          enabled: false
+      replicas: 1
+
 external-systems:
   diia:
     protocol: REST
@@ -284,7 +529,7 @@ keycloak:
     edrCheck: true
     authType: widget
     widget:
-      url: https://eu.iit.com.ua/sign-widget/v20200922/
+      url: https://eu.iit.com.ua/sign-widget/v20240301/
       height: 720
 digitalDocuments:
   maxFileSize: 100MB
@@ -292,6 +537,22 @@ digitalDocuments:
 portals:
   citizen:
     signWidget:
-      url: https://eu.iit.com.ua/sign-widget/v20200922/
+      url: https://eu.iit.com.ua/sign-widget/v20240301/
       height: 720
       copyFromAuthWidget: true
+  officer:
+    enableSingleIdentity: false
+bpms:
+  datasource:
+    maxPoolSize: 10
+  camunda:
+    bpm:
+      jobExecution:
+        corePoolSize: 3
+        maxPoolSize: 10
+        maxJobsPerAcquisition: 3
+        queueCapacity: 3
+      databaseHistoryLevel: ACTIVITY
+processHistoryServiceApi:
+  datasource:
+    maxPoolSize: 10

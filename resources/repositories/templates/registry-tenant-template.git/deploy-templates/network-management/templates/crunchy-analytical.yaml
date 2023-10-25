@@ -37,6 +37,12 @@ spec:
               job-name: run-db-scripts-job
         - podSelector:
             matchLabels:
+              job-name: migrate-redash-script-one-time-admin
+        - podSelector:
+            matchLabels:
+              job-name: migrate-redash-script-one-time-viewer
+        - podSelector:
+            matchLabels:
               job-name: create-dashboard-job
         - podSelector:
             matchLabels:

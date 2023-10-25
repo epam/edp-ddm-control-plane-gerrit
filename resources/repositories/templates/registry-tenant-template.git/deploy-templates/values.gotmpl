@@ -15,6 +15,7 @@ edpProject: '{{ env "edpProject" }}'
 stageName: '{{ env "stageName" }}'
 
 global:
+  localDevelopment: false
   clusterVersion: {{ $cluster_version }}
   imageRegistry: '{{ env "dockerProxyRegistry" }}'
   storageClass: ocs-storagecluster-ceph-rbd
@@ -26,19 +27,8 @@ global:
   gerrit:
     administrators: []
   kafkaOperator:
-    kafkaBrokers: 1
-    zookeepers: 1
-    replicationFactor: 1
     kafkaCentralNamespace: {{ env "KAFKA_CENTRAL_NAMESPACE" }}
-    storage:
-      zookeeper:
-        size: 5Gi
   crunchyPostgresOperator:
-    instances:
-      operational:
-        replicas: 1
-      analytical:
-        replicas: 1
     minioConf:
       endpoint: {{ env "MINIO_ENDPOINT" }}
       bucketName: {{ env "MINIO_BUCKET_NAME" }}
@@ -47,9 +37,6 @@ global:
       container:
         customConfig:
           - "maxmemory 500m"
-      replicas: 2
-    sentinel:
-      replicas: 3
   notifications:
     email:
       password: '{{ env "smtpExternalUserPassword" | b64enc }}'
@@ -61,9 +48,6 @@ nexus:
   storage:
     class: ocs-storagecluster-ceph-rbd
   edpMavenRepoUrl: {{ env "edpMavenRepoUrl" }}
-
-commonWebApp:
-  businessProcessModelerExtensionsVersion: 1.9.7.1
 
 {{ $centralGitUser := exec "oc" (list "get" "GitServer" "-n" (env "globalEDPProject") "gerrit" "--no-headers" "-o" "jsonpath={.spec.gitUser}") }}
 jenkins:

@@ -18,6 +18,9 @@ spec:
         - podSelector:
             matchLabels:
               app: bpms
+        - podSelector:
+            matchLabels:
+              app: business-process-administration-portal
         - namespaceSelector:
             matchLabels:
               name: {{ .Values.namespace }}

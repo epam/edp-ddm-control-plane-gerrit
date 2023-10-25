@@ -17,6 +17,9 @@ spec:
               app: bpms
         - podSelector:
             matchLabels:
+              app: business-process-administration-portal
+        - podSelector:
+            matchLabels:
               app: bp-webservice-gateway
         - podSelector:
             matchLabels:

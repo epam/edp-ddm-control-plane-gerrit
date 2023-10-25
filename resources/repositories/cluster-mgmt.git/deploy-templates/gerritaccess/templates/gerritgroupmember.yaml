@@ -2,7 +2,6 @@ apiVersion: v2.edp.epam.com/v1
 kind: GerritGroupMember
 metadata:
   name: admin-project-creator
-  namespace: control-plane
   labels:
     groupId: administrators
     registry: control-plane

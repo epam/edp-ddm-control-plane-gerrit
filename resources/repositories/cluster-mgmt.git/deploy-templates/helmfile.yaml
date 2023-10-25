@@ -4,7 +4,7 @@ helmDefaults:
 missingFileHandler: Warn
 releases:
 - name: gerritaccess
-  namespace: control-plane
+  namespace: '{{ env "globalEDPProject" }}'
   chart: gerritaccess
   version: 1.0.0
   labels:
@@ -21,7 +21,8 @@ releases:
     isbranch: false
     path: components/infra/
     repoURL: ssh://jenkins@gerrit.mdtu-ddm-edp-cicd:32114/mdtu-ddm/infrastructure/control-plane-console.git
-  version: 1.9.7.22
+    stream: 1-9-8
+  version: 1.9.8.39
   values:
   - values.yaml
   - values.gotmpl
@@ -58,11 +59,11 @@ releases:
     update_scc: false
     type: remote
     path: components/control-plane/
-    stream: master
+    stream: 1-9-8-docs
   values:
   - values.yaml
   - values.gotmpl
-  version: 1.9.6.800
+  version: 1.9.8.256
   hooks:
   - events:
     - presync

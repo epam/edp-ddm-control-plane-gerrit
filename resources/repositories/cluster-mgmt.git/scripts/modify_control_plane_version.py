@@ -65,7 +65,7 @@ def parse_console_versions(values_file, codebase_versions, cp_values_file):
             print(f"Error loading YAML file: {e}")
             return None
 
-    with open(cp_values_file, 'r') as file:
+    with open(cp_values_file, 'r', encoding='utf8') as file:
         cp_values_data = yaml.safe_load(file)
 
     cp_values_data.update(data)

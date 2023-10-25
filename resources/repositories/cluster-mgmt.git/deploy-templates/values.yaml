@@ -5,3 +5,7 @@ global:
   whiteListIP:
     adminRoutes: 0.0.0.0/0
   deploymentMode: development
+  platformName: "Адміністративна панель керування Платформою та реєстрами"
+  language: "uk"
+  logosPath: "configmap:platform-logos-default"
+  region: ua

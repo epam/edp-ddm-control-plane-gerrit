@@ -2,7 +2,7 @@ name: gerrit-operator
 operator:
   image:
     name: control-plane/gerrit-operator
-    version: 2.13.5
+    version: 2.13.7
   serviceAccountName: gerrit-operator
   groupMemberSyncInterval: 5m
 

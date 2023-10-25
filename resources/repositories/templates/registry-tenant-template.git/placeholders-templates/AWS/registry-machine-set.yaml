@@ -70,7 +70,7 @@ spec:
               value: {{ .Values.cluster_prefix }}
           deviceIndex: 0
           ami:
-            id: ami-094fe1584439e91dd
+            id: ami-06dac8f4521e7ec39
           subnet:
             filters:
               - name: 'tag:Name'

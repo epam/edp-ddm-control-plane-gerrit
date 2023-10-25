@@ -2,7 +2,6 @@ apiVersion: v2.edp.epam.com/v1
 kind: GerritProjectAccess
 metadata:
   name: cluster-mgmt
-  namespace: control-plane
 spec:
   projectName: cluster-mgmt
   references:

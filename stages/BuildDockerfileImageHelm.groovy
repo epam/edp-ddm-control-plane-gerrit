@@ -56,11 +56,6 @@ class BuildDockerfileImageHelm {
                     helmfileYAML.releases[releaseIndex].values.add([image: [name: '{{ env "edpComponentDockerRegistryUrl" }}/{{ env "globalEDPProject" }}/' + imageURL, version: helmfileYAML.releases[releaseIndex].version]])
                 }
 
-                helmfileYAML.releases[releaseIndex].remove('repoURL')
-                helmfileYAML.releases[releaseIndex].remove('stream')
-                helmfileYAML.releases[releaseIndex].remove('type')
-                helmfileYAML.releases[releaseIndex].labels.branch = release.version
-
                 // version must be specified
                 if (!release.version) {
                     throw new Exception("${release.name} version is not specified")
@@ -101,6 +96,9 @@ class BuildDockerfileImageHelm {
                 helmfileYAML.releases[releaseIndex].values.add([codebases: [registryRegulations: [ registryRegulationsRepoVersion: stageCRJSON.gitsources.'empty-template-registry-regulation'.version]]])
                 helmfileYAML.releases[releaseIndex].values.add([codebases: [registryRegulations: [ historyExcerptorRepoVersion: stageCRJSON.gitsources.'history-excerptor-chart'.version]]])
             }
+            helmfileYAML.releases[releaseIndex].labels.remove('repoURL')
+            helmfileYAML.releases[releaseIndex].labels.remove('stream')
+            helmfileYAML.releases[releaseIndex].labels.branch = release.version
         }
 
         script.writeYaml data: helmfileYAML, file: helmfile, overwrite: true

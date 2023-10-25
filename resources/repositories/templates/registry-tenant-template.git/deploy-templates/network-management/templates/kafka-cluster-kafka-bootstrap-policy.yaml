@@ -59,6 +59,9 @@ spec:
               app: process-history-service-persistence
         - podSelector:
             matchLabels:
+              app: process-history-service-api
+        - podSelector:
+            matchLabels:
               app: user-settings-service-api
         - podSelector:
             matchLabels:

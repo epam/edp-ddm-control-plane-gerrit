@@ -1,0 +1,11 @@
+apiVersion: v2.edp.epam.com/v1
+kind: GerritProjectAccess
+metadata:
+  name: admins-add-patch-set
+spec:
+  projectName: All-Projects
+  references:
+    - action: ALLOW
+      groupName: administrators
+      permissionName: addPatchSet
+      refPattern: refs/for/*
